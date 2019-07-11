@@ -11,3 +11,4 @@
 |
 */
 Route::resource('/', 'FrontController');
+Route::resource('/admin', 'DashboardController');
