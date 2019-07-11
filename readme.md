@@ -1,42 +1,4 @@
-
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=640">
-
-    <link rel="stylesheet" href="/lara_ecom/assets/css/style.css?v=9cface8e7189dc4a3ed0e6f597b4646fc5a04cca" media="screen">
-    <link rel="stylesheet" href="/lara_ecom/assets/css/mobile.css" media="handheld, only screen and (max-device-width:640px)">
-    <link rel="stylesheet" href="/lara_ecom/assets/css/non-screen.css" media="handheld, only screen and (max-device-width:640px)">
-
-    <script src="/lara_ecom/assets/js/modernizr.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    <script src="/lara_ecom/assets/js/headsmart.min.js"></script>
-    <script>
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
-
-<!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>lara_ecom | Startup Project In Laravel</title>
-<meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="lara_ecom" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Startup Project In Laravel" />
-<meta property="og:description" content="Startup Project In Laravel" />
-<link rel="canonical" href="https://kabirkhyrul.github.io/lara_ecom/" />
-<meta property="og:url" content="https://kabirkhyrul.github.io/lara_ecom/" />
-<meta property="og:site_name" content="lara_ecom" />
-<script type="application/ld+json">
-{"@type":"WebSite","headline":"lara_ecom","url":"https://kabirkhyrul.github.io/lara_ecom/","name":"lara_ecom","description":"Startup Project In Laravel","@context":"http://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-  </head>
-
-  <body>
-    <a id="forkme_banner" href="https://github.com/kabirkhyrul/lara_ecom">View on GitHub</a>
+<a id="forkme_banner" href="https://github.com/kabirkhyrul/lara_ecom">View on GitHub</a>
     <div class="shell">
 
       <header>
@@ -136,7 +98,3 @@
       </footer>
 
     </div>
-
-    
-  </body>
-</html>
