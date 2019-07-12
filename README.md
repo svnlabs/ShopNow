@@ -1,4 +1,4 @@
-#Lara_Ecom
+## Lara_Ecom
 
 
 <p align="center">
@@ -30,8 +30,8 @@
 
 This is a e-commerce platform using Laravel 5.4
 
-| [Features][] | [Requirements][] | [Install][] | [How to setting][] | [Contributors][] | [License][] |
-|---|---|---|---|---|---|
+| [Features][] | [Requirements][] | [Install][] | [How to setting][] | [Supervisor & Mentor][] |[Contributors][] | [License][] |
+|---|---|---|---|---|---|---|
 
 ## Features
 - Automatic cross sell / up sell / related product offerings
@@ -107,8 +107,8 @@ php artisan db:seed
 ```
 php artisan serve
 ```
-##Supervisor & Mentor
-<table>
+## Supervisor & Mentor
+<table style="text-align: center;">
 	<tr>
 		<td>
 			<a href="https://github.com/roobon"><img src="https://avatars1.githubusercontent.com/u/660515?s=460&v=4" alt="" width="150"></a>	
@@ -116,7 +116,7 @@ php artisan serve
 		</tr>
 	<tr>
 		<td>
-			### Trainer, IDB-BISEW IT Scholarship  Project
+			<h3>Trainer, IDB-BISEW IT Scholarship  Project</h3>
 		</td>
 	</tr>
 </table>
@@ -141,6 +141,7 @@ or translating any document here to your language.
 		</td>		
 	</tr>
 </table>
+
 ## License
 
 > Copyright (C) 2019 Intelligo Systems.  
@@ -153,5 +154,6 @@ or translating any document here to your language.
 [Requirements]:#requirements
 [Install]:#install
 [How to setting]:#how-to-setting
+[Supervisor & Mentor]:#Supervisor & Mentor
 [Contributors]:#contributors
 [License]:#license
