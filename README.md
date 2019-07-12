@@ -30,7 +30,7 @@
 
 This is a e-commerce platform using Laravel 5.4
 
-| [Features][] | [Requirements][] | [Install][] | [How to setting][] | [Supervisor & Mentor][] |[Contributors][] | [License][] |
+| [Features][] | [Requirements][] | [Install][] | [How to setting][] | [Supervisor & Mentor][] | [Contributors][] | [License][] |
 |---|---|---|---|---|---|---|
 
 ## Features
@@ -154,6 +154,6 @@ or translating any document here to your language.
 [Requirements]:#requirements
 [Install]:#install
 [How to setting]:#how-to-setting
-[Supervisor & Mentor]:#Supervisor & Mentor
+[Supervisor & Mentor]:#Supervisor-&-Mentor
 [Contributors]:#contributors
 [License]:#license
