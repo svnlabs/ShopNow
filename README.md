@@ -1,19 +1,18 @@
-<p align="center">
-	<img src="/public/img/logo.png" width="200"/>
-</p>
+#Lara_Ecom
+
 
 <p align="center">
-    <a href="https://github.com/intelligo-systems/laravel-ecommerce/issues">
-        <img src="https://img.shields.io/github/issues/intelligo-systems/laravel-ecommerce.svg"
+    <a href="https://github.com/kabirkhyrul/lara_ecom/issues">
+        <img src="https://img.shields.io/github/issues/kabirkhyrul/laravel-ecommerce.svg"
             alt="Issues"></a>
-     <a href="https://github.com/intelligo-systems/laravel-ecommerce/fork">
-        <img src="https://img.shields.io/github/forks/intelligo-systems/laravel-ecommerce.svg?style=social&label=Fork"
+     <a href="https://github.com/kabirkhyrul/lara_ecom/fork">
+        <img src="https://img.shields.io/github/forks/kabirkhyrul/lara_ecom.svg?style=social&label=Fork"
             alt="Forks"></a>
-    <a href="https://github.com/intelligo-systems/laravel-ecommerce/stargazers">
-        <img src="https://img.shields.io/github/stars/intelligo-systems/laravel-ecommerce.svg?style=social&label=Stars"
+    <a href="https://github.com/kabirkhyrul/lara_ecom/stargazers">
+        <img src="https://img.shields.io/github/stars/kabirkhyrul/lara_ecom.svg?style=social&label=Stars"
             alt="Stars"></a>
-    <a href="https://github.com/tortuvshin/">
-        <img src="https://img.shields.io/github/followers/tortuvshin.svg?style=social&label=Follow"
+    <a href="https://github.com/kabirkhyrul/">
+        <img src="https://img.shields.io/github/followers/kabirkhyrul.svg?style=social&label=Follow"
             alt="Followers"></a>
     <a href="https://raw.githubusercontent.com/opengineer/laravel-ecommerce/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-blue.svg"
@@ -21,21 +20,20 @@
     <a href="https://twitter.com/intent/tweet?text=Wow:&url=%5Bobject%20Object%5D">
         <img src="https://img.shields.io/twitter/url/https/github.com/topengineer/laravel-ecommerce.svg?style=social"
             alt="Tweet"></a>
-	  <a href="http://hits.dwyl.io/intelligo-system/intelligo">
-    <img alt="Hits" src="http://hits.dwyl.io/intelligo-system/intelligo.svg">
+	  <a href="http://hits.dwyl.io/kabirkhyrul/intelligo">
+    <img alt="Hits" src="http://hits.dwyl.io/kabirkhyrul/intelligo.svg">
  </a>
 </p>
 
 
 ## Laravel Ecommerce Platform
 
-This is a e-commerce platform I made mostly using Laravel 5.4
+This is a e-commerce platform using Laravel 5.4
 
 | [Features][] | [Requirements][] | [Install][] | [How to setting][] | [Contributors][] | [License][] |
 |---|---|---|---|---|---|
 
-## Features 
-- Multiple language display for front and back end
+## Features
 - Automatic cross sell / up sell / related product offerings
 - Open Source
 - Social Media Integration
@@ -74,41 +72,28 @@ This is a e-commerce platform I made mostly using Laravel 5.4
 Clone repo
 
 ```
-git clone https://github.com/techstar-cloud/techstar-ecommerce.git
+git clone https://github.com/kabirkhyrul/lara_ecom.git
 ```
 
 Install Composer
 
-
+```
 [Download Composer](https://getcomposer.org/download/)
 
-
-composer update/install 
-
 ```
-composer install
+Go to download directory, Run in cmd/terminal
 ```
-
-Install Nodejs
-
-
-[Download Node.js](https://nodejs.org/en/download/)
-
-
-NPM dependencies
+composer update
 ```
-npm install
+Generating a New Application Key
 ```
-
-Using Laravel Mix 
-
-```
-npm run dev
+php artisan key:generate
 ```
 
 ## How to setting 
 
 Go into .env file and change Database and Email credentials.
+Run following code in cmd 
 
 ```
 php artisan migrate
@@ -118,26 +103,51 @@ php artisan migrate
 php artisan db:seed
 ```
 	
-Generating a New Application Key
-```
-php artisan key:generate
-```
 
+```
+php artisan serve
+```
+##Supervisor & Mentor
+<table>
+	<tr>
+		<td>
+			<a href="https://github.com/roobon"><img src="https://avatars1.githubusercontent.com/u/660515?s=460&v=4" alt="" width="150"></a>	
+		</td>
+		</tr>
+	<tr>
+		<td>
+			### Trainer, IDB-BISEW IT Scholarship  Project
+		</td>
+	</tr>
+</table>
+	
+	
+	
 ## Contributors
 
 You may contribute in several ways like creating new features, fixing bugs, improving documentation and examples
-or translating any document here to your language. [Find more information in CONTRIBUTING.md](CONTRIBUTING.md).
-<a href="https://github.com/intelligo-systems/laravel-ecommerce/graphs/contributors">Contributors</a>
+or translating any document here to your language. 
+<a href="https://github.com/kabirkhyrul/lara_ecom/graphs/contributors">Contributors</a>
 
-[![](https://sourcerer.io/fame/tortuvshin/opengineer/laravel-ecommerce/images/0)](https://sourcerer.io/fame/tortuvshin/opengineer/laravel-ecommerce/links/0)[![](https://sourcerer.io/fame/tortuvshin/opengineer/laravel-ecommerce/images/1)](https://sourcerer.io/fame/tortuvshin/opengineer/laravel-ecommerce/links/1)[![](https://sourcerer.io/fame/tortuvshin/opengineer/laravel-ecommerce/images/2)](https://sourcerer.io/fame/tortuvshin/opengineer/laravel-ecommerce/links/2)[![](https://sourcerer.io/fame/tortuvshin/opengineer/laravel-ecommerce/images/3)](https://sourcerer.io/fame/tortuvshin/opengineer/laravel-ecommerce/links/3)[![](https://sourcerer.io/fame/tortuvshin/opengineer/laravel-ecommerce/images/4)](https://sourcerer.io/fame/tortuvshin/opengineer/laravel-ecommerce/links/4)[![](https://sourcerer.io/fame/tortuvshin/opengineer/laravel-ecommerce/images/5)](https://sourcerer.io/fame/tortuvshin/opengineer/laravel-ecommerce/links/5)[![](https://sourcerer.io/fame/tortuvshin/opengineer/laravel-ecommerce/images/6)](https://sourcerer.io/fame/tortuvshin/opengineer/laravel-ecommerce/links/6)[![](https://sourcerer.io/fame/tortuvshin/opengineer/laravel-ecommerce/images/7)](https://sourcerer.io/fame/tortuvshin/opengineer/laravel-ecommerce/links/7)
-
+<table style="text-align: center;">
+	<tr>		
+		<td>
+			<a href="https://github.com/kabirkhyrul"><img src="https://avatars0.githubusercontent.com/u/44431386?s=400&v=4" alt="" width="150"></a>
+		</td>		
+		<td>
+			<a href="https://github.com/nasimasheikh"><img src="https://avatars2.githubusercontent.com/u/52200293?s=400&v=4" alt="" width="150"></a>
+		</td>			<td>
+			<a href="https://github.com/reza1-web"><img src="https://avatars2.githubusercontent.com/u/52201009?s=400&v=4" alt="" width="150"></a>	
+		</td>		
+	</tr>
+</table>
 ## License
 
 > Copyright (C) 2019 Intelligo Systems.  
 > In this project is open-sourced software licensed under the [MIT](https://opensource.org/licenses/MIT) license.  
 > (See the [LICENSE](https://github.com/intelligo-systems/laravel-ecommerce/blob/master/LICENSE) file for the whole license text.)
 
-**[⬆ back to top](#laravel-ecommerce-platform)**
+**[back to top](#laravel-ecommerce-platform)**
 
 [Features]:#features
 [Requirements]:#requirements
