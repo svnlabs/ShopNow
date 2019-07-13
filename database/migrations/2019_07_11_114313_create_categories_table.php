@@ -15,6 +15,12 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('parent_id');
+            $table->string('slug',191);
+            $table->integer('position');
+            $table->tinyInteger('is_searchable');
+            $table->tinyInteger('is_active');
+          
             $table->timestamps();
         });
     }
