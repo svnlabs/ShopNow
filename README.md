@@ -1,4 +1,6 @@
-# ShopNow 
+# ShopNow  
+
+[![ForTheBadge built-with-science](http://ForTheBadge.com/images/badges/built-with-science.svg)](https://GitHub.com/Naereen/)
 
 (Be Advised: This Project is Under Development.)
 
@@ -7,13 +9,13 @@
 	<img src="https://img.shields.io/github/license/kabirkhyrul/ShopNow.svg?style=flat-square">
 	<img src="https://img.shields.io/github/issues/kabirkhyrul/ShopNow.svg?style=flat-square">
 	<img src="https://img.shields.io/github/watchers/kabirkhyrul/ShopNow.svg?style=flat-square">
-   <img src="https://img.shields.io/github/repo-size/kabirkhyrul/ShopNow.svg?style=social">	
-	<img src="https://img.shields.io/github/downloads/kabirkhyrul/ShopNow/total.svg?style=social">
-	<img src="https://img.shields.io/github/followers/kabirkhyrul.svg?style=flat-square">
-	<img src="https://img.shields.io/github/forks/kabirkhyrul/ShopNow.svg?style=social">
-	<img src="https://img.shields.io/github/stars/kabirkhyrul/ShopNow.svg?style=social">
-	<img src="https://img.shields.io/github/tag-date/kabirkhyrul/ShopNow.svg?style=social">
-	<img src="http://hits.dwyl.io/kabirkhyrul/ShopNow.svg?style=social">
+	<img src="http://hits.dwyl.io/kabirkhyrul/ShopNow.svg?style=flat-square">
+   <img src="https://img.shields.io/github/repo-size/kabirkhyrul/ShopNow.svg?style=flat-square">	
+	<img src="https://img.shields.io/github/downloads/kabirkhyrul/ShopNow/total.svg?style=flat-square">	
+	<img src="https://img.shields.io/github/forks/kabirkhyrul/ShopNow.svg?style=flat-square">
+	<img src="https://img.shields.io/github/stars/kabirkhyrul/ShopNow.svg?style=flat-square">
+	<img src="https://img.shields.io/github/tag-date/kabirkhyrul/ShopNow.svg?style=flat-square">
+	
 	
 </p>
 
@@ -120,9 +122,10 @@ You may contribute in several ways like creating new features, fixing bugs, impr
 or translating any document here to your language. 
 <a href="https://github.com/kabirkhyrul/lara_ecom/graphs/contributors">Contributors</a>
 
+
 <table style="text-align: center;">
 	<tr>		
-		<td><iframe src="https://githubbadge.appspot.com/kabirkhyrul" style="border: 0;height: 111px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
+		<td><a href="https://github.com/kabirkhyrul"><img src="https://avatars2.githubusercontent.com/u/44431386?s=400&v=4" alt="" width="150"></a>
 		</td>		
 		<td>
 			<a href="https://github.com/nasimasheikh"><img src="https://avatars2.githubusercontent.com/u/52200293?s=400&v=4" alt="" width="150"></a>
@@ -131,6 +134,7 @@ or translating any document here to your language.
 		</td>		
 	</tr>
 </table>
+
 
 
 
