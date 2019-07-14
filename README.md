@@ -1,4 +1,6 @@
-## ShopNow (Be Advised: This Project is Under Development.)
+# ShopNow 
+
+##(Be Advised: This Project is Under Development.)
 
 
 <p align="center">
@@ -26,9 +28,7 @@
 </p>
 
 
-## Laravel Ecommerce Platform
 
-This is a e-commerce platform using Laravel 5.4
 
 | [Features][] | [Requirements][] | [Install][] | [How to setting][] | [Supervisor & Mentor][] | [Contributors][] |
 |---|---|---|---|---|---|---|
