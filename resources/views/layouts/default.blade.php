@@ -20,9 +20,9 @@
         <link rel="stylesheet" href="{{asset('fronend/css/responsive.css')}}">
         
         <!-- Favicon and Apple Icons -->
-        <link rel="icon" type="image/png" href="images/icons/icon.png">
-        <link rel="apple-touch-icon" sizes="57x57" href="images/icons/apple-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="images/icons/apple-icon-72x72.png">
+        <link rel="icon" type="image/png" href="{{asset('frontend/images/icons/icon.png')}}">
+        <link rel="apple-touch-icon" sizes="57x57" href="{{asset('frontend/images/icons/apple-icon-57x57.png')}}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{asset('frontend/images/icons/apple-icon-72x72.png')}}">
         
         <!--- jQuery -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')}}"></script>
@@ -66,14 +66,14 @@
                                     </div><!-- End .btn-group -->
                                     <div class="btn-group dropdown-language">
                                         <button type="button" class="btn btn-custom dropdown-toggle" data-toggle="dropdown">
-                                            <span class="flag-container"><img src="{{asset('frontend/images/england-flag.png" alt="flag of england"></span>
+                                            <span class="flag-container"><img src="{{asset('frontend/images/england-flag.png')}}" alt="flag of england"></span>
                                             <span class="hide-for-xs">English</span>
                                         </button>
                                         <ul class="dropdown-menu pull-right" role="menu">
-                                            <li><a href="#"><span class="flag-container"><img src="{{asset('frontend/images/italy-flag.png" alt="flag of england"></span><span class="hide-for-xs">Italian</span></a></li>
-                                            <li><a href="#"><span class="flag-container"><img src="{{asset('frontend/images/spain-flag.png" alt="flag of italy"></span><span class="hide-for-xs">Spanish</span></a></li>
-                                            <li><a href="#"><span class="flag-container"><img src="{{asset('frontend/images/france-flag.png" alt="flag of france"></span><span class="hide-for-xs">French</span></a></li>
-                                            <li><a href="#"><span class="sm-separator"><img src="{{asset('frontend/images/germany-flag.png" alt="flag of germany"></span><span class="hide-for-xs">German</span></a></li>
+                                            <li><a href="#"><span class="flag-container"><img src="{{asset('frontend/images/italy-flag.png')}}" alt="flag of england"></span><span class="hide-for-xs">Italian</span></a></li>
+                                            <li><a href="#"><span class="flag-container"><img src="{{asset('frontend/images/spain-flag.png')}}" alt="flag of italy"></span><span class="hide-for-xs">Spanish</span></a></li>
+                                            <li><a href="#"><span class="flag-container"><img src="{{asset('frontend/images/france-flag.png')}}" alt="flag of france"></span><span class="hide-for-xs">French</span></a></li>
+                                            <li><a href="#"><span class="sm-separator"><img src="{{asset('frontend/images/germany-flag.png')}}" alt="flag of germany"></span><span class="hide-for-xs">German</span></a></li>
                                         </ul>
                                     </div><!-- End .btn-group -->
                                 </div><!-- End .header-top-dropdowns -->
@@ -94,7 +94,7 @@
                         <div class="col-md-3 col-sm-3 col-xs-12 logo-container">
                             <h1 class="logo clearfix">
                                 <span>Responsive eCommerce Template</span>
-                                <a href="index.html" title="Shop Now eCommerce Template"><img src="{{asset('frontend/images/logo6.png" alt="Shop Now Commerce Template" width="200" height="54"></a>
+                                <a href="index.html" title="Shop Now eCommerce Template"><img src="{{asset('frontend/images/logo6.png')}}" alt="Shop Now Commerce Template" width="200" height="54"></a>
                             </h1>
                         </div><!-- End .col-md-3 -->
                         <div class="col-md-9 col-sm-9 col-xs-12 header-inner-right">
@@ -702,11 +702,11 @@
                                     <div id="slider-rev">
                                         <ul>
                                             <li data-transition="random"  data-saveperformance="on"  data-title="Easy to Customize">
-                                                <img src="{{asset('frontend/images/revslider/dummy.png"  alt="slidebg1" data-lazyload="images/homeslider/slide1.jpg')}}" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+                                                <img src="{{asset('frontend/images/revslider/dummy.png')}}"  alt="slidebg1" data-lazyload="{{asset('frontend/images/homeslider/slide1.jpg')}}" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
                                                 <div class="tp-caption rev-title lft ltt" data-x="530" data-y="140" data-speed="1100" data-start="300" data-endspeed="350">Enjoy Wide  Shop Now <br>Posibilities
                                                 </div>
                                                 <div class="tp-caption lfr ltr" data-x="530" data-y="250" data-speed="1500" data-start="450"  data-endspeed="100" data-easing="Power3.easeIn">
-                                                    <img src="{{asset('frontend/images/homeslider/bullet.png" alt="bullet">
+                                                    <img src="{{asset('frontend/images/homeslider/bullet.png')}}" alt="bullet">
                                                 </div>
                                                 <div class="tp-caption rev-list lfr ltr" data-x="575" data-y="246" data-speed="1500" data-start="550" 
                                                 data-easing="Power3.easeIn" data-endspeed="150">
@@ -714,7 +714,7 @@
                                                 </div>
 
                                                 <div class="tp-caption lfr ltr" data-x="530" data-y="290" data-speed="1500" data-start="650"  data-endspeed="180" data-easing="Power3.easeIn">
-                                                    <img src="{{asset('frontend/images/homeslider/bullet.png" alt="bullet">
+                                                    <img src="{{asset('frontend/images/homeslider/bullet.png')}}" alt="bullet">
                                                 </div>
 
                                                 <div class="tp-caption rev-list lfr ltr" data-x="575" data-y="286" data-speed="1500" data-start="800" 
@@ -723,7 +723,7 @@
                                                 </div>
 
                                                 <div class="tp-caption lfr ltr" data-x="530" data-y="330" data-speed="1500" data-start="950"  data-endspeed="260" data-easing="Power3.easeIn">
-                                                    <img src="{{asset('frontend/images/homeslider/bullet.png" alt="bullet">
+                                                    <img src="{{asset('frontend/images/homeslider/bullet.png')}}" alt="bullet">
                                                 </div>
 
                                                 <div class="tp-caption rev-list lfr ltr" data-x="575" data-y="326" data-speed="1500" data-start="1100" 
@@ -732,7 +732,7 @@
                                                 </div>
 
                                                 <div class="tp-caption lfr ltr" data-x="530" data-y="370" data-speed="1500" data-start="1200"  data-endspeed="320" data-easing="Power3.easeIn">
-                                                    <img src="{{asset('frontend/images/homeslider/bullet.png" alt="bullet">
+                                                    <img src="{{asset('frontend/images/homeslider/bullet.png')}}" alt="bullet">
                                                 </div>
 
                                                 <div class="tp-caption rev-list lfr ltr" data-x="575" data-y="366" data-speed="1500" data-start="1350" 
@@ -742,18 +742,18 @@
                                             </li>
  
                                             <li data-transition="random"  data-saveperformance="on"  data-title="The Next Big Thing">
-                                                <img src="{{asset('frontend/images/revslider/dummy.png"  alt="slidebg2" data-lazyload="images/homeslider/slide2.jpg')}}" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+                                                <img src="{{asset('frontend/images/revslider/dummy.png')}}"  alt="slidebg2" data-lazyload="{{asset('frontend/images/homeslider/slide2.jpg')}}" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
 
                                                 <div class="tp-caption customin customout rev-price randomrotate randomrotateout" data-x="118" data-y="35" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="1500" data-endspeed="400">
                                                     $1150
                                                 </div>
 
                                                 <div class="tp-caption lfr ltr" data-x="-140" data-y="30" data-speed="1200" data-start="600" data-easing="Expo.easeOut">
-                                                    <a href="#"><img src="{{asset('frontend/images/homeslider/slide2_2.png" alt="slide1_1"></a>
+                                                    <a href="#"><img src="{{asset('frontend/images/homeslider/slide2_2.png')}}" alt="slide1_1"></a>
                                                 </div>
 
                                                 <div class="tp-caption lfl ltl" data-x="220" data-y="40" data-speed="1200" data-start="600" data-easing="Expo.easeOut">
-                                                    <a href="#"><img src="{{asset('frontend/images/homeslider/slide2_1.png" alt="slide1_1"></a>
+                                                    <a href="#"><img src="{{asset('frontend/images/homeslider/slide2_1.png')}}" alt="slide1_1"></a>
                                                 </div>
 
                                                 <div class="tp-caption rev-title2 skewfromleft stt" data-x="530" data-y="170" data-speed="800" data-start="900" 
@@ -769,12 +769,12 @@
 
                                             <li data-transition="random"  data-saveperformance="on"  data-title="Powerful Template">
                                                 
-                                                <img src="{{asset('frontend/images/revslider/dummy.png"  alt="slidebg3" data-lazyload="images/homeslider/slide3.jpg')}}" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+                                                <img src="{{asset('frontend/images/revslider/dummy.png')}}"  alt="slidebg3" data-lazyload="{{asset('frontend/images/homeslider/slide3.jpg')}}" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
                                                 <div class="tp-caption rev-title lfl ltl" data-x="40" data-y="140" data-speed="800" data-start="300" data-endspeed="350">Shop Now Extremely <br>Powerful Template
                                                 </div>
 
                                                 <div class="tp-caption sfr stl" data-x="40" data-y="240" data-speed="1000" data-start="500"  data-endspeed="100">
-                                                    <img src="{{asset('frontend/images/homeslider/bullet-reverse.png" alt="bullet">
+                                                    <img src="{{asset('frontend/images/homeslider/bullet-reverse.png')}}" alt="bullet">
                                                 </div>
 
                                                 <div class="tp-caption rev-list sfr stl" data-x="85" data-y="236" data-speed="1000" data-start="650" 
@@ -783,7 +783,7 @@
                                                 </div>
 
                                                 <div class="tp-caption sfr stl" data-x="40" data-y="282" data-speed="1000" data-start="750"  data-endspeed="180">
-                                                    <img src="{{asset('frontend/images/homeslider/bullet-reverse.png" alt="bullet">
+                                                    <img src="{{asset('frontend/images/homeslider/bullet-reverse.png')}}" alt="bullet">
                                                 </div>
 
                                                 <div class="tp-caption rev-list sfr stl" data-x="85" data-y="278" data-speed="1000" data-start="900" 
@@ -792,7 +792,7 @@
                                                 </div>
 
                                                 <div class="tp-caption sfr stl" data-x="40" data-y="324" data-speed="1000" data-start="1000"  data-endspeed="260">
-                                                    <img src="{{asset('frontend/images/homeslider/bullet-reverse.png" alt="bullet">
+                                                    <img src="{{asset('frontend/images/homeslider/bullet-reverse.png')}}" alt="bullet">
                                                 </div>
 
                                                 <div class="tp-caption rev-list sfr stl" data-x="85" data-y="320" data-speed="1000" data-start="1150" 
@@ -801,7 +801,7 @@
                                                 </div>
 
                                                 <div class="tp-caption sfr stl" data-x="40" data-y="366" data-speed="1000" data-start="1250"  data-endspeed="320">
-                                                    <img src="{{asset('frontend/images/homeslider/bullet-reverse.png" alt="bullet">
+                                                    <img src="{{asset('frontend/images/homeslider/bullet-reverse.png')}}" alt="bullet">
                                                 </div>
 
                                                 <div class="tp-caption rev-list sfr stl" data-x="85" data-y="362" data-speed="1000" data-start="1400" 
@@ -818,11 +818,11 @@
 
                                 <div class="row home-banners">
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <a href="#"><img src="{{asset('frontend/images/middle-banner-1.png" alt="Home Big Banner 1" class="img-responsive"></a>
+                                        <a href="#"><img src="{{asset('frontend/images/middle-banner-1.png')}}" alt="Home Big Banner 1" class="img-responsive"></a>
                                     </div><!-- End .col-md-6 -->
                                     
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <a href="#"><img src="{{asset('frontend/images/middle-banner-2.png" alt="Home Big Banner 2" class="img-responsive"></a>
+                                        <a href="#"><img src="{{asset('frontend/images/middle-banner-2.png')}}" alt="Home Big Banner 2" class="img-responsive"></a>
                                     </div><!-- End .col-md-4 -->
 
                                 </div><!-- End .home-banners -->
