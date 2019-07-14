@@ -4,27 +4,19 @@
 
 
 <p align="center">
-    <a href="https://github.com/kabirkhyrul/lara_ecom/issues">
-        <img src="https://img.shields.io/github/issues/kabirkhyrul/ShopNow.svg"
-            alt="Issues"></a>
-     <a href="https://github.com/kabirkhyrul/lara_ecom/fork">
-        <img src="https://img.shields.io/github/forks/kabirkhyrul/lara_ecom.svg?style=social&label=Fork"
-            alt="Forks"></a>
-    <a href="https://github.com/kabirkhyrul/lara_ecom/stargazers">
-        <img src="https://img.shields.io/github/stars/kabirkhyrul/lara_ecom.svg?style=social&label=Stars"
-            alt="Stars"></a>
-    <a href="https://github.com/kabirkhyrul/">
-        <img src="https://img.shields.io/github/followers/kabirkhyrul.svg?style=social&label=Follow"
-            alt="Followers"></a>
-    <a href="https://raw.githubusercontent.com/opengineer/laravel-ecommerce/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-blue.svg"
-            alt="LICENSE"></a>
-    
-	  <a href="http://hits.dwyl.io/kabirKhyrul/ShopNow">
-    <img alt="Hits" src="http://hits.dwyl.io/kabirKhyrul/ShopNow.svg">
- </a>
+	<img src="https://img.shields.io/github/license/kabirkhyrul/ShopNow.svg?style=flat-square">
+	<img src="https://img.shields.io/github/issues/kabirkhyrul/ShopNow.svg?style=flat-square">
+	<img src="https://img.shields.io/github/watchers/kabirkhyrul/ShopNow.svg?style=flat-square">
+   <img src="https://img.shields.io/github/repo-size/kabirkhyrul/ShopNow.svg?style=social">	
+	<img src="https://img.shields.io/github/downloads/kabirkhyrul/ShopNow/total.svg?style=social">
+	<img src="https://img.shields.io/github/followers/kabirkhyrul/ShopNow.svg?style=flat-square">
+	<img src="https://img.shields.io/github/forks/kabirkhyrul/ShopNow.svg?style=social">
+	<img src="https://img.shields.io/github/stars/kabirkhyrul/ShopNow.svg?style=social">
+	<img src="https://img.shields.io/github/tag-date/kabirkhyrul/ShopNow.svg?style=social">
 	
 </p>
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+[![HitCount](http://hits.dwyl.io/kabirkhyrul/ShopNow.svg)](http://hits.dwyl.io/kabirkhyrul/ShopNow)
 
 
 
@@ -130,8 +122,7 @@ or translating any document here to your language.
 
 <table style="text-align: center;">
 	<tr>		
-		<td>
-			<a href="https://github.com/kabirkhyrul"><img src="https://avatars0.githubusercontent.com/u/44431386?s=400&v=4" alt="" width="150"></a>
+		<td><iframe src="https://githubbadge.appspot.com/kabirkhyrul" style="border: 0;height: 111px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
 		</td>		
 		<td>
 			<a href="https://github.com/nasimasheikh"><img src="https://avatars2.githubusercontent.com/u/52200293?s=400&v=4" alt="" width="150"></a>
