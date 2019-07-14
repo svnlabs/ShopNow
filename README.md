@@ -30,7 +30,7 @@
 
 This is a e-commerce platform using Laravel 5.4
 
-| [Features][] | [Requirements][] | [Install][] | [How to setting][] | [Supervisor & Mentor][] | [Contributors][] | [License][] |
+| [Features][] | [Requirements][] | [Install][] | [How to setting][] | [Supervisor & Mentor][] | [Contributors][] |
 |---|---|---|---|---|---|---|
 
 ## Features
@@ -142,11 +142,10 @@ or translating any document here to your language.
 	</tr>
 </table>
 
-## License
 
-> Copyright (C) 2019 Intelligo Systems.  
-> In this project is open-sourced software licensed under the [MIT](https://opensource.org/licenses/MIT) license.  
-> (See the [LICENSE](https://github.com/intelligo-systems/laravel-ecommerce/blob/master/LICENSE) file for the whole license text.)
+
+  
+
 
 **[back to top](#laravel-ecommerce-platform)**
 
@@ -156,4 +155,4 @@ or translating any document here to your language.
 [How to setting]:#how-to-setting
 [Supervisor & Mentor]:#Supervisor-&-Mentor
 [Contributors]:#contributors
-[License]:#license
+
