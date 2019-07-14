@@ -9,14 +9,14 @@
 	<img src="https://img.shields.io/github/watchers/kabirkhyrul/ShopNow.svg?style=flat-square">
    <img src="https://img.shields.io/github/repo-size/kabirkhyrul/ShopNow.svg?style=social">	
 	<img src="https://img.shields.io/github/downloads/kabirkhyrul/ShopNow/total.svg?style=social">
-	<img src="https://img.shields.io/github/followers/kabirkhyrul/ShopNow.svg?style=flat-square">
+	<img src="https://img.shields.io/github/followers/kabirkhyrul.svg?style=flat-square">
 	<img src="https://img.shields.io/github/forks/kabirkhyrul/ShopNow.svg?style=social">
 	<img src="https://img.shields.io/github/stars/kabirkhyrul/ShopNow.svg?style=social">
 	<img src="https://img.shields.io/github/tag-date/kabirkhyrul/ShopNow.svg?style=social">
+	<img src="http://hits.dwyl.io/kabirkhyrul/ShopNow.svg?style=social">
 	
 </p>
-[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
-[![HitCount](http://hits.dwyl.io/kabirkhyrul/ShopNow.svg)](http://hits.dwyl.io/kabirkhyrul/ShopNow)
+
 
 
 
