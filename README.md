@@ -31,7 +31,7 @@
 
 
 | [Features][] | [Requirements][] | [Install][] | [How to setting][] | [Supervisor & Mentor][] | [Contributors][] |
-|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|
 
 ## Features
 - Automatic cross sell / up sell / related product offerings
