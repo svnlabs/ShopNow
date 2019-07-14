@@ -11,13 +11,13 @@
         
         <link href='//fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic%7CPT+Gudea:400,700,400italic%7CPT+Oswald:400,700,300' rel='stylesheet' id="googlefont">
         
-        <link rel="stylesheet" href="{{asset('fronend/css/bootstrap.min.css')}}">
-        <link rel="stylesheet" href="{{asset('fronend/css/font-awesome.min.css')}}">
-        <link rel="stylesheet" href="{{asset('fronend/css/prettyPhoto.css')}}">
-        <link rel="stylesheet" href="{{asset('fronend/css/owl.carousel.css')}}">
-        <link rel="stylesheet" href="{{asset('fronend/css/revslider.css')}}">
-        <link rel="stylesheet" href="{{asset('fronend/css/style.css')}}">
-        <link rel="stylesheet" href="{{asset('fronend/css/responsive.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/css/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/css/prettyPhoto.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/css/owl.carousel.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/css/revslider.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/css/responsive.css')}}">
         
         <!-- Favicon and Apple Icons -->
         <link rel="icon" type="image/png" href="{{asset('frontend/images/icons/icon.png')}}">

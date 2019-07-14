@@ -502,55 +502,142 @@
 		            autoHeight : true
 		        }).data('navigationBtns', ['#brand-slider-prev', '#brand-slider-next']);
 		    }
-				
 
-			/* Home Page Onsale - Latest-items carousel */
-			var  latestItems = $('.latest-items-slider.owl-carousel');
-			if (self.checkSupport(latestItems, $.fn.owlCarousel)) {
-		        latestItems.owlCarousel({
-		            items: 4,
-		            itemsDesktop : [1199,4],
-		            itemsDesktopSmall: [979,3],
+		    /* latest tab slider - index.html */
+			var  latestTabItems = $('.latest-tab-slider.owl-carousel');
+			if (self.checkSupport(latestTabItems, $.fn.owlCarousel)) {
+		        latestTabItems.owlCarousel({
+		            items: 3,
+		            itemsDesktop : [1199,3],
+		            itemsDesktopSmall: [979,2],
 		            itemsTablet: [768,2],
 		            itemsMobile : [479,1],
 		            slideSpeed: 400,
-		            autoPlay: 8000,
+		            autoPlay: 7200,
 		            stopOnHover: true,
 		            navigation: false,
 		            pagination: false,
 		            responsive: true,
-		            mouseDrag: false,
+		            mouseDrag: true,
 		            autoHeight : true
-		        }).data('navigationBtns', ['#latest-items-slider-prev', '#latest-items-slider-next']);
+		        }).data('navigationBtns', ['#latest-tab-slider-prev', '#latest-tab-slider-next']);
 		    }
 
-		    /* Home Page Onsale - Best sellers-items carousel */
-			var  bestsellerItems = $('.bestseller-items-slider.owl-carousel');
-			if (self.checkSupport(bestsellerItems, $.fn.owlCarousel)) {
-		        bestsellerItems.owlCarousel({
-		            items: 4,
-		            itemsDesktop : [1199,4],
-		            itemsDesktopSmall: [979,3],
+		    /* featured tab slider - index.html */
+			var  featuredTabItems = $('.featured-tab-slider.owl-carousel');
+			if (self.checkSupport(featuredTabItems, $.fn.owlCarousel)) {
+		        featuredTabItems.owlCarousel({
+		            items: 3,
+		            itemsDesktop : [1199,3],
+		            itemsDesktopSmall: [979,2],
 		            itemsTablet: [768,2],
 		            itemsMobile : [479,1],
 		            slideSpeed: 400,
-		            autoPlay: 8000,
+		            autoPlay: 7200,
 		            stopOnHover: true,
 		            navigation: false,
 		            pagination: false,
 		            responsive: true,
-		            mouseDrag: false,
+		            mouseDrag: true,
 		            autoHeight : true
-		        }).data('navigationBtns', ['#bestseller-items-slider-prev', '#bestseller-items-slider-next']);
+		        }).data('navigationBtns', ['#featured-tab-slider-prev', '#featured-tab-slider-next']);
 		    }
 
-		    /* Home Page - Latest-news-items carousel */
+
+		    /* bestsellers tab slider - index.html */
+			var  bestsellersTabItems = $('.bestsellers-tab-slider.owl-carousel');
+			if (self.checkSupport(bestsellersTabItems, $.fn.owlCarousel)) {
+		        bestsellersTabItems.owlCarousel({
+		            items: 3,
+		            itemsDesktop : [1199,3],
+		            itemsDesktopSmall: [979,2],
+		            itemsTablet: [768,2],
+		            itemsMobile : [479,1],
+		            slideSpeed: 400,
+		            autoPlay: 4900,
+		            stopOnHover: true,
+		            navigation: false,
+		            pagination: false,
+		            responsive: true,
+		            mouseDrag: true,
+		            autoHeight : true
+		        }).data('navigationBtns', ['#bestsellers-tab-slider-prev', '#bestsellers-tab-slider-next']);
+		    }
+
+		    /* special tab slider - index.html */
+			var  specialTabItems = $('.special-tab-slider.owl-carousel');
+			if (self.checkSupport(specialTabItems, $.fn.owlCarousel)) {
+		        specialTabItems.owlCarousel({
+		            items: 3,
+		            itemsDesktop : [1199,3],
+		            itemsDesktopSmall: [979,2],
+		            itemsTablet: [768,2],
+		            itemsMobile : [479,1],
+		            slideSpeed: 400,
+		            autoPlay: 6500,
+		            stopOnHover: true,
+		            navigation: false,
+		            pagination: false,
+		            responsive: true,
+		            mouseDrag: true,
+		            autoHeight : true
+		        }).data('navigationBtns', ['#special-tab-slider-prev', '#special-tab-slider-next']);
+		    }
+			
+			// This is for reinit options for carousels which are used in the tab
+		    var updateOptions = {
+	            items: 3,
+	            itemsDesktop : [1199,3],
+	            itemsDesktopSmall: [979,2],
+	            itemsTablet: [768,2],
+	            itemsMobile : [479,1],
+	            slideSpeed: 400,
+	            autoPlay: 7200,
+	            stopOnHover: true,
+	            navigation: false,
+	            pagination: false,
+	            responsive: true,
+	            mouseDrag: true,
+	            autoHeight : true
+		    };
+
+		    /* This is update for carousel for active tab */
+		    $('#products-tabs-list').find('a').on('shown.bs.tab', function(e) {
+		    	var targetId = $(e.target).attr('href'),
+		    		targetSlider = $(targetId).find('.owl-carousel');
+
+	    		if(targetSlider.length) {
+	    			targetSlider.data('owlCarousel').reinit(updateOptions);
+	    		}
+		    		
+		    });
+
+			/* Home Page - Latestnews-items carousel */
 		    var  latestnewsItems = $('.latestnews-slider.owl-carousel');
 			if (self.checkSupport(latestnewsItems, $.fn.owlCarousel)) {
 		        latestnewsItems.owlCarousel({
+		            items: 2,
+		            itemsDesktop : [1199, 2],
+		            itemsDesktopSmall: [979, 2],
+		            itemsTablet: [768, 2],
+		            itemsMobile : [479, 1],
+		            slideSpeed: 860,
+		            autoPlay: 8000,
+		            stopOnHover: true,
+		            navigation: false,
+		            pagination: false,
+		            responsive: true,
+		            autoHeight : true
+		        }).data('navigationBtns', ['#latestnews-slider-prev', '#latestnews-slider-next']);
+		    }
+
+		    /* Home Page - Our Services carousel */
+		    var  servicesSlider = $('.services-slider.owl-carousel');
+			if (self.checkSupport(servicesSlider, $.fn.owlCarousel)) {
+		        servicesSlider.owlCarousel({
 		            items: 3,
 		            itemsDesktop : [1199, 3],
-		            itemsDesktopSmall: [979, 3],
+		            itemsDesktopSmall: [979, 2],
 		            itemsTablet: [768, 2],
 		            itemsMobile : [479, 1],
 		            slideSpeed: 860,
@@ -560,8 +647,9 @@
 		            pagination: false,
 		            responsive: true,
 		            autoHeight : true
-		        }).data('navigationBtns', ['#latestnews-slider-prev', '#latestnews-slider-next']);
+		        }).data('navigationBtns', ['#services-slider-prev', '#services-slider-next']);
 		    }
+
 
 			/* Also purchased slider - product.html */
 			var  purchasedItems = $('.purchased-items-slider.owl-carousel');
