@@ -1,7 +1,5 @@
 # ShopNow  
 
-[![ForTheBadge built-with-science](http://ForTheBadge.com/images/badges/built-with-science.svg)](https://GitHub.com/Naereen/)
-
 (Be Advised: This Project is Under Development.)
 
 
