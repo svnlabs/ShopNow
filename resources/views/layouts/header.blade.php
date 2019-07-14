@@ -364,7 +364,7 @@
                                         <li><a href="contact.html">Contact Us</a></li>
                                         <li><a href="#">My Account</a></li>
                                         <li><a href="#">News</a></li>
-                                        <li><a href="http://themeforest.net/item/Shop Now-premium-bootstrap-ecommerce-html5-template/7426521?ref=SW-THEMES" target="_blank">Buy Shop Now</a></li>
+                                        
                                     </ul>
                                     </div>
                                     
