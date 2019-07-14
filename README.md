@@ -1,4 +1,4 @@
-## Lara_Ecom (Be Advised: This Project is Under Development.)
+## ShopNow (Be Advised: This Project is Under Development.)
 
 
 <p align="center">
@@ -147,7 +147,7 @@ or translating any document here to your language.
   
 
 
-**[back to top](#laravel-ecommerce-platform)**
+**[back to top](#Shopnow)**
 
 [Features]:#features
 [Requirements]:#requirements
