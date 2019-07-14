@@ -1,20 +1,280 @@
- <footer id="footer">
-
-            <div id="newsletter-container">
+<footer id="footer">
+            <div id="footer-top">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12 clearfix">
-                        <h3>Sing up to receive the latest fashion news</h3>
-                            <form id="register-newsletter">
-                            <input type="text" name="newsletter" required="" placeholder="Enter your email address">
-                            <input type="submit" class="btn btn-custom-3" value="SIGN UP">
-                            </form>
-                        </div><!--End  .col-md-6 -->
-                        
+                        <div class="col-md-4 col-sm-4 col-xs-12 widget">
+                            <div class="title-bg">
+                                <h3>Popular</h3>
+                            </div><!-- End .title-bg -->
+
+                            <div class="footer-popular-slider flexslider footerslider">
+                                <ul class="slides">
+                                    <li>
+                                        <div class="slide-item clearfix">
+                                            <figure class="item-image-container">
+                                                 <a href="product.html"><img src="{{asset('frontend/images/products/thumbnails/item1.jpg')}}" alt="item1"></a>
+                                            </figure>
+                                            <p class="item-name">
+                                                <a href="product.html">Jacket Suiting Blazer</a>
+                                            </p>
+                                            <div class="ratings-container">
+                                                <div class="ratings">
+                                                        <div class="ratings-result" data-result="80"></div>
+                                                </div><!-- End .ratings -->
+                                            </div>
+                                            <div class="item-price-special">$40</div><!-- End item-price-special -->
+                                        </div><!-- End .slide-item -->
+                                        <div class="slide-item clearfix">
+                                            <figure class="item-image-container">
+                                                 <a href="product.html"><img src="{{asset('frontend/images/products/thumbnails/item2.jpg')}}" alt="item2"></a>
+                                            </figure>
+                                            <p class="item-name">
+                                                <a href="product.html">Gap Graphic Cuffed</a>
+                                            </p>
+                                            <div class="ratings-container">
+                                                <div class="ratings">
+                                                        <div class="ratings-result" data-result="100"></div>
+                                                </div><!-- End .ratings -->
+                                            </div>
+                                            <div class="item-price-special">$18.5</div><!-- End item-price-special -->
+                                        </div><!-- End .slide-item -->
+                                        <div class="slide-item clearfix">
+                                            <figure class="item-image-container">
+                                                 <a href="product.html"><img src="{{asset('frontend/images/products/thumbnails/item3.jpg')}}" alt="item3"></a>
+                                            </figure>
+                                            <p class="item-name">
+                                                <a href="product.html">Women's Lauren Dress</a>
+                                            </p>
+                                            <div class="item-price-special">$30</div><!-- End item-price-special -->
+                                        </div><!-- End .slide-item -->
+                                    </li>
+                                    <li>
+                                        <div class="slide-item clearfix">
+                                            <figure class="item-image-container">
+                                                 <a href="product.html"><img src="{{asset('frontend/images/products/thumbnails/item4.jpg')}}" alt="item4"></a>
+                                            </figure>
+                                            <p class="item-name">
+                                                <a href="product.html">Jacket Lauren Blazer</a>
+                                            </p>
+                                            <div class="ratings-container">
+                                                <div class="ratings">
+                                                        <div class="ratings-result" data-result="80"></div>
+                                                </div><!-- End .ratings -->
+                                            </div>
+                                            <div class="item-price-special">$40</div><!-- End item-price-special -->
+                                        </div><!-- End .slide-item -->
+                                        <div class="slide-item clearfix">
+                                            <figure class="item-image-container">
+                                                 <a href="product.html"><img src="{{asset('frontend/images/products/thumbnails/item5.jpg')}}" alt="item5"></a>
+                                            </figure>
+                                            <p class="item-name">
+                                                <a href="product.html">Jacket Suiting Blazer</a>
+                                            </p>
+                                            <div class="ratings-container">
+                                                <div class="ratings">
+                                                        <div class="ratings-result" data-result="100"></div>
+                                                </div><!-- End .ratings -->
+                                            </div>
+                                            <div class="item-price-special">$18.5</div><!-- End item-price-special -->
+                                        </div><!-- End .slide-item -->
+                                        <div class="slide-item clearfix">
+                                            <figure class="item-image-container">
+                                                 <a href="product.html"><img src="{{asset('frontend/images/products/thumbnails/item6.jpg')}}" alt="item6"></a>
+                                            </figure>
+                                            <p class="item-name">
+                                                <a href="product.html">Women's Spahyr Dress</a>
+                                            </p>
+                                            <div class="item-price-special">$30</div><!-- End item-price-special -->
+                                        </div><!-- End .slide-item -->
+                                    </li>
+                                </ul>
+                            </div><!-- End Footerpouplar-slider -->
+                            <div class="md-margin visible-xs"></div><!-- space -->
+                        </div><!-- End .col-md-4 -->
+
+                        <div class="col-md-4 col-sm-4 col-xs-12 widget">
+                            <div class="title-bg">
+                                <h3>Featured</h3>
+                            </div><!-- End .title-bg -->
+
+                            <div class="footer-featured-slider flexslider footerslider">
+                                <ul class="slides">
+                                    <li>
+                                        <div class="slide-item clearfix">
+                                            <figure class="item-image-container">
+                                                 <a href="product.html"><img src="{{asset('frontend/images/products/thumbnails/item4.jpg')}}" alt="item4"></a>
+                                            </figure>
+                                            <p class="item-name">
+                                                <a href="product.html">Jacket Suiting Blazer</a>
+                                            </p>
+                                            <div class="ratings-container">
+                                                <div class="ratings">
+                                                        <div class="ratings-result" data-result="80"></div>
+                                                </div><!-- End .ratings -->
+                                            </div>
+                                            <div class="item-price-special">$40</div><!-- End item-price-special -->
+                                        </div><!-- End .slide-item -->
+                                        <div class="slide-item clearfix">
+                                            <figure class="item-image-container">
+                                                 <a href="product.html"><img src="{{asset('frontend/images/products/thumbnails/item5.jpg')}}" alt="item5"></a>
+                                            </figure>
+                                            <p class="item-name">
+                                                <a href="product.html">Gap Graphic Cuffed</a>
+                                            </p>
+                                            <div class="ratings-container">
+                                                <div class="ratings">
+                                                        <div class="ratings-result" data-result="100"></div>
+                                                </div><!-- End .ratings -->
+                                            </div>
+                                            <div class="item-price-special">$18.5</div><!-- End item-price-special -->
+                                        </div><!-- End .slide-item -->
+                                        <div class="slide-item clearfix">
+                                            <figure class="item-image-container">
+                                                 <a href="product.html"><img src="{{asset('frontend/images/products/thumbnails/item6.jpg')}}" alt="item6"></a>
+                                            </figure>
+                                            <p class="item-name">
+                                                <a href="product.html">Women's Lauren Dress</a>
+                                            </p>
+                                            <div class="item-price-special">$30</div><!-- End item-price-special -->
+                                        </div><!-- End .slide-item -->
+                                    </li>
+                                    <li>
+                                        <div class="slide-item clearfix">
+                                            <figure class="item-image-container">
+                                                 <a href="product.html"><img src="{{asset('frontend/images/products/thumbnails/item7.jpg')}}" alt="item7"></a>
+                                            </figure>
+                                            <p class="item-name">
+                                                <a href="product.html">Jacket Lauren Blazer</a>
+                                            </p>
+                                            <div class="ratings-container">
+                                                <div class="ratings">
+                                                        <div class="ratings-result" data-result="80"></div>
+                                                </div><!-- End .ratings -->
+                                            </div>
+                                            <div class="item-price-special">$40</div><!-- End item-price-special -->
+                                        </div><!-- End .slide-item -->
+                                        <div class="slide-item clearfix">
+                                            <figure class="item-image-container">
+                                                 <a href="product.html"><img src="{{asset('frontend/images/products/thumbnails/item8.jpg')}}" alt="item8"></a>
+                                            </figure>
+                                            <p class="item-name">
+                                                <a href="product.html">Jacket Suiting Blazer</a>
+                                            </p>
+                                            <div class="ratings-container">
+                                                <div class="ratings">
+                                                        <div class="ratings-result" data-result="100"></div>
+                                                </div><!-- End .ratings -->
+                                            </div>
+                                            <div class="item-price-special">$18.5</div><!-- End item-price-special -->
+                                        </div><!-- End .slide-item -->
+                                        <div class="slide-item clearfix">
+                                            <figure class="item-image-container">
+                                                 <a href="product.html"><img src="{{asset('frontend/images/products/thumbnails/item9.jpg')}}" alt="item9"></a>
+                                            </figure>
+                                            <p class="item-name">
+                                                <a href="product.html">Women's Spahyr Dress</a>
+                                            </p>
+                                            <div class="item-price-special">$30</div><!-- End item-price-special -->
+                                        </div><!-- End .slide-item -->
+                                    </li>
+                                </ul>
+                            </div><!-- End Footerpouplar-slider -->
+                            <div class="md-margin visible-xs"></div><!-- space -->
+                        </div><!-- End .col-md-4 -->
+
+                        <div class="col-md-4 col-sm-4 col-xs-12 widget">
+                            <div class="title-bg">
+                                <h3>Specials</h3>
+                            </div><!-- End .title-bg -->
+
+                            <div class="footer-specials-slider flexslider footerslider">
+                                <ul class="slides">
+                                    <li>
+                                        <div class="slide-item clearfix">
+                                            <figure class="item-image-container">
+                                                 <a href="product.html"><img src="{{asset('frontend/images/products/thumbnails/item7.jpg')}}" alt="item7"></a>
+                                            </figure>
+                                            <p class="item-name">
+                                                <a href="product.html">Jacket Suiting Blazer</a>
+                                            </p>
+                                            <div class="ratings-container">
+                                                <div class="ratings">
+                                                        <div class="ratings-result" data-result="80"></div>
+                                                </div><!-- End .ratings -->
+                                            </div>
+                                            <div class="item-price-special">$40</div><!-- End item-price-special -->
+                                        </div><!-- End .slide-item -->
+                                        <div class="slide-item clearfix">
+                                            <figure class="item-image-container">
+                                                 <a href="product.html"><img src="{{asset('frontend/images/products/thumbnails/item8.jpg')}}" alt="item8"></a>
+                                            </figure>
+                                            <p class="item-name">
+                                                <a href="product.html">Gap Graphic Cuffed</a>
+                                            </p>
+                                            <div class="ratings-container">
+                                                <div class="ratings">
+                                                        <div class="ratings-result" data-result="100"></div>
+                                                </div><!-- End .ratings -->
+                                            </div>
+                                            <div class="item-price-special">$18.5</div><!-- End item-price-special -->
+                                        </div><!-- End .slide-item -->
+                                        <div class="slide-item clearfix">
+                                            <figure class="item-image-container">
+                                                 <a href="product.html"><img src="{{asset('frontend/images/products/thumbnails/item9.jpg')}}" alt="item9"></a>
+                                            </figure>
+                                            <p class="item-name">
+                                                <a href="product.html">Women's Lauren Dress</a>
+                                            </p>
+                                            <div class="item-price-special">$30</div><!-- End item-price-special -->
+                                        </div><!-- End .slide-item -->
+                                    </li>
+                                    <li>
+                                        <div class="slide-item clearfix">
+                                            <figure class="item-image-container">
+                                                 <a href="product.html"><img src="{{asset('frontend/images/products/thumbnails/item1.jpg')}}" alt="item1"></a>
+                                            </figure>
+                                            <p class="item-name">
+                                                <a href="product.html">Jacket Lauren Blazer</a>
+                                            </p>
+                                            <div class="ratings-container">
+                                                <div class="ratings">
+                                                        <div class="ratings-result" data-result="80"></div>
+                                                </div><!-- End .ratings -->
+                                            </div>
+                                            <div class="item-price-special">$40</div><!-- End item-price-special -->
+                                        </div><!-- End .slide-item -->
+                                        <div class="slide-item clearfix">
+                                            <figure class="item-image-container">
+                                                 <a href="product.html"><img src="{{asset('frontend/images/products/thumbnails/item2.jpg')}}" alt="item2"></a>
+                                            </figure>
+                                            <p class="item-name">
+                                                <a href="product.html">Jacket Suiting Blazer</a>
+                                            </p>
+                                            <div class="ratings-container">
+                                                <div class="ratings">
+                                                        <div class="ratings-result" data-result="100"></div>
+                                                </div><!-- End .ratings -->
+                                            </div>
+                                            <div class="item-price-special">$18.5</div><!-- End item-price-special -->
+                                        </div><!-- End .slide-item -->
+                                        <div class="slide-item clearfix">
+                                            <figure class="item-image-container">
+                                                 <a href="product.html"><img src="{{asset('frontend/images/products/thumbnails/item3.jpg')}}" alt="item3"></a>
+                                            </figure>
+                                            <p class="item-name">
+                                                <a href="product.html">Women's Spahyr Dress</a>
+                                            </p>
+                                            <div class="item-price-special">$30</div><!-- End item-price-special -->
+                                        </div><!-- End .slide-item -->
+                                    </li>
+                                </ul>
+                            </div><!-- End Footerpouplar-slider -->
+
+                        </div><!-- End .col-md-4 -->
                     </div><!-- End .row -->
                 </div><!-- End .container -->
-            </div><!-- End #newsletter-container -->
-
+            </div><!-- End #footer-top -->
+            
             <div id="inner-footer">
                 
                 <div class="container">
@@ -46,7 +306,15 @@
                         <div class="col-md-3 col-sm-4 col-xs-12 widget">
                             <h3>MY ACCOUNT</h3>
                             
-                            <div class="twitter_feed_widget"></div><!-- End .twitter_feed_widget -->
+                            <ul class="contact-list">
+                                <li><strong>Shop Now Ltd</strong></li>
+                                <li>United Kingdom</li>
+                                <li>Greater London</li>
+                                <li>London 02587</li>
+                                <li>Oxford Street 48/188</li>
+                                <li>Working Days: Mon. - Sun.</li>
+                                <li>Working Hours: 9.00AM - 8.00PM</li>
+                            </ul>
                         </div><!-- End .widget -->
                         
                         <div class="clearfix visible-sm"></div>
@@ -90,18 +358,88 @@
             
         </footer><!-- End #footer -->
     </div><!-- End #wrapper -->
-        <a href="#" id="scroll-top" title="Scroll to Top"><i class="fa fa-angle-up"></i></a><!-- End #scroll-top -->
+    
+    <a href="#" id="scroll-top" title="Scroll to Top"><i class="fa fa-angle-up"></i></a><!-- End #scroll-top -->
+    
     <!-- END -->
-	<script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('frontend/js/smoothscroll.js')}}"></script>
-	<script src="{{asset('frontend/js/jquery.debouncedresize.js')}}"></script>
+    <script src="{{asset('frontend/js/jquery.debouncedresize.js')}}"></script>
     <script src="{{asset('frontend/js/retina.min.js')}}"></script>
     <script src="{{asset('frontend/js/jquery.placeholder.js')}}"></script>
     <script src="{{asset('frontend/js/jquery.hoverIntent.min.js')}}"></script>
-	<script src="{{asset('frontend/js/twitter/jquery.tweet.min.js')}}"></script>
-	<script src="{{asset('frontend/js/jquery.flexslider-min.js')}}"></script>
+    <script src="{{asset('frontend/js/twitter/jquery.tweet.min.js')}}"></script>
+    <script src="{{asset('frontend/js/jquery.flexslider-min.js')}}"></script>
     <script src="{{asset('frontend/js/owl.carousel.min.js')}}"></script>
-	<script src="{{asset('frontend/js/main.js')}}"></script>
+    <script src="{{asset('frontend/js/jflickrfeed.min.js')}}"></script>
+    <script src="{{asset('frontend/js/jquery.prettyPhoto.js')}}"></script>
+    <script src="{{asset('frontend/js/jquery.themepunch.tools.min.js')}}"></script>
+    <script src="{{asset('frontend/js/jquery.themepunch.revolution.min.js')}}"></script>
+    <script src="{{asset('frontend/js/main.js')}}"></script>
+    
+    <script>
+        $(function() {
 
+            // Slider Revolution
+            jQuery('#slider-rev').revolution({
+                delay:5000,
+                startwidth:870,
+                startheight:520,
+                onHoverStop:"true",
+                hideThumbs:250,
+                navigationHAlign:"center",
+                navigationVAlign:"bottom",
+                navigationHOffset:0,
+                navigationVOffset:15,
+                soloArrowLeftHalign:"left",
+                soloArrowLeftValign:"center",
+                soloArrowLeftHOffset:0,
+                soloArrowLeftVOffset:0,
+                soloArrowRightHalign:"right",
+                soloArrowRightValign:"center",
+                soloArrowRightHOffset:0,
+                soloArrowRightVOffset:0,
+                touchenabled:"on",
+                stopAtSlide:-1,
+                stopAfterLoops:-1,
+                dottedOverlay:"none",
+                fullWidth:"on",
+                spinned:"spinner4", 
+                shadow:3, // 1 2 3 to change shadows
+                hideTimerBar: "on",
+                // navigationStyle:"preview2"
+              });
+
+            /* This is fix for mobile devices position slider at the top  via absolute pos */
+            var fixSliderForMobile = function () {
+                var winWidth = $(window).width();
+
+                if (winWidth <= 767 && $('#slider-rev-container').length) {
+                    var revSliderHeight = $('#slider-rev').height();
+                        console.log(revSliderHeight);
+                    $('.slider-position').css('padding-top', revSliderHeight);
+                    $('.main-content').css('position', 'static');
+                } else {
+                    $('.slider-position').css('padding-top', 0);
+                    $('.main-content').css('position', 'relative');
+                }
+            };
+
+            fixSliderForMobile();
+
+            /* Resize fix positionin */
+            if($.event.special.debouncedresize) {
+                $(window).on('debouncedresize', function() {
+                    fixSliderForMobile();
+                });
+            } else {
+                $(window).on('resize', function () {
+                    fixSliderForMobile();
+                });
+            }
+            
+                
+        });
+    </script>
     </body>
 </html>
