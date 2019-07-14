@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->date('special_price_start')->nullable();
             $table->date('special_price_end')->nullable();
             $table->decimal('selling_price', 18, 4)->unsigned()->nullable();
-            $table->string('sku')->nullable();
+            $table->string('sku');
             $table->boolean('manage_stock');
             $table->integer('qty')->nullable();
             $table->boolean('in_stock');
