@@ -5,7 +5,7 @@
 
 <p align="center">
     <a href="https://github.com/kabirkhyrul/lara_ecom/issues">
-        <img src="https://img.shields.io/github/issues/kabirkhyrul/laravel-ecommerce.svg"
+        <img src="https://img.shields.io/github/issues/kabirkhyrul/ShopNow.svg"
             alt="Issues"></a>
      <a href="https://github.com/kabirkhyrul/lara_ecom/fork">
         <img src="https://img.shields.io/github/forks/kabirkhyrul/lara_ecom.svg?style=social&label=Fork"
@@ -19,12 +19,11 @@
     <a href="https://raw.githubusercontent.com/opengineer/laravel-ecommerce/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-blue.svg"
             alt="LICENSE"></a>
-    <a href="https://twitter.com/intent/tweet?text=Wow:&url=%5Bobject%20Object%5D">
-        <img src="https://img.shields.io/twitter/url/https/github.com/topengineer/laravel-ecommerce.svg?style=social"
-            alt="Tweet"></a>
-	  <a href="http://hits.dwyl.io/kabirkhyrul/intelligo">
-    <img alt="Hits" src="http://hits.dwyl.io/kabirkhyrul/intelligo.svg">
+    
+	  <a href="http://hits.dwyl.io/kabirKhyrul/ShopNow">
+    <img alt="Hits" src="http://hits.dwyl.io/kabirKhyrul/ShopNow.svg">
  </a>
+	
 </p>
 
 
