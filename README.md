@@ -1,6 +1,6 @@
 # ShopNow 
 
-##(Be Advised: This Project is Under Development.)
+(Be Advised: This Project is Under Development.)
 
 
 <p align="center">
