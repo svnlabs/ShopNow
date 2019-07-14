@@ -12,3 +12,4 @@
 */
 Route::resource('/', 'FrontController');
 Route::resource('/admin', 'DashboardController');
+Route::resource('/Product', 'ProductController');
