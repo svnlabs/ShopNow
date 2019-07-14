@@ -20,7 +20,7 @@ class CreateTaxRatesTable extends Migration
             $table->string('state',191);
             $table->string('city',191);
             $table->string('zip',191);
-            $table->integer('position',191);
+            $table->integer('position');
             $table->decimal('rate', 8, 4);
             $table->timestamp('delete_at');
             $table->timestamps();
