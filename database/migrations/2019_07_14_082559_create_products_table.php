@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->date('special_price_start')->nullable();
             $table->date('special_price_end')->nullable();
             $table->decimal('selling_price', 18, 4)->unsigned()->nullable();
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->text('description');
             $table->string('sku');
             $table->boolean('manage_stock');
