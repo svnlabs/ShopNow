@@ -34,6 +34,12 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $dir =  public_path('Productimg/');//set path to http://localhost/ecommerce/public/Productimg/
+        $extension = strtolower($request->file('image')->getClientOriginalExtension()); // get image extension
+        $fileName = str_random() . '.' . $extension; // rename image
+        $request->file('image')->move($dir, $fileName);//move img
+        $new->image = $fileName;//add to object
         Product::create($request->all());
         return redirect('/product')->with('success','Product Added');
     }
