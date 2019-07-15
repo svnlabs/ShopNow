@@ -90,7 +90,7 @@
 											<div class="col-sm-6 col-md-6">
 												<div class="form-group">
 													<label class="form-label">Quantity</label>
-													<input type="text" name="qty" class="form-control" placeholder="City">
+													<input type="text" name="qty" class="form-control" placeholder="Quantity">
 												</div>
 											</div>
 											<div class="col-sm-6 col-md-6">
