@@ -31,8 +31,8 @@ class CreateProductsTable extends Migration
             $table->boolean('in_stock');
             $table->integer('viewed')->unsigned()->default(0);
             $table->boolean('is_active');
-            $table->datetime('new_from')->nullable();
-            $table->datetime('new_to')->nullable();
+            $table->date('new_from')->nullable();
+            $table->date('new_to')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
