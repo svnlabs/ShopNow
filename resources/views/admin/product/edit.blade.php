@@ -75,7 +75,7 @@
 																<div class="input-group-text">
 																	<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
 																</div>
-															</div><input class="form-control " name="special_price_end" placeholder="MM/DD/YYYY" type="date">
+															</div><input class="form-control " name="special_price_end" placeholder="MM/DD/YYYY" type="date" value="{{$product->special_price_end}}">
 														</div>
 													</div>
 												</div>
@@ -83,14 +83,14 @@
 											<div class="col-sm-6 col-md-6">
 												<div class="form-group">
 													<label class="form-label">Selling Price</label>
-													<input type="text" name="selling_price" class="form-control" placeholder="Selling Price">
+													<input type="text" name="selling_price" class="form-control" placeholder="Selling Price" value="{{$product->selling_price}}">
 												</div>
 											</div>
 											
 											<div class="col-sm-6 col-md-6">
 												<div class="form-group">
 													<label class="form-label">Quantity</label>
-													<input type="text" name="qty" class="form-control" placeholder="City">
+													<input type="text" name="qty" class="form-control" placeholder="Quantity" value="{{$product->qty}}">
 												</div>
 											</div>
 											<div class="col-sm-6 col-md-6">
@@ -102,7 +102,7 @@
 																<div class="input-group-text">
 																	<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
 																</div>
-															</div><input class="form-control" name="new_from" placeholder="MM/DD/YYYY" type="date">
+															</div><input class="form-control" name="new_from" placeholder="MM/DD/YYYY" type="date" value="{{$product->new_from}}"> 
 														</div>
 													</div>
 												</div>
@@ -116,7 +116,7 @@
 																<div class="input-group-text">
 																	<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
 																</div>
-															</div><input class="form-control " name="new_to" placeholder="MM/DD/YYYY" type="date">
+															</div><input class="form-control " name="new_to" placeholder="MM/DD/YYYY" type="date" value="{{$product->new_to}}">
 														</div>
 													</div>
 												</div>
@@ -130,18 +130,22 @@
 											</div>
 											<div class="col-md-12">
 												<div class="card-header">
-										<h3 class="card-title">Image Upload</h3>
-									</div>
-									<div class=" card-body">
-										<div class="row">
-											<div class="col-lg-4 col-sm-12">
-												<input type="file" name="image" class="dropify" data-height="180">
+													<h3 class="card-title">Image Upload</h3>
+												</div>
+												<div class=" card-body">
+													<div class="row">
+														<div class="col-md-6 col-sm-12">
+															<input type="file" name="image" class="dropify" data-height="180">
+														</div>
+														<div class="col-md-6">
+															<img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" id="image_upload_preview" alt="Product Image" class="img-responsive" style="max-height: 180px">
+														</div>
+
+													</div>
+
+												</div>
 											</div>
-											
-										</div>
-										
-									</div>
-											</div>
+
 											
 											
 											<div class="col-md-4">
