@@ -1,164 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	
-	<!-- start: Meta -->
-	<meta charset="utf-8">
-	<title>Bootstrap Metro Dashboard by Dennis Ji for ARM demo</title>
-	<meta name="description" content="Bootstrap Metro Dashboard">
-	<meta name="author" content="Dennis Ji">
-	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-	<!-- end: Meta -->
-	
-	<!-- start: Mobile Specific -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- end: Mobile Specific -->
-	
-	<!-- start: CSS -->
-	<link id="bootstrap-style" href="{{asset('backend/css/bootstrap.min.css')}}" rel="stylesheet">
-	<link href="{{asset('backend/css/bootstrap-responsive.min.css')}}" rel="stylesheet">
-	<link id="base-style" href="{{asset('backend/css/style.css')}}" rel="stylesheet">
-	<link id="base-style-responsive" href="{{asset('backend/css/style-responsive.css')}}" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
-	<!-- end: CSS -->
-	
+<!doctype html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="msapplication-TileColor" content="#0061da">
+		<meta name="theme-color" content="#1643a3">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
-	<!--[if lt IE 9]>
-	  	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<link id="ie-style" href="css/ie.css" rel="stylesheet">
-	<![endif]-->
-	
-	<!--[if IE 9]>
-		<link id="ie9style" href="css/ie9.css" rel="stylesheet">
-	<![endif]-->
-		
-	<!-- start: Favicon -->
-	<link rel="shortcut icon" href="{{asset('backend/img/favicon.ico')}}">
-	<!-- end: Favicon -->
-	
-		@yield('style')	
-		
-		
-</head>
+		<!-- Title -->
+		<title>adminor – Clean & Modern Responsive Bootstrap 4 admin dashboard HTML5 Template.</title>
+		<link rel="stylesheet" href="{{asset('backend\fonts\fonts\font-awesome.min.css')}}">
 
-<body>
-		<!-- start: Header -->
-	@include('admin.layouts.topbar')
-	<!-- start: Header -->
-	
-		<div class="container-fluid-full">
-		<div class="row-fluid">
-				
-			<!-- start: Main Menu -->
-	@include('admin.layouts.leftbar')		
-			<!-- end: Main Menu -->
-			
-			<noscript>
-				<div class="alert alert-block span10">
-					<h4 class="alert-heading">Warning!</h4>
-					<p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+		<!-- Font family -->
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+
+		<!-- Sidemenu Css -->
+		<link href="{{asset('backend\plugins\fullside-menu\css\style.css')}}" rel="stylesheet">
+		<link href="{{asset('backend\plugins\fullside-menu\waves.min.css')}}" rel="stylesheet">
+
+		<!-- Dashboard Css -->
+		<link href="{{asset('backend\css\dashboard.css')}}" rel="stylesheet">
+
+        <!-- Morris.js Charts Plugin -->
+		<link href="{{asset('backend\plugins\morris\morris.css')}}" rel="stylesheet">
+
+		<!-- c3.js Charts Plugin -->
+		<link href="{{asset('backend\plugins\charts-c3\c3-chart.css')}}" rel="stylesheet">
+		@yield('css')
+		<!-- Custom scroll bar css-->
+		<link href="{{asset('backend\plugins\scroll-bar\jquery.mCustomScrollbar.css')}}" rel="stylesheet">
+
+		<!---Font icons-->
+		<link href="{{asset('backend\css\icons.css')}}" rel="stylesheet">
+
+	</head>
+	<body class="">
+		<div id="global-loader"></div>
+		<div class="page">
+			<div class="page-main">
+				@include('admin.layouts.topbar')
+				<div class="wrapper">
+					<!-- Sidebar Holder -->
+					@include('admin.layouts.leftbar')
+					@yield('content')
 				</div>
-			</noscript>
-			
-			<!-- start: Content -->
-		<div id="content" class="span10">
-			
-			
-			<ul class="breadcrumb">
-				<li>
-					<i class="icon-home"></i>
-					<a href="index.html">Home</a> 
-					<i class="icon-angle-right"></i>
-				</li>
-				<li><a href="#">Dashboard</a></li>
-			</ul>
+			</div>
 
-						
-		@yield('admincontent')	
-
-		</div><!--/.fluid-container-->
-	
-			<!-- end: Content -->
-		</div><!--/#content.span10-->
-		</div><!--/fluid-row-->
-		
-	<div class="modal hide fade" id="myModal">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">×</button>
-			<h3>Settings</h3>
+			<!--footer-->
+			@include('admin.layouts.footer')
+			<!-- End Footer-->
 		</div>
-		<div class="modal-body">
-			<p>Here settings can be configured...</p>
-		</div>
-		<div class="modal-footer">
-			<a href="#" class="btn" data-dismiss="modal">Close</a>
-			<a href="#" class="btn btn-primary">Save changes</a>
-		</div>
-	</div>
-	
-	<div class="clearfix"></div>
-	
-	@include('admin.layouts.footer')
-	
-	<!-- start: JavaScript-->
+		<!-- Back to top -->
+		<a href="#top" id="back-to-top" style="display: inline;"><i class="fa fa-angle-up"></i></a>
 
-		<script src="{{asset('backend/js/jquery-1.9.1.min.js')}}"></script>
-		<script src="{{asset('backend/js/jquery-migrate-1.0.0.min.js')}}"></script>
-	
-		<script src="{{asset('backend/js/jquery-ui-1.10.0.custom.min.js')}}"></script>
-	
-		<script src="{{asset('backend/js/jquery.ui.touch-punch.js')}}"></script>
-	
-		<script src="{{asset('backend/js/modernizr.js')}}"></script>
-	
-		<script src="{{asset('backend/js/bootstrap.min.js')}}"></script>
-	
-		<script src="{{asset('backend/js/jquery.cookie.js')}}"></script>
-	
-		<script src="{{asset('backend/js/fullcalendar.min.js')}}"></script>
-	
-		<script src="{{asset('backend/js/jquery.dataTables.min.js')}}"></script>
+		<!-- Dashboard Core -->
+		<script src="{{asset('backend\js\vendors\jquery-3.2.1.min.js')}}"></script>
+		<script src="{{asset('backend\js\vendors\bootstrap.bundle.min.js')}}"></script>
+		<script src="{{asset('backend\js\vendors\jquery.sparkline.min.js')}}"></script>
+		<script src="{{asset('backend\js\vendors\selectize.min.js')}}"></script>
+		<script src="{{asset('backend\js\vendors\jquery.tablesorter.min.js')}}"></script>
+		<script src="{{asset('backend\js\vendors\circle-progress.min.js')}}"></script>
+		<script src="{{asset('backend\plugins\rating\jquery.rating-stars.js')}}"></script>
 
-		<script src="{{asset('backend/js/excanvas.js')}}"></script>
-		<script src="{{asset('backend/js/jquery.flot.js')}}"></script>
-		<script src="{{asset('backend/js/jquery.flot.pie.js')}}"></script>
-		<script src="{{asset('backend/js/jquery.flot.stack.js')}}"></script>
-		<script src="{{asset('backend/js/jquery.flot.resize.min.js')}}"></script>
-	
-		<script src="{{asset('backend/js/jquery.chosen.min.js')}}"></script>
-	
-		<script src="{{asset('backend/js/jquery.uniform.min.js')}}"></script>
-		
-		<script src="{{asset('backend/js/jquery.cleditor.min.js')}}"></script>
-	
-		<script src="{{asset('backend/js/jquery.noty.js')}}"></script>
-	
-		<script src="{{asset('backend/js/jquery.elfinder.min.js')}}"></script>
-	
-		<script src="{{asset('backend/js/jquery.raty.min.js')}}"></script>
-	
-		<script src="{{asset('backend/js/jquery.iphone.toggle.js')}}"></script>
-	
-		<script src="{{asset('backend/js/jquery.uploadify-3.1.min.js')}}"></script>
-	
-		<script src="{{asset('backend/js/jquery.gritter.min.js')}}"></script>
-	
-		<script src="{{asset('backend/js/jquery.imagesloaded.js')}}"></script>
-	
-		<script src="{{asset('backend/js/jquery.masonry.min.js')}}"></script>
-	
-		<script src="{{asset('backend/js/jquery.knob.modified.js')}}"></script>
-	
-		<script src="{{asset('backend/js/jquery.sparkline.min.js')}}"></script>
-	
-		<script src="{{asset('backend/js/counter.js')}}"></script>
-	
-		<script src="{{asset('backend/js/retina.js')}}"></script>
+		<!-- Fullside-menu Js-->
+		<script src="{{asset('backend\plugins\fullside-menu\jquery.slimscroll.min.js')}}"></script>
+		<script src="{{asset('backend\plugins\fullside-menu\waves.min.js')}}"></script>
 
-		<script src="{{asset('backend/js/custom.js')}}"></script>
-	<!-- end: JavaScript-->
-		@yield('js')	
-	
-</body>
+		<!-- Charts Plugin -->
+		<script src="{{asset('backend\plugins\chart\Chart.bundle.js')}}"></script>
+		<script src="{{asset('backend\plugins\chart\utils.js')}}"></script>
+
+		<!--Morris.js Charts Plugin -->
+		<script src="{{asset('backend\plugins\morris\raphael-min.js')}}"></script>
+		<script src="{{asset('backend\plugins\morris\morris.js')}}"></script>
+		{{-- datatable --}}
+		<script src="{{asset('backend\plugins\morris\morris.js')}}"></script>
+
+		<!-- Input Mask Plugin -->
+		<script src="{{asset('backend\plugins\input-mask\jquery.mask.min.js')}}"></script>
+
+		<!-- Custom scroll bar Js-->
+		<script src="{{asset('backend\plugins\scroll-bar\jquery.mCustomScrollbar.concat.min.js')}}"></script>
+
+        <!-- Index Scripts -->
+		<script src="{{asset('backend\js\index4.js')}}"></script>
+		@yield('js')
+		<!-- Custom-->
+		<script src="{{asset('backend\js\custom.js')}}"></script>
+		@yield('js')
+	</body>
 </html>

@@ -1,8 +1,9 @@
-<footer>
-
-		<p>
-			<span style="text-align:left;float:left">&copy; 2013 <a href="http://jiji262.github.io/Bootstrap_Metro_Dashboard/" alt="Bootstrap_Metro_Dashboard">Bootstrap Metro Dashboard</a></span>
-			
-		</p>
-
-</footer>
+<footer class="footer">
+				<div class="container">
+					<div class="row align-items-center flex-row-reverse">
+						<div class="col-md-12 col-sm-12 mt-3 mt-lg-0 text-center">
+							Copyright © 2019 <a href="#">Shop Now</a>. Designed by <a href="#">Spruko</a> 
+						</div>
+					</div>
+				</div>
+			</footer>
