@@ -29,6 +29,7 @@
 							<div class="col-lg-12">
 								<form class="card" action="{{route('product.update', ['id' => $product->id])}}" method="post" enctype="multipart/form-data">
 									{{csrf_field()}}
+									<input name="_method" type="hidden" value="PATCH">
 									<div class="card-header">
 										<h3 class="card-title">Update Product</h3>
 									</div>
@@ -125,7 +126,7 @@
 											<div class="col-md-12">
 												<div class="form-group mb-0">
 													<label class="form-label">Product Description</label>
-													<textarea class="content" name="description"></textarea>
+													<textarea class="content" name="description">{{$product->description}}</textarea>
 												</div>
 											</div>
 											<div class="col-md-12">
@@ -153,7 +154,7 @@
 												<div class="form-group">
 													<div class="form-label">Manage Stock</div>
 													<label class="custom-switch">
-														<input type="checkbox" name="manage_stock" class="custom-switch-input">
+														<input type="checkbox" name="manage_stock" class="custom-switch-input" {{$product->manage_stock== '1' ? 'checked' : ''}}>
 														<span class="custom-switch-indicator"></span>
 														<span class="custom-switch-description">I want Notification before Stock Out </span>
 													</label>
@@ -161,7 +162,7 @@
 												<div class="form-group">
 													<div class="form-label">Out of Stock</div>
 													<label class="custom-switch">
-														<input type="checkbox" name="in_stock" class="custom-switch-input">
+														<input type="checkbox" name="in_stock" class="custom-switch-input" {{$product->in_stock== '1' ? 'checked' : ''}}>
 														<span class="custom-switch-indicator"></span>
 														<span class="custom-switch-description">This Product is Out of stock</span>
 													</label>
@@ -169,7 +170,7 @@
 												<div class="form-group">
 													<div class="form-label">Is this product Active?</div>
 													<label class="custom-switch">
-														<input type="checkbox" name="is_active" class="custom-switch-input">
+														<input type="checkbox" name="is_active" class="custom-switch-input" {{$product->is_active== '1' ? 'checked' : ''}}>
 														<span class="custom-switch-indicator"></span>
 														<span class="custom-switch-description">This Product is Active</span>
 													</label>
@@ -179,7 +180,7 @@
 										</div>
 									</div>
 									<div class="card-footer text-right">
-										<button type="submit" class="btn btn-primary">Add Product</button>
+										<button type="submit" class="btn btn-primary">Update Product</button>
 									</div>
 								</form>
 							</div>
@@ -220,5 +221,6 @@
                 }
             });
         </script>
+
        
 @stop
