@@ -23,7 +23,7 @@
 					<a href="{{route('product.index')}}">All Product</a>
 				</li>
 				<li>
-					<a href="chat.html">Add Product</a>
+					<a href="{{route('product.create')}}">Add Product</a>
 				</li>
 				
 			</ul>

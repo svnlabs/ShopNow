@@ -15,6 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->integer('tax_class_id')->unsigned()->nullable();
             $table->string('slug')->unique();
             $table->decimal('price', 18, 4)->unsigned();
@@ -22,6 +23,8 @@ class CreateProductsTable extends Migration
             $table->date('special_price_start')->nullable();
             $table->date('special_price_end')->nullable();
             $table->decimal('selling_price', 18, 4)->unsigned()->nullable();
+            $table->string('image');
+            $table->text('description');
             $table->string('sku');
             $table->boolean('manage_stock');
             $table->integer('qty')->nullable();

@@ -8,6 +8,10 @@ class Product extends Model
 {
    protected $fillable = [
         'tax_class_id',
+        'name',
+        'image',
+        'description',
+        
         'slug',
         'sku',
         'price',

@@ -94,6 +94,6 @@
 		@yield('js')
 		<!-- Custom-->
 		<script src="{{asset('backend\js\custom.js')}}"></script>
-		@yield('js')
+	
 	</body>
 </html>
