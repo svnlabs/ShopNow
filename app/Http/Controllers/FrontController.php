@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Product;
+use Carbon\Carbon;
 class FrontController extends Controller
 {
     /**
@@ -13,7 +14,10 @@ class FrontController extends Controller
      */
     public function index()
     {
-       return view('layouts.default');
+        $date = new Carbon;
+        $products = Product::all();
+
+       return view('layouts.default', compact('products','date'));
     }
 
     /**
