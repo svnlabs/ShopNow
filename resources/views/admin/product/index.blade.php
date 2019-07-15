@@ -5,11 +5,7 @@
 @section('content')
 <div class=" content-area">
 						<div class="page-header">
-							<h4 class="page-title">Data Tables</h4>
-							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">Tables</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Data Tables</li>
-							</ol>
+							<h4 class="page-title">All Products</h4>							
 						</div>
 						<div class="row">
 							<div class="col-md-12 col-lg-12">
@@ -22,23 +18,42 @@
 											<table id="example" class="table table-striped table-bordered border-top-0 border-bottom-0" style="width:100%">
 												<thead>
 													<tr class="border-bottom-0">
-														<th class="wd-15p">First name</th>
-														<th class="wd-15p">Last name</th>
-														<th class="wd-20p">Position</th>
-														<th class="wd-15p">Start date</th>
-														<th class="wd-10p">Salary</th>
-														<th class="wd-25p">E-mail</th>
+														<th class="wd-15p">Product Name</th>
+														<th class="wd-15p">Price</th>
+														<th class="wd-20p">Picture</th>
+														<th class="wd-15p">Stock</th>
+														<th class="wd-10p">Special Price</th>
+														<th class="wd-25p">Selling Price</th>
+														<th class="wd-25p">Actions</th>
 													</tr>
 												</thead>
 												<tbody>
+													@foreach($products as $product)
 													<tr>
-														<td>Bella</td>
-														<td>Chloe</td>
-														<td>System Developer</td>
-														<td>2018/03/12</td>
-														<td>$654,765</td>
-														<td>b.Chloe@datatables.net</td>
+														<td>{{$product->name}}</td>
+														<td>{{$product->price}}</td>
+														<td><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="" class="img-responsive" style="max-height: 100px;"></td>
+														<td>{{$product->qty}}</td>
+														<td>{{$product->special_price}}</td>
+														<td>{{$product->selling_price}}</td>
+														<td class="center">
+															
+															<a href="{{route('product.edit',$product->id)}}" class="btn btn-warning">Edit </a>
+
+															<form style="display: inline-block;" action="{{route('product.destroy',$product->id)}}" method="post" class="delete">
+																{{csrf_field()}}
+																<input name="_method" type="hidden" value="DELETE">
+																<button class="btn btn-danger" type="submit">Delete</button>
+															</form>
+
+
+
+
+														</td>
+														
+
 													</tr>
+													@endforeach
 													
 												</tbody>
 											</table>

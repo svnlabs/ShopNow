@@ -93,7 +93,7 @@
                     <div class="row">
                         <div class="col-md-3 col-sm-3 col-xs-12 logo-container">
                             <h1 class="logo clearfix">
-                                <span>Responsive eCommerce Template</span>
+                               
                                 <a href="index.html" title="Shop Now eCommerce Template"><img src="{{asset('frontend/images/logo6.png')}}" alt="Shop Now Commerce Template" width="200" height="54"></a>
                             </h1>
                         </div><!-- End .col-md-3 -->

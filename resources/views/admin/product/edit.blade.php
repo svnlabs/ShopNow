@@ -19,7 +19,7 @@
 							<h4 class="page-title">Products</h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="{{route('product.index')}}">Products</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Add new</li>
+								<li class="breadcrumb-item active" aria-current="page">Update Product</li>
 							</ol>
 						</div>
 
@@ -27,29 +27,29 @@
 					
 						<div class="row row-deck">
 							<div class="col-lg-12">
-								<form class="card" method="post" action="{{route('product.store')}}" enctype="multipart/form-data">
+								<form class="card" action="{{route('product.update', ['id' => $product->id])}}" method="post" enctype="multipart/form-data">
 									{{csrf_field()}}
 									<div class="card-header">
-										<h3 class="card-title">Add Product</h3>
+										<h3 class="card-title">Update Product</h3>
 									</div>
 									<div class="card-body">
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">Name</label>
-													<input type="text" name="name" class="form-control" placeholder="Product Name">
+													<input type="text" name="name" class="form-control" placeholder="Product Name" value="{{$product->name}}">
 												</div>
 											</div>
 											<div class="col-sm-6 col-md-6">
 												<div class="form-group">
 													<label class="form-label">Price</label>
-													<input type="text" name="price" class="form-control" placeholder="Product Price">
+													<input type="text" name="price" class="form-control" placeholder="Product Price" value="{{$product->price}}">
 												</div>
 											</div>
 											<div class="col-sm-6 col-md-4">
 												<div class="form-group">
 													<label class="form-label">Special Price</label>
-													<input type="text" name="special_price" class="form-control" placeholder="Special Price">
+													<input type="text" name="special_price" class="form-control" placeholder="Special Price" value="{{$product->special_price}}">
 												</div>
 											</div>
 											<div class="col-sm-6 col-md-4">
@@ -61,7 +61,7 @@
 																<div class="input-group-text">
 																	<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
 																</div>
-															</div><input class="form-control " name="special_price_start" placeholder="MM/DD/YYYY" type="date">
+															</div><input class="form-control " name="special_price_start" placeholder="MM/DD/YYYY" type="date" value="{{$product->special_price_start}}">
 														</div>
 													</div>
 												</div>
