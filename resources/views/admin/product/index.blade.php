@@ -24,7 +24,7 @@
 														<th class="wd-15p">Stock</th>
 														<th class="wd-10p">Special Price</th>
 														<th class="wd-25p">Selling Price</th>
-														<th class="wd-25p">Actions</th>
+														<th class="wd-25p" width="123">Actions</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -36,15 +36,50 @@
 														<td>{{$product->qty}}</td>
 														<td>{{$product->special_price}}</td>
 														<td>{{$product->selling_price}}</td>
-														<td class="center">
+														<td class="center" >
 															
 															<a href="{{route('product.edit',$product->id)}}" class="btn btn-warning">Edit </a>
-
+															<a href="" class="btn btn-danger" data-toggle="modal"
+															data-target="#DelModal{{$product->id}}">
+															<i class="fa fa-times"></i> Delete </a>
 															<form style="display: inline-block;" action="{{route('product.destroy',$product->id)}}" method="post" class="delete">
-																{{csrf_field()}}
-																<input name="_method" type="hidden" value="DELETE">
-																<button class="btn btn-danger" type="submit">Delete</button>
-															</form>
+																	{{csrf_field()}}
+																	<input name="_method" type="hidden" value="DELETE">
+
+
+															<div class="sweet-alert showSweetAlert visible" id="DelModal{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" style="display: none;" aria-hidden="true">
+																
+																<div class="sa-icon sa-warning pulseWarning" style="display: block;">
+																	<span class="sa-body pulseWarningIns"></span>
+																	<span class="sa-dot pulseWarningIns"></span>
+																</div>
+
+																
+																	<h2>Are you sure?</h2>
+																	<p style="display: block;">You won't be able to revert this!</p>
+																	
+																	<div class="sa-button-container">
+																		<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+																		<div class="sa-confirm-button-container">
+																			<button class="btn btn-danger" type="submit">Delete</button>																			
+																		</div>
+																	</div>
+																	
+																	
+																</form>
+
+
+
+															</div>
+
+
+
+
+															
+
+															
+																
+															
 
 
 
@@ -77,5 +112,7 @@
 $(function(e) {
 $('#example').DataTable();
 } );
+
+
 </script>
 @stop

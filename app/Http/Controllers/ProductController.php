@@ -38,6 +38,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        
         $product = new Product;
         $product->name = $request->name;
         $product->slug = Str::slug($request->get('name'));
@@ -68,8 +69,13 @@ class ProductController extends Controller
         }// get image extension
         
         
-        $product->save();
-        return redirect('/product')->with('alert','Product Added');
+        if($product->save()){
+             return redirect('/product')->with('success','Product Added');
+        }
+        else{
+            return redirect('/product')->with('alert','Request Failed');
+        }
+       
     }
 
     /**
@@ -144,9 +150,13 @@ class ProductController extends Controller
         }// get image extension
         
         
+        if($product->save()){
+             return redirect('/product')->with('success','Product Updated');
+        }
+        else{
+            return redirect('/product')->with('alert','Request Failed');
+        }
         
-        $product->save();
-        return redirect()->back() ->with('alert', 'Updated!');
     }
 
     /**
@@ -159,6 +169,6 @@ class ProductController extends Controller
     {
         $new = Product::find($id);
         $new->delete();
-       return Redirect()->route('product.index')->with('warning','Product Deleted successfully!');
+        return Redirect()->route('product.index')->with('delete','Product Deleted successfully!');
     }
 }

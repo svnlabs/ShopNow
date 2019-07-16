@@ -39,6 +39,8 @@
 
 		<!---Font icons-->
 		<link href="{{asset('backend\css\icons.css')}}" rel="stylesheet">
+		 <script src="{{asset('backend\plugins\sweet-alert\sweetalert.min.js')}}"></script>
+    	<link rel="stylesheet" href="{{asset('backend\plugins\sweet-alert\sweetalert.css')}}">
 
 	</head>
 	<body class="">
@@ -88,12 +90,39 @@
 
 		<!-- Custom scroll bar Js-->
 		<script src="{{asset('backend\plugins\scroll-bar\jquery.mCustomScrollbar.concat.min.js')}}"></script>
-
+		<script src="{{asset('backend\plugins\sweet-alert\sweetalert.min.js')}}"></script>
+		{{-- <script src="{{asset('backend\js\sweet-alert.js')}}"></script> --}}
         <!-- Index Scripts -->
 		<script src="{{asset('backend\js\index4.js')}}"></script>
 		@yield('js')
 		<!-- Custom-->
 		<script src="{{asset('backend\js\custom.js')}}"></script>
+		@if (session('success'))
+    <script type="text/javascript">
+        $(document).ready(function () {
+            swal("Success!", "{{ session('success') }}", "success");
+        });
+    </script>
+@endif
+
+@if (session('alert'))
+    <script type="text/javascript">
+        $(document).ready(function () {
+           
+            swal("Sorry!", "{{ session('alert') }}", "alert");
+        });
+    </script>
+@endif
+@if (session('delete'))
+    <script type="text/javascript">
+    	$(document).ready(function () {
+
+    		 swal("Success!", "{{ session('alert') }}", "delete");
+
+    	});
+    </script>
+@endif
+
 	
 	</body>
 </html>
