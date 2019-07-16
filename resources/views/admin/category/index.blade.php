@@ -5,13 +5,13 @@
 @section('content')
 <div class=" content-area">
 						<div class="page-header">
-							<h4 class="page-title">Products</h4>							
+							<h4 class="page-title">Category</h4>							
 						</div>
 						<div class="row">
 							<div class="col-md-12 col-lg-12">
 								<div class="card">
 									<div class="card-header">
-										<div class="card-title">All Products</div>
+										<div class="card-title">All Category</div>
 									</div>
 									<div class="card-body">
 										<div class="table-responsive">
@@ -28,7 +28,7 @@
 													</tr>
 												</thead>
 												<tbody>
-													@foreach($products as $product)
+													@foreach($categories as $category)
 													<tr>
 														<td>{{$product->name}}</td>
 														<td>{{$product->price}}</td>

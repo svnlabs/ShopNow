@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Category;
+use Illuminate\Support\Str;
+use Alert;
 class CategoryController extends Controller
 {
     /**
@@ -13,9 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-         $category = Category::all();
-
-        return view('admin.category.index', compact('category'));
+         $categories = Category::all();
+            return view('admin.category.index', compact('categories'));
     }
 
     /**
@@ -36,14 +37,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-         $this->validate($request, [
-        'category_name' => 'required|max:6',
-        'description' => 'required',
-        'status' => 'required',
-
-        ]);
-          $category->save();
-        return redirect('admin/category');
+        $category = new Category;
+        $category->name = $request->name;
+        $category->parent_id = $request->parent_id;
+        $category->position = $request->position;
+        $category->slug = Str::slug($request->get('name'));
+        $product->is_searchable = $request->is_searchable== 'on' ? '1' : '0';;
+        $product->is_active = $request->is_active== 'on' ? '1' : '0';;
+        $category->save();
+        return redirect('admin/category')->with('alert','created');
     }
 
     /**
@@ -65,7 +67,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
+
+        $category = Category::find($id);      
 
         return view('admin.category.edit', compact('category'));
     }
@@ -80,12 +83,14 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
          $category = Category::find($id);
-        $category->category_name = $request->get('category_name');
-        $category->description = $request->get('description');
-        $category->status = $request->get('status');
+        $category->name = $request->name;
+        $category->parent_id = $request->parent_id;
+        $category->position = $request->position;
+        $category->slug = Str::slug($request->get('name'));
+        $category->is_searchable = $request->is_searchable== 'on' ? '1' : '0';;
+        $category->is_active = $request->is_active== 'on' ? '1' : '0';;
         $category->save();
-       
-        return redirect('admin/category/');
+        return redirect('admin/category/')->with('alert','updated');
     }
 
     /**
@@ -98,7 +103,6 @@ class CategoryController extends Controller
     {
         $category =Category::find($id);
         $category->delete();
-
-        return redirect('admin/category');
+        return redirect('admin/category')->with('alert','deleted');
     }
 }

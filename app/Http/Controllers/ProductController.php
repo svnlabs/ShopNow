@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-       $products = \App\Product::all();
+       $products = Product::all();
        return view('admin.product.index',compact('products'));
     }
 
@@ -70,10 +70,10 @@ class ProductController extends Controller
         
         
         if($product->save()){
-             return redirect('/product')->with('success','Product Added');
+             return redirect('admin/product')->with('success','Product Added');
         }
         else{
-            return redirect('/product')->with('alert','Request Failed');
+            return redirect('admin/product')->with('alert','Request Failed');
         }
        
     }
@@ -151,10 +151,10 @@ class ProductController extends Controller
         
         
         if($product->save()){
-             return redirect('/product')->with('success','Product Updated');
+             return redirect('admin/product')->with('success','Product Updated');
         }
         else{
-            return redirect('/product')->with('alert','Request Failed');
+            return redirect('admin/product')->with('alert','Request Failed');
         }
         
     }

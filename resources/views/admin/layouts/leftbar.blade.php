@@ -15,15 +15,29 @@
 			</a>			
 		</li>
 		<li class="">
-			<a href="#Apps" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
+			<a href="#products" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
 				<i class="fa fa-cubes mr-2"></i> Product
 			</a>
-			<ul class="collapse list-unstyled" id="Apps" data-parent="#accordion">
+			<ul class="collapse list-unstyled" id="products" data-parent="#accordion">
 				<li>
 					<a href="{{route('product.index')}}">All Product</a>
 				</li>
 				<li>
 					<a href="{{route('product.create')}}">Add Product</a>
+				</li>
+				
+			</ul>
+		</li>
+		<li class="">
+			<a href="#category" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
+				<i class="fa fa-cubes mr-2"></i> Category
+			</a>
+			<ul class="collapse list-unstyled" id="category" data-parent="#accordion">
+				<li>
+					<a href="{{route('category.index')}}">All Category</a>
+				</li>
+				<li>
+					<a href="{{route('category.create')}}">Add Category</a>
 				</li>
 				
 			</ul>

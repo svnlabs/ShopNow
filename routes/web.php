@@ -11,5 +11,6 @@
 |
 */
 Route::resource('/', 'FrontController');
-Route::resource('/admin', 'DashboardController');
-Route::resource('/product', 'ProductController');
+Route::resource('admin', 'DashboardController');
+Route::resource('product', 'ProductController');
+Route::resource('category', 'CategoryController');
