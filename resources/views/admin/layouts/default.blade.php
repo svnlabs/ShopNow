@@ -15,7 +15,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
 		<!-- Title -->
-		<title>adminor – Clean & Modern Responsive Bootstrap 4 admin dashboard HTML5 Template.</title>
+		<title>Shop Now</title>
 		<link rel="stylesheet" href="{{asset('backend\fonts\fonts\font-awesome.min.css')}}">
 
 		<!-- Font family -->
