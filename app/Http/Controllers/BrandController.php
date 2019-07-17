@@ -35,7 +35,14 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $brand = new Brand;
+        $brand->name = $request->name;
+        $brand->category_id = $request->category_id;
+      
+        $brand->is_active = $request->is_active== 'on' ? '1' : '0';;
+        $brand->save();
+            return redirect('brand')->with('success','Brand Added');
     }
 
     /**
@@ -57,7 +64,9 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        //
+       $brand=Brand::find($id);
+        
+        return view('admin.brand.edit', compact('brand'));
     }
 
     /**
@@ -69,7 +78,13 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $brand = Brand::find($id);
+        $brand->name = $request->name;
+        $brand->parent_id = $request->parent_id;
+      
+        $brand->is_active = $request->is_active== 'on' ? '1' : '0';;
+        $brand->save();
+        return redirect('brand/')->with('alert','updated');
     }
 
     /**
@@ -80,6 +95,8 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $brand =Brand::find($id);
+        $brand->delete();
+        return redirect('brand')->with('alert','deleted');
     }
 }

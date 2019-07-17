@@ -17,6 +17,7 @@ class CreateBrandsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->tinyInteger('category_id');          
+            $table->tinyInteger('is_active');          
             $table->timestamps();
         });
     }

@@ -17,13 +17,10 @@
                                     <h3>Brands</h3>
                                     
                                     <div class="list-group list-group-brand">
-                                        <a href="#" class="list-group-item">Armani</a>
-                                        <a href="#" class="list-group-item">Bulgari</a>
-                                        <a href="#" class="list-group-item">Christion Dior</a>
-                                        <a href="#" class="list-group-item">Dolce &amp; Gabbana</a>
-                                        <a href="#" class="list-group-item">Fendi</a>
-                                        <a href="#" class="list-group-item">Givenchy</a>
-                                        <a href="#" class="list-group-item">Donna Karan</a>
+                                        @foreach($brands as $brand)
+                                        <a href="#" class="list-group-item">{{$brand->name}}</a>
+                                        @endforeach
+                                        
                                     </div><!-- End .list-group -->
                                 </div>
 

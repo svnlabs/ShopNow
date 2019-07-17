@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\Brand;
 use Carbon\Carbon;
 class FrontController extends Controller
 {
@@ -18,8 +19,9 @@ class FrontController extends Controller
         $date = new Carbon;
         $products = Product::all();
         $categories = Category::where('parent_id','=','0')->get();
+        $brands = Brand::paginate(2);
 
-       return view('layouts.default', compact('products','date','categories'));
+       return view('layouts.default', compact('products','date','categories','brands'));
     }
 
     /**

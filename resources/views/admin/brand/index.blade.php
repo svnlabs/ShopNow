@@ -18,12 +18,9 @@
 											<table id="example" class="table table-striped table-bordered border-top-0 border-bottom-0" style="width:100%">
 												<thead>
 													<tr class="border-bottom-0">
-														<th class="wd-15p">Product Name</th>
-														<th class="wd-15p">Price</th>
-														<th class="wd-20p">Picture</th>
-														<th class="wd-15p">Stock</th>
-														<th class="wd-10p">Special Price</th>
-														<th class="wd-25p">Selling Price</th>
+														<th class="wd-15p">Brand Name</th>
+														<th class="wd-15p">Category</th>
+														<th class="wd-20p">Status</th>												
 														<th class="wd-25p" width="123">Actions</th>
 													</tr>
 												</thead>
@@ -31,11 +28,9 @@
 													@foreach($brands as $product)
 													<tr>
 														<td>{{$product->name}}</td>
-														<td>{{$product->price}}</td>
-														<td><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="" class="img-responsive" style="max-height: 100px;"></td>
-														<td>{{$product->qty}}</td>
-														<td>{{$product->special_price}}</td>
-														<td>{{$product->selling_price}}</td>
+														<td>{{$product->category->name}}</td>
+														<td>{{$product->is_active}}</td>
+														
 														<td class="center" >
 															
 															<a href="{{route('product.edit',$product->id)}}" class="btn btn-warning">Edit </a>

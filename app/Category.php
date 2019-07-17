@@ -16,4 +16,9 @@ class Category extends Model
         'is_active',
         
     ];
+
+     public function brand()
+    {
+        return $this->hasMany('App\Brand');
+    }
 }

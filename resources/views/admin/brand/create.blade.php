@@ -16,9 +16,9 @@
 @section('content')
 <div class=" content-area">
 						<div class="page-header">
-							<h4 class="page-title">Products</h4>
+							<h4 class="page-title">Brands</h4>
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="{{route('product.index')}}">Products</a></li>
+								<li class="breadcrumb-item"><a href="{{route('product.index')}}">Brands</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Add new</li>
 							</ol>
 						</div>
@@ -27,10 +27,10 @@
 					
 						<div class="row row-deck">
 							<div class="col-lg-12">
-								<form class="card" method="post" action="{{route('product.store')}}" enctype="multipart/form-data">
+								<form class="card" method="post" action="{{route('brand.store')}}" enctype="multipart/form-data">
 									{{csrf_field()}}
 									<div class="card-header">
-										<h3 class="card-title">Add Product</h3>
+										<h3 class="card-title">Add Brand</h3>
 									</div>
 									<div class="card-body">
 										<div class="row">
@@ -42,132 +42,25 @@
 											</div>
 											<div class="col-sm-6 col-md-6">
 												<div class="form-group">
-													<label class="form-label">Price</label>
-													<input type="text" name="price" class="form-control" placeholder="Product Price">
+													<label class="form-label">Select Category</label>
+													<select name="category_id" class="form-control custom-select">
+														<option selected="" hidden value="">Select One</option>
+														@foreach(\App\Category::all() as $parent)
+														<option value="{{$parent->id}}">{{$parent->name}}</option>
+														@endforeach
+													</select>
 												</div>
 											</div>
-											<div class="col-sm-6 col-md-4">
-												<div class="form-group">
-													<label class="form-label">Special Price</label>
-													<input type="text" name="special_price" class="form-control" placeholder="Special Price">
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-4">
-												<div class="form-group">
-													<label class="form-label">Special Price Start</label>
-													<div class="input-group">
-														<div class="input-group">
-															<div class="input-group-prepend">
-																<div class="input-group-text">
-																	<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
-																</div>
-															</div><input class="form-control " name="special_price_start" placeholder="MM/DD/YYYY" type="date">
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-4">
-												<div class="form-group">
-													<label class="form-label">Special Price End</label>
-													<div class="input-group">
-														<div class="input-group">
-															<div class="input-group-prepend">
-																<div class="input-group-text">
-																	<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
-																</div>
-															</div><input class="form-control " name="special_price_end" placeholder="MM/DD/YYYY" type="date">
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-6">
-												<div class="form-group">
-													<label class="form-label">Selling Price</label>
-													<input type="text" name="selling_price" class="form-control" placeholder="Selling Price">
-												</div>
-											</div>
-											
-											<div class="col-sm-6 col-md-6">
-												<div class="form-group">
-													<label class="form-label">Quantity</label>
-													<input type="text" name="qty" class="form-control" placeholder="Quantity">
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-6">
-												<div class="form-group">
-													<label class="form-label">New From</label>
-													<div class="input-group">
-														<div class="input-group">
-															<div class="input-group-prepend">
-																<div class="input-group-text">
-																	<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
-																</div>
-															</div><input class="form-control" name="new_from" placeholder="MM/DD/YYYY" type="date">
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-6">
-												<div class="form-group">
-													<label class="form-label">New To</label>
-													<div class="input-group">
-														<div class="input-group">
-															<div class="input-group-prepend">
-																<div class="input-group-text">
-																	<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
-																</div>
-															</div><input class="form-control " name="new_to" placeholder="MM/DD/YYYY" type="date">
-														</div>
-													</div>
-												</div>
-											</div>
-											
-											<div class="col-md-12">
-												<div class="form-group mb-0">
-													<label class="form-label">Product Description</label>
-													<textarea class="content" name="description"></textarea>
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="card-header">
-										<h3 class="card-title">Image Upload</h3>
-									</div>
-									<div class=" card-body">
-										<div class="row">
-											<div class="col-lg-4 col-sm-12">
-												<input type="file" name="image" class="dropify" data-height="180">
-											</div>
-											
-										</div>
-										
-									</div>
-											</div>
-											
 											
 											<div class="col-md-4">
 												
+												
 												<div class="form-group">
-													<div class="form-label">Manage Stock</div>
-													<label class="custom-switch">
-														<input type="checkbox" name="manage_stock" class="custom-switch-input">
-														<span class="custom-switch-indicator"></span>
-														<span class="custom-switch-description">I want Notification before Stock Out </span>
-													</label>
-												</div>
-												<div class="form-group">
-													<div class="form-label">Out of Stock</div>
-													<label class="custom-switch">
-														<input type="checkbox" name="in_stock" class="custom-switch-input">
-														<span class="custom-switch-indicator"></span>
-														<span class="custom-switch-description">This Product is Out of stock</span>
-													</label>
-												</div>
-												<div class="form-group">
-													<div class="form-label">Is this product Active?</div>
+													<div class="form-label">Is this Brand Active?</div>
 													<label class="custom-switch">
 														<input type="checkbox" name="is_active" class="custom-switch-input">
 														<span class="custom-switch-indicator"></span>
-														<span class="custom-switch-description">This Product is Active</span>
+														<span class="custom-switch-description">This Brand is Active</span>
 													</label>
 												</div>
 											</div>
