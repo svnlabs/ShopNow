@@ -36,8 +36,13 @@
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="form-label">Name</label>
-													<input type="text" name="name" class="form-control" placeholder="Product Name">
+													<label class="form-label">Parent</label>
+													<select name="parent_id">
+														<option selected="" hidden value="">Select One</option>
+														@foreach( App\Category::where('parent_id',0)->get() as $parent)
+														<option value="{{$parent->id}}">{{$parent->id}}</option>
+														@endforeach
+													</select>
 												</div>
 											</div>
 											<div class="col-sm-6 col-md-6">
