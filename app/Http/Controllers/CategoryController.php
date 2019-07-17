@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-         $categories = Category::all();
+            $categories = Category::all();
             return view('admin.category.index', compact('categories'));
     }
 
@@ -45,7 +45,7 @@ class CategoryController extends Controller
         $category->is_searchable = $request->is_searchable== 'on' ? '1' : '0';;
         $category->is_active = $request->is_active== 'on' ? '1' : '0';;
         $category->save();
-        return redirect('admin/category')->with('alert','created');
+        return redirect()->route('category.index')->with('alert','created');
     }
 
     /**
@@ -90,7 +90,7 @@ class CategoryController extends Controller
         $category->is_searchable = $request->is_searchable== 'on' ? '1' : '0';;
         $category->is_active = $request->is_active== 'on' ? '1' : '0';;
         $category->save();
-        return redirect('admin/category/')->with('alert','updated');
+        return redirect('category/')->with('alert','updated');
     }
 
     /**
@@ -103,6 +103,6 @@ class CategoryController extends Controller
     {
         $category =Category::find($id);
         $category->delete();
-        return redirect('admin/category')->with('alert','deleted');
+        return redirect('category')->with('alert','deleted');
     }
 }

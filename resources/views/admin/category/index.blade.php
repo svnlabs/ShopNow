@@ -18,36 +18,41 @@
 											<table id="example" class="table table-striped table-bordered border-top-0 border-bottom-0" style="width:100%">
 												<thead>
 													<tr class="border-bottom-0">
-														<th class="wd-15p">Product Name</th>
-														<th class="wd-15p">Price</th>
-														<th class="wd-20p">Picture</th>
-														<th class="wd-15p">Stock</th>
-														<th class="wd-10p">Special Price</th>
-														<th class="wd-25p">Selling Price</th>
+														<th class="wd-15p">Category Name</th>
+														<th class="wd-15p">Type</th>							
+														<th class="wd-15p">Position</th>
+														<th class="wd-10p">Searchable</th>
+														<th class="wd-25p">Status</th>
 														<th class="wd-25p" width="123">Actions</th>
 													</tr>
 												</thead>
 												<tbody>
 													@foreach($categories as $category)
 													<tr>
-														<td>{{$product->name}}</td>
-														<td>{{$product->price}}</td>
-														<td><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="" class="img-responsive" style="max-height: 100px;"></td>
-														<td>{{$product->qty}}</td>
-														<td>{{$product->special_price}}</td>
-														<td>{{$product->selling_price}}</td>
+														<td>{{$category->name}}</td>
+														<td>
+															@if($category->parent_id == 0)
+																Root-Category
+															@else
+																Sub-Category
+															@endif
+														</td>
+													
+														<td>{{$category->position}}</td>
+														<td>{{$category->is_searchable}}</td>
+														<td>{{$category->is_active}}</td>
 														<td class="center" >
 															
-															<a href="{{route('product.edit',$product->id)}}" class="btn btn-warning">Edit </a>
+															<a href="{{route('category.edit',$category->id)}}" class="btn btn-warning">Edit </a>
 															<a href="" class="btn btn-danger" data-toggle="modal"
-															data-target="#DelModal{{$product->id}}">
+															data-target="#DelModal{{$category->id}}">
 															<i class="fa fa-times"></i> Delete </a>
-															<form style="display: inline-block;" action="{{route('product.destroy',$product->id)}}" method="post" class="delete">
+															<form style="display: inline-block;" action="{{route('category.destroy',$category->id)}}" method="post" class="delete">
 																	{{csrf_field()}}
 																	<input name="_method" type="hidden" value="DELETE">
 
 
-															<div class="sweet-alert showSweetAlert visible" id="DelModal{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" style="display: none;" aria-hidden="true">
+															<div class="sweet-alert showSweetAlert visible" id="DelModal{{$category->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" style="display: none;" aria-hidden="true">
 																
 																<div class="sa-icon sa-warning pulseWarning" style="display: block;">
 																	<span class="sa-body pulseWarningIns"></span>

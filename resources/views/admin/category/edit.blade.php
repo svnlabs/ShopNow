@@ -16,10 +16,10 @@
 @section('content')
 <div class=" content-area">
 						<div class="page-header">
-							<h4 class="page-title">Products</h4>
+							<h4 class="page-title">Category</h4>
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="{{route('product.index')}}">Products</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Update Product</li>
+								<li class="breadcrumb-item"><a href="{{route('category.index')}}">Category</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Add new</li>
 							</ol>
 						</div>
 
@@ -27,152 +27,70 @@
 					
 						<div class="row row-deck">
 							<div class="col-lg-12">
-								<form class="card" action="{{route('product.update', ['id' => $product->id])}}" method="post" enctype="multipart/form-data">
+								<form class="card" method="post" action="{{route('category.store')}}" >
 									{{csrf_field()}}
-									<input name="_method" type="hidden" value="PATCH">
 									<div class="card-header">
-										<h3 class="card-title">Update Product</h3>
+										<h3 class="card-title">Add Category</h3>
 									</div>
 									<div class="card-body">
 										<div class="row">
-											<div class="col-md-6">
+											<div class="col-md-4">
+												<div class="form-group">
+													<label class="form-label">Root Category</label>
+													
+													<select name="parent_id" class="form-control custom-select">
+														<option  value="0" 
+														
+														>This is Root Category</option>
+														@foreach(\App\Category::where('parent_id',0)->get() as $parent)
+														<option value="{{$parent->id}}" 
+														@if($category->parent_id==$parent->id)
+														selected=""
+														@endif 
+														>{{$parent->name}}</option>
+														@endforeach
+													</select>
+													
+												</div>
+											</div>
+											<div class="col-sm-6 col-md-4">
 												<div class="form-group">
 													<label class="form-label">Name</label>
-													<input type="text" name="name" class="form-control" placeholder="Product Name" value="{{$product->name}}">
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-6">
-												<div class="form-group">
-													<label class="form-label">Price</label>
-													<input type="text" name="price" class="form-control" placeholder="Product Price" value="{{$product->price}}">
+													<input type="text" name="name" class="form-control" placeholder="Category Name" value="{{$category->name}}">
 												</div>
 											</div>
 											<div class="col-sm-6 col-md-4">
 												<div class="form-group">
-													<label class="form-label">Special Price</label>
-													<input type="text" name="special_price" class="form-control" placeholder="Special Price" value="{{$product->special_price}}">
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-4">
-												<div class="form-group">
-													<label class="form-label">Special Price Start</label>
-													<div class="input-group">
-														<div class="input-group">
-															<div class="input-group-prepend">
-																<div class="input-group-text">
-																	<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
-																</div>
-															</div><input class="form-control " name="special_price_start" placeholder="MM/DD/YYYY" type="date" value="{{$product->special_price_start}}">
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-4">
-												<div class="form-group">
-													<label class="form-label">Special Price End</label>
-													<div class="input-group">
-														<div class="input-group">
-															<div class="input-group-prepend">
-																<div class="input-group-text">
-																	<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
-																</div>
-															</div><input class="form-control " name="special_price_end" placeholder="MM/DD/YYYY" type="date" value="{{$product->special_price_end}}">
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-6">
-												<div class="form-group">
-													<label class="form-label">Selling Price</label>
-													<input type="text" name="selling_price" class="form-control" placeholder="Selling Price" value="{{$product->selling_price}}">
+													<label class="form-label">Position</label>
+													<input type="number" name="position" class="form-control" placeholder="Category Position"
+													value="{{$category->position}}">
 												</div>
 											</div>
 											
-											<div class="col-sm-6 col-md-6">
-												<div class="form-group">
-													<label class="form-label">Quantity</label>
-													<input type="text" name="qty" class="form-control" placeholder="Quantity" value="{{$product->qty}}">
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-6">
-												<div class="form-group">
-													<label class="form-label">New From</label>
-													<div class="input-group">
-														<div class="input-group">
-															<div class="input-group-prepend">
-																<div class="input-group-text">
-																	<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
-																</div>
-															</div><input class="form-control" name="new_from" placeholder="MM/DD/YYYY" type="date" value="{{$product->new_from}}"> 
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-6">
-												<div class="form-group">
-													<label class="form-label">New To</label>
-													<div class="input-group">
-														<div class="input-group">
-															<div class="input-group-prepend">
-																<div class="input-group-text">
-																	<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
-																</div>
-															</div><input class="form-control " name="new_to" placeholder="MM/DD/YYYY" type="date" value="{{$product->new_to}}">
-														</div>
-													</div>
-												</div>
-											</div>
+											
 											
 											<div class="col-md-12">
-												<div class="form-group mb-0">
-													<label class="form-label">Product Description</label>
-													<textarea class="content" name="description">{{$product->description}}</textarea>
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="card-header">
-													<h3 class="card-title">Image Upload</h3>
-												</div>
-												<div class=" card-body">
-													<div class="row">
-														<div class="col-md-6 col-sm-12">
-															<input type="file" name="image" class="dropify" data-height="180">
-														</div>
-														<div class="col-md-6">
-															<img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" id="image_upload_preview" alt="Product Image" class="img-responsive" style="max-height: 180px">
-														</div>
-
-													</div>
-
-												</div>
-											</div>
-
-											
-											
-											<div class="col-md-4">
 												
 												<div class="form-group">
-													<div class="form-label">Manage Stock</div>
+													<div class="form-label">Searchable</div>
 													<label class="custom-switch">
-														<input type="checkbox" name="manage_stock" class="custom-switch-input" {{$product->manage_stock== '1' ? 'checked' : ''}}>
+														<input type="checkbox" name="is_searchable" class="custom-switch-input"
+
+														{{$category->is_searchable== '1' ? 'checked' : ''}}>
+									
 														<span class="custom-switch-indicator"></span>
-														<span class="custom-switch-description">I want Notification before Stock Out </span>
+														<span class="custom-switch-description">This is searchable category </span>
 													</label>
 												</div>
+											
 												<div class="form-group">
-													<div class="form-label">Out of Stock</div>
+													<div class="form-label">Is this Category Active?</div>
 													<label class="custom-switch">
-														<input type="checkbox" name="in_stock" class="custom-switch-input" {{$product->in_stock== '1' ? 'checked' : ''}}>
+														<input type="checkbox" name="is_active" class="custom-switch-input"
+														{{$category->is_active== '1' ? 'checked' : ''}}
+														>
 														<span class="custom-switch-indicator"></span>
-														<span class="custom-switch-description">This Product is Out of stock</span>
-													</label>
-												</div>
-												<div class="form-group">
-													<div class="form-label">Is this product Active?</div>
-													<label class="custom-switch">
-														<input type="checkbox" name="is_active" class="custom-switch-input" {{$product->is_active== '1' ? 'checked' : ''}}>
-														<span class="custom-switch-indicator"></span>
-														<span class="custom-switch-description">This Product is Active</span>
+														<span class="custom-switch-description">This Category is Active</span>
 													</label>
 												</div>
 											</div>
@@ -180,7 +98,7 @@
 										</div>
 									</div>
 									<div class="card-footer text-right">
-										<button type="submit" class="btn btn-primary">Update Product</button>
+										<button type="submit" class="btn btn-primary">Add Category</button>
 									</div>
 								</form>
 							</div>
@@ -204,23 +122,6 @@
 		<!-- file uploads js -->
         <script src="{{asset('backend\plugins\fileuploads\js\dropify.min.js')}}"></script>
         
-        <script type="text/javascript">
-        	$(function(e) {
-        	$('.content').richText();
-			$('.content2').richText();
-			});
-            $('.dropify').dropify({
-                messages: {
-                    'default': 'Drag and drop a file here or click',
-                    'replace': 'Drag and drop or click to replace',
-                    'remove': 'Remove',
-                    'error': 'Ooops, something wrong appended.'
-                },
-                error: {
-                    'fileSize': 'The file size is too big (2M max).'
-                }
-            });
-        </script>
-
+        
        
 @stop
