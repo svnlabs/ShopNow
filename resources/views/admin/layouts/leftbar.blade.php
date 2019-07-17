@@ -42,6 +42,20 @@
 				
 			</ul>
 		</li>
+		<li class="">
+			<a href="#brand" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
+				<i class="fa fa-cubes mr-2"></i> Brand
+			</a>
+			<ul class="collapse list-unstyled" id="brand" data-parent="#accordion">
+				<li>
+					<a href="{{route('brand.index')}}">All Brand</a>
+				</li>
+				<li>
+					<a href="{{route('brand.create')}}">Add Brand</a>
+				</li>
+				
+			</ul>
+		</li>
 		<li>
 			<a href="#pageSubmenu" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false"><i class="fa fa-area-chart mr-2"></i> Charts</a>
 			<ul class="collapse list-unstyled" id="pageSubmenu" data-parent="#accordion">

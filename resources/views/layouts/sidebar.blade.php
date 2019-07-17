@@ -4,30 +4,12 @@
                                     <h3>Categories</h3>
                                     
                                     <div class="list-group list-group-brand list-group-accordion">
-                                        <a href="#" class="list-group-item">Fashion
+                                        @foreach($categories as $category)
+                                        <a href="#" class="list-group-item">{{$category->name}}
                                             <span class="filter-icon filter-icon-fashion"></span>
                                         </a>
-                                        <a href="#" class="list-group-item">Furniture
-                                            <span class="filter-icon filter-icon-furniture"></span>
-                                        </a>
-                                        <a href="#" class="list-group-item">Electronics
-                                            <span class="filter-icon filter-icon-electronics"></span>
-                                        </a>
-                                        <a href="#" class="list-group-item">Gifts
-                                            <span class="filter-icon filter-icon-gifts"></span>
-                                        </a>
-                                        <a href="#" class="list-group-item">Books
-                                            <span class="filter-icon filter-icon-books"></span>
-                                        </a>
-                                        <a href="#" class="list-group-item">Music
-                                            <span class="filter-icon filter-icon-music"></span>
-                                        </a>
-                                        <a href="#" class="list-group-item">Sport &amp; Tourism
-                                            <span class="filter-icon filter-icon-sport"></span>
-                                        </a>
-                                        <a href="#" class="list-group-item">Games
-                                            <span class="filter-icon filter-icon-games"></span>
-                                        </a>
+                                        @endforeach
+                                        
                                     </div><!-- End .list-group -->
                                 </div>
 

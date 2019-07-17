@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Product;
-use App\Category;
-use Carbon\Carbon;
-class FrontController extends Controller
+use App\Brand;
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +13,8 @@ class FrontController extends Controller
      */
     public function index()
     {
-        $date = new Carbon;
-        $products = Product::all();
-        $categories = Category::where('parent_id','=','0')->get();
-
-       return view('layouts.default', compact('products','date','categories'));
+        $brands = Brand::all();
+        return view('admin.brand.index',compact('brands'));
     }
 
     /**
@@ -29,7 +24,7 @@ class FrontController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.brand.create');
     }
 
     /**
