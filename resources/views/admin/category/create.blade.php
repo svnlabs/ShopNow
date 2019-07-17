@@ -41,7 +41,7 @@
 													<select name="parent_id" class="form-control custom-select">
 														<option selected="" hidden value="0">Select One</option>
 														@foreach( App\Category::where('parent_id',0)->get() as $parent)
-														<option value="{{$parent->id}}">{{$parent->id}}</option>
+														<option value="{{$parent->id}}">{{$parent->name}}</option>
 														@endforeach
 													</select>
 													
