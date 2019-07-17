@@ -67,7 +67,7 @@
 												<div class="form-group">
 													<div class="form-label">Searchable</div>
 													<label class="custom-switch">
-														<input type="checkbox" name="manage_stock" class="custom-switch-input">
+														<input type="checkbox" name="is_searchable" class="custom-switch-input">
 														<span class="custom-switch-indicator"></span>
 														<span class="custom-switch-description">This is searchable category </span>
 													</label>

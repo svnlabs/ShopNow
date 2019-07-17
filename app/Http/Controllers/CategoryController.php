@@ -42,8 +42,8 @@ class CategoryController extends Controller
         $category->parent_id = $request->parent_id;
         $category->position = $request->position;
         $category->slug = Str::slug($request->get('name'));
-        $product->is_searchable = $request->is_searchable== 'on' ? '1' : '0';;
-        $product->is_active = $request->is_active== 'on' ? '1' : '0';;
+        $category->is_searchable = $request->is_searchable== 'on' ? '1' : '0';;
+        $category->is_active = $request->is_active== 'on' ? '1' : '0';;
         $category->save();
         return redirect('admin/category')->with('alert','created');
     }
