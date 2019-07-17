@@ -27,8 +27,9 @@
 					
 						<div class="row row-deck">
 							<div class="col-lg-12">
-								<form class="card" method="post" action="{{route('category.store')}}" >
+								<form class="card" method="post" action="{{route('category.update', ['id' => $category->id])}}" >
 									{{csrf_field()}}
+									<input name="_method" type="hidden" value="PATCH">
 									<div class="card-header">
 										<h3 class="card-title">Add Category</h3>
 									</div>
