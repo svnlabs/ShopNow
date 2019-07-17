@@ -27,7 +27,7 @@
 					
 						<div class="row row-deck">
 							<div class="col-lg-12">
-								<form class="card" method="post" action="{{route('product.store')}}" enctype="multipart/form-data">
+								<form class="card" method="post" action="{{route('category.store')}}" enctype="multipart/form-data">
 									{{csrf_field()}}
 									<div class="card-header">
 										<h3 class="card-title">Add Category</h3>
@@ -37,14 +37,14 @@
 											<div class="col-md-4">
 												<div class="form-group">
 													<label class="form-label">Root Category</label>
-													@if(App\Category::where('parent_id',0)->get())
+													
 													<select name="parent_id" class="form-control custom-select">
 														<option selected="" hidden value="0">Select One</option>
 														@foreach( App\Category::where('parent_id',0)->get() as $parent)
 														<option value="{{$parent->id}}">{{$parent->id}}</option>
 														@endforeach
 													</select>
-													@endif
+													
 												</div>
 											</div>
 											<div class="col-sm-6 col-md-4">
