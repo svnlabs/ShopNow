@@ -25,6 +25,8 @@
 														<th class="wd-15p">Stock</th>
 														<th class="wd-10p">Special Price</th>
 														<th class="wd-25p">Selling Price</th>
+														<th class="wd-25p">Category</th>
+														<th class="wd-25p">Brand</th>
 														<th class="wd-25p" width="123">Actions</th>
 													</tr>
 												</thead>
@@ -37,6 +39,8 @@
 														<td>{{$product->qty}}</td>
 														<td>{{$product->special_price}}</td>
 														<td>{{$product->selling_price}}</td>
+														<td>{{$product->category->name or '-'}}</td>
+														<td>{{$product->brand->name or '-'}}</td>
 														<td class="center" >
 															
 															<a href="{{route('product.edit',$product->id)}}" class="btn btn-warning">Edit </a>

@@ -34,25 +34,47 @@
 									</div>
 									<div class="card-body">
 										<div class="row">
-											<div class="col-md-6">
+											<div class="col-md-12">
 												<div class="form-group">
 													<label class="form-label">Name</label>
 													<input type="text" name="name" class="form-control" placeholder="Product Name">
 												</div>
 											</div>
-											<div class="col-sm-6 col-md-6">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="form-label">Category</label>
+													<select name="category_id" id="" class=" form-control custom-select">
+														<option value="" selected="" hidden=""> Select Category</option>
+														@foreach(App\Category::all() as $cat)
+														<option value="{{$cat->id}}" > {{$cat->name}}</option>
+														@endforeach
+													</select>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="form-label">Brand</label>
+													<select name="brand_id" id="" class=" form-control custom-select">
+														<option value="" selected="" hidden=""> Select Brand</option>
+														@foreach(App\Brand::all() as $cat)
+														<option value="{{$cat->id}}" > {{$cat->name}}</option>
+														@endforeach
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-6 col-md-3">
 												<div class="form-group">
 													<label class="form-label">Price</label>
 													<input type="text" name="price" class="form-control" placeholder="Product Price">
 												</div>
 											</div>
-											<div class="col-sm-6 col-md-4">
+											<div class="col-sm-6 col-md-3">
 												<div class="form-group">
 													<label class="form-label">Special Price</label>
 													<input type="text" name="special_price" class="form-control" placeholder="Special Price">
 												</div>
 											</div>
-											<div class="col-sm-6 col-md-4">
+											<div class="col-sm-6 col-md-3">
 												<div class="form-group">
 													<label class="form-label">Special Price Start</label>
 													<div class="input-group">
@@ -66,7 +88,7 @@
 													</div>
 												</div>
 											</div>
-											<div class="col-sm-6 col-md-4">
+											<div class="col-sm-6 col-md-3">
 												<div class="form-group">
 													<label class="form-label">Special Price End</label>
 													<div class="input-group">
@@ -80,20 +102,20 @@
 													</div>
 												</div>
 											</div>
-											<div class="col-sm-6 col-md-6">
+											<div class="col-sm-6 col-md-3">
 												<div class="form-group">
 													<label class="form-label">Selling Price</label>
 													<input type="text" name="selling_price" class="form-control" placeholder="Selling Price">
 												</div>
 											</div>
 											
-											<div class="col-sm-6 col-md-6">
+											<div class="col-sm-6 col-md-3">
 												<div class="form-group">
 													<label class="form-label">Quantity</label>
 													<input type="text" name="qty" class="form-control" placeholder="Quantity">
 												</div>
 											</div>
-											<div class="col-sm-6 col-md-6">
+											<div class="col-sm-6 col-md-3">
 												<div class="form-group">
 													<label class="form-label">New From</label>
 													<div class="input-group">
@@ -107,7 +129,7 @@
 													</div>
 												</div>
 											</div>
-											<div class="col-sm-6 col-md-6">
+											<div class="col-sm-6 col-md-3">
 												<div class="form-group">
 													<label class="form-label">New To</label>
 													<div class="input-group">
