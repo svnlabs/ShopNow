@@ -12,6 +12,7 @@
 								<div class="card">
 									<div class="card-header">
 										<div class="card-title">All Category</div>
+										<a class="btn btn-secondary" href="{{route('category.create')}}" style="position: absolute;right: 1%">Add</a>
 									</div>
 									<div class="card-body">
 										<div class="table-responsive">

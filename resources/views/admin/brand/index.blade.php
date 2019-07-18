@@ -12,6 +12,7 @@
 								<div class="card">
 									<div class="card-header">
 										<div class="card-title">All Brands</div>
+										<a class="btn btn-secondary" href="{{route('brand.create')}}" style="position: absolute;right: 1%">Add</a>
 									</div>
 									<div class="card-body">
 										<div class="table-responsive">
