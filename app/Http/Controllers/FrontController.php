@@ -21,7 +21,7 @@ class FrontController extends Controller
         $categories = Category::where('parent_id','=','0')->get();
         $brands = Brand::paginate(2);
 
-       return view('layouts.default', compact('products','date','categories','brands'));
+       return view('pages.home', compact('products','date','categories','brands'));
     }
 
     /**

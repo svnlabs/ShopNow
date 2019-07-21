@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Product;
 use Illuminate\Support\Str;
 use Alert;
 class CategoryController extends Controller
@@ -56,7 +57,10 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+         $category = Category::find($id);
+            $res = Product::with(['products','children.products'])->find($id);
+
+        return view('pages.category', compact('category','res'));
     }
 
     /**

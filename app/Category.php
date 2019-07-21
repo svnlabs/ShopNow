@@ -17,15 +17,29 @@ class Category extends Model
         
     ];
 
-     public function brand()
+    public function brand()
     {
         return $this->hasMany('App\Brand');
     }
+    
 
-     public function childs() {
+
+
+    public function children(){
+        return $this->hasMany(Category::class, 'parent_id');
+    }
+
+    public function parent(){
+        return $this->belongsTo(Category::class, 'parent_id');
+    }
+
+    public function childs() {
 
         return $this->hasMany('App\Category','parent_id','id') ;
 
+    }
+    public function products(){
+        return $this->hasMany(Product::class, 'category_id');
     }
 
 

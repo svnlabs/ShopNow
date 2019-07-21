@@ -41,6 +41,28 @@
 													<input type="text" name="name" class="form-control" placeholder="Product Name" value="{{$product->name}}">
 												</div>
 											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="form-label">Category</label>
+													<select name="category_id" id="" class=" form-control custom-select">
+														<option value="" selected="" hidden=""> Select Category</option>
+														@foreach(App\Category::all() as $cat)
+														<option value="{{$cat->id}}"  {{$product->category_id== $cat->id ? 'selected' : ''}}> {{$cat->name}}</option>
+														@endforeach
+													</select>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="form-label">Brand</label>
+													<select name="brand_id" id="" class=" form-control custom-select">
+														<option value="" selected="" hidden=""> Select Brand</option>
+														@foreach(App\Brand::all() as $cat)
+														<option value="{{$cat->id}}"  {{$product->category_id== $cat->id ? 'selected' : ''}}> {{$cat->name}}</option>
+														@endforeach
+													</select>
+												</div>
+											</div>
 											<div class="col-sm-6 col-md-6">
 												<div class="form-group">
 													<label class="form-label">Price</label>

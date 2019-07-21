@@ -25,4 +25,7 @@ class Product extends Model
         'new_from',
         'new_to',
     ];
+    public function category(){
+    return $this->belongsTo(Category::class, 'category_id');
+}
 }

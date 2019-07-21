@@ -42,6 +42,8 @@ class ProductController extends Controller
         
         $product = new Product;
         $product->name = $request->name;
+        $product->category_id = $request->category_id;
+        $product->brand_id = $request->brand_id;
         $product->slug = Str::slug($request->get('name'));
         $product->price = $request->price;
         $product->special_price = $request->special_price;
@@ -120,6 +122,8 @@ class ProductController extends Controller
        $product = Product::find($id);
       
         $product->name = $request->name;
+        $product->category_id = $request->category_id;
+        $product->brand_id = $request->brand_id;
         if($request->slug == $product->slug){
             $product->slug=false;
         }
