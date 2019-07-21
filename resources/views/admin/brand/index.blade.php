@@ -34,11 +34,11 @@
 														
 														<td class="center" >
 															
-															<a href="{{route('product.edit',$product->id)}}" class="btn btn-warning">Edit </a>
+															<a href="{{route('brand.edit',$product->id)}}" class="btn btn-warning">Edit </a>
 															<a href="" class="btn btn-danger" data-toggle="modal"
 															data-target="#DelModal{{$product->id}}">
 															<i class="fa fa-times"></i> Delete </a>
-															<form style="display: inline-block;" action="{{route('product.destroy',$product->id)}}" method="post" class="delete">
+															<form style="display: inline-block;" action="{{route('brand.destroy',$product->id)}}" method="post" class="delete">
 																	{{csrf_field()}}
 																	<input name="_method" type="hidden" value="DELETE">
 

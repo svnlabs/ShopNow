@@ -1,6 +1,67 @@
 @extends('admin.layouts.default')
 @section('css')
 <link href="{{asset('backend\plugins\datatable\dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+
+
+
+<style type="text/css">
+
+
+.treeRoot li {
+    list-style: none;
+    margin: 5px 0 5px 20px;
+}
+.treeRoot li[level='0'] {
+    margin-left: 0;
+}
+.treeRoot li:not(.parentNode) {
+    padding-left: 15px;
+}
+.triangle {
+    width:0;
+    height:0;
+    overflow:hidden;
+    font-size: 0;     /*是因为, 虽然宽高度为0, 但在IE6下会具有默认的 */
+    line-height: 0;  /* 字体大小和行高, 导致盒子呈现被撑开的长矩形 */
+    border-width:5px;
+    transition: transform .2s;
+    transform-origin: left center;
+    border-style:solid dashed dashed dashed;/*IE6下, 设置余下三条边的border-style为dashed,即可达到透明的效果*/
+    border-color:transparent transparent transparent #000;
+}
+.closed .triangle {
+    transform: rotateZ(90deg);
+}
+.treeRoot div.title {
+    height: 21px;
+    position: relative;
+}
+.treeRoot div.title i {
+    position: absolute;
+    top: 6px;
+    left: 0;
+}
+.treeRoot div.title p {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    margin: 0;
+}
+
+
+
+
+
+
+.indicator {
+
+    margin-right:5px;
+
+}
+
+
+
+</style>
 @stop
 @section('content')
 <div class=" content-area">
@@ -8,7 +69,44 @@
 							<h4 class="page-title">Category</h4>							
 						</div>
 						<div class="row">
-							<div class="col-md-12 col-lg-12">
+							<div class="col-md-3 col-lg-3">
+
+								<div class="card ">
+									<div class="card-header ">
+										<h3 class="card-title ">Tree View</h3>
+										
+									</div>
+									<div class="card-body text-center">
+										
+
+										<ul id="tree1" class="treeRoot">
+
+											@foreach(App\Category::where('parent_id', '=', 0)->get() as $category)
+
+											<li>
+
+												{{ $category->name }}
+
+												@if(count($category->childs))
+
+												@include('admin.category.manageChild',['childs' => $category->childs])
+
+												@endif
+
+											</li>
+
+											@endforeach
+
+										</ul>
+
+									</div>
+									<div class="card-footer text-center">
+										
+									</div>
+								</div>
+							
+							</div>
+							<div class="col-md-9 col-lg-9">
 								<div class="card">
 									<div class="card-header">
 										<div class="card-title">All Category</div>
@@ -119,6 +217,66 @@ $(function(e) {
 $('#example').DataTable();
 } );
 
+$.fn.extend({
+    treed: function (o) {
 
+        var openedClass = 'glyphicon-minus-sign';
+        var closedClass = 'glyphicon-plus-sign';
+
+        if (typeof o != 'undefined'){
+            if (typeof o.openedClass != 'undefined'){
+                openedClass = o.openedClass;
+            }
+            if (typeof o.closedClass != 'undefined'){
+                closedClass = o.closedClass;
+            }
+        };
+
+        //initialize each of the top levels
+        var tree = $(this);
+        tree.addClass("tree");
+        tree.find('li').has("ul").each(function () {
+            var branch = $(this); //li with children ul
+            branch.prepend("<i class='indicator glyphicon " + closedClass + "'></i>");
+            branch.addClass('branch');
+            branch.on('click', function (e) {
+                if (this == e.target) {
+                    var icon = $(this).children('i:first');
+                    icon.toggleClass(openedClass + " " + closedClass);
+                    $(this).children().children().toggle();
+                }
+            })
+            branch.children().children().toggle();
+        });
+        //fire event from the dynamically added icon
+        tree.find('.branch .indicator').each(function(){
+            $(this).on('click', function () {
+                $(this).closest('li').click();
+            });
+        });
+        //fire event to open branch if the li contains an anchor instead of text
+        tree.find('.branch>a').each(function () {
+            $(this).on('click', function (e) {
+                $(this).closest('li').click();
+                e.preventDefault();
+            });
+        });
+        //fire event to open branch if the li contains a button instead of text
+        tree.find('.branch>button').each(function () {
+            $(this).on('click', function (e) {
+                $(this).closest('li').click();
+                e.preventDefault();
+            });
+        });
+    }
+});
+
+//Initialization of treeviews
+
+$('#tree1').treed();
+
+$('#tree2').treed({openedClass:'glyphicon-folder-open', closedClass:'glyphicon-folder-close'});
+
+$('#tree3').treed({openedClass:'glyphicon-chevron-right', closedClass:'glyphicon-chevron-down'});
 </script>
 @stop

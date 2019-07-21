@@ -90,7 +90,7 @@ class CategoryController extends Controller
         $category->is_searchable = $request->is_searchable== 'on' ? '1' : '0';;
         $category->is_active = $request->is_active== 'on' ? '1' : '0';;
         $category->save();
-        return redirect('category/')->with('alert','updated');
+        return redirect('/admin/category/')->with('alert','updated');
     }
 
     /**
@@ -103,6 +103,6 @@ class CategoryController extends Controller
     {
         $category =Category::find($id);
         $category->delete();
-        return redirect('category')->with('alert','deleted');
+        return redirect('/admin/category/')->with('alert','deleted');
     }
 }

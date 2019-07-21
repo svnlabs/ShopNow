@@ -18,7 +18,7 @@
 						<div class="page-header">
 							<h4 class="page-title">Brands</h4>
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="{{route('product.index')}}">Brands</a></li>
+								<li class="breadcrumb-item"><a href="{{route('brand.index')}}">Brands</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Add new</li>
 							</ol>
 						</div>
@@ -27,8 +27,9 @@
 					
 						<div class="row row-deck">
 							<div class="col-lg-12">
-								<form class="card" method="post" action="{{route('brand.store')}}" enctype="multipart/form-data">
+								<form class="card" method="post" action="{{route('brand.update', ['id' => $brand->id])}}" >
 									{{csrf_field()}}
+									<input name="_method" type="hidden" value="PATCH">
 									<div class="card-header">
 										<h3 class="card-title">Add Brand</h3>
 									</div>
@@ -37,7 +38,7 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">Name</label>
-													<input type="text" name="name" class="form-control" placeholder="Product Name">
+													<input type="text" name="name" class="form-control" placeholder="Brand Name" value="{{$brand->name}}">
 												</div>
 											</div>
 											<div class="col-sm-6 col-md-6">
@@ -46,7 +47,7 @@
 													<select name="category_id" class="form-control custom-select">
 														<option selected="" hidden value="">Select One</option>
 														@foreach(\App\Category::all() as $parent)
-														<option value="{{$parent->id}}">{{$parent->name}}</option>
+														<option value="{{$parent->id}}" {{$brand->category_id==$parent->id ? 'selected' : ''}} >{{$parent->name}}</option>
 														@endforeach
 													</select>
 												</div>
@@ -58,9 +59,9 @@
 												<div class="form-group">
 													<div class="form-label">Is this Brand Active?</div>
 													<label class="custom-switch">
-														<input type="checkbox" name="is_active" class="custom-switch-input">
+														<input type="checkbox" name="is_active" class="custom-switch-input" {{$brand->is_active== '1' ? 'checked' : ''}}>
 														<span class="custom-switch-indicator"></span>
-														<span class="custom-switch-description">This Brand is Active</span>
+														<span class="custom-switch-description" >This Brand is Active</span>
 													</label>
 												</div>
 											</div>
@@ -68,7 +69,7 @@
 										</div>
 									</div>
 									<div class="card-footer text-right">
-										<button type="submit" class="btn btn-primary">Add Brand</button>
+										<button type="submit" class="btn btn-primary">Update Brand</button>
 									</div>
 								</form>
 							</div>

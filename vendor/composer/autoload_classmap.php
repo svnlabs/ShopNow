@@ -41,6 +41,7 @@ return array(
     'Carbon\\Laravel\\ServiceProvider' => $vendorDir . '/nesbot/carbon/src/Carbon/Laravel/ServiceProvider.php',
     'Carbon\\Translator' => $vendorDir . '/nesbot/carbon/src/Carbon/Translator.php',
     'Carbon\\Upgrade' => $vendorDir . '/nesbot/carbon/src/Carbon/Upgrade.php',
+    'CategorySeeder' => $baseDir . '/database/seeds/CategorySeeder.php',
     'CreateBrandsTable' => $baseDir . '/database/migrations/2019_07_17_110146_create_brands_table.php',
     'CreateCategoriesTable' => $baseDir . '/database/migrations/2019_07_11_114313_create_categories_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',

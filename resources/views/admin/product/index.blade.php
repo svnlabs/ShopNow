@@ -35,7 +35,10 @@
 													<tr>
 														<td>{{$product->name}}</td>
 														<td>{{$product->price}}</td>
-														<td><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="" class="img-responsive" style="max-height: 100px;"></td>
+														<td><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="" class="img-responsive" style="max-height: 100px;">
+														
+
+														</td>
 														<td>{{$product->qty}}</td>
 														<td>{{$product->special_price}}</td>
 														<td>{{$product->selling_price}}</td>

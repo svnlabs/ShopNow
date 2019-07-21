@@ -42,7 +42,7 @@ class BrandController extends Controller
       
         $brand->is_active = $request->is_active== 'on' ? '1' : '0';;
         $brand->save();
-            return redirect('brand')->with('success','Brand Added');
+            return redirect('/admin/brand')->with('success','Brand Added');
     }
 
     /**
@@ -80,11 +80,11 @@ class BrandController extends Controller
     {
         $brand = Brand::find($id);
         $brand->name = $request->name;
-        $brand->parent_id = $request->parent_id;
+        $brand->category_id = $request->category_id;
       
         $brand->is_active = $request->is_active== 'on' ? '1' : '0';;
         $brand->save();
-        return redirect('brand/')->with('alert','updated');
+        return redirect('/admin/brand/')->with('alert','updated');
     }
 
     /**
@@ -97,6 +97,6 @@ class BrandController extends Controller
     {
         $brand =Brand::find($id);
         $brand->delete();
-        return redirect('brand')->with('alert','deleted');
+        return redirect('/admin/brand/')->with('alert','deleted');
     }
 }

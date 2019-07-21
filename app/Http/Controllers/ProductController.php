@@ -62,7 +62,14 @@ class ProductController extends Controller
 
         //set path to http://localhost/ecommerce/public/Productimg/
         if($request->hasfile('image')){
-            $npath = 'public/Productimg/'.str_random().'.jpg';
+            $dir =  public_path('Productimg/');
+             $extension = strtolower($request->file('image')->getClientOriginalExtension()); 
+             $fileName = str_random() . '.' . $extension; // rename image
+         
+
+            
+            $product->image = $fileName;
+            $npath = $dir.$fileName;
             Image::make($request->image)->resize(222, 222)->save($npath);
        
         }// get image extension
@@ -139,13 +146,18 @@ class ProductController extends Controller
 
         //set path to http://localhost/ecommerce/public/Productimg/
         if($request->hasfile('image')){
-            $dir =  public_path('Productimg/');
+           
         if ($product->image != '' && File::exists($dir . $product->image))File::delete($dir . $product->image);
         
-        $extension = strtolower($request->file('image')->getClientOriginalExtension()); 
-        $fileName = str_random() . '.' . $extension; // rename image
-        $request->file('image')->move($dir, $fileName);//move img
-        $product->image = $fileName;//add to object
+        $dir =  public_path('Productimg/');
+             $extension = strtolower($request->file('image')->getClientOriginalExtension()); 
+             $fileName = str_random() . '.' . $extension; // rename image
+         
+
+            
+            $product->image = $fileName;
+            $npath = $dir.$fileName;
+            Image::make($request->image)->resize(222, 222)->save($npath);
         }// get image extension
         
         

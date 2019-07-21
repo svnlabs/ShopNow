@@ -354,6 +354,7 @@ class ComposerStaticInitb2c9e2a46c210845314cc7b97241664a
         'Carbon\\Laravel\\ServiceProvider' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Laravel/ServiceProvider.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
         'Carbon\\Upgrade' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Upgrade.php',
+        'CategorySeeder' => __DIR__ . '/../..' . '/database/seeds/CategorySeeder.php',
         'CreateBrandsTable' => __DIR__ . '/../..' . '/database/migrations/2019_07_17_110146_create_brands_table.php',
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2019_07_11_114313_create_categories_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
