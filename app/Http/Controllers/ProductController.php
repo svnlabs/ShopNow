@@ -7,6 +7,7 @@ use App\Product;
 use Illuminate\Support\Str;
 use Alert;
 use File;
+use Intervention\Image\ImageManagerStatic as Image;
 class ProductController extends Controller
 {
     /**
@@ -61,11 +62,9 @@ class ProductController extends Controller
 
         //set path to http://localhost/ecommerce/public/Productimg/
         if($request->hasfile('image')){
-        $dir =  public_path('Productimg/');
-        $extension = strtolower($request->file('image')->getClientOriginalExtension()); 
-        $fileName = str_random() . '.' . $extension; // rename image
-        $request->file('image')->move($dir, $fileName);//move img
-        $product->image = $fileName;//add to object
+            $npath = 'public/Productimg/'.str_random().'.jpg';
+            Image::make($request->image)->resize(222, 222)->save($npath);
+       
         }// get image extension
         
         
