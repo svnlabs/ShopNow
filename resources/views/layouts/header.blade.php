@@ -202,7 +202,7 @@
                                     <div class="menu-table">
                                         <ul class="menu clearfix">
                                         <li>
-                                            <a class="active" href="{{URL::to('/')}}">HOME</a>                                         
+                                            <a class="active" href="{{URL::to('/')}}">HOME</a>                                        
                                         </li>
                                         <li class="mega-menu-container"><a href="#">SHOP</a>
                                             <div class="mega-menu clearfix">
