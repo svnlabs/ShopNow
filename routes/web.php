@@ -11,6 +11,8 @@
 |
 */
 Route::resource('/', 'FrontController');
+Route::resource('/cart', 'CartController');
+Route::get('add-to-cart/{id}', 'CartController@addToCart');
 
 
 Route::group(['prefix' => 'admin'], function () {

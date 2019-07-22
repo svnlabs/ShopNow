@@ -99,42 +99,55 @@
                         </div><!-- End .col-md-3 -->
                         <div class="col-md-9 col-sm-9 col-xs-12 header-inner-right">
                             <div class="header-inner-right-wrapper clearfix">
-                                <?php $total = 0 ?>
-                                @if(session('cart'))
+                               
+                    
                                 <div class="dropdown-cart-menu-container pull-right">
                                     <div class="btn-group dropdown-cart">
                                     <button type="button" class="btn btn-custom dropdown-toggle" data-toggle="dropdown">
                                         <span class="cart-menu-icon"></span>
-                                        0 item(s) <span class="drop-price">- $0.00</span>
+                                                @if(session('cart'))
+                                                {{ count(session('cart')) }} item(s)
+                                                @else
+                                                0 item(s)
+                                                @endif  <span class="drop-price"><?php $total = 0 ?>
+                                                @if(session('cart'))
+                                                    @foreach(session('cart') as $id => $details)
+                                                    <?php $total += $details['price'] * $details['quantity'] ?>
+                                                    @endforeach
+                                                    - ৳{{ $total }}
+                                                @else
+                                                - ৳ 0 
+                                                @endif </span>
                                     </button>
                                     
                                         <div class="dropdown-menu dropdown-cart-menu pull-right clearfix" role="menu">
                                             <p class="dropdown-cart-description">Recently added item(s).</p>
                                             <ul class="dropdown-cart-product-list">
+                                                @if(session('cart'))
                                                 @foreach(session('cart') as $id => $details)
                                                 <li class="item clearfix">
                                                 <a href="#" title="Delete item" class="delete-item"><i class="fa fa-times"></i></a>
                                                 <a href="#" title="Edit item" class="edit-item"><i class="fa fa-pencil"></i></a>
                                                     <figure>
-                                                        <a href="product.html"><img src="{{asset('frontend/images/products/thumbnails/item12.jpg')}}" alt="phone 4"></a>
+                                                        <a href="product.html"><img src="{{asset('Productimg/'.$details['image'])}}" alt="phone 4"></a>
                                                     </figure>
                                                     <div class="dropdown-cart-details">
                                                         <p class="item-name">
-                                                        <a href="product.html">Cam Optia AF Webcam </a>
+                                                        <a href="product.html">{{ $details['name'] }} </a>
                                                         </p>
                                                         <p>
                                                             1x
-                                                            <span class="item-price">$499</span>
+                                                            <span class="item-price">৳{{ $details['price'] }}</span>
                                                         </p>
                                                     </div><!-- End .dropdown-cart-details -->
                                                 </li>
                                                 @endforeach
-                                                
+                                                @endif
                                             </ul>
                                             
                                             <ul class="dropdown-cart-total">
-                                                <li><span class="dropdown-cart-total-title">Shipping:</span>$7</li>
-                                                <li><span class="dropdown-cart-total-title">Total:</span>$1005<span class="sub-price">.99</span></li>
+                                                {{-- <li><span class="dropdown-cart-total-title">Shipping:</span>$7</li> --}}
+                                                <li><span class="dropdown-cart-total-title">Total:</span>৳{{ $total }}</li>
                                             </ul><!-- .dropdown-cart-total -->
                                             <div class="dropdown-cart-action">
                                                 <p><a href="cart.html" class="btn btn-custom-2 btn-block">Cart</a></p>
@@ -144,7 +157,7 @@
                                         </div><!-- End .dropdown-cart -->
                                     </div><!-- End .btn-group -->
                                 </div><!-- End .dropdown-cart-menu-container -->
-                                @endif
+                              
 
                                 <div id="quick-access">
                                     <form class="form-inline quick-search-form" role="form" action="#">
