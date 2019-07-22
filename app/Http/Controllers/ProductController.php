@@ -78,10 +78,10 @@ class ProductController extends Controller
         
         
         if($product->save()){
-             return redirect('admin/product')->with('success','Product Added');
+             return back()->with('success','Product Added');
         }
         else{
-            return redirect('admin/product')->with('alert','Request Failed');
+            return back()->with('alert','Request Failed');
         }
        
     }
@@ -166,10 +166,10 @@ class ProductController extends Controller
         
         
         if($product->save()){
-             return redirect('admin/product')->with('success','Product Updated');
+             return back()->with('success','Product Updated');
         }
         else{
-            return redirect('admin/product')->with('alert','Request Failed');
+            return back()->with('alert','Request Failed');
         }
         
     }
@@ -186,4 +186,6 @@ class ProductController extends Controller
         $new->delete();
         return Redirect()->route('product.index')->with('delete','Product Deleted successfully!');
     }
+
+
 }

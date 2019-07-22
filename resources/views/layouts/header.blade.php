@@ -99,7 +99,8 @@
                         </div><!-- End .col-md-3 -->
                         <div class="col-md-9 col-sm-9 col-xs-12 header-inner-right">
                             <div class="header-inner-right-wrapper clearfix">
-
+                                <?php $total = 0 ?>
+                                @if(session('cart'))
                                 <div class="dropdown-cart-menu-container pull-right">
                                     <div class="btn-group dropdown-cart">
                                     <button type="button" class="btn btn-custom dropdown-toggle" data-toggle="dropdown">
@@ -110,6 +111,7 @@
                                         <div class="dropdown-menu dropdown-cart-menu pull-right clearfix" role="menu">
                                             <p class="dropdown-cart-description">Recently added item(s).</p>
                                             <ul class="dropdown-cart-product-list">
+                                                @foreach(session('cart') as $id => $details)
                                                 <li class="item clearfix">
                                                 <a href="#" title="Delete item" class="delete-item"><i class="fa fa-times"></i></a>
                                                 <a href="#" title="Edit item" class="edit-item"><i class="fa fa-pencil"></i></a>
@@ -126,22 +128,8 @@
                                                         </p>
                                                     </div><!-- End .dropdown-cart-details -->
                                                 </li>
-                                                <li class="item clearfix">
-                                                <a href="#" title="Delete item" class="delete-item"><i class="fa fa-times"></i></a>
-                                                <a href="#" title="Edit item" class="edit-item"><i class="fa fa-pencil"></i></a>
-                                                    <figure>
-                                                        <a href="product.html"><img src="{{asset('frontend/images/products/thumbnails/item13.jpg')}}" alt="phone 2"></a>
-                                                    </figure>
-                                                    <div class="dropdown-cart-details">
-                                                        <p class="item-name">
-                                                            <a href="product.html">Iphone Case Cover Original</a>
-                                                        </p>
-                                                        <p>
-                                                            1x
-                                                            <span class="item-price">$499<span class="sub-price">.99</span></span>
-                                                        </p>
-                                                    </div><!-- End .dropdown-cart-details -->
-                                                </li>
+                                                @endforeach
+                                                
                                             </ul>
                                             
                                             <ul class="dropdown-cart-total">
@@ -156,6 +144,7 @@
                                         </div><!-- End .dropdown-cart -->
                                     </div><!-- End .btn-group -->
                                 </div><!-- End .dropdown-cart-menu-container -->
+                                @endif
 
                                 <div id="quick-access">
                                     <form class="form-inline quick-search-form" role="form" action="#">

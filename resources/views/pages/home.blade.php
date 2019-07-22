@@ -74,7 +74,7 @@
                                                             </div><!-- End .rating-container -->
                                                             <h3 class="item-name"><a href="product.html">{{$product->name}}</a></h3>
                                                             <div class="item-action">
-                                                                <a href="#" class="item-add-btn">
+                                                                <a href="{{ url('add-to-cart/'.$product->id) }}" class="item-add-btn">
                                                                     <span class="icon-cart-text">Add to Cart</span>
                                                                 </a>
                                                                 <div class="item-action-inner">
@@ -133,7 +133,7 @@
                                                             </div><!-- End .rating-container -->
                                                             <h3 class="item-name"><a href="product.html">{{$product->name}}</a></h3>
                                                             <div class="item-action">
-                                                                <a href="#" class="item-add-btn">
+                                                                <a href="{{ url('add-to-cart/'.$product->id) }}" class="item-add-btn">
                                                                     <span class="icon-cart-text">Add to Cart</span>
                                                                 </a>
                                                                 <div class="item-action-inner">
@@ -188,7 +188,7 @@
                                                             </div><!-- End .rating-container -->
                                                             <h3 class="item-name"><a href="product.html">{{$product->name}}</a></h3>
                                                             <div class="item-action">
-                                                                <a href="#" class="item-add-btn">
+                                                                <a href="{{ url('add-to-cart/'.$product->id) }}" class="item-add-btn">
                                                                     <span class="icon-cart-text">Add to Cart</span>
                                                                 </a>
                                                                 <div class="item-action-inner">
@@ -243,7 +243,7 @@
                                                             </div><!-- End .rating-container -->
                                                             <h3 class="item-name"><a href="product.html">{{$product->name}}</a></h3>
                                                             <div class="item-action">
-                                                                <a href="#" class="item-add-btn">
+                                                                <a href="{{ url('add-to-cart/'.$product->id) }}" class="item-add-btn">
                                                                     <span class="icon-cart-text">Add to Cart</span>
                                                                 </a>
                                                                 <div class="item-action-inner">
