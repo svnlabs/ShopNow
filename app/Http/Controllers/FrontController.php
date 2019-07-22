@@ -18,10 +18,11 @@ class FrontController extends Controller
     {
         $date = new Carbon;
         $products = Product::all();
+        $sideproducts = Product::all()->random(4);
         $categories = Category::where('parent_id','=','0')->get();
-        $brands = Brand::paginate(2);
+        $brands = Brand::all();
 
-       return view('pages.home', compact('products','date','categories','brands'));
+       return view('pages.home', compact('products','date','categories','brands','sideproducts'));
     }
 
     /**

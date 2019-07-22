@@ -42,12 +42,12 @@
                                     
                                     <div class="related-slider flexslider sidebarslider">
                                         <ul class="related-list clearfix">
-                                             @foreach ($products->chunk(4) as $chunk)
+                                            
                                             <li>
-                                                @foreach($chunk as $product)
+                                                @foreach($sideproducts as $product)
                                                 <div class="related-product clearfix">
                                                     <figure>
-                                                        <img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="item1">
+                                                        <img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="item1" width="115" height="115">
                                                     </figure>
                                                     <h5><a href="#">{{$product->name}}</a></h5>
                                                     <div class="ratings-container">
@@ -60,7 +60,7 @@
                                                 
                                                 @endforeach
                                             </li>
-                                            @endforeach
+                                            
                                             
                                         </ul>
                                     </div><!-- End .related-slider -->
