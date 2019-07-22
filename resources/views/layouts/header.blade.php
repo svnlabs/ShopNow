@@ -48,7 +48,7 @@
                                 <ul id="top-links" class="clearfix">
                                     <li><a href="#" title="My Wishlist"><span class="top-icon top-icon-pencil"></span><span class="hide-for-xs">My Wishlist</span></a></li>
                                     <li><a href="#" title="My Account"><span class="top-icon top-icon-user"></span><span class="hide-for-xs">My Account</span></a></li>
-                                    <li><a href="cart.html" title="My Cart"><span class="top-icon top-icon-cart"></span><span class="hide-for-xs">My Cart</span></a></li>
+                                    <li><a href="{{route('cart.index')}}" title="My Cart"><span class="top-icon top-icon-cart"></span><span class="hide-for-xs">My Cart</span></a></li>
                                     <li><a href="checkout.html" title="Checkout"><span class="top-icon top-icon-check"></span><span class="hide-for-xs">Checkout</span></a></li>
                                 </ul>
                             </div><!-- End .header-top-left -->
@@ -150,7 +150,7 @@
                                                 <li><span class="dropdown-cart-total-title">Total:</span>৳{{ $total }}</li>
                                             </ul><!-- .dropdown-cart-total -->
                                             <div class="dropdown-cart-action">
-                                                <p><a href="cart.html" class="btn btn-custom-2 btn-block">Cart</a></p>
+                                                <p><a href="{{route('cart.index')}}" class="btn btn-custom-2 btn-block">Cart</a></p>
                                                 <p><a href="checkout.html" class="btn btn-custom btn-block">Checkout</a></p>
                                             </div><!-- End .dropdown-cart-action -->
                                             
@@ -202,18 +202,7 @@
                                     <div class="menu-table">
                                         <ul class="menu clearfix">
                                         <li>
-                                            <a class="active" href="index.html">HOME</a>
-                                            <ul>
-                                                <li><a href="../green/index.html">Home 1</a></li>
-                                                <li><a href="../blue/index.html">Home 2</a></li>
-                                                <li><a href="../orange/index.html">Home 3</a></li>
-                                                <li><a href="../pink/index.html">Home 4</a></li>
-                                                <li><a href="../brown/index.html">Home 5</a></li>
-                                                <li><a href="../green2/index.html">Home 6</a></li>
-                                                <li><a href="../blueorange/index.html">Home 7</a></li>
-                                                <li><a href="../blueorange2/index.html">Home 8</a></li>
-                                                <li><a href="../browngreen/index.html">Home 9</a></li>
-                                            </ul>
+                                            <a class="active" href="{{URL::to('/')}}">HOME</a>                                         
                                         </li>
                                         <li class="mega-menu-container"><a href="#">SHOP</a>
                                             <div class="mega-menu clearfix">

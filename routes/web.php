@@ -13,7 +13,8 @@
 Route::resource('/', 'FrontController');
 Route::resource('/cart', 'CartController');
 Route::get('add-to-cart/{id}', 'CartController@addToCart');
-
+Route::patch('update-cart', 'CartController@update'); 
+Route::delete('remove-from-cart', 'CartController@remove');
 
 Route::group(['prefix' => 'admin'], function () {
 

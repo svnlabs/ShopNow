@@ -54,14 +54,14 @@
                                                                 </a>
                                                             </figure>
                                                             <div class="item-price-container">
-                                                                <span class="item-price">{{$product->price}}</span>
+                                                                <span class="item-price">৳ {{$product->price}}</span>
                                                             </div><!-- End .item-price-container -->
-                                                            <span class="new-rect">
+                                                           
 
                                                                 @if($date < $product->new_to)                                                                
-                                                                    New                                                                
+                                                                 <span class="new-rect">    New    </span>                                                            
                                                                 @endif
-                                                            </span>
+                                                            
                                                         </div><!-- End .item-image-wrapper -->
                                                         <div class="item-meta-container">
                                                             <div class="ratings-container">
@@ -113,14 +113,14 @@
                                                                 </a>
                                                             </figure>
                                                             <div class="item-price-container">
-                                                                <span class="item-price">{{$product->price}}</span>
+                                                                <span class="item-price">৳ {{$product->price}}</span>
                                                             </div><!-- End .item-price-container -->
-                                                            <span class="new-rect">
+                                                            
 
                                                                 @if($date < $product->new_to)                                                                
-                                                                    New                                                                
+                                                                <span class="new-rect">    New           </span>                                                     
                                                                 @endif
-                                                            </span>
+                                                            
                                                         </div><!-- End .item-image-wrapper -->
                                                         <div class="item-meta-container">
                                                             <div class="ratings-container">
@@ -168,14 +168,16 @@
                                                                 </a>
                                                             </figure>
                                                             <div class="item-price-container">
-                                                                <span class="item-price">{{$product->price}}</span>
+                                                                <span class="item-price">৳ {{$product->price}}</span>
                                                             </div><!-- End .item-price-container -->
+                                                              @if($date < $product->new_to)        
                                                             <span class="new-rect">
 
-                                                                @if($date < $product->new_to)                                                                
+                                                                                                                      
                                                                     New                                                                
-                                                                @endif
+                                                               
                                                             </span>
+                                                             @endif
                                                         </div><!-- End .item-image-wrapper -->
                                                         <div class="item-meta-container">
                                                             <div class="ratings-container">
@@ -223,14 +225,14 @@
                                                                 </a>
                                                             </figure>
                                                             <div class="item-price-container">
-                                                                <span class="item-price">{{$product->price}}</span>
+                                                                <span class="item-price">৳ {{$product->price}}</span>
                                                             </div><!-- End .item-price-container -->
-                                                            <span class="new-rect">
+                                                            
 
                                                                 @if($date < $product->new_to)                                                                
-                                                                    New                                                                
+                                                                 <span class="new-rect">   New     </span>                                                           
                                                                 @endif
-                                                            </span>
+                                                            
                                                         </div><!-- End .item-image-wrapper -->
                                                         <div class="item-meta-container">
                                                             <div class="ratings-container">

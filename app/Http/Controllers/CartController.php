@@ -67,7 +67,7 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         if($request->id and $request->quantity)
         {
@@ -87,7 +87,7 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function remove(Request $request)
     {
         if($request->id) {
 
@@ -121,9 +121,12 @@ class CartController extends Controller
 
             $cart = [
                 $id => [
+
                     "name" => $product->name,
                     "quantity" => 1,
                     "price" => $product->price,
+                    "sku" => $product->sku,
+                    "description" => $product->description,
                     "image" => $product->image
                 ]
             ];
@@ -146,20 +149,22 @@ class CartController extends Controller
 
         // if item not exist in cart then add to cart with quantity = 1
         $cart[$id] = [
-            "name" => $product->name,
-            "quantity" => 1,
-            "price" => $product->price,
-            "image" => $product->image
-        ];
+          "name" => $product->name,
+          "quantity" => 1,
+          "price" => $product->price,
+          "sku" => $product->sku,
+          "description" => $product->description,
+          "image" => $product->image
+      ];
 
-        session()->put('cart', $cart);
+      session()->put('cart', $cart);
 
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
-    }
+      return redirect()->back()->with('success', 'Product added to cart successfully!');
+  }
 
-    
+  
 
-    
+  
 
 
 }
