@@ -57,8 +57,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-         $category = Category::find($id);
-            $res = Product::with(['products','children.products'])->find($id);
+        $category = Category::find($id);
+        $res = Category::with(['products','children.products'])->find($id);
 
         return view('pages.category', compact('category','res'));
     }
