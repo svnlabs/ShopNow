@@ -1,4 +1,5 @@
-<pre>
-	{{ $category}} <br>
-	{{ $res }} <br>
-	{{brand}}
+<?php 
+echo "<pre>"; 
+
+{{$res->childs->name}}
+	
