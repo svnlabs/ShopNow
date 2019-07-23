@@ -32,7 +32,7 @@ Route::delete('remove-from-cart', 'CartController@remove');
 // |------------------------ Shop Controller ----------------------------------------------|
 
 Route::get('/shop/{id}', 'FrontController@shop')->name('shop.show');
-Route::post('/shop//{id}', 'FrontController@shop');
+
 
 // |------------------------ Shop Controller ----------------------------------------------|
 
