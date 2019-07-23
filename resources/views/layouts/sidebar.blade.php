@@ -5,7 +5,7 @@
                                     
                                     <div class="list-group list-group-brand list-group-accordion">
                                         @foreach($categories as $category)
-                                        <a href="{{route('category.show',$category->id)}}" class="list-group-item">{{$category->name}}
+                                        <a href="{{route('shop.show',$category->id)}}" class="list-group-item">{{$category->name}}
                                             <span class="filter-icon filter-icon-fashion"></span>
                                         </a>
                                         @endforeach
@@ -18,7 +18,7 @@
                                     
                                     <div class="list-group list-group-brand">
                                         @foreach($brands as $brand)
-                                        <a href="{{route('category.show',$category->id)}}" class="list-group-item">{{$brand->name}}</a>
+                                        <a href="{{route('shop.show',$brand->id)}}" class="list-group-item">{{$brand->name}}</a>
                                         @endforeach
                                         
                                     </div><!-- End .list-group -->

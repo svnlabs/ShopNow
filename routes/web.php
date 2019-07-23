@@ -14,15 +14,27 @@
 
 
 
-// |------------------------ Web Site Controller Collection -------------------------------|
+
 Route::resource('/', 'FrontController');
+
+
+
+// |------------------------ Cart ---------------------------------------------------------|
+
 Route::resource('/cart', 'CartController');
 Route::get('add-to-cart/{id}', 'CartController@addToCart');
 Route::patch('update-cart', 'CartController@update'); 
 Route::delete('remove-from-cart', 'CartController@remove');
-// |------------------------ Web Site Controller Collection -------------------------------|
+
+// |------------------------ Cart ---------------------------------------------------------|
 
 
+// |------------------------ Shop Controller ----------------------------------------------|
+
+Route::get('/shop/{id}', 'FrontController@shop')->name('shop.show');
+Route::post('/shop//{id}', 'FrontController@shop');
+
+// |------------------------ Shop Controller ----------------------------------------------|
 
 
 
@@ -30,6 +42,7 @@ Route::delete('remove-from-cart', 'CartController@remove');
 
 
 // |---------------------- Admin Panel COntroller Collections -----------------------------|
+
 Route::group(['prefix' => 'admin'], function () {
 
 Route::resource('admin', 'DashboardController');
