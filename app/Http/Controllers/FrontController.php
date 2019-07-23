@@ -32,7 +32,7 @@ class FrontController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function shop(Request $request, $id)
+    public function shop($id)
     {
         $category = Category::find($id);
         $res = Category::with(['products','children.products'])->find($id);
