@@ -1,5 +1,3 @@
 <?php 
 echo "<pre>"; 
-
-{{$res->childs->name}}
-	
+print_r($res);

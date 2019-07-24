@@ -35,9 +35,9 @@ class FrontController extends Controller
     public function shop($id)
     {
         $category = Category::find($id);
-        $res = Category::with(['products','childs.products'])->find($id);
+        $res = Category::with(['products','childs.products','childs.childs.products'])->find($id);
         // $brand = Product::find('brand_id', '=', $id)->get();
-        return view('test', compact('category','res','brand'));
+        return view('test', compact('category','res'));
     }
 
     
