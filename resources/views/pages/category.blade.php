@@ -81,9 +81,10 @@
         						<div class="md-margin"></div><!-- .space -->
         						<div class="category-item-container"> 
                                 <div class="row">
-                                    
-                                	@foreach($res as $product)
-                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                    @foreach($res->childs as $child)
+                                        @foreach($child->childs as $grand)
+                                            @foreach($grand->products as $product)
+                                                <div class="col-md-4 col-sm-6 col-xs-12">
 
                                          <div class="item item-hover">
                                                         <div class="item-image-wrapper">
@@ -125,397 +126,56 @@
                                                         </div><!-- End .item-meta-container --> 
                                                     </div><!-- End .item -->
                                     </div>
-                                    @endforeach
-                                    <!-- End .col-md-4 -->
+                                            @endforeach
+                                        @endforeach
+                                        @foreach($child->products as $product)
+                                            <div class="col-md-4 col-sm-6 col-xs-12">
+
+                                         <div class="item item-hover">
+                                                        <div class="item-image-wrapper">
+                                                            <figure class="item-image-container">
+                                                                <a href="product.html">
+                                                                    <img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="">
+                                                                    
+                                                                </a>
+                                                            </figure>
+                                                            <div class="item-price-container">
+                                                                <span class="item-price">{{$product->price}}</span>
+                                                            </div><!-- End .item-price-container -->
+                                                            <span class="new-rect">
+
+                                                                @if($date < $product->new_to)                                                                
+                                                                    New                                                                
+                                                                @endif
+                                                            </span>
+                                                        </div><!-- End .item-image-wrapper -->
+                                                        <div class="item-meta-container">
+                                                            <div class="ratings-container">
+                                                                <div class="ratings">
+                                                                    <div class="ratings-result" data-result="80"></div>
+                                                                </div><!-- End .ratings -->
+                                                                <span class="ratings-amount">
+                                                                    5 Reviews
+                                                                </span>
+                                                            </div><!-- End .rating-container -->
+                                                            <h3 class="item-name"><a href="product.html">{{$product->name}}</a></h3>
+                                                            <div class="item-action">
+                                                                <a href="#" class="item-add-btn">
+                                                                    <span class="icon-cart-text">Add to Cart</span>
+                                                                </a>
+                                                                <div class="item-action-inner">
+                                                                    <a href="#" class="icon-button icon-like">Favourite</a>
+                                                                    <a href="#" class="icon-button icon-compare">Checkout</a>
+                                                                </div><!-- End .item-action-inner -->
+                                                            </div><!-- End .item-action -->
+                                                        </div><!-- End .item-meta-container --> 
+                                                    </div><!-- End .item -->
+                                    </div>
+                                        @endforeach
+                                    @endforeach                             	
 
 
-                                    <div class="col-md-4 col-sm-6 col-xs-12">
-                                        <div class="item item-hover">
-                                            <div class="item-image-wrapper">
-                                                <figure class="item-image-container">
-                                                    <a href="product.html">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem1.jpg" alt="item1" class="item-image">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem1-hover.jpg" alt="item1  Hover" class="item-image-hover">
-                                                    </a>
-                                                </figure>
-                                                <div class="item-price-container">
-                                                    <span class="item-price">$199</span>
-                                                </div><!-- End .item-price-container -->
-                                                <span class="new-rect">New</span>
-                                            </div><!-- End .item-image-wrapper -->
-                                            <div class="item-meta-container">
-                                                <div class="ratings-container">
-                                                    <div class="ratings">
-                                                        <div class="ratings-result" data-result="74"></div>
-                                                    </div><!-- End .ratings -->
-                                                    <span class="ratings-amount">
-                                                        9 Reviews
-                                                    </span>
-                                                </div><!-- End .rating-container -->
-                                                <h3 class="item-name"><a href="product.html">Phasellus consequat</a></h3>
-                                                <div class="item-action">
-                                                    <a href="#" class="item-add-btn">
-                                                        <span class="icon-cart-text">Add to Cart</span>
-                                                    </a>
-                                                    <div class="item-action-inner">
-                                                        <a href="#" class="icon-button icon-like">Favourite</a>
-                                                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                                                    </div><!-- End .item-action-inner -->
-                                                </div><!-- End .item-action -->
-                                            </div><!-- End .item-meta-container --> 
-                                        </div><!-- End .item -->
-                                    </div><!-- End .col-md-4 -->
-                                    <div class="col-md-4 col-sm-6 col-xs-12">
-                                        <div class="item item-hover">
-                                            <div class="item-image-wrapper">
-                                                <figure class="item-image-container">
-                                                    <a href="product.html">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem4.jpg" alt="item1" class="item-image">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem4-hover.jpg" alt="item1  Hover" class="item-image-hover">
-                                                    </a>
-                                                </figure>
-                                                <div class="item-price-container">
-                                                    <span class="old-price">$120<span class="sub-price">.99</span></span>
-                                                    <span class="item-price">$99<span class="sub-price">.99</span></span>
-                                                </div><!-- End .item-price-container -->
-                                                <span class="discount-rect">-25%</span>
-                                            </div><!-- End .item-image-wrapper -->
-                                            <div class="item-meta-container">
-                                                <div class="ratings-container">
-                                                    <div class="ratings">
-                                                        <div class="ratings-result" data-result="90"></div>
-                                                    </div><!-- End .ratings -->
-                                                    <span class="ratings-amount">
-                                                        4 Reviews
-                                                    </span>
-                                                </div><!-- End .rating-container -->
-                                                <h3 class="item-name"><a href="product.html">Phasellus consequat</a></h3>
-                                                <div class="item-action">
-                                                    <a href="#" class="item-add-btn">
-                                                        <span class="icon-cart-text">Add to Cart</span>
-                                                    </a>
-                                                    <div class="item-action-inner">
-                                                        <a href="#" class="icon-button icon-like">Favourite</a>
-                                                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                                                    </div><!-- End .item-action-inner -->
-                                                </div><!-- End .item-action -->
-                                            </div><!-- End .item-meta-container --> 
-                                        </div><!-- End .item -->
-                                    </div><!-- End .col-md-4 -->
-                                    <div class="col-md-4 col-sm-6 col-xs-12">
-                                        <div class="item item-hover">
-                                            <div class="item-image-wrapper">
-                                                <figure class="item-image-container">
-                                                    <a href="product.html">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem10.jpg" alt="item1" class="item-image">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem10-hover.jpg" alt="item1  Hover" class="item-image-hover">
-                                                    </a>
-                                                </figure>
-                                                <div class="item-price-container">
-                                                    <span class="item-price">$180<span class="sub-price">.99</span></span>
-                                                </div><!-- End .item-price-container -->
-                                            </div><!-- End .item-image-wrapper -->
-                                            <div class="item-meta-container">
-                                                <div class="ratings-container">
-
-                                                </div><!-- End .rating-container -->
-                                                <h3 class="item-name"><a href="product.html">Phasellus consequat</a></h3>
-                                                <div class="item-action">
-                                                    <a href="#" class="item-add-btn">
-                                                        <span class="icon-cart-text">Add to Cart</span>
-                                                    </a>
-                                                    <div class="item-action-inner">
-                                                        <a href="#" class="icon-button icon-like">Favourite</a>
-                                                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                                                    </div><!-- End .item-action-inner -->
-                                                </div><!-- End .item-action -->
-                                            </div><!-- End .item-meta-container --> 
-                                        </div><!-- End .item -->
-                                    </div><!-- End .col-md-4 -->
-                                    <div class="col-md-4 col-sm-6 col-xs-12">
-                                        <div class="item item-hover">
-                                            <div class="item-image-wrapper">
-                                                <figure class="item-image-container">
-                                                    <a href="product.html">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem6.jpg" alt="item1" class="item-image">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem6-hover.jpg" alt="item1  Hover" class="item-image-hover">
-                                                    </a>
-                                                </figure>
-                                                <div class="item-price-container">
-                                                    <span class="old-price">$99<span class="sub-price">.99</span></span>
-                                                    <span class="item-price">$84<span class="sub-price">.99</span></span>
-                                                </div><!-- End .item-price-container -->
-                                                <span class="discount-rect">-20%</span>
-                                            </div><!-- End .item-image-wrapper -->
-                                            <div class="item-meta-container">
-                                                <div class="ratings-container">
-                                                    <div class="ratings">
-                                                        <div class="ratings-result" data-result="70"></div>
-                                                    </div><!-- End .ratings -->
-                                                    <span class="ratings-amount">
-                                                       6 Reviews
-                                                    </span>
-                                                </div><!-- End .rating-container -->
-                                                <h3 class="item-name"><a href="product.html">Phasellus consequat</a></h3>
-                                                <div class="item-action">
-                                                    <a href="#" class="item-add-btn">
-                                                        <span class="icon-cart-text">Add to Cart</span>
-                                                    </a>
-                                                    <div class="item-action-inner">
-                                                        <a href="#" class="icon-button icon-like">Favourite</a>
-                                                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                                                    </div><!-- End .item-action-inner -->
-                                                </div><!-- End .item-action -->
-                                            </div><!-- End .item-meta-container --> 
-                                        </div><!-- End .item -->
-                                    </div><!-- End .col-md-4 -->
-                                    <div class="col-md-4 col-sm-6 col-xs-12">
-                                        <div class="item item-hover">
-                                            <div class="item-image-wrapper">
-                                                <figure class="item-image-container">
-                                                    <a href="product.html">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem9.jpg" alt="item1" class="item-image">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem9-hover.jpg" alt="item1  Hover" class="item-image-hover">
-                                                    </a>
-                                                </figure>
-                                                <div class="item-price-container">
-                                                    <span class="item-price">$49<span class="sub-price">.99</span></span>
-                                                </div><!-- End .item-price-container -->
-                                                <span class="new-rect">New</span>
-                                            </div><!-- End .item-image-wrapper -->
-                                            <div class="item-meta-container">
-                                                <div class="ratings-container">
-                                                    <div class="ratings">
-                                                        <div class="ratings-result" data-result="60"></div>
-                                                    </div><!-- End .ratings -->
-                                                    <span class="ratings-amount">
-                                                        2 Reviews
-                                                    </span>
-                                                </div><!-- End .rating-container -->
-                                                <h3 class="item-name"><a href="product.html">Phasellus consequat</a></h3>
-                                                <div class="item-action">
-                                                    <a href="#" class="item-add-btn">
-                                                        <span class="icon-cart-text">Add to Cart</span>
-                                                    </a>
-                                                    <div class="item-action-inner">
-                                                        <a href="#" class="icon-button icon-like">Favourite</a>
-                                                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                                                    </div><!-- End .item-action-inner -->
-                                                </div><!-- End .item-action -->
-                                            </div><!-- End .item-meta-container --> 
-                                        </div><!-- End .item -->
-                                    </div><!-- End .col-md-4 -->
-                                    <div class="col-md-4 col-sm-6 col-xs-12">
-                                        <div class="item item-hover">
-                                            <div class="item-image-wrapper">
-                                                <figure class="item-image-container">
-                                                    <a href="product.html">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem2.jpg" alt="item1" class="item-image">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem2-hover.jpg" alt="item1  Hover" class="item-image-hover">
-                                                    </a>
-                                                </figure>
-                                                <div class="item-price-container">
-                                                    <span class="item-price">$160<span class="sub-price">.99</span></span>
-                                                </div><!-- End .item-price-container -->
-                                                <span class="new-rect">New</span>
-                                            </div><!-- End .item-image-wrapper -->
-                                            <div class="item-meta-container">
-                                                <div class="ratings-container">
-                                                    <div class="ratings">
-                                                        <div class="ratings-result" data-result="80"></div>
-                                                    </div><!-- End .ratings -->
-                                                    <span class="ratings-amount">
-                                                        5 Reviews
-                                                    </span>
-                                                </div><!-- End .rating-container -->
-                                                <h3 class="item-name"><a href="product.html">Phasellus consequat</a></h3>
-                                                <div class="item-action">
-                                                    <a href="#" class="item-add-btn">
-                                                        <span class="icon-cart-text">Add to Cart</span>
-                                                    </a>
-                                                    <div class="item-action-inner">
-                                                        <a href="#" class="icon-button icon-like">Favourite</a>
-                                                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                                                    </div><!-- End .item-action-inner -->
-                                                </div><!-- End .item-action -->
-                                            </div><!-- End .item-meta-container --> 
-                                        </div><!-- End .item -->
-                                    </div><!-- End .col-md-4 -->
-                                    <div class="col-md-4 col-sm-6 col-xs-12">
-                                        <div class="item item-hover">
-                                            <div class="item-image-wrapper">
-                                                <figure class="item-image-container">
-                                                    <a href="product.html">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem3.jpg" alt="item1" class="item-image">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem3-hover.jpg" alt="item1  Hover" class="item-image-hover">
-                                                    </a>
-                                                </figure>
-                                                <div class="item-price-container">
-                                                    <span class="item-price">$200</span>
-                                                </div><!-- End .item-price-container -->
-                                                <span class="discount-rect">-10%</span>
-                                            </div><!-- End .item-image-wrapper -->
-                                            <div class="item-meta-container">
-                                                <div class="ratings-container">
-                                                    <div class="ratings">
-                                                        <div class="ratings-result" data-result="74"></div>
-                                                    </div><!-- End .ratings -->
-                                                    <span class="ratings-amount">
-                                                        9 Reviews
-                                                    </span>
-                                                </div><!-- End .rating-container -->
-                                                <h3 class="item-name"><a href="product.html">Phasellus consequat</a></h3>
-                                                <div class="item-action">
-                                                    <a href="#" class="item-add-btn">
-                                                        <span class="icon-cart-text">Add to Cart</span>
-                                                    </a>
-                                                    <div class="item-action-inner">
-                                                        <a href="#" class="icon-button icon-like">Favourite</a>
-                                                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                                                    </div><!-- End .item-action-inner -->
-                                                </div><!-- End .item-action -->
-                                            </div><!-- End .item-meta-container --> 
-                                        </div><!-- End .item -->
-                                    </div><!-- End .col-md-4 -->
-                                    <div class="col-md-4 col-sm-6 col-xs-12">
-                                        <div class="item item-hover">
-                                            <div class="item-image-wrapper">
-                                                <figure class="item-image-container">
-                                                    <a href="product.html">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem5.jpg" alt="item1" class="item-image">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem5-hover.jpg" alt="item1  Hover" class="item-image-hover">
-                                                    </a>
-                                                </figure>
-                                                <div class="item-price-container">
-                                                    <span class="old-price">$120<span class="sub-price">.99</span></span>
-                                                    <span class="item-price">$99<span class="sub-price">.99</span></span>
-                                                </div><!-- End .item-price-container -->
-                                                <span class="new-rect">New</span>
-                                            </div><!-- End .item-image-wrapper -->
-                                            <div class="item-meta-container">
-                                                <div class="ratings-container">
-                                                    <div class="ratings">
-                                                        <div class="ratings-result" data-result="96"></div>
-                                                    </div><!-- End .ratings -->
-                                                    <span class="ratings-amount">
-                                                        5 Reviews
-                                                    </span>
-                                                </div><!-- End .rating-container -->
-                                                <h3 class="item-name"><a href="product.html">Phasellus consequat</a></h3>
-                                                <div class="item-action">
-                                                    <a href="#" class="item-add-btn">
-                                                        <span class="icon-cart-text">Add to Cart</span>
-                                                    </a>
-                                                    <div class="item-action-inner">
-                                                        <a href="#" class="icon-button icon-like">Favourite</a>
-                                                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                                                    </div><!-- End .item-action-inner -->
-                                                </div><!-- End .item-action -->
-                                            </div><!-- End .item-meta-container --> 
-                                        </div><!-- End .item -->
-                                    </div><!-- End .col-md-4 -->
-                                    <div class="col-md-4 col-sm-6 col-xs-12">
-                                        <div class="item item-hover">
-                                            <div class="item-image-wrapper">
-                                                <figure class="item-image-container">
-                                                    <a href="product.html">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem3.jpg" alt="item1" class="item-image">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem3-hover.jpg" alt="item1  Hover" class="item-image-hover">
-                                                    </a>
-                                                </figure>
-                                                <div class="item-price-container">
-                                                    <span class="item-price">$99<span class="sub-price">.99</span></span>
-                                                </div><!-- End .item-price-container -->
-                                            </div><!-- End .item-image-wrapper -->
-                                            <div class="item-meta-container">
-                                                <div class="ratings-container">
-
-                                                </div><!-- End .rating-container -->
-                                                <h3 class="item-name"><a href="product.html">Phasellus consequat</a></h3>
-                                                <div class="item-action">
-                                                    <a href="#" class="item-add-btn">
-                                                        <span class="icon-cart-text">Add to Cart</span>
-                                                    </a>
-                                                    <div class="item-action-inner">
-                                                        <a href="#" class="icon-button icon-like">Favourite</a>
-                                                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                                                    </div><!-- End .item-action-inner -->
-                                                </div><!-- End .item-action -->
-                                            </div><!-- End .item-meta-container --> 
-                                        </div><!-- End .item -->
-                                    </div><!-- End .col-md-4 -->
-                                    <div class="col-md-4 col-sm-6 col-xs-12">
-                                        <div class="item item-hover">
-                                            <div class="item-image-wrapper">
-                                                <figure class="item-image-container">
-                                                    <a href="product.html">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem7.jpg" alt="item1" class="item-image">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem7-hover.jpg" alt="item1  Hover" class="item-image-hover">
-                                                    </a>
-                                                </figure>
-                                                <div class="item-price-container">
-                                                    <span class="old-price">$99<span class="sub-price">.99</span></span>
-                                                    <span class="item-price">$84<span class="sub-price">.99</span></span>
-                                                </div><!-- End .item-price-container -->
-                                                <span class="discount-rect">-30%</span>
-                                            </div><!-- End .item-image-wrapper -->
-                                            <div class="item-meta-container">
-                                                <div class="ratings-container">
-                                                    <div class="ratings">
-                                                        <div class="ratings-result" data-result="70"></div>
-                                                    </div><!-- End .ratings -->
-                                                    <span class="ratings-amount">
-                                                       6 Reviews
-                                                    </span>
-                                                </div><!-- End .rating-container -->
-                                                <h3 class="item-name"><a href="product.html">Phasellus consequat</a></h3>
-                                                <div class="item-action">
-                                                    <a href="#" class="item-add-btn">
-                                                        <span class="icon-cart-text">Add to Cart</span>
-                                                    </a>
-                                                    <div class="item-action-inner">
-                                                        <a href="#" class="icon-button icon-like">Favourite</a>
-                                                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                                                    </div><!-- End .item-action-inner -->
-                                                </div><!-- End .item-action -->
-                                            </div><!-- End .item-meta-container --> 
-                                        </div><!-- End .item -->
-                                    </div><!-- End .col-md-4 -->
-                                    <div class="col-md-4 col-sm-6 col-xs-12">
-                                        <div class="item item-hover">
-                                            <div class="item-image-wrapper">
-                                                <figure class="item-image-container">
-                                                    <a href="product.html">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem5.jpg" alt="item1" class="item-image">
-                                                        <img src="{{asset('frontend/images/products/i')}}tem5-hover.jpg" alt="item1  Hover" class="item-image-hover">
-                                                    </a>
-                                                </figure>
-                                                <div class="item-price-container">
-                                                    <span class="item-price">$49<span class="sub-price">.99</span></span>
-                                                </div><!-- End .item-price-container -->
-                                            </div><!-- End .item-image-wrapper -->
-                                            <div class="item-meta-container">
-                                                <div class="ratings-container">
-                                                    <div class="ratings">
-                                                        <div class="ratings-result" data-result="60"></div>
-                                                    </div><!-- End .ratings -->
-                                                    <span class="ratings-amount">
-                                                        2 Reviews
-                                                    </span>
-                                                </div><!-- End .rating-container -->
-                                                <h3 class="item-name"><a href="product.html">Phasellus consequat</a></h3>
-                                                <div class="item-action">
-                                                    <a href="#" class="item-add-btn">
-                                                        <span class="icon-cart-text">Add to Cart</span>
-                                                    </a>
-                                                    <div class="item-action-inner">
-                                                        <a href="#" class="icon-button icon-like">Favourite</a>
-                                                        <a href="#" class="icon-button icon-compare">Checkout</a>
-                                                    </div><!-- End .item-action-inner -->
-                                                </div><!-- End .item-action -->
-                                            </div><!-- End .item-meta-container --> 
-                                        </div><!-- End .item -->
-                                    </div><!-- End .col-md-4 -->
+                                    
                                 </div><!-- End .row -->
                                 </div><!-- End .category-item-container -->
         						
