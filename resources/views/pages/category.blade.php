@@ -81,6 +81,7 @@
         						<div class="md-margin"></div><!-- .space -->
         						<div class="category-item-container"> 
                                 <div class="row">
+                                    
                                 	@foreach($res as $product)
                                     <div class="col-md-4 col-sm-6 col-xs-12">
 
@@ -124,7 +125,10 @@
                                                         </div><!-- End .item-meta-container --> 
                                                     </div><!-- End .item -->
                                     </div>
-                                    @endforeach<!-- End .col-md-4 -->
+                                    @endforeach
+                                    <!-- End .col-md-4 -->
+
+
                                     <div class="col-md-4 col-sm-6 col-xs-12">
                                         <div class="item item-hover">
                                             <div class="item-image-wrapper">
