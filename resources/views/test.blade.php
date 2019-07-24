@@ -1,4 +1,7 @@
 
-@if(count($res->childs))
-	{{count($res->childs)}}
-@endif
+
+<?php 
+echo "<pre>";
+print_r($json);
+?>
+
