@@ -54,15 +54,16 @@
 												<a href="#"><img src="{{asset('Productimg/'.$details['image'])}}" alt="phone 4"></a>
 											</figure>
 											<header class="item-name"><a href="#">{{ $details['name'] }}</a></header>
-											{{ $details['description'] }}
+											<div class="col-xs-5">{{ $details['description'] }}</div>
 										</td>
 										<td class="item-code">{{ $details['sku'] }}</td>
 										<td class="item-price-col"><span class="item-price-special">৳{{ $details['price'] }}</span></td>
 										<td>
-											<div class="custom-quantity-input">
-												<input type="number" value="{{ $details['quantity'] }}" name="quantity" step="1">
+											
+										      <input type="number" value="{{ $details['quantity'] }}" class=" quantity" />
 
-											</div>
+											
+                                            <button class="btn btn-info btn-sm update-cart" data-id="{{ $id }}"><i class="fa fa-refresh"></i></button>
                                             
 
                                           
@@ -91,13 +92,13 @@
         						
         						<div class="tab-container left clearfix">
         								<ul class="nav-tabs">
-										  <li class="active"><a href="#shipping" data-toggle="tab">Shipping &amp; Taxes</a></li>
+										  {{-- <li class="active"><a href="#shipping" data-toggle="tab">Shipping &amp; Taxes</a></li> --}}
 										  <li><a href="#discount" data-toggle="tab">Discount Code</a></li>
 										  <li><a href="#gift" data-toggle="tab">Gift voucher </a></li>
 										  
 										</ul>
         								<div class="tab-content clearfix">
-        									<div class="tab-pane active" id="shipping">
+        									<div class="tab-pane " id="shipping">
         										
         										<form action="#" id="shipping-form">
         											<p class="shipping-desc">Enter your destination to get a shipping estimate.</p>
@@ -141,7 +142,7 @@
         										
         									</div><!-- End .tab-pane -->
         									
-        									<div class="tab-pane" id="discount">
+        									<div class="tab-pane active" id="discount">
         										<p>Enter your discount coupon code here.</p>
         										<form action="#">
         											<div class="input-group">
@@ -169,14 +170,14 @@
         									<td class="total-table-title">Subtotal:</td>
         									<td>৳ {{ $total }}</td>
         								</tr>
-        								<tr>
+        								{{-- <tr>
         									<td class="total-table-title">Shipping:</td>
         									<td>$0.00</td>
         								</tr>
         								<tr>
         									<td class="total-table-title">TAX (0%):</td>
         									<td>$0.00</td>
-        								</tr>
+        								</tr> --}}
         							</tbody>
         							<tfoot>
         								<tr>
@@ -186,7 +187,7 @@
         							</tfoot>
         						</table>
         						<div class="md-margin"></div><!-- End .space -->
-        						<a href="#" class="btn btn-custom-2">CONTINUE SHOPPING</a>
+        						<a href="{{route('index')}}" class="btn btn-custom-2">CONTINUE SHOPPING</a>
         						<a href="#" class="btn btn-custom">CHECKOUT</a>
         					</div><!-- End .col-md-4 -->
         				</div><!-- End .row -->
@@ -205,7 +206,59 @@
                                     <div id="similiar-items-slider-next" class="carousel-btn carousel-btn-next carousel-space"></div><!-- End .carousel-next -->
                                 </div><!-- End .carousel-controls -->
                                 <div class="similiar-items-slider owl-carousel">
-                                    <div class="item item-hover">
+                                    
+
+                                     @foreach($sideproducts as $product)
+                                                <div class="owl-single-col">
+                                                    
+                                                    <div class="item item-hover">
+                                                        <div class="item-image-wrapper">
+                                                            <figure class="item-image-container">
+                                                                <a href="product.html">
+                                                                    <img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="">
+                                                                    
+                                                                </a>
+                                                            </figure>
+                                                            <div class="item-price-container">
+                                                                <span class="item-price">৳ {{$product->price}}</span>
+                                                            </div><!-- End .item-price-container -->
+                                                           
+
+                                                                @if($date < $product->new_to)                                                                
+                                                                 <span class="new-rect">    New    </span>                                                            
+                                                                @endif
+                                                            
+                                                        </div><!-- End .item-image-wrapper -->
+                                                        <div class="item-meta-container">
+                                                            <div class="ratings-container">
+                                                                <div class="ratings">
+                                                                    <div class="ratings-result" data-result="80"></div>
+                                                                </div><!-- End .ratings -->
+                                                                <span class="ratings-amount">
+                                                                    5 Reviews
+                                                                </span>
+                                                            </div><!-- End .rating-container -->
+                                                            <h3 class="item-name"><a href="product.html">{{$product->name}}</a></h3>
+                                                            <div class="item-action">
+                                                                <a href="{{ url('add-to-cart/'.$product->id) }}" class="item-add-btn">
+                                                                    <span class="icon-cart-text">Add to Cart</span>
+                                                                </a>
+                                                                <div class="item-action-inner">
+                                                                    <a href="#" class="icon-button icon-like">Favourite</a>
+                                                                    <a href="#" class="icon-button icon-compare">Checkout</a>
+                                                                </div><!-- End .item-action-inner -->
+                                                            </div><!-- End .item-action -->
+                                                        </div><!-- End .item-meta-container --> 
+                                                    </div><!-- End .item -->
+                                                   
+                                                    
+                                                </div><!-- End .owl-single-col  -->
+                                                @endforeach                    
+
+
+
+
+                                   {{--  <div class="item item-hover">
                                         <div class="item-image-wrapper">
                                             <figure class="item-image-container">
                                                 <a href="product.html">
@@ -239,7 +292,7 @@
                                             </div><!-- End .item-action -->
                                         </div><!-- End .item-meta-container --> 
                                     </div><!-- End .item -->                                 
-
+ --}}
                                    <!-- End .item -->
 
                                 </div><!--purchased-items-slider -->
@@ -274,17 +327,41 @@
 
             var ele = $(this);
 
-            if(confirm("Are you sure")) {
-                $.ajax({
+
+            Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  type: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+  if (result.value) {
+    $.ajax({
                     url: '{{ url('remove-from-cart') }}',
                     method: "DELETE",
                     data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id")},
                     success: function (response) {
                         window.location.reload();
+                       
                     }
                 });
-            }
+  }
+})
+
+            
         });
 
+
     </script>
+    @if (session('success'))
+    <script type="text/javascript">
+        $(document).ready(function () {
+            swal("Success!", "{{ session('success') }}", "success");
+        });
+    </script>
+@endif
+
+ 
 @stop

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
+use Carbon\Carbon;
 class CartController extends Controller
 {
     /**
@@ -14,8 +15,10 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('pages.cart');
-    }
+        $date = new Carbon;
+        $sideproducts = Product::all()->random(6);
+        return view('pages.cart',compact('sideproducts','date'));
+    } 
 
     /**
      * Show the form for creating a new resource.

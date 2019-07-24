@@ -27,6 +27,8 @@
         <!--- jQuery -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')}}"></script>
         <script>window.jQuery || document.write('<script src="{{asset('frontend/js/jquery-1.11.1.min.js')}}"><\/script>')</script>
+        <script src="{{asset('frontend/js/sweetalert2.min.js')}}"></script>
+        <link rel="stylesheet" href="{{asset('frontend/css/sweetalert2.min.css')}}">
 
         <!--[if lt IE 9]>
             <script src="{{asset('frontend/js/html5shiv.js')}}"></script>
@@ -126,8 +128,7 @@
                                                 @if(session('cart'))
                                                 @foreach(session('cart') as $id => $details)
                                                 <li class="item clearfix">
-                                                <a href="#" title="Delete item" class="delete-item"><i class="fa fa-times"></i></a>
-                                                <a href="#" title="Edit item" class="edit-item"><i class="fa fa-pencil"></i></a>
+
                                                     <figure>
                                                         <a href="product.html"><img src="{{asset('Productimg/'.$details['image'])}}" alt="phone 4"></a>
                                                     </figure>
