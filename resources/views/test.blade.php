@@ -1,23 +1,16 @@
 
 
 <?php 
-// echo "<pre>";
-// print_r($res);
+ echo "<pre>";
+ print_r($products);
 ?>
 
-@foreach($res->childs as $child)
+
+{{-- @foreach($products->childs as $child)
+{{$child->name}}
+<br>
 	@foreach($child->childs as $grand)
-		@foreach($grand->products as $product)
-			{{$product->name}}
-			<br>
-		@endforeach
+	{{$grand->name}}({{$grand->products->count()}})
+	<br>
 	@endforeach
-	@foreach($child->products as $product)
-		{{$product->name}}
-		<br>
-	@endforeach
-@endforeach
-
-
-
-
+@endforeach --}}

@@ -30,10 +30,8 @@ Route::delete('remove-from-cart', 'CartController@remove');
 
 
 // |------------------------ Shop Controller ----------------------------------------------|
-
-Route::get('/shop/{id}', 'FrontController@shop')->name('shop.show');
-
-
+Route::get('/shop/category/{id}', 'FrontController@category')->name('shop.category');
+Route::get('/shop/brand/{id}', 'FrontController@brand')->name('shop.brand');
 // |------------------------ Shop Controller ----------------------------------------------|
 
 

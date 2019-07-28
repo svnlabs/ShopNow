@@ -32,15 +32,20 @@ class FrontController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function shop($id)
+    public function category($id)
     {
         $date = new Carbon;
         $category = Category::find($id);
-        $res = Category::with(['childs.products','childs.childs.products'])->find($id);
-        // $json = $res->toJson(JSON_PRETTY_PRINT);
-        // $json = json_decode($injson);
-        // $brand = Product::find('brand_id', '=', $id)->get();
-        return view('pages.category', compact('category','res','date'));
+        $products = Category::with(['products','childs.products','childs.childs.products'])->find($id);
+          
+        return view('pages.category', compact('category','products','date'));
+    }
+     public function brand($id)
+    {
+        $date = new Carbon;
+        $brand = Brand::find($id);    
+        $products = Product::where('brand_id',$id)->get()->paginate(10);
+        return view('pages.brand', compact('date','brand','products'));
     }
 
     

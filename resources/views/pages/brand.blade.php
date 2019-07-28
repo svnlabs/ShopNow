@@ -6,7 +6,7 @@
         		<div class="container">
 					<ul class="breadcrumb">
 						<li><a href="index.html">Home</a></li>
-						<li class="active">{{$category->name}}</li>
+						<li class="active">{{$brand->name}}</li>
 					</ul>
         		</div>
         	</div>
@@ -21,8 +21,8 @@
         						<div id="category-header" class="category-banner">
         							<img src="{{asset('frontend/images/banner.png')}}" alt="Category banner" class="img-responsive">
 										<div class="category-title">
-											<h2>{{$category->name}}</h2>
-											<p>{{$category->description or "No description available"}}</p>
+											<h2>{{$brand->name}}</h2>
+											<p>{{$brand->name or 'No Description'}}</p>
 											<a href="#" class="btn btn-custom">LEARN MORE</a>
 										</div><!-- End .category-title -->
         						</div><!-- End #category-header -->
@@ -46,68 +46,42 @@
 											</div>
 										</div>
 										
-										
+										<div class="view-box">
+											<a href="category.html" class="active icon-button icon-grid"><i class="fa fa-th-large"></i></a>
+											<a href="category-list.html" class="icon-button icon-list"><i class="fa fa-th-list"></i></a>
+										</div><!-- End .view-box -->
 										
 									</div><!-- End .toolbox-filter -->
-									
+									<div class="toolbox-pagination clearfix">
+										<ul class="pagination">
+											<li class="active"><a href="#">1</a></li>
+											<li><a href="#">2</a></li>
+											<li><a href="#">3</a></li>
+											<li><a href="#">4</a></li>
+											<li><a href="#">5</a></li>
+											<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+										</ul>
+										<div class="view-count-box">
+											<span class="separator">view:</span>
+											<div class="btn-group select-dropdown">
+												<button type="button" class="btn select-btn">10</button>
+												<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+													<i class="fa fa-angle-down"></i>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li><a href="#">15</a></li>
+													<li><a href="#">30</a></li>
+												</ul>
+											</div>
+										</div><!-- End .view-count-box -->
+										
+									</div><!-- End .toolbox-pagination -->
         							
         						</div><!-- End .category-toolbar -->
         						<div class="md-margin"></div><!-- .space -->
         						<div class="category-item-container"> 
-                                <div class="row">
-                                	@foreach($products->products as $product)
-                                            <div class="col-md-4 col-sm-6 col-xs-12">
-
-                                         <div class="item item-hover">
-                                                        <div class="item-image-wrapper">
-                                                            <figure class="item-image-container">
-                                                                <a href="product.html">
-                                                                    <img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="">
-                                                                    
-                                                                </a>
-                                                            </figure>
-                                                            <div class="item-price-container">
-                                                                <span class="item-price">{{$product->price}}</span>
-                                                            </div><!-- End .item-price-container -->
-                                                            
-
-                                                                @if($date < $product->new_to)
-                                                                    <span class="new-rect">                                                                
-                                                                    New 
-                                                                    </span>                                                               
-                                                                @endif
-                                                            
-                                                        </div><!-- End .item-image-wrapper -->
-                                                        <div class="item-meta-container">
-                                                            <div class="ratings-container">
-                                                                <div class="ratings">
-                                                                    <div class="ratings-result" data-result="80"></div>
-                                                                </div><!-- End .ratings -->
-                                                                <span class="ratings-amount">
-                                                                    5 Reviews
-                                                                </span>
-                                                            </div><!-- End .rating-container -->
-                                                            <h3 class="item-name"><a href="product.html">{{$product->name}}</a></h3>
-                                                            <div class="item-action">
-                                                                <a href="#" class="item-add-btn">
-                                                                    <span class="icon-cart-text">Add to Cart</span>
-                                                                </a>
-                                                                <div class="item-action-inner">
-                                                                    <a href="#" class="icon-button icon-like">Favourite</a>
-                                                                    <a href="#" class="icon-button icon-compare">Checkout</a>
-                                                                </div><!-- End .item-action-inner -->
-                                                            </div><!-- End .item-action -->
-                                                        </div><!-- End .item-meta-container --> 
-                                                    </div><!-- End .item -->
-                                    </div>
-                                    
-
-                                        @endforeach
-                                    @foreach($products->childs as $child)
-
-                                    	
-                                        @foreach($child->childs as $grand)
-                                            @foreach($grand->products as $product)
+                                <div class="row">                                    
+                                            @foreach($products as $product)
                                                 <div class="col-md-4 col-sm-6 col-xs-12">
 
                                          <div class="item item-hover">
@@ -152,62 +126,41 @@
                                                         </div><!-- End .item-meta-container --> 
                                                     </div><!-- End .item -->
                                     </div>
-                                            @endforeach
-                                        @endforeach
-                                        @foreach($child->products as $product)
-                                            <div class="col-md-4 col-sm-6 col-xs-12">
-
-                                         <div class="item item-hover">
-                                                        <div class="item-image-wrapper">
-                                                            <figure class="item-image-container">
-                                                                <a href="product.html">
-                                                                    <img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="">
-                                                                    
-                                                                </a>
-                                                            </figure>
-                                                            <div class="item-price-container">
-                                                                <span class="item-price">{{$product->price}}</span>
-                                                            </div><!-- End .item-price-container -->
-                                                            
-
-                                                                @if($date < $product->new_to)
-                                                                    <span class="new-rect">                                                                
-                                                                    New 
-                                                                    </span>                                                               
-                                                                @endif
-                                                            
-                                                        </div><!-- End .item-image-wrapper -->
-                                                        <div class="item-meta-container">
-                                                            <div class="ratings-container">
-                                                                <div class="ratings">
-                                                                    <div class="ratings-result" data-result="80"></div>
-                                                                </div><!-- End .ratings -->
-                                                                <span class="ratings-amount">
-                                                                    5 Reviews
-                                                                </span>
-                                                            </div><!-- End .rating-container -->
-                                                            <h3 class="item-name"><a href="product.html">{{$product->name}}</a></h3>
-                                                            <div class="item-action">
-                                                                <a href="#" class="item-add-btn">
-                                                                    <span class="icon-cart-text">Add to Cart</span>
-                                                                </a>
-                                                                <div class="item-action-inner">
-                                                                    <a href="#" class="icon-button icon-like">Favourite</a>
-                                                                    <a href="#" class="icon-button icon-compare">Checkout</a>
-                                                                </div><!-- End .item-action-inner -->
-                                                            </div><!-- End .item-action -->
-                                                        </div><!-- End .item-meta-container --> 
-                                                    </div><!-- End .item -->
-                                    </div>
-                                        @endforeach
-
+                                            
+                                       
                                     @endforeach                             	
+
 
                                     
                                 </div><!-- End .row -->
                                 </div><!-- End .category-item-container -->
         						
-        						
+        						<div class="pagination-container clearfix">
+        							<div class="pull-right">
+										<ul class="pagination">
+											<li class="active"><a href="#">1</a></li>
+											<li><a href="#">2</a></li>
+											<li><a href="#">3</a></li>
+											<li><a href="#">4</a></li>
+											<li><a href="#">5</a></li>
+											<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+											</ul>
+        							</div><!-- End .pull-right -->
+        							
+        							<div class="pull-right view-count-box hidden-xs">
+										<span class="separator">view:</span>
+										<div class="btn-group select-dropdown">
+											<button type="button" class="btn select-btn">10</button>
+											<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+												<i class="fa fa-angle-down"></i>
+											</button>
+											<ul class="dropdown-menu" role="menu">
+												<li><a href="#">15</a></li>
+												<li><a href="#">30</a></li>
+											</ul>
+										</div>
+									</div>
+        						</div><!-- End pagination-container -->
 							
         						
         					</div><!-- End .col-md-9 -->
@@ -224,18 +177,27 @@
 										<div id="category-list-1" class="collapse in">
 											<div class="panel-body">
 												<ul class="category-filter-list jscrollpane">
-													@forelse ($products->childs as $child)
-													<li><a href="{{route('shop.category',$child->id)}}">{{$child->name}} ({{$child->products->count()}})</a></li>
-													@foreach ($child->childs as $grand)
-													<li><a href="{{route('shop.category',$grand->id)}}">{{$grand->name}} ({{$grand->products->count()}})</a></li>
-													
-													@endforeach
-													@empty No category available
-													
-													@endforelse 
-
-													
-													
+													<li><a href="#">Mobile Phones (341)</a></li>
+													<li><a href="#">Smartphones (55)</a></li>
+													<li><a href="#">Communicators (24)</a></li>
+													<li><a href="#">CDMA Phones (14)</a></li>
+													<li><a href="#">Accessories (83)</a></li>
+													<li><a href="#">Chargers (8)</a></li>
+													<li><a href="#">Memory Cards (6)</a></li>
+													<li><a href="#">Protectors (12)</a></li>
+													<li><a href="#">ravelsim (5)</a></li>
+													<li><a href="#">CDMA Phones (14)</a></li>
+													<li><a href="#">Accessories (83)</a></li>
+													<li><a href="#">Chargers (8)</a></li>
+													<li><a href="#">Memory Cards (6)</a></li>
+													<li><a href="#">Protectors (12)</a></li>
+													<li><a href="#">ravelsim (5)</a></li>
+													<li><a href="#">CDMA Phones (14)</a></li>
+													<li><a href="#">Accessories (83)</a></li>
+													<li><a href="#">Chargers (8)</a></li>
+													<li><a href="#">Memory Cards (6)</a></li>
+													<li><a href="#">Protectors (12)</a></li>
+													<li><a href="#">ravelsim (5)</a></li>
 												</ul>
 											</div><!-- End .panel-body -->
 										</div><!-- #collapse -->
@@ -250,10 +212,11 @@
 										<div id="category-list-2" class="collapse in">
 											<div class="panel-body">
 											<ul class="category-filter-list jscrollpane">
-												@forelse($products->products as $product)
-												<li><a href="#">{{$product->brand->name  }} </a></li>
-												@empty 	No brand											
-												@endforelse
+												<li><a href="#">Samsung (50)</a></li>
+												<li><a href="#">Apple (80)</a></li>
+												<li><a href="#">HTC (20)</a></li>
+												<li><a href="#">Motoroloa (20)</a></li>
+												<li><a href="#">Nokia (11)</a></li>
 											</ul>
 											</div><!-- End .panel-body -->
 										</div><!-- #collapse -->

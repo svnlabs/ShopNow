@@ -18,4 +18,8 @@ class Brand extends Model
     {
         return $this->belongsTo('App\Category');
     }
+
+    public function product(){
+        return $this->hasMany(Product::class, 'brand_id');
+    }
 }
