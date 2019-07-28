@@ -251,7 +251,7 @@
 											<div class="panel-body">
 											<ul class="category-filter-list jscrollpane">
 												@forelse($products->products as $product)
-												<li><a href="#">{{$product->brand->name  }} </a></li>
+												<li><a href="#">{{$product->brand_id  }} </a></li>
 												@empty 	No brand											
 												@endforelse
 											</ul>
@@ -259,8 +259,8 @@
 										</div><!-- #collapse -->
 										</div><!-- End .panel -->
         							
-        							<div class="panel">
-											<div class="accordion-header">
+        							{{-- <div class="panel"> --}}
+									{{-- 		<div class="accordion-header">
 												<div class="accordion-title"><span>Price</span></div><!-- End .accordion-title -->
 									<a class="accordion-btn opened"  data-toggle="collapse" data-target="#category-list-3"></a>
 											</div><!-- End .accordion-header -->
@@ -282,10 +282,11 @@
 												</div>
 												
 											</div><!-- End .panel-body -->
-										</div><!-- #collapse -->
-										</div><!-- End .panel -->
+										</div>
+										<!-- #collapse -->
+										</div><!-- End .panel --> --}}
         							
-        							<div class="panel">
+        							{{-- <div class="panel">
 											<div class="accordion-header">
 												<div class="accordion-title"><span>Color</span></div><!-- End .accordion-title -->
 									<a class="accordion-btn opened"  data-toggle="collapse" data-target="#category-list-4"></a>
@@ -313,7 +314,7 @@
 											</div><!-- End .panel-body -->
 										</div><!-- #collapse -->
 										</div><!-- End .panel -->
-        							</div><!-- .panel-group -->
+        							</div><!-- .panel-group --> --}}
         						</div><!-- End .widget -->
         						
         						<div class="widget featured">
