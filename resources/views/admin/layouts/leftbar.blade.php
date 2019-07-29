@@ -10,7 +10,7 @@
 		</div>
 
 		<li class="">
-			<a href="{{route('admin.index')}}" class="accordion-toggle wave-effect" >
+			<a href="{{route('index')}}" class="accordion-toggle wave-effect" >
 				<i class="fa fa-desktop mr-2"></i> Dashboard
 			</a>			
 		</li>
@@ -36,46 +36,12 @@
 		</li>
 		
 		<li>
-			<a href="#pageSubmenu" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false"><i class="fa fa-area-chart mr-2"></i> Charts</a>
+			<a href="#pageSubmenu" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false"><i class="fa fa-area-chart mr-2"></i> Website Setting</a>
 			<ul class="collapse list-unstyled" id="pageSubmenu" data-parent="#accordion">
 				<li>
-					<a href="chart-chartist.html">Chartjs Charts </a>
+					<a href="{{route('slides.index')}}">Slider </a>
 				</li>
-				<li>
-					<a href="chart-dygraph.html">Dygraph Charts</a>
-				</li>
-				<li>
-					<a href="chart-echart.html">Echart Charts</a>
-				</li>
-				<li>
-					<a href="chart-flot.html">Flot Charts</a>
-				</li>
-				<li>
-					<a href="chart-high.html">High Charts</a>
-				</li>
-				<li>
-					<a href="chart-nvd3.html">Nvd3 Charts</a>
-				</li>
-				<li>
-					<a href="chart-morris.html">Morris Charts</a>
-				</li>
-				<li class="secondlevel">
-					<a href="#Submenu4" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">C3 charts</a>
-					<ul class="collapse list-unstyled" id="Submenu4">
-						<li>
-							<a href="charts.html">C3 Bar Charts</a>
-						</li>
-						<li>
-							<a href="chart-line.html">C3 Line Charts</a>
-						</li>
-						<li>
-							<a href="chart-donut.html">C3 Donut Charts</a>
-						</li>
-						<li>
-							<a href="chart-pie.html">C3 Pie charts</a>
-						</li>
-					</ul>
-				</li>
+				
 			</ul>
 		</li>
 		<li class="">

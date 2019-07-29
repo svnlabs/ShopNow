@@ -43,10 +43,11 @@ Route::get('/shop/brand/{id}', 'FrontController@brand')->name('shop.brand');
 
 Route::group(['prefix' => 'admin'], function () {
 
-Route::resource('admin', 'DashboardController');
+Route::resource('/', 'DashboardController');
 Route::resource('product', 'ProductController');
 Route::resource('category', 'CategoryController');
 Route::resource('brand', 'BrandController');
+Route::resource('slides', 'SliderController');
 
 });
 // |---------------------- Admin Panel COntroller Collections -----------------------------|

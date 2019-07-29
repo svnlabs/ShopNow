@@ -152,17 +152,17 @@
 											</div>
 											<div class="col-md-12">
 												<div class="card-header">
-										<h3 class="card-title">Image Upload</h3>
-									</div>
-									<div class=" card-body">
-										<div class="row">
-											<div class="col-lg-4 col-sm-12">
-												<input type="file" name="image" class="dropify" data-height="180">
-											</div>
-											
-										</div>
-										
-									</div>
+													<h3 class="card-title">Image Upload</h3>
+												</div>
+												<div class=" card-body">
+													<div class="row">
+														<div class="col-lg-4 col-sm-12">
+															<input type="file" name="image" class="dropify" data-height="180">
+														</div>
+														
+													</div>
+													
+												</div>
 											</div>
 											
 											
