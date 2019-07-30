@@ -19,7 +19,7 @@
 
 
         					<div id="product-image-container">
-        						<figure><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" data-zoom-image="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="Product Big image" id="product-image">
+        						<figure><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" data-zoom-image="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="Product Big image" id="product-image" style="">
         							<figcaption class="item-price-container">
 										<span class="old-price">$160</span>
 										<span class="item-price">$120</span>
