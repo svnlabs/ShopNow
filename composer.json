@@ -4,6 +4,12 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
+     "authors": [
+        {
+            "name": "Khyrul Kabir",
+            "email": "khyrulkabir01@gmail.com"
+        }
+    ],
     "require": {
         "php": ">=5.6.4",
         "intervention/image": "^2.5",

@@ -49,7 +49,7 @@
                                                     <figure>
                                                         <img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="item1" width="115" height="115">
                                                     </figure>
-                                                    <h5><a href="#">{{$product->name}}</a></h5>
+                                                    <h5><a href="{{route('shop.product',$product->id)}}">{{$product->name}}</a></h5>
                                                     <div class="ratings-container">
                                                         <div class="ratings">
                                                             <div class="ratings-result" data-result="84"></div>

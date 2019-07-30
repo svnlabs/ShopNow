@@ -47,6 +47,12 @@ class FrontController extends Controller
         $products = Product::where('brand_id',$id)->get()->paginate(10);
         return view('pages.brand', compact('date','brand','products'));
     }
+    public function product($id)
+    {
+        $date = new Carbon;        
+        $product = Product::find($id);
+        return view('pages.product', compact('date','product'));
+    }
 
     
 }
