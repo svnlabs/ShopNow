@@ -52,3 +52,6 @@ Route::resource('slides', 'SliderController');
 
 });
 // |---------------------- Admin Panel COntroller Collections -----------------------------|
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -4,8 +4,8 @@
         	<div id="breadcrumb-container">
         		<div class="container">
 					<ul class="breadcrumb">
-						<li><a href="index.html">Home</a></li>
-						<li class="active">Product</li>
+						<li><a href="{{URL::to('/')}}">Home</a></li>
+						<li class="active">{{$product->name}}</li>
 					</ul>
         		</div>
         	</div>

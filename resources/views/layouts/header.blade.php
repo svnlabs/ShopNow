@@ -46,6 +46,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
+                            @if(Auth::user())
                             <div class="header-top-left">
                                 <ul id="top-links" class="clearfix">
                                     <li><a href="#" title="My Wishlist"><span class="top-icon top-icon-pencil"></span><span class="hide-for-xs">My Wishlist</span></a></li>
@@ -54,31 +55,10 @@
                                     <li><a href="checkout.html" title="Checkout"><span class="top-icon top-icon-check"></span><span class="hide-for-xs">Checkout</span></a></li>
                                 </ul>
                             </div><!-- End .header-top-left -->
+                            @endif
                             <div class="header-top-right">
                                 
-                                <div class="header-top-dropdowns pull-right">
-                                    <div class="btn-group dropdown-money">
-                                        <button type="button" class="btn btn-custom dropdown-toggle" data-toggle="dropdown">
-                                            <span class="hide-for-xs">US Dollar</span><span class="hide-for-lg">$</span>
-                                        </button>
-                                        <ul class="dropdown-menu pull-right" role="menu">
-                                            <li><a href="#"><span class="hide-for-xs">Euro</span><span class="hide-for-lg">&euro;</span></a></li>
-                                            <li><a href="#"><span class="hide-for-xs">Pound</span><span class="hide-for-lg">&pound;</span></a></li>
-                                        </ul>
-                                    </div><!-- End .btn-group -->
-                                    <div class="btn-group dropdown-language">
-                                        <button type="button" class="btn btn-custom dropdown-toggle" data-toggle="dropdown">
-                                            <span class="flag-container"><img src="{{asset('frontend/images/england-flag.png')}}" alt="flag of england"></span>
-                                            <span class="hide-for-xs">English</span>
-                                        </button>
-                                        <ul class="dropdown-menu pull-right" role="menu">
-                                            <li><a href="#"><span class="flag-container"><img src="{{asset('frontend/images/italy-flag.png')}}" alt="flag of england"></span><span class="hide-for-xs">Italian</span></a></li>
-                                            <li><a href="#"><span class="flag-container"><img src="{{asset('frontend/images/spain-flag.png')}}" alt="flag of italy"></span><span class="hide-for-xs">Spanish</span></a></li>
-                                            <li><a href="#"><span class="flag-container"><img src="{{asset('frontend/images/france-flag.png')}}" alt="flag of france"></span><span class="hide-for-xs">French</span></a></li>
-                                            <li><a href="#"><span class="sm-separator"><img src="{{asset('frontend/images/germany-flag.png')}}" alt="flag of germany"></span><span class="hide-for-xs">German</span></a></li>
-                                        </ul>
-                                    </div><!-- End .btn-group -->
-                                </div><!-- End .header-top-dropdowns -->
+                               
                                 
                                 <div class="header-text-container pull-right">
                                     <p class="header-text">Welcome to Shop Now!</p>
@@ -96,7 +76,7 @@
                         <div class="col-md-3 col-sm-3 col-xs-12 logo-container">
                             <h1 class="logo clearfix">
                                
-                                <a href="index.html" title="Shop Now eCommerce Template"><img src="{{asset('frontend/images/logo6.png')}}" alt="Shop Now Commerce Template" width="200" height="54"></a>
+                                <a href="{{URL::to('/')}}" title="Shop Now eCommerce Template"><img src="{{asset('frontend/images/logo6.png')}}" alt="Shop Now Commerce Template" width="200" height="54"></a>
                             </h1>
                         </div><!-- End .col-md-3 -->
                         <div class="col-md-9 col-sm-9 col-xs-12 header-inner-right">
@@ -205,157 +185,36 @@
                                         <li>
                                             <a class="active" href="{{URL::to('/')}}">HOME</a>                                        
                                         </li>
-                                        <li class="mega-menu-container"><a href="#">SHOP</a>
+                                         @foreach(App\Category::Where('parent_id',0)->get() as $parent)
+                                        <li class="mega-menu-container"><a href="{{route('shop.category',$parent->id)}}">{{$parent->name}}</a>
                                             <div class="mega-menu clearfix">
                                                     <div class="col-5">
-                                                        <a href="category.html" class="mega-menu-title">Clothing</a><!-- End .mega-menu-title -->
+                                                        @foreach(App\Category::where('parent_id',$parent->id)->get() as $child)
+                                                        <a href="{{route('shop.category',$child->id)}}" class="mega-menu-title">{{$child->name}}</a><!-- End .mega-menu-title -->
+
                                                         <ul class="mega-menu-list clearfix">
-                                                            <li><a href="#">Dresses</a></li>
-                                                            <li><a href="#">Jeans &amp; Trousers</a></li>
-                                                            <li><a href="#">Blouses &amp; Shirts</a></li>
-                                                            <li><a href="#">Tops &amp; T-Shirts</a></li>
-                                                            <li><a href="#">Jackets &amp; Coats</a></li>
-                                                            <li><a href="#">Skirts</a></li>
+                                                            @foreach(App\Category::where('parent_id',$child->id)->get() as $grand)
+                                                            <li>
+                                                                
+                                                                    
+                                                                      <a href="{{route('shop.category',$grand->id)}}">{{$grand->name}}</a>
+                                                                   
+                                                                 
+                                                            </li>
+                                                             @endforeach
+                                                            
                                                         </ul>
-                                                    </div><!-- End .col-5 -->
-                                                    <div class="col-5">
-                                                        <a href="category.html" class="mega-menu-title">Shoes</a><!-- End .mega-menu-title -->
-                                                        <ul class="mega-menu-list clearfix">
-                                                            <li><a href="#">Formal Shoes</a></li>
-                                                            <li><a href="#">Casual Shoes</a></li>
-                                                            <li><a href="#">Sandals</a></li>
-                                                            <li><a href="#">Boots</a></li>
-                                                            <li><a href="#">Wide Fit</a></li>
-                                                            <li><a href="#">Slippers</a></li>
-                                                        </ul>
-                                                    </div><!-- End .col-5 -->
-                                                    <div class="col-5">
-                                                        <a href="category.html" class="mega-menu-title">Accessories</a><!-- End .mega-menu-title -->
-                                                        <ul class="mega-menu-list clearfix">
-                                                            <li><a href="#">Bags &amp; Purses</a></li>
-                                                            <li><a href="#">Belts</a></li>
-                                                            <li><a href="#">Gloves</a></li>
-                                                            <li><a href="#">Jewellery</a></li>
-                                                            <li><a href="#">Sunglasses</a></li>
-                                                            <li><a href="#">Hair Accessories</a></li>
-                                                        </ul>
-                                                    </div><!-- End .col-5 -->
-                                                    <div class="col-5">
-                                                        <a href="category.html" class="mega-menu-title">Sports</a><!-- End .mega-menu-title -->
-                                                        <ul class="mega-menu-list clearfix">
-                                                            <li><a href="#">Sport Tops &amp; Vests</a></li>
-                                                            <li><a href="#">Swimwear</a></li>
-                                                            <li><a href="#">Footwear</a></li>
-                                                            <li><a href="#">Sports Underwear</a></li>
-                                                            <li><a href="#">Bags</a></li>
-                                                        </ul>
-                                                    </div><!-- End .col-5 -->
-                                                    
-                                                    <div class="col-5">
-                                                        <a href="category.html" class="mega-menu-title">Maternity</a><!-- End .mega-menu-title -->
-                                                        <ul class="mega-menu-list clearfix">
-                                                            <li><a href="#">Tops &amp; Skirts</a></li>
-                                                            <li><a href="#">Dresses</a></li>
-                                                            <li><a href="#">Trousers &amp; Shorts</a></li>
-                                                            <li><a href="#">Knitwear</a></li>
-                                                            <li><a href="#">Jackets &amp; Coats</a></li>
-                                                        </ul>
-                                                    </div><!-- End .col-5 -->
+                                                      @endforeach  
+                                                   
                                             </div><!-- End .mega-menu -->
                                         </li>
+                                         @endforeach
                                         
-                                        <li>
-                                            <a href="#">PAGES</a>
-                                            <ul>
-                                                <li><a href="#">Headers</a>
-                                                    <ul>
-                                                        <li><a href="header1.html">Header Version 1</a></li>
-                                                        <li><a href="header2.html">Header Version 2</a></li>
-                                                        <li><a href="header3.html">Header Version 3</a></li>
-                                                        <li><a href="header4.html">Header Version 4</a></li>
-                                                        <li><a href="header5.html">Header Version 5</a></li>
-                                                        <li><a href="header6.html">Header Version 6</a></li>
-                                                        <li><a href="header7.html">Header Version 7</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Footers</a>
-                                                    <ul>
-                                                        <li><a href="footer1.html">Footer Version 1</a></li>
-                                                        <li><a href="footer2.html">Footer Version 2</a></li>
-                                                        <li><a href="footer3.html">Footer Version 3</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="product.html">Product</a></li>
-                                                <li><a href="cart.html">Cart</a></li>
-                                                <li><a href="category.html">Category</a>
-                                                    <ul>
-                                                        <li><a href="category-list.html">Category list</a></li>
-                                                        <li><a href="category.html">Category Banner 1</a></li>
-                                                        <li><a href="category-banner-2.html">Category Banner 2</a></li>
-                                                        <li><a href="category-banner-3.html">Category Banner 3</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="blog.html">Blog</a>
-                                                    <ul>
-                                                        <li><a href="blog.html">Right Sidebar</a></li>
-                                                        <li><a href="blog-sidebar-left.html">Left Sidebar</a></li>
-                                                        <li><a href="blog-sidebar-both.html">Both Sidebar</a></li>
-                                                        <li><a href="single.html">Blog Post</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="aboutus.html">About Us</a></li>
-                                                <li><a href="register-account.html">Register Account</a></li>
-                                                <li><a href="compare-products.html">Compare Products</a></li>
-                                                <li><a href="login.html">Login</a></li>
-                                                <li><a href="404.html">404 Page</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Portfolio</a>
-                                            <ul>
-                                                <li><a href="#">Classic</a>
-                                                    <ul>
-                                                        <li><a href="portfolio-2.html">Two Columns</a></li>
-                                                        <li><a href="portfolio-3.html">Three Columns</a></li>
-                                                        <li><a href="portfolio-4.html">Four Columns</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Masonry</a>
-                                                    <ul>
-                                                        <li><a href="portfolio-masonry-2.html">Two Columns</a></li>
-                                                        <li><a href="portfolio-masonry-3.html">Three Columns</a></li>
-                                                        <li><a href="portfolio-masonry-4.html">Four Columns</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Portfolio Posts</a>
-                                                    <ul>
-                                                        <li><a href="single-portfolio.html">Image Post</a></li>
-                                                        <li><a href="single-portfolio-gallery.html">Gallery Post</a></li>
-                                                        <li><a href="single-portfolio-video.html">Video Post</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Elements</a>
-                                            <ul>
-                                                <li><a href="elements/tabs.html">Tabs</a></li>
-                                                <li><a href="elements/titles.html">Titles</a></li>
-                                                <li><a href="elements/typography.html">Typography</a></li>
-                                                <li><a href="elements/collapses.html">collapses</a></li>
-                                                <li><a href="elements/animations.html">animations</a></li>
-                                                <li><a href="elements/grids.html">Grid System</a></li>
-                                                <li><a href="elements/alerts.html">Alert Boxes</a></li>
-                                                <li><a href="elements/buttons.html">Buttons</a></li>
-                                                <li><a href="elements/medias.html">Media</a></li>
-                                                <li><a href="elements/forms.html">Forms</a></li>
-                                                <li><a href="elements/icons.html">Icons</a></li>
-                                                <li><a href="elements/lists.html">Lists</a></li>
-                                                <li><a href="elements/more.html">More</a></li>
-                                            </ul>
-                                        </li>
                                         <li><a href="contact.html">Contact Us</a></li>
+                                        @if(Auth::user())
                                         <li><a href="#">My Account</a></li>
-                                        <li><a href="#">News</a></li>
+                                        @endif
+                                        
                                         
                                     </ul>
                                     </div>
