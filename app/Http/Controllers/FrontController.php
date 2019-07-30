@@ -49,9 +49,10 @@ class FrontController extends Controller
     }
     public function product($id)
     {
-        $date = new Carbon;        
+        $date = new Carbon; 
+        $sideproducts = Product::all()->random(6);       
         $product = Product::find($id);
-        return view('pages.product', compact('date','product'));
+        return view('pages.product', compact('date','product','sideproducts'));
     }
 
     

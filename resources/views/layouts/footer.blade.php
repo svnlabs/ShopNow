@@ -202,7 +202,7 @@
     <script src="{{asset('frontend/js/jquery.themepunch.tools.min.js')}}"></script>
     <script src="{{asset('frontend/js/jquery.themepunch.revolution.min.js')}}"></script>
     <script src="{{asset('frontend/js/main.js')}}"></script>
-    
+    @yield('js')
     <script>
         $(function() {
 
@@ -268,6 +268,6 @@
         });
         
     </script>
-    @yield('js')
+    
     </body>
 </html>

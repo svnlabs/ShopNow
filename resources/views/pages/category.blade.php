@@ -61,7 +61,7 @@
                                          <div class="item item-hover">
                                                         <div class="item-image-wrapper">
                                                             <figure class="item-image-container">
-                                                                <a href="product.html">
+                                                                <a href="{{route('shop.product',$product->id)}}">
                                                                     <img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="">
                                                                     
                                                                 </a>
@@ -87,7 +87,7 @@
                                                                     5 Reviews
                                                                 </span>
                                                             </div><!-- End .rating-container -->
-                                                            <h3 class="item-name"><a href="product.html">{{$product->name}}</a></h3>
+                                                            <h3 class="item-name"><a href="{{route('shop.product',$product->id)}}">{{$product->name}}</a></h3>
                                                             <div class="item-action">
                                                                 <a href="#" class="item-add-btn">
                                                                     <span class="icon-cart-text">Add to Cart</span>
@@ -113,7 +113,7 @@
                                          <div class="item item-hover">
                                                         <div class="item-image-wrapper">
                                                             <figure class="item-image-container">
-                                                                <a href="product.html">
+                                                                <a href="{{route('shop.product',$product->id)}}">
                                                                     <img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="">
                                                                     
                                                                 </a>
@@ -139,7 +139,7 @@
                                                                     5 Reviews
                                                                 </span>
                                                             </div><!-- End .rating-container -->
-                                                            <h3 class="item-name"><a href="product.html">{{$product->name}}</a></h3>
+                                                            <h3 class="item-name"><a href="{{route('shop.product',$product->id)}}">{{$product->name}}</a></h3>
                                                             <div class="item-action">
                                                                 <a href="#" class="item-add-btn">
                                                                     <span class="icon-cart-text">Add to Cart</span>
@@ -160,7 +160,7 @@
                                          <div class="item item-hover">
                                                         <div class="item-image-wrapper">
                                                             <figure class="item-image-container">
-                                                                <a href="product.html">
+                                                                <a href="{{route('shop.product',$product->id)}}">
                                                                     <img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="">
                                                                     
                                                                 </a>
@@ -186,7 +186,7 @@
                                                                     5 Reviews
                                                                 </span>
                                                             </div><!-- End .rating-container -->
-                                                            <h3 class="item-name"><a href="product.html">{{$product->name}}</a></h3>
+                                                            <h3 class="item-name"><a href="{{route('shop.product',$product->id)}}">{{$product->name}}</a></h3>
                                                             <div class="item-action">
                                                                 <a href="#" class="item-add-btn">
                                                                     <span class="icon-cart-text">Add to Cart</span>
