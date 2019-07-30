@@ -3,8 +3,11 @@
                                         <ul>
                                             <li data-transition="random"  data-saveperformance="on"  data-title="Easy to Customize">
                                                 <img src="{{asset('frontend/images/revslider/dummy.png')}}"  alt="slidebg1" data-lazyload="{{asset('frontend/images/homeslider/slide1.jpg')}}" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+
                                                 <div class="tp-caption rev-title lft ltt" data-x="530" data-y="140" data-speed="1100" data-start="300" data-endspeed="350">Enjoy Wide  Shop Now <br>Posibilities
                                                 </div>
+
+
                                                 <div class="tp-caption lfr ltr" data-x="530" data-y="250" data-speed="1500" data-start="450"  data-endspeed="100" data-easing="Power3.easeIn">
                                                     <img src="{{asset('frontend/images/homeslider/bullet.png')}}" alt="bullet">
                                                 </div>
@@ -13,32 +16,7 @@
                                                 Easy to use &amp; customize
                                                 </div>
 
-                                                <div class="tp-caption lfr ltr" data-x="530" data-y="290" data-speed="1500" data-start="650"  data-endspeed="180" data-easing="Power3.easeIn">
-                                                    <img src="{{asset('frontend/images/homeslider/bullet.png')}}" alt="bullet">
-                                                </div>
-
-                                                <div class="tp-caption rev-list lfr ltr" data-x="575" data-y="286" data-speed="1500" data-start="800" 
-                                                data-easing="Power3.easeIn" data-endspeed="230">
-                                                Responsive Layout
-                                                </div>
-
-                                                <div class="tp-caption lfr ltr" data-x="530" data-y="330" data-speed="1500" data-start="950"  data-endspeed="260" data-easing="Power3.easeIn">
-                                                    <img src="{{asset('frontend/images/homeslider/bullet.png')}}" alt="bullet">
-                                                </div>
-
-                                                <div class="tp-caption rev-list lfr ltr" data-x="575" data-y="326" data-speed="1500" data-start="1100" 
-                                                data-easing="Power3.easeIn" data-endspeed="290">
-                                                Unlimited Color Skins
-                                                </div>
-
-                                                <div class="tp-caption lfr ltr" data-x="530" data-y="370" data-speed="1500" data-start="1200"  data-endspeed="320" data-easing="Power3.easeIn">
-                                                    <img src="{{asset('frontend/images/homeslider/bullet.png')}}" alt="bullet">
-                                                </div>
-
-                                                <div class="tp-caption rev-list lfr ltr" data-x="575" data-y="366" data-speed="1500" data-start="1350" 
-                                                data-easing="Power3.easeIn" data-endspeed="350">
-                                                Retina Ready
-                                                </div>
+                                                
                                             </li>
  
                                             <li data-transition="random"  data-saveperformance="on"  data-title="The Next Big Thing">
@@ -73,6 +51,7 @@
                                                 <div class="tp-caption rev-title lfl ltl" data-x="40" data-y="140" data-speed="800" data-start="300" data-endspeed="350">Shop Now Extremely <br>Powerful Template
                                                 </div>
 
+                                                
                                                 <div class="tp-caption sfr stl" data-x="40" data-y="240" data-speed="1000" data-start="500"  data-endspeed="100">
                                                     <img src="{{asset('frontend/images/homeslider/bullet-reverse.png')}}" alt="bullet">
                                                 </div>
@@ -82,32 +61,7 @@
                                                 9 Homepage Layout
                                                 </div>
 
-                                                <div class="tp-caption sfr stl" data-x="40" data-y="282" data-speed="1000" data-start="750"  data-endspeed="180">
-                                                    <img src="{{asset('frontend/images/homeslider/bullet-reverse.png')}}" alt="bullet">
-                                                </div>
-
-                                                <div class="tp-caption rev-list sfr stl" data-x="85" data-y="278" data-speed="1000" data-start="900" 
-                                                data-endspeed="230">
-                                                Revolution Slider
-                                                </div>
-
-                                                <div class="tp-caption sfr stl" data-x="40" data-y="324" data-speed="1000" data-start="1000"  data-endspeed="260">
-                                                    <img src="{{asset('frontend/images/homeslider/bullet-reverse.png')}}" alt="bullet">
-                                                </div>
-
-                                                <div class="tp-caption rev-list sfr stl" data-x="85" data-y="320" data-speed="1000" data-start="1150" 
-                                                data-endspeed="290">
-                                                Isotope Plugin
-                                                </div>
-
-                                                <div class="tp-caption sfr stl" data-x="40" data-y="366" data-speed="1000" data-start="1250"  data-endspeed="320">
-                                                    <img src="{{asset('frontend/images/homeslider/bullet-reverse.png')}}" alt="bullet">
-                                                </div>
-
-                                                <div class="tp-caption rev-list sfr stl" data-x="85" data-y="362" data-speed="1000" data-start="1400" 
-                                                data-endspeed="350">
-                                                Unlimited Colors &amp; Fonts
-                                                </div>
+                                              
                                             </li>
                                             
                                         </ul>

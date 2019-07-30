@@ -1,7 +1,7 @@
 <div class="app-header1 header py-1 d-flex">
 					<div class="container-fluid">
 						<div class="d-flex">
-							<a class="header-brand" href="{{route('admin.index')}}">
+							<a class="header-brand" href="{{route('index')}}">
 								<img src="{{asset('backend\images\brand\logo.png')}}" class="header-brand-img" alt="adminor logo">
 							</a>
 							<div class="menu-toggle-button">
