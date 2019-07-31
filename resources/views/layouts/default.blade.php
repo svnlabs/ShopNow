@@ -132,7 +132,7 @@
                                                     <span>৳{{ $details['price'] }}</span>
                                                 </div>
                                                 <div class="shopping-cart-delete">
-                                                    <a href="#"><i class="la la-trash"></i></a>
+                                                    <button class="la la-trash remove-from-cart" data-id="{{ $id }}"></button>
                                                 </div>
                                             </li>
                                             @endforeach
@@ -141,10 +141,7 @@
                                         <div class="shopping-cart-bottom">
                                             <div class="shopping-cart-total">
                                                 <h4>Subtotal <span class="shop-total">
-                                                    @if(session('cart'))
-                                                    @foreach(session('cart') as $id => $details)
-                                                    <?php $total += $details['price'] * $details['quantity'] ?>
-                                                    @endforeach
+                                                    @if(session('cart'))                                                
                                                     ৳{{ $total }}
                                                     @else
                                                     ৳ 0 
@@ -204,7 +201,7 @@
                                 <div class="main-menu menu-common-style menu-lh-5 menu-margin-4 menu-font-2 menu-font-2-white res-hm8-margin">
                                     <nav>
                                         <ul>
-                                            <li class="angle-shape"><a href="index.html">Home</a>
+                                            <li ><a href="index.html">Home</a>
                                                 
                                             </li>
                                    
@@ -537,6 +534,43 @@
     <script src="{{asset('frontend/js/plugins/smoothscroll.js')}}"></script>
     <!-- Main JS -->
     <script src="{{asset('frontend/js/main.js')}}"></script>
+    <script type="text/javascript">
+    
+ 
+        $(".update-cart").click(function (e) {
+           e.preventDefault();
+ 
+           var ele = $(this);
+ 
+            $.ajax({
+               url: '{{ url('update-cart') }}',
+               method: "patch",
+               data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: ele.parents("tr").find(".quantity").val()},
+               success: function (response) {
+                   window.location.reload();
+               }
+            });
+        });
+ 
+        $(".remove-from-cart").click(function (e) {
+            e.preventDefault();
+ 
+            var ele = $(this);
+ 
+            if(confirm("Are you sure")) {
+                $.ajax({
+                    url: '{{ url('remove-from-cart') }}',
+                    method: "DELETE",
+                    data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id")},
+                    success: function (response) {
+                        window.location.reload();
+                    }
+                });
+            }
+        });
+ 
+    </script>
+    
 </body>
 
 </html>

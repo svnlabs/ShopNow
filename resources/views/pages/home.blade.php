@@ -99,7 +99,7 @@
                         </div>
                         <div class="col-xl-6 col-lg-8 col-md-8 col-sm-8">
                             <div class="product-tab-list-4 nav">
-                                @foreach(App\Category::has('products')->with('products')->get() as $parent)
+                                @foreach($featureProduct as $parent)
                                 <a href="#{{$parent->slug}}" data-toggle="tab">
                                     <h5>{{$parent->name}} </h5>
                                 </a>
@@ -109,7 +109,7 @@
                     </div>
                 </div>
                 <div class="tab-content jump">
-                   @foreach(App\Category::has('products')->with('products')->get() as $key =>$allproduct)
+                   @foreach($featureProduct as $key =>$allproduct)
                     <div id="{{$allproduct->slug}}" class="tab-pane {{ $key==0 ? 'active' : ''}}">
                         <div class="product-slider-active owl-carousel">
                             @foreach($allproduct->products as $product)
