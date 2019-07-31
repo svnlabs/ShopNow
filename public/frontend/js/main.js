@@ -991,11 +991,7 @@
             scrollTarget: link.hash
         });
     });
-     
-
     
-
-
     
     
 })(jQuery);
