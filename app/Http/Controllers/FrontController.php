@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
 use App\Brand;
+use App\Slider;
 use Carbon\Carbon;
 class FrontController extends Controller
 {
@@ -16,8 +17,9 @@ class FrontController extends Controller
      */
     public function index()
     {
+        $slider= Slider::all()->random(3);
         $featureProduct=Category::has('products')->with('products')->get()->random(3);
-       return view('pages.home',compact('featureProduct'));
+       return view('pages.home',compact('featureProduct','slider'));
     }
 
    

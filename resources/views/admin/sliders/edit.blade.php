@@ -29,6 +29,7 @@
 							<div class="col-lg-12">
 								<form class="card" method="post" action="{{route('slides.update', ['id' => $slider->id])}}" enctype="multipart/form-data">
 									{{csrf_field()}}
+									<input name="_method" type="hidden" value="PATCH">
 									<div class="card-header">
 										<h3 class="card-title">Update Slides</h3>
 									</div>
