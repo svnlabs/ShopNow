@@ -12,7 +12,7 @@
 */
 
 
-
+Route::get('/test','testcontroller@index'); 
 
 
 Route::resource('/', 'FrontController');

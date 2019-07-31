@@ -7,6 +7,8 @@ use App\Category;
 use App\Product;
 use Illuminate\Support\Str;
 use Alert;
+use File;
+use Intervention\Image\ImageManagerStatic as Image;
 class CategoryController extends Controller
 {
     /**
@@ -43,6 +45,19 @@ class CategoryController extends Controller
         $category->parent_id = $request->parent_id;
         $category->position = $request->position;
         $category->slug = Str::slug($request->get('name'));
+        //set path to http://localhost/ecommerce/public/Productimg/
+        if($request->hasfile('image')){
+            $dir =  public_path('CategoyBanner/');
+             $extension = strtolower($request->file('image')->getClientOriginalExtension()); 
+             $fileName = str_random() . '.' . $extension; // rename image
+         
+
+            
+            $category->image = $fileName;
+            $npath = $dir.$fileName;
+            Image::make($request->image)->resize(1350, 420)->save($npath);
+       
+        }// get image extension
         $category->is_searchable = $request->is_searchable== 'on' ? '1' : '0';;
         $category->is_active = $request->is_active== 'on' ? '1' : '0';;
         $category->save();
@@ -88,6 +103,21 @@ class CategoryController extends Controller
         $category->parent_id = $request->parent_id;
         $category->position = $request->position;
         $category->slug = Str::slug($request->get('name'));
+        //set path to http://localhost/ecommerce/public/Productimg/
+        if($request->hasfile('image')){
+           
+        if ($category->image != '' && File::exists($dir . $category->image))File::delete($dir . $category->image);
+        
+        $dir =  public_path('CategoyBanner/');
+             $extension = strtolower($request->file('image')->getClientOriginalExtension()); 
+             $fileName = str_random() . '.' . $extension; // rename image
+         
+
+            
+            $category->image = $fileName;
+            $npath = $dir.$fileName;
+            Image::make($request->image)->resize(1350, 420)->save($npath);
+        }// get image extension
         $category->is_searchable = $request->is_searchable== 'on' ? '1' : '0';;
         $category->is_active = $request->is_active== 'on' ? '1' : '0';;
         $category->save();

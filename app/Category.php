@@ -6,16 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    protected $fillable = [
-        
-        'name',
-        'parent_id',
-        'position',        
-        'slug',        
-        'is_searchable',
-        'is_active',
-        
-    ];
+    // protected $guarded =[];
 
     public function brand()
     {
@@ -32,7 +23,7 @@ class Category extends Model
 
     public function childs() {
 
-        return $this->hasMany('App\Category','parent_id') ;
+        return $this->hasMany(Category::class,'parent_id') ;
 
     }
 

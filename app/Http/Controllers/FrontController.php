@@ -16,13 +16,7 @@ class FrontController extends Controller
      */
     public function index()
     {
-        $date = new Carbon;
-        $products = Product::all();
-        $sideproducts = Product::all()->random(4);
-        $categories = Category::where('parent_id','=','0')->get();
-        $brands = Brand::all();
-
-       return view('pages.home', compact('products','date','categories','brands','sideproducts'));
+       return view('pages.home');
     }
 
    

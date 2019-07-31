@@ -1,15 +1,20 @@
-@extends('layouts.default')
+@extends('layouts.shop')
 @section('content')
  <section id="content">
         	
-        	<div id="breadcrumb-container">
-        		<div class="container">
-					<ul class="breadcrumb">
-						<li><a href="{{URL::to('/')}}">Home</a></li>
-						<li class="active">{{$category->name}}</li>
-					</ul>
-        		</div>
-        	</div>
+   <div class="breadcrumb-area bg-img" style="background-image:url(assets/images/bg/breadcrumb.jpg);">
+    <div class="container">
+        <div class="breadcrumb-content text-center">
+            <h2>shop page</h2>
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li class="active">shop full wide </li>
+            </ul>
+        </div>
+    </div>
+</div>
         	<div class="container">
         		<div class="row">
         			<div class="col-md-12">

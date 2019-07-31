@@ -27,7 +27,7 @@
 					
 						<div class="row row-deck">
 							<div class="col-lg-12">
-								<form class="card" method="post" action="{{route('category.store')}}" >
+								<form class="card" method="post" action="{{route('category.store')}}" enctype="multipart/form-data">
 									{{csrf_field()}}
 									<div class="card-header">
 										<h3 class="card-title">Add Category</h3>
@@ -52,6 +52,8 @@
 													<label class="form-label">Name</label>
 													<input type="text" name="name" class="form-control" placeholder="Category Name">
 												</div>
+
+											
 											</div>
 											<div class="col-sm-6 col-md-4">
 												<div class="form-group">
@@ -59,7 +61,20 @@
 													<input type="number" name="position" class="form-control" placeholder="Category Position">
 												</div>
 											</div>
-											
+											<div class="col-md-12">
+												<div class="card-header">
+													<h3 class="card-title">Image Upload</h3>
+												</div>
+												<div class=" card-body">
+													<div class="row">
+														<div class="col-lg-4 col-sm-12">
+															<input type="file" name="image" class="dropify" data-height="180">
+														</div>
+														
+													</div>
+													
+												</div>
+											</div>
 											
 											
 											<div class="col-md-12">
@@ -110,7 +125,19 @@
 		<script src="{{asset('backend\js\select2.js')}}"></script>
 		<!-- file uploads js -->
         <script src="{{asset('backend\plugins\fileuploads\js\dropify.min.js')}}"></script>
-        
+        <script type="text/javascript">
+        	$('.dropify').dropify({
+                messages: {
+                    'default': 'Drag and drop a file here or click',
+                    'replace': 'Drag and drop or click to replace',
+                    'remove': 'Remove',
+                    'error': 'Ooops, something wrong appended.'
+                },
+                error: {
+                    'fileSize': 'The file size is too big (2M max).'
+                }
+            });
+        </script>
         
        
 @stop
