@@ -38,7 +38,23 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Product::find($request->id);
+        $cart = session()->get('cart');
+        $cart = [
+                $id => [
+
+                    "name" => $product->name,
+                    "quantity" => $request->quantity,
+                    "price" => $product->price,
+                    "sku" => $product->sku,
+                    "description" => $product->description,
+                    "image" => $product->image
+                ]
+            ];
+
+        session()->put('cart', $cart);
+        session()->flash('success', 'Cart updated successfully');
+
     }
 
     /**

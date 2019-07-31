@@ -22,7 +22,7 @@ Route::resource('/', 'FrontController');
 // |------------------------ Cart ---------------------------------------------------------|
 
 Route::resource('/cart', 'CartController');
-Route::get('add-to-cart/{id}', 'CartController@addToCart');
+Route::get('add-to-cart/{id}', 'CartController@addToCart')->name('add.cart');
 Route::patch('update-cart', 'CartController@update'); 
 Route::delete('remove-from-cart', 'CartController@remove');
 

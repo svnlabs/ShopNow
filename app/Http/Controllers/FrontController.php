@@ -32,6 +32,7 @@ class FrontController extends Controller
         $date = new Carbon;
         $category = Category::find($id);
         $products = Category::with(['products','childs.products','childs.childs.products'])->find($id);
+      
           
         return view('pages.category', compact('category','products','date'));
     }

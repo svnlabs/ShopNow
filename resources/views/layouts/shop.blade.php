@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Daxone - eCommerce Bootstrap 4 Template</title>
+    <title>ShopNow - eCommerce Bootstrap 4 Template</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -44,81 +44,8 @@
                             <div class="main-menu menu-common-style menu-lh-1 menu-margin-4 menu-font-3 ml-20 menu-others-page">
                                 <nav>
                                     <ul>
-                                        <li class="angle-shape"><a href="index.html">Home</a>
-                                            <ul class="submenu">
-                                                <li><a href="index.html">Home version 1 </a></li>
-                                                <li><a href="index-2.html">Home version 2 </a></li>
-                                                <li><a href="index-3.html">Home version 3 </a></li>
-                                                <li><a href="index-4.html">Home version 4 </a></li>
-                                                <li><a href="index-5.html">Home version 5 </a></li>
-                                                <li><a href="index-6.html">Home version 6 </a></li>
-                                                <li><a href="index-7.html">Home version 7 </a></li>
-                                                <li><a href="index-8.html">Home version 8 </a></li>
-                                                <li><a href="index-9.html">Home version 9 </a></li>
-                                                <li><a href="index-10.html">Home version 10 </a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="angle-shape"><a href="shop.html">Shop </a>
-                                            <ul class="mega-menu">
-                                                <li><a class="menu-title" href="#">Shop Layout</a>
-                                                    <ul>
-                                                        <li><a href="shop.html">standard style</a></li>
-                                                        <li><a href="shop-2.html">standard style 2</a></li>
-                                                        <li><a href="shop-2-col.html">shop 2 column</a></li>
-                                                        <li><a href="shop-no-sidebar.html">shop no sidebar</a></li>
-                                                        <li><a href="shop-fullwide.html">shop fullwide</a></li>
-
-                                                    </ul>
-                                                </li>
-                                                <li><a class="menu-title" href="#">Shop Layout</a>
-                                                    <ul>
-                                                        <li><a href="shop-fullwide-no-sidebar.html">fullwide no sidebar </a></li>
-                                                        <li><a href="shop-list.html">list style</a></li>
-                                                        <li><a href="shop-list-2col.html">list 2 column</a></li>
-                                                        <li><a href="shop-list-no-sidebar.html">list no sidebar</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a class="menu-title" href="#">Product Details</a>
-                                                    <ul>
-                                                        <li><a href="product-details.html">standard style</a></li>
-                                                        <li><a href="product-details-2.html">standard style 2</a></li>
-                                                        <li><a href="product-details-tab1.html">tab style 1</a></li>
-                                                        <li><a href="product-details-tab2.html">tab style 2</a></li>
-                                                        <li><a href="product-details-tab3.html">tab style 3 </a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a class="menu-title" href="#">Product Details</a>
-                                                    <ul>
-                                                        <li><a href="product-details-gallery.html">gallery style </a></li>
-                                                        <li><a href="product-details-sticky.html">sticky style</a></li>
-                                                        <li><a href="product-details-slider.html">slider style</a></li>
-                                                        <li><a href="product-details-affiliate.html">Affiliate style</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="shop.html">Mens</a></li>
-                                        <li class="angle-shape"><a href="#">Pages</a>
-                                            <ul class="submenu">
-                                                <li><a href="about-us.html">about us </a></li>
-                                                <li><a href="cart.html">cart page </a></li>
-                                                <li><a href="checkout.html">checkout </a></li>
-                                                <li><a href="compare.html">compare </a></li>
-                                                <li><a href="wishlist.html">wishlist </a></li>
-                                                <li><a href="my-account.html">my account </a></li>
-                                                <li><a href="contact.html">contact us </a></li>
-                                                <li><a href="login-register.html">login/register </a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="angle-shape"><a href="blog.html">Blog</a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">standard style </a></li>
-                                                <li><a href="blog-2col.html">blog 2 column </a></li>
-                                                <li><a href="blog-sidebar.html">blog sidebar </a></li>
-                                                <li><a href="blog-details.html">blog details </a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="index.html">Home</a>                                   
+                                        </li>                                       
                                     </ul>
                                 </nav>
                             </div>
@@ -132,9 +59,22 @@
                                     <a href="login-register.html"><i class="la la-user"></i></a>
                                 </div>
                                 <div class="cart-wrap common-style ml-35">
-                                    <button class="cart-active cart-3">
-                                        <span class="mini-cart-price">$240</span>
-                                        <i class="la la-shopping-cart"></i>
+                                    <button class="cart-active">
+                                       
+                                        @if(session('cart'))
+                                        <span class="mini-cart-price-3">
+                                            @foreach(session('cart') as $id => $details)
+                                                    <?php $total = 0 ; $total += $details['price'] * $details['quantity'] ?>
+                                                    @endforeach
+                                                     ৳ {{ $total }}
+                                            @else
+                                                 ৳ 0 
+                                        </span>
+                                        @endif
+                                         
+                                         <i class="la la-shopping-cart"></i> 
+                                        
+                                        
                                     </button>
                                     <div class="shopping-cart-content">
                                         <div class="shopping-cart-top">
@@ -142,55 +82,35 @@
                                             <a class="cart-close" href="#"><i class="la la-close"></i></a>
                                         </div>
                                         <ul>
+                                            @if(session('cart'))
+                                            @foreach(session('cart') as $id => $details)
                                             <li class="single-shopping-cart">
                                                 <div class="shopping-cart-img">
-                                                    <a href="#"><img alt="" src="assets/images/cart/cart-1.jpg"></a>
+                                                    <a href="#"><img alt="{{$details['name']}}" src="{{asset('Productimg/'.$details['image'])}}"></a>
                                                     <div class="item-close">
                                                         <a href="#"><i class="sli sli-close"></i></a>
                                                     </div>
                                                 </div>
                                                 <div class="shopping-cart-title">
-                                                    <h4><a href="#">Golden Easy Spot Chair.</a></h4>
-                                                    <span>$99.00</span>
-                                                </div>
+                                                    <h4><a href="#">{{ $details['name'] }}</a></h4>
+                                                    <span>৳ {{ $details['price'] }}</span>
+                                                </div> 
                                                 <div class="shopping-cart-delete">
-                                                    <a href="#"><i class="la la-trash"></i></a>
+                                                    <button class="la la-trash remove-from-cart" data-id="{{ $id }}"></button>
                                                 </div>
                                             </li>
-                                            <li class="single-shopping-cart">
-                                                <div class="shopping-cart-img">
-                                                    <a href="#"><img alt="" src="assets/images/cart/cart-2.jpg"></a>
-                                                    <div class="item-close">
-                                                        <a href="#"><i class="sli sli-close"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="shopping-cart-title">
-                                                    <h4><a href="#">Golden Easy Spot Chair.</a></h4>
-                                                    <span>$99.00</span>
-                                                </div>
-                                                <div class="shopping-cart-delete">
-                                                    <a href="#"><i class="la la-trash"></i></a>
-                                                </div>
-                                            </li>
-                                            <li class="single-shopping-cart">
-                                                <div class="shopping-cart-img">
-                                                    <a href="#"><img alt="" src="assets/images/cart/cart-3.jpg"></a>
-                                                    <div class="item-close">
-                                                        <a href="#"><i class="sli sli-close"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="shopping-cart-title">
-                                                    <h4><a href="#">Golden Easy Spot Chair.</a></h4>
-                                                    <span>$99.00</span>
-                                                </div>
-                                                <div class="shopping-cart-delete">
-                                                    <a href="#"><i class="la la-trash"></i></a>
-                                                </div>
-                                            </li>
+                                            @endforeach
+                                            @endif
                                         </ul>
                                         <div class="shopping-cart-bottom">
                                             <div class="shopping-cart-total">
-                                                <h4>Subtotal <span class="shop-total">$290.00</span></h4>
+                                                <h4>Subtotal <span class="shop-total">
+                                                    @if(session('cart'))                                                
+                                                    ৳{{ $total }}
+                                                    @else
+                                                    ৳ 0 
+                                                    @endif
+                                                </span></h4>
                                             </div>
                                             <div class="shopping-cart-btn btn-hover default-btn text-center">
                                                 <a class="black-color" href="checkout.html">Continue to Chackout</a>
@@ -551,7 +471,7 @@
                         </div>
                     </div>
                     <div class="copyright-3 text-center pt-20 pb-20 border-top-1">
-                        <p>Copyright © <a href="#">Daxone</a>. All Right Reserved</p>
+                        <p>Copyright © <a href="#">ShopNow</a>. All Right Reserved</p>
                     </div>
                 </div>
             </div>
@@ -570,32 +490,24 @@
                                     <div id="pro-1" class="tab-pane fade show active">
                                         <img src="assets/images/product/quickview-l1.jpg" alt="">
                                     </div>
-                                    <div id="pro-2" class="tab-pane fade">
-                                        <img src="assets/images/product/quickview-l2.jpg" alt="">
-                                    </div>
-                                    <div id="pro-3" class="tab-pane fade">
-                                        <img src="assets/images/product/quickview-l3.jpg" alt="">
-                                    </div>
-                                    <div id="pro-4" class="tab-pane fade">
-                                        <img src="assets/images/product/quickview-l2.jpg" alt="">
-                                    </div>
+                                    
                                 </div>
                                 <!-- Thumbnail Large Image End -->
                                 <!-- Thumbnail Image End -->
-                                <div class="quickview-wrap mt-15">
+                                {{-- <div class="quickview-wrap mt-15">
                                     <div class="quickview-slide-active owl-carousel nav nav-style-2" role="tablist">
                                         <a class="active" data-toggle="tab" href="#pro-1"><img src="assets/images/product/quickview-s1.jpg" alt=""></a>
                                         <a data-toggle="tab" href="#pro-2"><img src="assets/images/product/quickview-s2.jpg" alt=""></a>
                                         <a data-toggle="tab" href="#pro-3"><img src="assets/images/product/quickview-s3.jpg" alt=""></a>
                                         <a data-toggle="tab" href="#pro-4"><img src="assets/images/product/quickview-s4.jpg" alt=""></a>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="col-md-7 col-sm-12 col-xs-12">
                                 <div class="product-details-content quickview-content">
-                                    <span>Life Style</span>
-                                    <h2>LaaVista Depro, FX 829 v1</h2>
-                                    <div class="product-ratting-review">
+                                    <span id="cat">Life Style</span>
+                                    <h2 id="proname">LaaVista Depro, FX 829 v1</h2>
+                                    <div class="product-ratting-review" id="review">
                                         <div class="product-ratting">
                                             <i class="la la-star"></i>
                                             <i class="la la-star"></i>
@@ -607,7 +519,7 @@
                                             <span>40+ Reviews</span>
                                         </div>
                                     </div>
-                                    <div class="pro-details-color-wrap">
+                                    {{-- <div class="pro-details-color-wrap">
                                         <span>Color:</span>
                                         <div class="pro-details-color-content">
                                             <ul>
@@ -628,17 +540,20 @@
                                                 <li><a href="#">xxl</a></li>
                                             </ul>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="pro-details-price-wrap">
-                                        <div class="product-price">
-                                            <span>$210.00</span>
-                                            <span class="old">$230.00</span>
+                                        <div class="product-price">                                            
+                                            <span id="price">$210.00</span>
+                                            {{-- <span class="old">$230.00</span> --}}
                                         </div>
-                                        <div class="dec-rang"><span>- 30%</span></div>
+                                        {{-- <div class="dec-rang"><span>- 30%</span></div> --}}
                                     </div>
                                     <div class="pro-details-quality">
+                                    <form method="post" action="{{route('cart.store')}}">
+                                        {{csrf_field()}}
+                                        <input type="hidden" name="id" value="">
                                         <div class="cart-plus-minus">
-                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="02">
+                                            <input class="cart-plus-minus-box" type="text" name="quantity" value="2">
                                         </div>
                                     </div>
                                     <div class="pro-details-compare-wishlist">
@@ -650,7 +565,8 @@
                                         </div>
                                     </div>
                                     <div class="pro-details-buy-now btn-hover btn-hover-radious">
-                                        <a href="#">Add To Cart</a>
+                                        <input type="submit" value="Add To Cart" >
+                                    </form>
                                     </div>
                                 </div>
                             </div>
@@ -693,6 +609,74 @@
     <script src="{{asset('frontend/js/plugins/smoothscroll.js')}}"></script>
     <!-- Main JS -->
     <script src="{{asset('frontend/js/main.js')}}"></script>
+    <script type="text/javascript">
+    
+ 
+        $(".update-cart").click(function (e) {
+           e.preventDefault();
+ 
+           var ele = $(this);
+ 
+            $.ajax({
+               url: '{{ url('update-cart') }}',
+               method: "patch",
+               data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: ele.parents("tr").find(".quantity").val()},
+               success: function (response) {
+                   window.location.reload();
+               }
+            });
+        });
+ 
+        $(".remove-from-cart").click(function (e) {
+            e.preventDefault();
+ 
+            var ele = $(this);
+ 
+            if(confirm("Are you sure")) {
+                $.ajax({
+                    url: '{{ url('remove-from-cart') }}',
+                    method: "DELETE",
+                    data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id")},
+                    success: function (response) {
+                        window.location.reload();
+                    }
+                });
+            }
+        });
+
+        $(document).ready(function () {
+            $(document).on("click", '.show_product', function (e) {
+
+                var cat = $(this).data('cat');
+                var proname = $(this).data('proname');
+                var review = $(this).data('review');
+                var proatt = $(this).data('proatt');
+                var price = $(this).data('price');
+                var src = $(this).data('src');
+                var id = $(this).data('id');
+               
+               
+
+                $("#modalOptionId").val(id);
+                $("#modalBettingQuestionOption").text(name);
+                $(".modalBetRate").text(ratio2);
+                $(".ratio2").text(ratio2);
+                $("#ratio2").val(ratio2);
+                $("#modalMatchId").val(matchid);
+                $("#modalQId").val(qid);
+                $("#modalBettingQuestion").text(question);
+                $("#modalMatchCaption").text(match);
+                $("#modalStakeAmountLabel").text(min_amo);
+                $("#modalPossibleAmountLabel").text(win_amo);
+                $("#modalGameType").text(type);
+                $("#modalGameType").attr("style",type_color);
+                $("#modalGameLogo").attr("src",img);
+       
+
+            });
+        });
+ 
+    </script>
 </body>
 
 </html>

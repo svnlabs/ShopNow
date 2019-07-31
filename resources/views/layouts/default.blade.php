@@ -107,7 +107,7 @@
                                                  ৳ 0 
                                         </span>
                                         @endif
-                                        
+                                         
                                       
                                         <span class="count-style-3"> @if(session('cart')) {{ count(session('cart')) }} @else 0  @endif</span>
                                         
