@@ -2,20 +2,21 @@
 @section('content')
 <div class="slider-area pt-10">
             <div class="container">               
-                <div class="slider-active-4 owl-carousel dot-style-2">
+                <div class="slider-active-3 owl-carousel nav-style-4 ">
                     @foreach($slider as $slide)
-                    <div class="slider-area slider-height-6 bg-img" style="background-image:url(slide/{{$slide->image1}});">
+                    <div class="slider-area slider-height-6 bg-img"  style="background-image:url(slide/{{$slide->image1}});background-size: contain;">
+                        @if(!$slide->hide_product)
                         <div class="container">
-                            @if(!$slide->hide_product)
+                            
                              @foreach(App\Product::all()->random(1) as $product)
                             <div class="row align-items-center">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="slider-content-6">
+                                    <div class=" slider-content-1 slider-animated-1 ml-70">
                                        
                                         <h1 class="wow fadeInUp">{{$product->name}}</h1>
                                         <p class="wow fadeInUp">{!!$product->description!!}</p>
-                                        <div class="slider-btn-6 default-btn btn-hover">
-                                            <a class="wow fadeInUp white-color" href="{{route('shop.product',$product->id)}}">BUY NOW</a>
+                                        <div class="slider-btn-1 default-btn btn-hover">
+                                            <a class="animated btn-color-theme btn-size-md btn-style-outline" href="{{route('shop.product',$product->id)}}">BUY NOW</a>
                                         </div>
                                         
                                     </div>
@@ -28,10 +29,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                @endforeach
-                            @endif
+                               
+                            
                             </div>
+                             @endforeach
                         </div>
+                        @endif
                     </div>
                     @endforeach
                    
@@ -41,42 +44,21 @@
    <div class="banner-area pt-30 pb-40">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 col-md-12 col-sm-12">
+                    @foreach(App\Product::all()->random(3) as $ban1)
+                    <div class="col-lg-4 col-md-4 col-sm-12">
                         <div class="banner-wrap mb-30">
                             <a href="product-details.html">
                                 <img src="{{asset('frontend/images/banner/banner-20.png')}}" alt="banner">
                             </a>
                             <div class="banner-content-12">
-                                <h2>Qucx Lapoo</h2>
-                                <h5>G432xx</h5>
-                                <h3>1990.00</h3>
+                                <h2>{{$ban1->name}}</h2>
+                                <h5>{{$ban1->category->name}}</h5>
+                                <h3>৳ {{$ban1->price}}</h3>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="banner-wrap mb-30">
-                            <a href="product-details.html">
-                                <img src="{{asset('frontend/images/banner/banner-21.png')}}" alt="banner">
-                            </a>
-                            <div class="banner-content-9">
-                                <h3>Beots <br>Superb</h3>
-                                    <p>Lorem Ipsum is simply dummy text</p>
-                                    <a href="product-details.html">Shop Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="banner-wrap mb-30 res-white-overly-xs">
-                            <a href="product-details.html">
-                                <img src="{{asset('frontend/images/banner/banner-22.png')}}" alt="banner">
-                            </a>
-                            <div class="banner-content-9 banner-content-9-mrg2">
-                                <h4>Sup<span>erb</span></h4>
-                                <p>Lorem Ipsum is simply dummy text</p>
-                                <a href="product-details.html">Shop Now</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                    
                 </div>
             </div>
         </div>      

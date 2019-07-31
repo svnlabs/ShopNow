@@ -85,18 +85,18 @@
 											</div>
 											
 											
-											<!-- <div class="col-md-4">
+											<div class="col-md-4">
 												
 												
 												<div class="form-group">
-													<div class="form-label">Is this Slider Active?</div>
+													<div class="form-label">Want to hide Product on slider?</div>
 													<label class="custom-switch">
-														<input type="checkbox" name="is_active" class="custom-switch-input">
+														<input type="checkbox" name="hide_product" class="custom-switch-input" {{$slider->hide_product== 'on' ? 'checked' : ''}}>
 														<span class="custom-switch-indicator"></span>
-														<span class="custom-switch-description">This Slider is Active</span>
+														<span class="custom-switch-description">Yes!! Yes!!</span>
 													</label>
 												</div>
-											</div> -->
+											</div>
 								
 										</div>
 									</div>

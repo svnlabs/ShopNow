@@ -864,20 +864,20 @@
 }
 
 .slider-height-6 {
-    height: 700px;
+    height: 400px;
     display: flex;
     align-items: center;
     @media #{$xx-layout} {
-        height: 600px;
+        height: 400px;
     }
     @media #{$xl-layout} {
-        height: 600px;
+        height: 400px;
     }
     @media #{$lg-layout} {
-        height: 454px;
+        height: 400px;
     }
     @media #{$md-layout} {
-        height: 430px;
+        height: 400px;
     }
     @media #{$xs-layout} {
         height: auto;

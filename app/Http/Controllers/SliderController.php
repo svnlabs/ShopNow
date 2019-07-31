@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Slider;
+use File;
 class SliderController extends Controller
 {
     /**
@@ -39,6 +40,7 @@ class SliderController extends Controller
         
           $slider = new Slider;
           $slider->title = $request->title;
+          $slider->hide_product = $request->hide_product;
           $slider->feature = $request->feature;
          if ($request->hasFile('image1')) {
             $image1 = $request->file('image1');
@@ -102,8 +104,10 @@ class SliderController extends Controller
     {
         $slider=Slider::find($id);
         $slider->title = $request->title;
+        $slider->hide_product = $request->hide_product;
           $slider->feature = $request->feature;
          if ($request->hasFile('image1')) {
+            if ($slider->image != '' && File::exists($dir . $slider->image))File::delete($dir . $slider->image);
             $image1 = $request->file('image1');
             $filename1 = time() . '.' . $image1->getClientOriginalExtension();
             $location = public_path('slide/');
@@ -112,6 +116,7 @@ class SliderController extends Controller
             $slider->image1 = $filename1;
         }
         if ($request->hasFile('image2')) {
+            if ($slider->image != '' && File::exists($dir . $slider->image))File::delete($dir . $slider->image);
             $image2 = $request->file('image2');
             $filename2 = time() . '.' . $image2->getClientOriginalExtension();
             $location = public_path('slide/');
@@ -120,6 +125,7 @@ class SliderController extends Controller
             $slider->image2 = $filename2;
         }
         if ($request->hasFile('image3')) {
+            if ($slider->image != '' && File::exists($dir . $slider->image))File::delete($dir . $slider->image);
             $image3 = $request->file('image3');
             $filename3 = time() . '.' . $image3->getClientOriginalExtension();
             $location = public_path('slide/');
@@ -140,7 +146,10 @@ class SliderController extends Controller
     public function destroy($id)
     {
        $new = Slider::find($id);
+       if (File::exists($dir . $new->image1))File::delete($dir . $new->image1);
+       if (File::exists($dir . $new->image2))File::delete($dir . $new->image2);
+       if (File::exists($dir . $new->image3))File::delete($dir . $new->image3);
         $new->delete();
-        return back()->with('delete','Product Deleted successfully!');
+        return back()->with('delete','slider Deleted successfully!');
     }
 }
