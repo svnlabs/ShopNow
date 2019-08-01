@@ -475,7 +475,7 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer> 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
@@ -488,7 +488,7 @@
                             <div class="col-md-5 col-sm-12 col-xs-12">
                                 <div class="tab-content quickview-big-img">
                                     <div id="pro-1" class="tab-pane fade show active">
-                                        <img src="assets/images/product/quickview-l1.jpg" alt="">
+                                        <img src="assets/images/product/quickview-l1.jpg" alt="" id="image">
                                     </div>
                                     
                                 </div>
@@ -505,7 +505,7 @@
                             </div>
                             <div class="col-md-7 col-sm-12 col-xs-12">
                                 <div class="product-details-content quickview-content">
-                                    <span id="cat">Life Style</span>
+                                    <span id="cat"></span>
                                     <h2 id="proname">LaaVista Depro, FX 829 v1</h2>
                                     <div class="product-ratting-review" id="review">
                                         <div class="product-ratting">
@@ -654,10 +654,11 @@
                 var price = $(this).data('price');
                 var src = $(this).data('src');
                 var id = $(this).data('id');
+                var image = $(this).data('image');
                
                
 
-                $("#modalOptionId").val(id);
+                $("#cat").text(cat);
                 $("#modalBettingQuestionOption").text(name);
                 $(".modalBetRate").text(ratio2);
                 $(".ratio2").text(ratio2);
