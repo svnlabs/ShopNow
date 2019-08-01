@@ -38,11 +38,11 @@ class ProductSeeder extends Seeder
             'deleted_at'=>NULL,
             'created_at'=>'2019-07-21 03:28:13',
             'updated_at'=>'2019-07-21 18:47:34'
-        ] );
+      ] );
 
 
-        
-        Product::create( [
+          
+          Product::create( [
             'id'=>6,
             'name'=>'Rui Fish',
             'tax_class_id'=>NULL,
@@ -68,11 +68,11 @@ class ProductSeeder extends Seeder
             'deleted_at'=>NULL,
             'created_at'=>'2019-07-21 03:33:47',
             'updated_at'=>'2019-07-21 19:01:29'
-        ] );
+      ] );
 
 
-        
-        Product::create( [
+          
+          Product::create( [
             'id'=>7,
             'name'=>'Quality Brown Premium Egg',
             'tax_class_id'=>NULL,
@@ -98,11 +98,11 @@ class ProductSeeder extends Seeder
             'deleted_at'=>NULL,
             'created_at'=>'2019-07-21 03:38:47',
             'updated_at'=>'2019-07-21 19:00:25'
-        ] );
+      ] );
 
 
-        
-        Product::create( [
+          
+          Product::create( [
             'id'=>8,
             'name'=>'Quail Eggs',
             'tax_class_id'=>NULL,
@@ -128,11 +128,11 @@ class ProductSeeder extends Seeder
             'deleted_at'=>NULL,
             'created_at'=>'2019-07-21 03:40:20',
             'updated_at'=>'2019-07-21 18:59:45'
-        ] );
+      ] );
 
 
-        
-        Product::create( [
+          
+          Product::create( [
             'id'=>9,
             'name'=>'Double A A4 Size Paper',
             'tax_class_id'=>NULL,
@@ -158,11 +158,11 @@ class ProductSeeder extends Seeder
             'deleted_at'=>NULL,
             'created_at'=>'2019-07-21 04:45:02',
             'updated_at'=>'2019-07-21 18:46:17'
-        ] );
+      ] );
 
 
-        
-        Product::create( [
+          
+          Product::create( [
             'id'=>10,
             'name'=>'Bashundhara Paper A4 Size',
             'tax_class_id'=>NULL,
@@ -188,11 +188,11 @@ class ProductSeeder extends Seeder
             'deleted_at'=>NULL,
             'created_at'=>'2019-07-21 04:47:08',
             'updated_at'=>'2019-07-21 07:27:22'
-        ] );
+      ] );
 
 
-        
-        Product::create( [
+          
+          Product::create( [
             'id'=>11,
             'name'=>'Classic 3 In 1 Blender',
             'tax_class_id'=>NULL,
@@ -229,10 +229,10 @@ class ProductSeeder extends Seeder
             'deleted_at'=>NULL,
             'created_at'=>'2019-07-21 05:16:18',
             'updated_at'=>'2019-07-21 18:45:47'
-        ] );
+      ] );
 
-        
-        Product::create( [
+          
+          Product::create( [
             'id'=>12,
             'name'=>'RFL Vision Rice Cooker',
             'tax_class_id'=>NULL,
@@ -265,10 +265,10 @@ class ProductSeeder extends Seeder
             'deleted_at'=>NULL,
             'created_at'=>'2019-07-21 05:20:26',
             'updated_at'=>'2019-07-21 19:00:59'
-        ] );
+      ] );
 
-        
-        Product::create( [
+          
+          Product::create( [
             'id'=>13,
             'name'=>'Pedia Sure Premium Chocolate Jar',
             'tax_class_id'=>NULL,
@@ -299,6 +299,233 @@ class ProductSeeder extends Seeder
             'deleted_at'=>NULL,
             'created_at'=>'2019-07-31 23:39:54',
             'updated_at'=>'2019-07-31 23:46:25'
-        ] );
+      ] );
+          Product::create( [
+            'id'=>16,
+            'name'=>'Telapia Fish',
+            'tax_class_id'=>NULL,
+            'category_id'=>7,
+            'brand_id'=>NULL,
+            'slug'=>'telapia-fish',
+            'price'=>200,
+            'special_price'=>NULL,
+            'special_price_start'=>NULL,
+            'special_price_end'=>NULL,
+            'selling_price'=>NULL,
+            'image'=>'q70WeFiBGkJDgPBs.jpg',
+            'short_description'=>'Telapia Fish 3/4 pcs',
+            'long_description'=>'
+            Telapia Fish 3/4 pcs 
+            (Net Weight After Cutting ± 50 gm)
+
+            800 gm
+            ',
+            'sku'=>'HPDP.telapia-fish',
+            'manage_stock'=>1,
+            'quantity'=>10,
+            'in_stock'=>0,
+            'viewed'=>0,
+            'is_active'=>1,
+            'new_from'=>'2019-08-02',
+            'new_to'=>'2019-08-05',
+            'deleted_at'=>NULL,
+            'created_at'=>'2019-08-01 12:23:51',
+            'updated_at'=>'2019-08-01 12:23:51'
+      ] );
+
+          
+          Product::create( [
+            'id'=>17,
+            'name'=>'Chingri',
+            'tax_class_id'=>NULL,
+            'category_id'=>7,
+            'brand_id'=>NULL,
+            'slug'=>'chingri',
+            'price'=>310,
+            'special_price'=>NULL,
+            'special_price_start'=>NULL,
+            'special_price_end'=>NULL,
+            'selling_price'=>NULL,
+            'image'=>'sD1l3JaUaRjziCVr.png',
+            'short_description'=>'Prawn Small',
+            'long_description'=>'
+            Prawn Small (Chingri)500 gm
+            ',
+            'sku'=>'9eFw.chingri',
+            'manage_stock'=>1,
+            'quantity'=>10,
+            'in_stock'=>0,
+            'viewed'=>0,
+            'is_active'=>1,
+            'new_from'=>'2019-08-02',
+            'new_to'=>'2019-08-06',
+            'deleted_at'=>NULL,
+            'created_at'=>'2019-08-01 12:26:16',
+            'updated_at'=>'2019-08-01 12:26:16'
+      ] );
+
+          
+          Product::create( [
+            'id'=>18,
+            'name'=>'Bagda Chingri',
+            'tax_class_id'=>NULL,
+            'category_id'=>7,
+            'brand_id'=>NULL,
+            'slug'=>'bagda-chingri',
+            'price'=>565,
+            'special_price'=>NULL,
+            'special_price_start'=>NULL,
+            'special_price_end'=>NULL,
+            'selling_price'=>NULL,
+            'image'=>'8Djl8PydoFe4mBwU.jpg',
+            'short_description'=>'Bagda Prawn (Chingri) 1 Kg',
+            'long_description'=>'
+
+            Bagda Prawn (Chingri) 500 Gm
+            (45-55 PCs/ Kg)
+            ৳282.50
+            ',
+            'sku'=>'SJdC.bagda-chingri',
+            'manage_stock'=>1,
+            'quantity'=>10,
+            'in_stock'=>0,
+            'viewed'=>0,
+            'is_active'=>1,
+            'new_from'=>'2019-08-02',
+            'new_to'=>'2019-08-05',
+            'deleted_at'=>NULL,
+            'created_at'=>'2019-08-01 12:30:43',
+            'updated_at'=>'2019-08-01 12:30:43'
+      ] );
+
+          
+          Product::create( [
+            'id'=>19,
+            'name'=>'Chital',
+            'tax_class_id'=>NULL,
+            'category_id'=>7,
+            'brand_id'=>NULL,
+            'slug'=>'chital',
+            'price'=>680,
+            'special_price'=>NULL,
+            'special_price_start'=>NULL,
+            'special_price_end'=>NULL,
+            'selling_price'=>NULL,
+            'image'=>'2LqQxOMFHg3UklIB.jpg',
+            'short_description'=>'Medium',
+            'long_description'=>'
+            Chital Medium
+            Brand : n/a
+            per Kg
+            ',
+            'sku'=>'RINy.chital',
+            'manage_stock'=>1,
+            'quantity'=>10,
+            'in_stock'=>0,
+            'viewed'=>0,
+            'is_active'=>1,
+            'new_from'=>'2019-08-02',
+            'new_to'=>'2019-08-12',
+            'deleted_at'=>NULL,
+            'created_at'=>'2019-08-01 12:32:35',
+            'updated_at'=>'2019-08-01 12:32:35'
+      ] );
+
+          
+          Product::create( [
+            'id'=>20,
+            'name'=>'Gulsha',
+            'tax_class_id'=>NULL,
+            'category_id'=>7,
+            'brand_id'=>NULL,
+            'slug'=>'gulsha',
+            'price'=>690,
+            'special_price'=>NULL,
+            'special_price_start'=>NULL,
+            'special_price_end'=>NULL,
+            'selling_price'=>NULL,
+            'image'=>'18K03AIL00j17HZK.jpg',
+            'short_description'=>'Gulsha Fish (Medium) 1 Kg',
+            'long_description'=>'
+            Gulsha Fish (Medium) 1 Kg
+            Brand : n/a
+            (55-65 PCs/ Kg)
+            OUR PRICE ৳690
+            ',
+            'sku'=>'U79Q.gulsha',
+            'manage_stock'=>1,
+            'quantity'=>10,
+            'in_stock'=>0,
+            'viewed'=>0,
+            'is_active'=>1,
+            'new_from'=>'2019-08-02',
+            'new_to'=>'2019-08-05',
+            'deleted_at'=>NULL,
+            'created_at'=>'2019-08-01 12:34:49',
+            'updated_at'=>'2019-08-01 12:34:49'
+      ] );
+
+          
+          Product::create( [
+            'id'=>21,
+            'name'=>'Horina',
+            'tax_class_id'=>NULL,
+            'category_id'=>7,
+            'brand_id'=>NULL,
+            'slug'=>'horina',
+            'price'=>635,
+            'special_price'=>NULL,
+            'special_price_start'=>NULL,
+            'special_price_end'=>NULL,
+            'selling_price'=>NULL,
+            'image'=>'ncyPalHg47qaRblb.jpg',
+            'short_description'=>'Horina Prawn(Chingri)',
+            'long_description'=>'
+            Horina Prawn(Chingri) Medium 1 Kg
+
+            ',
+            'sku'=>'7EZx.horina',
+            'manage_stock'=>1,
+            'quantity'=>10,
+            'in_stock'=>0,
+            'viewed'=>0,
+            'is_active'=>1,
+            'new_from'=>'2019-08-02',
+            'new_to'=>'2019-08-03',
+            'deleted_at'=>NULL,
+            'created_at'=>'2019-08-01 12:37:07',
+            'updated_at'=>'2019-08-01 12:37:07'
+      ] );
+
+          
+          Product::create( [
+            'id'=>22,
+            'name'=>'Koral',
+            'tax_class_id'=>NULL,
+            'category_id'=>7,
+            'brand_id'=>NULL,
+            'slug'=>'koral',
+            'price'=>850,
+            'special_price'=>NULL,
+            'special_price_start'=>NULL,
+            'special_price_end'=>NULL,
+            'selling_price'=>NULL,
+            'image'=>'WjpiEllP2pB3jbcL.jpg',
+            'short_description'=>'Koral Medium',
+            'long_description'=>'
+            Koral Medium
+            ',
+            'sku'=>'UXmp.koral',
+            'manage_stock'=>1,
+            'quantity'=>10,
+            'in_stock'=>0,
+            'viewed'=>0,
+            'is_active'=>1,
+            'new_from'=>'2019-08-02',
+            'new_to'=>'2019-08-12',
+            'deleted_at'=>NULL,
+            'created_at'=>'2019-08-01 12:40:16',
+            'updated_at'=>'2019-08-01 12:40:16'
+      ] );
     }
 }
