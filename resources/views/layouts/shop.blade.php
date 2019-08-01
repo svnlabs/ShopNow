@@ -31,46 +31,98 @@
 
 <body>
     <div class="main-wrapper">
-        <header class="header-area transparent-bar sticky-bar pt-10">
+        <header class="header-area transparent-bar sticky-bar header-padding-3">
             <div class="main-header-wrap">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-xl-2 col-lg-3">
+                        <div class="col-xl-2 col-lg-2">
                             <div class="logo">
-                                <a href="index.html"><img src="assets/images/logo/logo-1.png" alt="logo"></a>
+                                <a href="index.html"><img src="{{asset('frontend/images/logo/logo-1.png')}}" alt="logo"></a>
                             </div>
                         </div>
-                        <div class="col-xl-7 col-lg-6">
-                            <div class="main-menu menu-common-style menu-lh-1 menu-margin-4 menu-font-3 ml-20 menu-others-page">
+                        <div class="col-xl-5 col-lg-6 d-flex ml-50">
+                           <div class="main-menu menu-common-style menu-lh-3 menu-margin-4 menu-ngtv-mrg-1 menu-font-2">
                                 <nav>
                                     <ul>
-                                        <li><a href="index.html">Home</a>                                   
-                                        </li>                                       
+                                        <li><a href="{{url('/')}}">Home</a>                                   
+                                        </li>  
+                                        <li class="angle-shape"><a href="shop.html">Shop </a>
+
+                                       
+                                            <ul class="mega-menu mega-menu-hm4">
+                                                @foreach(App\Category::Where('parent_id',0)->get() as $parent)
+                                                <li><a class="menu-title" href="{{route('shop.category',$parent->id)}}">{{$parent->name}}</a>
+                                                    <ul >
+                                                        @foreach(App\Category::where('parent_id',$parent->id)->get() as $child)
+                                                        <li><a href="{{route('shop.category',$child->id)}}">{{$child->name}}</a>
+                                                         <ul>
+                                                            @foreach(App\Category::where('parent_id',$child->id)->get() as $grand)
+                                                                <li><a href="{{route('shop.category',$grand->id)}}">{{$grand->name}}</a></li>
+                                                            @endforeach
+                                                        </ul>
+                                                        </li>
+                                                        @endforeach                                                       
+
+                                                    </ul>
+                                                </li>
+                                                @endforeach
+                                                
+                                            </ul>
+                                        </li>
+
                                     </ul>
                                 </nav>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3">
-                            <div class="header-right-wrap mt-10">
-                                <div class="header-wishlist">
+
+                         <div class="col-xl-4 col-lg-4">
+                            <div class="header-right-wrap  stick-mt-40">
+                                
+                                @if(Auth::user())
+                                <div class="search-wrap-2 search-wrap-2-mrg border-style">
+                                 <div class="header-wishlist">
                                     <a href="wishlist.html"><i class="la la-heart-o"></i></a>
                                 </div>
-                                <div class="header-login ml-40">
-                                    <a href="{{ route('logout') }}"
+                                </div>
+                                <div class="setting-wrap setting-wrap-mrg border-style">
+                                    <a class="setting-active" href="#">
+                                        <i class="la la-cog"></i>
+                                        Account
+                                    </a>
+                                    <!-- Setting account dropdown start -->
+                                    <div class="setting-content">
+                                        <ul>
+                                            
+                                                    <li><a href="{{route('user.index')}}">My Account</a></li>
+                                                    <li>
+                                                    <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
-                                        </a>
+                                        </a></li>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        
+                                                    
+                                              
+                                        </ul>
+                                        <form id="logout-form" action="{{ 'App\Admin' == Auth::getProvider()->getModel() ? route('admin.logout') : route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
+                                    </div>
                                 </div>
-                                <div class="cart-wrap common-style ml-35">
-                                    <button class="cart-active">
+                                @else
+                                <div class="setting-wrap setting-wrap-mrg border-style">
+                                    <div class="header-wishlist">
+                                        <a href="{{route('login')}}"><i class="la la-user"></i></a>
+                                    </div>
+                                </div>
+                                @endif
+                                <div class="cart-wrap cart-wrap-2">
+                                    <button class="cart-active ">
                                        
-                                        @if(session('cart'))
-                                        <span class="mini-cart-price-3">
+                                        
+                                        <span class="mini-cart-price-2">
+                                            @if(session('cart'))
                                             @foreach(session('cart') as $id => $details)
                                                     <?php $total = 0 ; $total += $details['price'] * $details['quantity'] ?>
                                                     @endforeach
@@ -81,7 +133,7 @@
                                         @endif
                                           </span>
                                          <i class="la la-shopping-cart"></i> 
-                                        
+                                        <span class="count-style-2">@if(session('cart')) {{ count(session('cart')) }} @else 0  @endif</span>
                                         
                                     </button>
                                     <div class="shopping-cart-content">
@@ -126,8 +178,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
+                        
                     </div>
                 </div>
                 <!-- main-search start -->
@@ -367,7 +421,20 @@
                 </div>
             </div>
         </div>
+      
+        <div class="breadcrumb-area bg-img" style="background-image:url(frontend/images/bg/breadcrumb.jpg);">
+            <div class="container">
+                <div class="breadcrumb-content text-center">
+                    @yield('breadcrumb')                    
+                </div>
+            </div>
+        </div>
+
+
         @yield('content')
+
+
+
         <footer class="footer-area section-padding-2 bg-bluegray pt-80">
             <div class="container-fluid">
                 <div class="footer-top pb-40">

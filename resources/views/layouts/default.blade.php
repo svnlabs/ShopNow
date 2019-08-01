@@ -52,7 +52,7 @@
                                     
                                     <div class="setting-content2-right">
                                         @if(Auth::user())
-                                        <a href="my-account.html">My Account</a>                                     
+                                        <a href="{{route('user.index')}}">My Account</a>                                     
                                         <a href="{{route('wishlist.index')}}">Wishlist</a>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -185,15 +185,15 @@
                                         <nav>
                                             <ul>
                                                 @foreach(App\Category::Where('parent_id',0)->get() as $parent)
-                                                <li class="cr-dropdown"><a href="{{route('shop.category',$parent->id)}}">{{ $parent->name}} <span class="la la-angle-right"></span></a>
+                                                <li class="cr-dropdown"><a @if( count($parent->products))href="{{route('shop.category',$parent->id)}}" @endif>{{ $parent->name}} <span class="la la-angle-right"></span></a>
 
                                                     <div class="category-menu-dropdown ct-menu-res-height-1">
                                                         @foreach(App\Category::where('parent_id',$parent->id)->get() as $child)
                                                         <div class="single-category-menu ct-menu-mrg-bottom category-menu-border">
-                                                            <a href="{{route('shop.category',$child->id)}}"><h4>{{$child->name}}</h4></a>
+                                                            <a @if( count($child->products))href="{{route('shop.category',$child->id)}}" @endif><h4>{{$child->name}}</h4></a>
                                                             <ul>
                                                                 @foreach(App\Category::where('parent_id',$child->id)->get() as $grand)
-                                                                <li><a href="{{route('shop.category',$grand->id)}}">{{$grand->name}}</a></li>
+                                                                <li><a @if( count($grand->products)) href="{{route('shop.category',$grand->id)}}" @endif>{{$grand->name}}</a></li>
                                                                 @endforeach
                                                             </ul>
                                                         </div>

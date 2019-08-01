@@ -1,18 +1,17 @@
 @extends('layouts.shop')
+@section('breadcrumb')
+<h2>Wishlist page</h2>
+<ul>
+	<li>
+		<a href="index.html">Home</a>
+	</li>
+	<li class="active">Wishlist </li>
+</ul>
+@stop
 @section('content')
-<div class="breadcrumb-area bg-img" style="background-image:url(assets/images/bg/breadcrumb.jpg);">
-	<div class="container">
-		<div class="breadcrumb-content text-center">
-			<h2>Wishlist page</h2>
-			<ul>
-				<li>
-					<a href="index.html">Home</a>
-				</li>
-				<li class="active">Wishlist </li>
-			</ul>
-		</div>
-	</div>
-</div>
+
+			
+		
 <div class="cart-main-area pt-85 pb-90">
 	<div class="container">
 		<h3 class="cart-page-title">Your cart items</h3>
@@ -50,7 +49,7 @@
 										</form>
 									</td>									
 									<td class="product-wishlist-cart">
-										<a onclick="document.getElementById('add').submit();"href="#">add to cart</a>
+										<a onclick="event.preventDefault();document.getElementById('add').submit();"href="#">add to cart</a>
 									
 									</td>
 								</tr>
@@ -64,4 +63,4 @@
 		</div>
 	</div>
 </div>
-@stop
+@stop 
