@@ -7,6 +7,7 @@ use App\Product;
 use App\Category;
 use App\Brand;
 use App\Slider;
+use App\Deal;
 use Carbon\Carbon;
 class FrontController extends Controller
 {
@@ -17,9 +18,12 @@ class FrontController extends Controller
      */
     public function index()
     {
+        $now=new Carbon;
         $slider= Slider::all()->random(3);
+        $deals = Deal::where('is_active','on')->take(1)->get();
         $featureProduct=Category::has('products')->with('products')->get()->random(3);
-       return view('pages.home',compact('featureProduct','slider'));
+        $latestProduct=Product::where('new_to','>=',$now);
+       return view('pages.home',compact('featureProduct','slider','deals','latestProduct'));
     }
 
    

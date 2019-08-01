@@ -50,10 +50,11 @@ class ProductController extends Controller
         $product->special_price_start = $request->special_price_start;
         $product->special_price_end = $request->special_price_end;
         $product->selling_price = $request->selling_price;
-        $product->qty = $request->qty;
+        $product->quantity = $request->quantity;
         $product->new_from = $request->new_from;
         $product->new_to = $request->new_to;
-        $product->description = $request->description;
+        $product->long_description = $request->long_description;
+        $product->short_description = $request->short_description;
         $product->manage_stock = $request->manage_stock== 'on' ? '1' : '0';;
         $product->in_stock = $request->in_stock== 'on' ? '1' : '0';;
         $product->is_active = $request->is_active== 'on' ? '1' : '0';;
@@ -136,10 +137,11 @@ class ProductController extends Controller
         $product->special_price_start = $request->special_price_start;
         $product->special_price_end = $request->special_price_end;
         $product->selling_price = $request->selling_price;
-        $product->qty = $request->qty;
+        $product->quantity = $request->quantity;
         $product->new_from = $request->new_from;
         $product->new_to = $request->new_to;
-        $product->description = $request->description;
+        $product->long_description = $request->long_description;
+        $product->short_description = $request->short_description;
         $product->manage_stock = $request->manage_stock== 'on' ? '1' : '0';;
         $product->in_stock = $request->in_stock== 'on' ? '1' : '0';;
         $product->is_active = $request->is_active== 'on' ? '1' : '0';;
@@ -150,10 +152,10 @@ class ProductController extends Controller
 
         //set path to http://localhost/ecommerce/public/Productimg/
         if($request->hasfile('image')){
-           
+            $dir =  public_path('Productimg/');
         if ($product->image != '' && File::exists($dir . $product->image))File::delete($dir . $product->image);
         
-        $dir =  public_path('Productimg/');
+           
              $extension = strtolower($request->file('image')->getClientOriginalExtension()); 
              $fileName = str_random() . '.' . $extension; // rename image
          
@@ -161,7 +163,7 @@ class ProductController extends Controller
             
             $product->image = $fileName;
             $npath = $dir.$fileName;
-            Image::make($request->image)->resize(222, 222)->save($npath);
+            Image::make($request->image)->resize(222, 222)->encode('png', 80)->save($npath);
         }// get image extension
         
         
@@ -183,6 +185,8 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $new = Product::find($id);
+        $dir =  public_path('Productimg/');
+         if ($new->image != '' && File::exists($dir . $new->image))File::delete($dir . $new->image);
         $new->delete();
         return Redirect()->route('product.index')->with('delete','Product Deleted successfully!');
     }

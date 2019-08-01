@@ -112,7 +112,7 @@
 											<div class="col-sm-6 col-md-3">
 												<div class="form-group">
 													<label class="form-label">Quantity</label>
-													<input type="text" name="qty" class="form-control" placeholder="Quantity">
+													<input type="text" name="quantity" class="form-control" placeholder="Quantity">
 												</div>
 											</div>
 											<div class="col-sm-6 col-md-3">
@@ -143,13 +143,19 @@
 													</div>
 												</div>
 											</div>
-											
-											<div class="col-md-12">
-												<div class="form-group mb-0">
-													<label class="form-label">Product Description</label>
-													<textarea class="content" name="description"></textarea>
+											<div class="col-sm-12 col-md-12">
+												<div class="form-group">
+													<label class="form-label">Product Short Description</label>
+													<input type="text" name="short_description" class="form-control" placeholder="Selling Price">
 												</div>
 											</div>
+											<div class="col-md-12">
+												<div class="form-group mb-0">
+													<label class="form-label">Product Long Description</label>
+													<textarea class="content" name="long_description"></textarea>
+												</div>
+											</div>
+
 											<div class="col-md-12">
 												<div class="card-header">
 													<h3 class="card-title">Image Upload</h3>

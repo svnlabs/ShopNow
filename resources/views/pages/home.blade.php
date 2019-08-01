@@ -11,10 +11,10 @@
                              @foreach(App\Product::all()->random(1) as $product)
                             <div class="row align-items-center">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class=" slider-content-1 slider-animated-1 ml-70">
+                                    <div class=" slider-content-3 slider-animated-1 ml-70">
                                        
                                         <h1 class="wow fadeInUp">{{$product->name}}</h1>
-                                        <p class="wow fadeInUp">{!!$product->description!!}</p>
+                                        <p class="wow fadeInUp">{!!$product->short_description!!}</p>
                                         <div class="slider-btn-1 default-btn btn-hover">
                                             <a class="animated btn-color-theme btn-size-md btn-style-outline" href="{{route('shop.product',$product->id)}}">BUY NOW</a>
                                         </div>
@@ -41,28 +41,141 @@
                 </div>
             </div>
         </div>
-   <div class="banner-area pt-30 pb-40">
+        <div class="product-area pb-100">
             <div class="container">
-                <div class="row">
-                    @foreach(App\Product::all()->random(3) as $ban1)
-                    <div class="col-lg-4 col-md-4 col-sm-12">
-                        <div class="banner-wrap mb-30">
-                            <a href="product-details.html">
-                                <img src="{{asset('frontend/images/banner/banner-20.png')}}" alt="banner">
-                            </a>
-                            <div class="banner-content-12">
-                                <h2>{{$ban1->name}}</h2>
-                                <h5>{{$ban1->category->name}}</h5>
-                                <h3>৳ {{$ban1->price}}</h3>
+                <div class="section-title-2 text-center">
+                    <h2>Featured products</h2>
+                    <img src="assets/images/icon-img/title-shape.png" alt="icon-img">
+                </div>
+                <div class="product-slider-active owl-carousel">
+                    <div class="product-wrap product-border-1 product-img-zoom">
+                        <div class="product-img">
+                            <a href="product-details.html"><img src="assets/images/product/pro-hm2-1.jpg" alt="product"></a>
+                            <div class="product-action-2">
+                                <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class="la la-search"></i></a>
+                                <a title="Add To Cart" href="#"><i class="la la-cart-plus"></i></a>
+                                <a title="Wishlist" href="wishlist.html"><i class="la la-heart-o"></i></a>
+                                <a title="Compare" href="compare.html"><i class="la la-repeat"></i></a>
+                            </div>
+                        </div>
+                        <div class="product-content product-content-padding">
+                            <h4><a href="product-details.html">Golden Easy Spot Chair.</a></h4>
+                            <div class="price-addtocart">
+                                <div class="product-price">
+                                    <span>$210.00</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    @endforeach
-                    
+                    <div class="product-wrap product-border-1 product-img-zoom">
+                        <div class="product-img">
+                            <a href="product-details.html"><img src="assets/images/product/pro-hm2-2.jpg" alt="product"></a>
+                            <div class="product-action-2">
+                                <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class="la la-search"></i></a>
+                                <a title="Add To Cart" href="#"><i class="la la-cart-plus"></i></a>
+                                <a title="Wishlist" href="wishlist.html"><i class="la la-heart-o"></i></a>
+                                <a title="Compare" href="compare.html"><i class="la la-repeat"></i></a>
+                            </div>
+                        </div>
+                        <div class="product-content product-content-padding">
+                            <h4><a href="product-details.html">Golden Easy Spot Chair.</a></h4>
+                            <div class="price-addtocart">
+                                <div class="product-price">
+                                    <span>$210.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-wrap product-border-1 product-img-zoom">
+                        <div class="product-img">
+                            <a href="product-details.html"><img src="assets/images/product/pro-hm2-3.jpg" alt="product"></a>
+                            <div class="product-action-2">
+                                <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class="la la-search"></i></a>
+                                <a title="Add To Cart" href="#"><i class="la la-cart-plus"></i></a>
+                                <a title="Wishlist" href="wishlist.html"><i class="la la-heart-o"></i></a>
+                                <a title="Compare" href="compare.html"><i class="la la-repeat"></i></a>
+                            </div>
+                        </div>
+                        <div class="product-content product-content-padding">
+                            <h4><a href="product-details.html">Golden Easy Spot Chair.</a></h4>
+                            <div class="price-addtocart">
+                                <div class="product-price">
+                                    <span>$210.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-wrap product-border-1 product-img-zoom">
+                        <div class="product-img">
+                            <a href="product-details.html"><img src="assets/images/product/pro-hm2-4.jpg" alt="product"></a>
+                            <div class="product-action-2">
+                                <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class="la la-search"></i></a>
+                                <a title="Add To Cart" href="#"><i class="la la-cart-plus"></i></a>
+                                <a title="Wishlist" href="wishlist.html"><i class="la la-heart-o"></i></a>
+                                <a title="Compare" href="compare.html"><i class="la la-repeat"></i></a>
+                            </div>
+                        </div>
+                        <div class="product-content product-content-padding">
+                            <h4><a href="product-details.html">Golden Easy Spot Chair.</a></h4>
+                            <div class="price-addtocart">
+                                <div class="product-price">
+                                    <span>$210.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-wrap product-border-1 product-img-zoom">
+                        <div class="product-img">
+                            <a href="product-details.html"><img src="assets/images/product/pro-hm2-5.jpg" alt="product"></a>
+                            <div class="product-action-2">
+                                <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class="la la-search"></i></a>
+                                <a title="Add To Cart" href="#"><i class="la la-cart-plus"></i></a>
+                                <a title="Wishlist" href="wishlist.html"><i class="la la-heart-o"></i></a>
+                                <a title="Compare" href="compare.html"><i class="la la-repeat"></i></a>
+                            </div>
+                        </div>
+                        <div class="product-content product-content-padding">
+                            <h4><a href="product-details.html">Golden Easy Spot Chair.</a></h4>
+                            <div class="price-addtocart">
+                                <div class="product-price">
+                                    <span>$210.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>      
-     
+        </div>
+        @if($deals)
+        @foreach($deals as $deal)
+        <div class="deal-area pb-80 pt-80 mt-50 mb-50 bg-img" style="background-image:url(dealimg/{{$deal->back_image}}); ">
+            <div class="container-fluid p-0">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-xl-5 col-lg-6">
+                        <div class="deal-content-2 deal-content-3">
+                            <h2 style="color:lightsteelblue">{{$deal->title}}</h2>
+                            <p style="color:lightsteelblue">{{$deal->description}}</p>
+                            <div class="timer timer-style-3">
+                                <div data-countdown="{{$deal->end_date}}"></div>
+                            </div>
+                            <div class="deal-5-btn btn-hover hover-border-none">
+                                <a class="black-color" href="{{$deal->link}}">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 col-lg-6">
+                        <div class="deal-5-img wow fadeInRight">
+                            <img src="{{url($deal->front_image? 'dealimg/'.$deal->front_image:'images/noimage.jpg')}}" alt="deal" style="max-width: 222px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach   
+        @else
+        <div class="pt-10 pb-10"></div>
+        @endif
+        
         <div class="product-area pb-40">
             <div class="container">
                 <div class="section-title-tab-wrap">
@@ -116,32 +229,7 @@
                 </div>
             </div>
         </div>
-        <div class="banner-area pb-40">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4">
-                        <div class="banner-wrap mb-30">
-                            <a href="product-details.html"><img src="{{asset('frontend/images/banner/banner-15.png')}}" alt="banner"></a>
-                            <div class="banner-content-10">
-                                <h2>Mak Pro Gamming</h2>
-                            </div>
-                            <div class="banner-content-10-btn">
-                                <a href="#">Shop Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-8">
-                        <div class="banner-wrap mb-30 res-white-overly-xs res-white-overly-md">
-                            <a href="product-details.html"><img src="{{asset('frontend/images/banner/banner-23.png')}}" alt="banner"></a>
-                            <div class="banner-content-13">
-                                <h3>Qucx electric scooter</h3>
-                                <p>It is a long established fact that a reader will be distracted by the readable</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
         <div class="product-area pb-40">
             <div class="container">
                 <div class="section-title-tab-wrap">

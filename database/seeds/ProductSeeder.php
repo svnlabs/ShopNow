@@ -25,14 +25,14 @@ class ProductSeeder extends Seeder
     		'special_price_end'=>NULL,
     		'selling_price'=>300,
     		'image'=>'VUvQEcjGAcckncWI.jpg',
-    		'description'=>'
+    		'long_description'=>'
 
     		Kaski Fish
     		500 gm
     		',
     		'sku'=>'n4B4.kaski-fish-500-gm',
     		'manage_stock'=>1,
-    		'qty'=>8,
+    		'quantity'=>8,
     		'in_stock'=>0,
     		'viewed'=>0,
     		'is_active'=>1,
@@ -57,7 +57,7 @@ class ProductSeeder extends Seeder
     		'special_price_end'=>NULL,
     		'selling_price'=>300,
     		'image'=>'W99qdTJ68Inn1BVr.jpg',
-    		'description'=>'
+    		'long_description'=>'
 
     		Rui Fish
     		500 gm
@@ -66,7 +66,7 @@ class ProductSeeder extends Seeder
     		',
     		'sku'=>'AMAW.rui-fish',
     		'manage_stock'=>1,
-    		'qty'=>8,
+    		'quantity'=>8,
     		'in_stock'=>0,
     		'viewed'=>0,
     		'is_active'=>1,
@@ -91,7 +91,7 @@ class ProductSeeder extends Seeder
     		'special_price_end'=>NULL,
     		'selling_price'=>140,
     		'image'=>'YOW9QeVPuatJcmKY.png',
-    		'description'=>'
+    		'long_description'=>'
 
     		Quality Brown Premium Egg
     		12 pcs
@@ -99,7 +99,7 @@ class ProductSeeder extends Seeder
     		',
     		'sku'=>'fzcV.quality-brown-premium-egg',
     		'manage_stock'=>1,
-    		'qty'=>NULL,
+    		'quantity'=>1,
     		'in_stock'=>0,
     		'viewed'=>0,
     		'is_active'=>1,
@@ -124,7 +124,7 @@ class ProductSeeder extends Seeder
     		'special_price_end'=>NULL,
     		'selling_price'=>65,
     		'image'=>'O5VXVlAGDHKikHmr.jpg',
-    		'description'=>'
+    		'long_description'=>'
 
     		Quail Eggs
     		20 pcs
@@ -132,7 +132,7 @@ class ProductSeeder extends Seeder
     		',
     		'sku'=>'AAkQ.quail-eggs',
     		'manage_stock'=>1,
-    		'qty'=>50,
+    		'quantity'=>50,
     		'in_stock'=>0,
     		'viewed'=>0,
     		'is_active'=>1,
@@ -157,14 +157,14 @@ class ProductSeeder extends Seeder
     		'special_price_end'=>NULL,
     		'selling_price'=>240,
     		'image'=>'uP8mPfIxvaRD7tTo.png',
-    		'description'=>'
+    		'long_description'=>'
 
     		Double A A4 Size Paper (80 GSM) 1 Rim
     		৳500
     		',
     		'sku'=>'lp41.double-a-a4-size-paper',
     		'manage_stock'=>1,
-    		'qty'=>8,
+    		'quantity'=>8,
     		'in_stock'=>0,
     		'viewed'=>0,
     		'is_active'=>1,
@@ -189,14 +189,14 @@ class ProductSeeder extends Seeder
     		'special_price_end'=>NULL,
     		'selling_price'=>300,
     		'image'=>'62MtUieZo5DepYXd.jpg',
-    		'description'=>'
+    		'long_description'=>'
 
     		Bashundhara Paper A4 Size (80 GSM) 1 Rim
     		৳330
     		',
     		'sku'=>'vC8p.bashundhara-paper-a4-size',
     		'manage_stock'=>1,
-    		'qty'=>8,
+    		'quantity'=>8,
     		'in_stock'=>0,
     		'viewed'=>0,
     		'is_active'=>1,
@@ -221,22 +221,16 @@ class ProductSeeder extends Seeder
     		'special_price_end'=>NULL,
     		'selling_price'=>1900,
     		'image'=>'ubjBVQ8GjuIv9gP3.jpg',
-    		'description'=>'
+    		'long_description'=>'
 
-    		-1.6 liter Big transparent Unbreakable PC Jar.\r\n
-    		-3 in 1 functions (Blender,Grinder and Mincer)with 2 mixer accessories\r\n
-    		-220V , 50 Hz , 300W\r\n
-    		-High Quality Stainless Steel Blade. \r\n
-    		-Multi Speed for selection ,Satisfy different needs.\r\n
-    		-Motor Overheat with safety protection. \r\n
-    		-High speed energy efficient pure copper coil motor .\r\n
-    		-100% food grade material for healthy \r\n
-    		-Easily take out the parts to clean \r\n
-    		-2-pin VDE plug 
+    		<ul><li>
+            -1.6 liter Big transparent Unbreakable PC Jar.</li><li>-3 in 1 functions (Blender,Grinder and Mincer)with 2 mixer accessories</li><li>&nbsp;-220V , 50 Hz , 300W\r\n
+            -High Quality Stainless Steel Blade.</li><li>&nbsp;-Multi Speed for selection ,Satisfy different needs.</li><li>&nbsp;-Motor Overheat with safety protection.&nbsp;</li><li>-High speed energy efficient pure copper coil motor .</li><li>&nbsp;-100% food grade material for healthy&nbsp;</li><li>&nbsp;-Easily take out the parts to clean&nbsp;</li><li>&nbsp;-2-pin VDE plug 
+            </li></ul>
     		',
     		'sku'=>'Dfzg.classic-3-in-1-blender',
     		'manage_stock'=>1,
-    		'qty'=>NULL,
+    		'quantity'=>1,
     		'in_stock'=>0,
     		'viewed'=>0,
     		'is_active'=>1,
@@ -261,17 +255,15 @@ class ProductSeeder extends Seeder
     		'special_price_end'=>NULL,
     		'selling_price'=>2450,
     		'image'=>'WT34HP1UMBfzs3tc.jpg',
-    		'description'=>'
+    		'long_description'=>'
 
-    		-2.2L Rice Cooker\r\n
-    		-Automatic Cook & Keep warm function\r\n
-    		-With Aluminium Steamer \r\n
-    		-With Measure Cup & Spoon\r\n
-    		-Inner pot with inside non-stick coating  
+    		<ul><li>
+            -2.2L Rice Cooker</li><li>&nbsp;-Automatic Cook &amp; Keep warm function</li><li>-With Aluminium Steamer&nbsp;</li><li>&nbsp;-With Measure Cup &amp; Spoon</li><li>&nbsp;-Inner pot with inside non-stick coating  
+            </li></ul>
     		',
     		'sku'=>'QLLa.rfl-vision-rice-cooker',
     		'manage_stock'=>1,
-    		'qty'=>8,
+    		'quantity'=>8,
     		'in_stock'=>0,
     		'viewed'=>0,
     		'is_active'=>1,

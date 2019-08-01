@@ -6209,8 +6209,8 @@ button, input, optgroup, select, textarea {
 
 .slider-sin-img-hm6 .slider-price {
   position: absolute;
-  top: 95px;
-  left: 57px;
+  top: 11px;
+  left: -2px;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   -webkit-animation-name: bounce-img;
@@ -6221,15 +6221,15 @@ button, input, optgroup, select, textarea {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .slider-sin-img-hm6 .slider-price {
-    top: 60px;
-    left: 10px;
+    top: 11px;
+    left: -2px;
   }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   .slider-sin-img-hm6 .slider-price {
-    top: 60px;
-    left: 6px;
+    top: 11px;
+    left: -2px;
   }
 }
 
@@ -13101,18 +13101,18 @@ button, input, optgroup, select, textarea {
 }
 
 .deal-5-img {
-  margin-left: 86px;
+  margin-left: 450px;
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1365px) {
   .deal-5-img {
-    margin-left: 15px;
+    margin-left: 450px;
   }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .deal-5-img {
-    margin-left: 15px;
+    margin-left: 450px;
   }
 }
 

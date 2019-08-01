@@ -49,6 +49,7 @@ Route::resource('product', 'ProductController');
 Route::resource('category', 'CategoryController');
 Route::resource('brand', 'BrandController');
 Route::resource('slides', 'SliderController');
+Route::resource('deal', 'DealController');
 
 });
 // |---------------------- Admin Panel COntroller Collections -----------------------------|

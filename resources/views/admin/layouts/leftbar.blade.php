@@ -41,6 +41,9 @@
 				<li>
 					<a href="{{route('slides.index')}}">Slider </a>
 				</li>
+				<li>
+					<a href="{{route('deal.index')}}">Deal CountDown </a>
+				</li>
 				
 			</ul>
 		</li>

@@ -26,10 +26,11 @@ class CreateProductsTable extends Migration
             $table->date('special_price_end')->nullable();
             $table->integer('selling_price')->unsigned()->nullable();
             $table->string('image')->nullable();
-            $table->text('description');
+            $table->text('short_description')->nullable();
+            $table->text('long_description')->nullable();
             $table->string('sku');
             $table->boolean('manage_stock');
-            $table->integer('qty')->nullable();
+            $table->integer('quantity');
             $table->boolean('in_stock');
             $table->integer('viewed')->unsigned()->default(0);
             $table->boolean('is_active');
