@@ -22,7 +22,7 @@ class FrontController extends Controller
         $slider= Slider::all()->random(3);
         $deals = Deal::where('is_active','on')->take(1)->get();
         $featureProduct=Category::has('products')->with('products')->get()->random(3);
-        $latestProduct=Product::where('new_to','>=',$now);
+        $latestProduct=Product::where('new_to','>',$now)->take(5)->get();
        return view('pages.home',compact('featureProduct','slider','deals','latestProduct'));
     }
 

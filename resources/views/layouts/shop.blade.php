@@ -56,7 +56,15 @@
                                     <a href="wishlist.html"><i class="la la-heart-o"></i></a>
                                 </div>
                                 <div class="header-login ml-40">
-                                    <a href="login-register.html"><i class="la la-user"></i></a>
+                                    <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
                                 </div>
                                 <div class="cart-wrap common-style ml-35">
                                     <button class="cart-active">
@@ -69,9 +77,9 @@
                                                      ৳ {{ $total }}
                                             @else
                                                  ৳ 0 
-                                        </span>
+                                       
                                         @endif
-                                         
+                                          </span>
                                          <i class="la la-shopping-cart"></i> 
                                         
                                         
@@ -475,7 +483,7 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer> 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
@@ -488,7 +496,7 @@
                             <div class="col-md-5 col-sm-12 col-xs-12">
                                 <div class="tab-content quickview-big-img">
                                     <div id="pro-1" class="tab-pane fade show active">
-                                        <img src="assets/images/product/quickview-l1.jpg" alt="">
+                                        <img src="assets/images/product/quickview-l1.jpg" alt="" id="image">
                                     </div>
                                     
                                 </div>
@@ -505,8 +513,8 @@
                             </div>
                             <div class="col-md-7 col-sm-12 col-xs-12">
                                 <div class="product-details-content quickview-content">
-                                    <span id="cat">Life Style</span>
-                                    <h2 id="proname">LaaVista Depro, FX 829 v1</h2>
+                                    <span id="cat"></span>
+                                    <h2 id="proname"></h2>
                                     <div class="product-ratting-review" id="review">
                                         <div class="product-ratting">
                                             <i class="la la-star"></i>
@@ -516,7 +524,7 @@
                                             <i class="la la-star-half-o"></i>
                                         </div>
                                         <div class="product-review">
-                                            <span>40+ Reviews</span>
+                                            <span id="review">40+ Reviews</span>
                                         </div>
                                     </div>
                                     {{-- <div class="pro-details-color-wrap">
@@ -543,7 +551,7 @@
                                     </div> --}}
                                     <div class="pro-details-price-wrap">
                                         <div class="product-price">                                            
-                                            <span id="price">$210.00</span>
+                                            <span id="price"></span>
                                             {{-- <span class="old">$230.00</span> --}}
                                         </div>
                                         {{-- <div class="dec-rang"><span>- 30%</span></div> --}}
@@ -551,7 +559,7 @@
                                     <div class="pro-details-quality">
                                     <form method="post" action="{{route('cart.store')}}">
                                         {{csrf_field()}}
-                                        <input type="hidden" name="id" value="">
+                                        <input type="hidden" name="proid" id="proid">
                                         <div class="cart-plus-minus">
                                             <input class="cart-plus-minus-box" type="text" name="quantity" value="2">
                                         </div>
@@ -653,24 +661,19 @@
                 var proatt = $(this).data('proatt');
                 var price = $(this).data('price');
                 var src = $(this).data('src');
-                var id = $(this).data('id');
+                var proid = $(this).data('proid');
+                
                
                
 
-                $("#modalOptionId").val(id);
-                $("#modalBettingQuestionOption").text(name);
-                $(".modalBetRate").text(ratio2);
-                $(".ratio2").text(ratio2);
-                $("#ratio2").val(ratio2);
-                $("#modalMatchId").val(matchid);
-                $("#modalQId").val(qid);
-                $("#modalBettingQuestion").text(question);
-                $("#modalMatchCaption").text(match);
-                $("#modalStakeAmountLabel").text(min_amo);
-                $("#modalPossibleAmountLabel").text(win_amo);
-                $("#modalGameType").text(type);
-                $("#modalGameType").attr("style",type_color);
-                $("#modalGameLogo").attr("src",img);
+                $("#cat").text(cat);
+                $("#proname").text(proname);               
+                $("#review").text(review);
+                $("#proatt").text(proatt);
+                $("#price").text(price);
+                $("#proid").val(proid);                         
+          
+                $("#image").attr("src",src);
        
 
             });
