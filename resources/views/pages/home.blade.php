@@ -134,7 +134,7 @@
                                                     <div class="product-action-4-style">
                                                          <form action="{{route('wishlist.store')}}" id="contact_form" method="post">
                                                               {{csrf_field()}}
-                                                              <input name="user_id" type="hidden" value="{{Auth::user()->id}}" />
+                                                              {{-- <input name="user_id" type="hidden" value="{{Auth::user()->id}}" /> --}}
                                                               <input name="product_id" type="hidden" value="{{$product->id}}" />
                                                         <a data-tooltip="Add To Cart" href="{{ url('add-to-cart/'.$product->id) }}"><i class="la la-cart-plus"></i></a>
                                                            

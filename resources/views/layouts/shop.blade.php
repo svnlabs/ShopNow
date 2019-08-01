@@ -56,7 +56,15 @@
                                     <a href="wishlist.html"><i class="la la-heart-o"></i></a>
                                 </div>
                                 <div class="header-login ml-40">
-                                    <a href="login-register.html"><i class="la la-user"></i></a>
+                                    <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
                                 </div>
                                 <div class="cart-wrap common-style ml-35">
                                     <button class="cart-active">
@@ -69,9 +77,9 @@
                                                      ৳ {{ $total }}
                                             @else
                                                  ৳ 0 
-                                        </span>
+                                       
                                         @endif
-                                         
+                                          </span>
                                          <i class="la la-shopping-cart"></i> 
                                         
                                         

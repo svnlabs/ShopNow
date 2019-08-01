@@ -54,7 +54,15 @@
                                         @if(Auth::user())
                                         <a href="my-account.html">My Account</a>                                     
                                         <a href="{{route('wishlist.index')}}">Wishlist</a>
-                                        <a href="{{route('login')}}">Sign Out</a>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
                                         @else
                                         <a href="{{route('login')}}">Sign in</a>
                                         @endif
