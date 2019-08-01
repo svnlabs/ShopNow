@@ -43,106 +43,32 @@
         </div>
         <div class="product-area pb-100">
             <div class="container">
-                <div class="section-title-2 text-center">
-                    <h2>Featured products</h2>
-                    <img src="assets/images/icon-img/title-shape.png" alt="icon-img">
+                <div class="section-title-5 section-title-tab-wrap mt-50">
+                    <h2>Latest products</h2>
+                   
                 </div>
                 <div class="product-slider-active owl-carousel">
+                    @foreach($latestProduct as $product)
                     <div class="product-wrap product-border-1 product-img-zoom">
                         <div class="product-img">
-                            <a href="product-details.html"><img src="assets/images/product/pro-hm2-1.jpg" alt="product"></a>
+                            <a href="product-details.html"><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="product"></a>
                             <div class="product-action-2">
-                                <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class="la la-search"></i></a>
+                                <a class="show_product"  data-toggle="modal" data-target="#exampleModal" data-proid="{{$product->id}}" data-cat="{{$product->category->name}}" data-proname="{{$product->name}}" data-review="{{$product->review_id}}" data-proatt="{{$product->attribute_id}}" data-price="{{$product->price}}" data-src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" title="Quick View" href="#"><i class="la la-search"></i></a>
                                 <a title="Add To Cart" href="#"><i class="la la-cart-plus"></i></a>
                                 <a title="Wishlist" href="wishlist.html"><i class="la la-heart-o"></i></a>
                                 <a title="Compare" href="compare.html"><i class="la la-repeat"></i></a>
                             </div>
                         </div>
                         <div class="product-content product-content-padding">
-                            <h4><a href="product-details.html">Golden Easy Spot Chair.</a></h4>
+                            <h4><a href="product-details.html">{{$product->name}}</a></h4>
                             <div class="price-addtocart">
                                 <div class="product-price">
-                                    <span>$210.00</span>
+                                    <span>{{$product->price}}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="product-wrap product-border-1 product-img-zoom">
-                        <div class="product-img">
-                            <a href="product-details.html"><img src="assets/images/product/pro-hm2-2.jpg" alt="product"></a>
-                            <div class="product-action-2">
-                                <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class="la la-search"></i></a>
-                                <a title="Add To Cart" href="#"><i class="la la-cart-plus"></i></a>
-                                <a title="Wishlist" href="wishlist.html"><i class="la la-heart-o"></i></a>
-                                <a title="Compare" href="compare.html"><i class="la la-repeat"></i></a>
-                            </div>
-                        </div>
-                        <div class="product-content product-content-padding">
-                            <h4><a href="product-details.html">Golden Easy Spot Chair.</a></h4>
-                            <div class="price-addtocart">
-                                <div class="product-price">
-                                    <span>$210.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-wrap product-border-1 product-img-zoom">
-                        <div class="product-img">
-                            <a href="product-details.html"><img src="assets/images/product/pro-hm2-3.jpg" alt="product"></a>
-                            <div class="product-action-2">
-                                <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class="la la-search"></i></a>
-                                <a title="Add To Cart" href="#"><i class="la la-cart-plus"></i></a>
-                                <a title="Wishlist" href="wishlist.html"><i class="la la-heart-o"></i></a>
-                                <a title="Compare" href="compare.html"><i class="la la-repeat"></i></a>
-                            </div>
-                        </div>
-                        <div class="product-content product-content-padding">
-                            <h4><a href="product-details.html">Golden Easy Spot Chair.</a></h4>
-                            <div class="price-addtocart">
-                                <div class="product-price">
-                                    <span>$210.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-wrap product-border-1 product-img-zoom">
-                        <div class="product-img">
-                            <a href="product-details.html"><img src="assets/images/product/pro-hm2-4.jpg" alt="product"></a>
-                            <div class="product-action-2">
-                                <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class="la la-search"></i></a>
-                                <a title="Add To Cart" href="#"><i class="la la-cart-plus"></i></a>
-                                <a title="Wishlist" href="wishlist.html"><i class="la la-heart-o"></i></a>
-                                <a title="Compare" href="compare.html"><i class="la la-repeat"></i></a>
-                            </div>
-                        </div>
-                        <div class="product-content product-content-padding">
-                            <h4><a href="product-details.html">Golden Easy Spot Chair.</a></h4>
-                            <div class="price-addtocart">
-                                <div class="product-price">
-                                    <span>$210.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-wrap product-border-1 product-img-zoom">
-                        <div class="product-img">
-                            <a href="product-details.html"><img src="assets/images/product/pro-hm2-5.jpg" alt="product"></a>
-                            <div class="product-action-2">
-                                <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class="la la-search"></i></a>
-                                <a title="Add To Cart" href="#"><i class="la la-cart-plus"></i></a>
-                                <a title="Wishlist" href="wishlist.html"><i class="la la-heart-o"></i></a>
-                                <a title="Compare" href="compare.html"><i class="la la-repeat"></i></a>
-                            </div>
-                        </div>
-                        <div class="product-content product-content-padding">
-                            <h4><a href="product-details.html">Golden Easy Spot Chair.</a></h4>
-                            <div class="price-addtocart">
-                                <div class="product-price">
-                                    <span>$210.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -206,9 +132,18 @@
                                                 <a href="product-details.html"><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="product"></a>
                                                 <div class="product-action-4">
                                                     <div class="product-action-4-style">
+                                                         <form action="{{route('wishlist.store')}}" id="contact_form" method="post">
+                                                              {{csrf_field()}}
+                                                              <input name="user_id" type="hidden" value="{{Auth::user()->id}}" />
+                                                              <input name="product_id" type="hidden" value="{{$product->id}}" />
                                                         <a data-tooltip="Add To Cart" href="{{ url('add-to-cart/'.$product->id) }}"><i class="la la-cart-plus"></i></a>
-                                                        <a data-tooltip="Wishlist" href="#"><i class="la la-heart-o"></i></a>
+                                                           
+
+                                                         
+                                                        <a onclick="document.getElementById('contact_form').submit();" data-tooltip="Wishlist" href="#"><i class="la la-heart-o"></i></a>
+
                                                         <a data-tooltip="Compare" href="#"><i class="la la-random"></i></a>
+                                                         </form>
                                                     </div>
                                                 </div>
                                             </div>

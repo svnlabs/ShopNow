@@ -52,10 +52,12 @@
                                     
                                     <div class="setting-content2-right">
                                         @if(Auth::user())
-                                        <a href="my-account.html">My Account</a>
+                                        <a href="my-account.html">My Account</a>                                     
+                                        <a href="{{route('wishlist.index')}}">Wishlist</a>
+                                        <a href="{{route('login')}}">Sign Out</a>
+                                        @else
+                                        <a href="{{route('login')}}">Sign in</a>
                                         @endif
-                                        <a href="wishlist.html">Wishlist</a>
-                                        <a href="login-register.html">Sign in</a>
                                     </div>
                                 </div>
                             </div>
@@ -501,6 +503,104 @@
                 </div>
             </div>
         </footer>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-5 col-sm-12 col-xs-12">
+                                <div class="tab-content quickview-big-img">
+                                    <div id="pro-1" class="tab-pane fade show active">
+                                        <img src="assets/images/product/quickview-l1.jpg" alt="" id="image">
+                                    </div>
+                                    
+                                </div>
+                                <!-- Thumbnail Large Image End -->
+                                <!-- Thumbnail Image End -->
+                                {{-- <div class="quickview-wrap mt-15">
+                                    <div class="quickview-slide-active owl-carousel nav nav-style-2" role="tablist">
+                                        <a class="active" data-toggle="tab" href="#pro-1"><img src="assets/images/product/quickview-s1.jpg" alt=""></a>
+                                        <a data-toggle="tab" href="#pro-2"><img src="assets/images/product/quickview-s2.jpg" alt=""></a>
+                                        <a data-toggle="tab" href="#pro-3"><img src="assets/images/product/quickview-s3.jpg" alt=""></a>
+                                        <a data-toggle="tab" href="#pro-4"><img src="assets/images/product/quickview-s4.jpg" alt=""></a>
+                                    </div>
+                                </div> --}}
+                            </div>
+                            <div class="col-md-7 col-sm-12 col-xs-12">
+                                <div class="product-details-content quickview-content">
+                                    <span id="cat"></span>
+                                    <h2 id="proname"></h2>
+                                    <div class="product-ratting-review" id="review">
+                                        <div class="product-ratting">
+                                            <i class="la la-star"></i>
+                                            <i class="la la-star"></i>
+                                            <i class="la la-star"></i>
+                                            <i class="la la-star"></i>
+                                            <i class="la la-star-half-o"></i>
+                                        </div>
+                                        <div class="product-review">
+                                            <span id="review">40+ Reviews</span>
+                                        </div>
+                                    </div>
+                                    {{-- <div class="pro-details-color-wrap">
+                                        <span>Color:</span>
+                                        <div class="pro-details-color-content">
+                                            <ul>
+                                                <li class="green"></li>
+                                                <li class="yellow"></li>
+                                                <li class="red"></li>
+                                                <li class="blue"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="pro-details-size">
+                                        <span>Size:</span>
+                                        <div class="pro-details-size-content">
+                                            <ul>
+                                                <li><a href="#">s</a></li>
+                                                <li><a href="#">m</a></li>
+                                                <li><a href="#">xl</a></li>
+                                                <li><a href="#">xxl</a></li>
+                                            </ul>
+                                        </div>
+                                    </div> --}}
+                                    <div class="pro-details-price-wrap">
+                                        <div class="product-price">                                            
+                                            <span id="price"></span>
+                                            {{-- <span class="old">$230.00</span> --}}
+                                        </div>
+                                        {{-- <div class="dec-rang"><span>- 30%</span></div> --}}
+                                    </div>
+                                    <div class="pro-details-quality">
+                                    <form method="post" action="{{route('cart.store')}}">
+                                        {{csrf_field()}}
+                                        <input type="hidden" name="proid" id="proid">
+                                        <div class="cart-plus-minus">
+                                            <input class="cart-plus-minus-box" type="text" name="quantity" value="2">
+                                        </div>
+                                    </div>
+                                    <div class="pro-details-compare-wishlist">
+                                        <div class="pro-details-compare">
+                                            <a title="Add To Compare" href="#"><i class="la la-retweet"></i> Compare</a>
+                                        </div>
+                                        <div class="pro-details-wishlist">
+                                            <a title="Add To Wishlist" href="#"><i class="la la-heart-o"></i> Add to wish list</a>
+                                        </div>
+                                    </div>
+                                    <div class="pro-details-buy-now btn-hover btn-hover-radious">
+                                        <input type="submit" value="Add To Cart" >
+                                    </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- JS
 ============================================ -->
@@ -567,6 +667,32 @@
                     }
                 });
             }
+        });
+        $(document).ready(function () {
+            $(document).on("click", '.show_product', function (e) {
+
+                var cat = $(this).data('cat');
+                var proname = $(this).data('proname');
+                var review = $(this).data('review');
+                var proatt = $(this).data('proatt');
+                var price = $(this).data('price');
+                var src = $(this).data('src');
+                var proid = $(this).data('proid');
+                
+               
+               
+
+                $("#cat").text(cat);
+                $("#proname").text(proname);               
+                $("#review").text(review);
+                $("#proatt").text(proatt);
+                $("#price").text(price);
+                $("#proid").val(proid);                         
+          
+                $("#image").attr("src",src);
+       
+
+            });
         });
  
     </script>

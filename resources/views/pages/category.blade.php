@@ -55,7 +55,7 @@
                                                 <div class="product-img mb-15">
                                                     <a href="{{route('shop.product',$product->id)}}"><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="product"></a>
                                                     <div class="product-action">
-                                                        <a class="show_product" data-toggle="modal" data-target="#exampleModal" data-id="{{$product->id}}" data-cat="{{$product->category->name}}" data-proname="{{$product->name}}" data-review="{{$product->review_id}}" data-proatt="{{$product->attribute_id}}" data-price="{{$product->price}}" data-src="{{$product->image}}" title="Quick View" href="#"><i class="la la-plus"></i></a>
+                                                        <a class="show_product" data-toggle="modal" data-target="#exampleModal" data-proid="{{$product->id}}" data-cat="{{$product->category->name}}" data-proname="{{$product->name}}" data-review="{{$product->review_id}}" data-proatt="{{$product->attribute_id}}" data-price="{{$product->price}}" data-src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" title="Quick View" href="#"><i class="la la-plus"></i></a>
                                                         <a title="Wishlist" href="#"><i class="la la-heart-o"></i></a>
                                                         <a title="Compare" href="#"><i class="la la-retweet"></i></a>
                                                     </div>

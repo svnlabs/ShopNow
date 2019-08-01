@@ -506,7 +506,7 @@
                             <div class="col-md-7 col-sm-12 col-xs-12">
                                 <div class="product-details-content quickview-content">
                                     <span id="cat"></span>
-                                    <h2 id="proname">LaaVista Depro, FX 829 v1</h2>
+                                    <h2 id="proname"></h2>
                                     <div class="product-ratting-review" id="review">
                                         <div class="product-ratting">
                                             <i class="la la-star"></i>
@@ -516,7 +516,7 @@
                                             <i class="la la-star-half-o"></i>
                                         </div>
                                         <div class="product-review">
-                                            <span>40+ Reviews</span>
+                                            <span id="review">40+ Reviews</span>
                                         </div>
                                     </div>
                                     {{-- <div class="pro-details-color-wrap">
@@ -543,7 +543,7 @@
                                     </div> --}}
                                     <div class="pro-details-price-wrap">
                                         <div class="product-price">                                            
-                                            <span id="price">$210.00</span>
+                                            <span id="price"></span>
                                             {{-- <span class="old">$230.00</span> --}}
                                         </div>
                                         {{-- <div class="dec-rang"><span>- 30%</span></div> --}}
@@ -551,7 +551,7 @@
                                     <div class="pro-details-quality">
                                     <form method="post" action="{{route('cart.store')}}">
                                         {{csrf_field()}}
-                                        <input type="hidden" name="id" value="">
+                                        <input type="hidden" name="proid" id="proid">
                                         <div class="cart-plus-minus">
                                             <input class="cart-plus-minus-box" type="text" name="quantity" value="2">
                                         </div>
@@ -653,25 +653,19 @@
                 var proatt = $(this).data('proatt');
                 var price = $(this).data('price');
                 var src = $(this).data('src');
-                var id = $(this).data('id');
-                var image = $(this).data('image');
+                var proid = $(this).data('proid');
+                
                
                
 
                 $("#cat").text(cat);
-                $("#modalBettingQuestionOption").text(name);
-                $(".modalBetRate").text(ratio2);
-                $(".ratio2").text(ratio2);
-                $("#ratio2").val(ratio2);
-                $("#modalMatchId").val(matchid);
-                $("#modalQId").val(qid);
-                $("#modalBettingQuestion").text(question);
-                $("#modalMatchCaption").text(match);
-                $("#modalStakeAmountLabel").text(min_amo);
-                $("#modalPossibleAmountLabel").text(win_amo);
-                $("#modalGameType").text(type);
-                $("#modalGameType").attr("style",type_color);
-                $("#modalGameLogo").attr("src",img);
+                $("#proname").text(proname);               
+                $("#review").text(review);
+                $("#proatt").text(proatt);
+                $("#price").text(price);
+                $("#proid").val(proid);                         
+          
+                $("#image").attr("src",src);
        
 
             });

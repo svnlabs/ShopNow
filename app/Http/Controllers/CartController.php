@@ -38,10 +38,22 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        $product = Product::find($request->id);
+        $product = Product::find($request->proid);
+       
+
+        if(!$product) {
+
+            abort(404);
+
+        }
+
         $cart = session()->get('cart');
-        $cart = [
-                $id => [
+
+        // if cart is empty then this the first product
+        if(!$cart) {
+
+            $cart = [
+                $request->proid => [
 
                     "name" => $product->name,
                     "quantity" => $request->quantity,
@@ -52,8 +64,26 @@ class CartController extends Controller
                 ]
             ];
 
-        session()->put('cart', $cart);
-        session()->flash('success', 'Cart updated successfully');
+            session()->put('cart', $cart);
+
+            return redirect()->back()->with('success', 'Product added to cart successfully!');
+        }
+
+        
+
+        // if item not exist in cart then add to cart with quantity = 1
+        $cart[$request->proid] = [
+          "name" => $product->name,
+          "quantity" => $request->quantity,
+          "price" => $product->price,
+          "sku" => $product->sku,
+          "description" => $product->description,
+          "image" => $product->image
+      ];
+
+      session()->put('cart', $cart);
+
+      return redirect()->back()->with('success', 'Product added to cart successfully!');
 
     }
 
@@ -179,6 +209,10 @@ class CartController extends Controller
       session()->put('cart', $cart);
 
       return redirect()->back()->with('success', 'Product added to cart successfully!');
+  }
+
+  public function applyCoupon(){
+    
   }
 
   

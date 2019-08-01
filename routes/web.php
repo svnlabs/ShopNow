@@ -16,7 +16,7 @@ Route::get('/test','testcontroller@index');
 
 
 Route::resource('/', 'FrontController');
-
+Route::resource('/wishlist', 'WishlistController');
 
 
 // |------------------------ Cart ---------------------------------------------------------|
