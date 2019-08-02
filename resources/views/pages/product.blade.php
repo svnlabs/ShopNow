@@ -15,14 +15,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <div class="product-details-img-left">
+                        <div class="product-details-img-left selectProduct">
                             <img class="zoompro" src="{{url($product->image? 'Productimg/'.$product->thumbnail:'images/noimage.jpg')}}" data-zoom-image="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="product-details-img" >
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="product-details-content pro-details-content-modify">
-                            <span>Life Style</span>
-                            <h2>LaaVista Depro, FX 829 v1</h2>
+                            <span>{{$product->category->name}}</span>
+                            <h2>{{$product->name}}</h2>
                             <div class="product-ratting-review">
                                 <div class="product-ratting">
                                     <i class="la la-star"></i>
@@ -35,6 +35,7 @@
                                     <span>40+ Reviews</span>
                                 </div>
                             </div>
+                            @if($product->attribute_id)
                             <div class="pro-details-color-wrap">
                                 <span>Color:</span>
                                 <div class="pro-details-color-content">
@@ -57,17 +58,34 @@
                                     </ul>
                                 </div>
                             </div>
+                            @endif
                             <div class="pro-details-price-wrap">
+                                @if($product->special_price)
                                 <div class="product-price">
-                                    <span>$210.00</span>
-                                    <span class="old">$230.00</span>
+
+                                    <span>৳ {{$product->special_price}}</span>
+                                    <span class="old">৳ {{$product->price}}</span>
                                 </div>
-                                <div class="dec-rang"><span>- 30%</span></div>
+                                @php
+                                    $less = (($product->price - $product->special_price)/$product->price)*100;
+                                    $round = round($less);
+                                @endphp
+                                <div class="dec-rang"><span>- {{$round}} %</span></div>                                      
+                                
+                                @else
+                                    <div class="product-price">
+
+                                   
+                                    <span >৳ {{$product->price}}</span>
+                                </div>    
+                                @endif
+
+                                
                             </div>
                             
                             <div class="pro-details-compare-wishlist">
                                 <div class="pro-details-compare">
-                                    <a title="Add To Compare" href="#"><i class="la la-retweet"></i> Compare</a>
+                                    <a title="Add To Compare" href="{{ url('add-to-compare/'.$product->id) }}" class="addToCompare"><i class="la la-retweet"></i> Compare</a>
                                 </div>
                                 <div class="pro-details-wishlist">
                                     <form action="{{route('wishlist.store')}}" id="contact_form" method="post" style="display: none;">

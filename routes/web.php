@@ -18,14 +18,18 @@ Route::get('/test','testcontroller@index');
 Route::resource('/', 'FrontController');
 Route::resource('/wishlist', 'WishlistController');
 Route::resource('/user', 'UserController');
+Route::resource('/compare', 'CompareController');
+
 
 
 // |------------------------ Cart ---------------------------------------------------------|
 
 Route::resource('/cart', 'CartController');
 Route::get('add-to-cart/{id}', 'CartController@addToCart')->name('add.cart');
+Route::get('add-to-compare/{id}', 'CompareController@addToCompare');
 Route::patch('update-cart', 'CartController@update'); 
 Route::delete('remove-from-cart', 'CartController@remove');
+Route::delete('remove-from-compare', 'CompareController@remove');
 
 // |------------------------ Cart ---------------------------------------------------------|
 

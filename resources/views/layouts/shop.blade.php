@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{asset('frontend/css/plugins/magnific-popup.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/plugins/jquery-ui.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
+ 
 
 </head>
 
@@ -76,8 +77,31 @@
                         </div>
 
                          <div class="col-xl-4 col-lg-4">
+                            
                             <div class="header-right-wrap  stick-mt-40">
-                                
+                               
+                                 <div class="search-wrap-2 search-wrap-2-mrg border-style">
+                                 <div class="header-wishlist ">
+                                    <a href="{{route('compare.index')}}"><i class="la la-retweet"></i> 
+                                    <span style="
+     position: absolute; 
+    font-size: 10px;
+     height: 20px; 
+    line-height: 20px;
+    color: #fff;
+     display: block; 
+     bottom: -2px; 
+     right: -6px; 
+    width: 20px;
+     text-align: center; 
+     padding: 0; 
+    border-radius: 50%;
+    background-color: #ff5151;
+     font-weight: bold; 
+">@if(session('compare')) {{ count(session('compare')) }} @else 0  @endif</span></a>
+                                </div>
+                                </div>      
+                                   
                                 @if(Auth::user())
                                 <div class="search-wrap-2 search-wrap-2-mrg border-style">
                                  <div class="header-wishlist">
@@ -441,7 +465,7 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-8 col-12 col-sm-12">
                             <div class="footer-widget mb-30">
-                                <a href="#"><img src="assets/images/logo/logo-1.png" alt="logo"></a>
+                                <a href="#"><img src="{{asset('frontend/images/logo/logo-1.png')}}" alt="logo"></a>
                                 <div class="footer-about">
                                     <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms. </p>
                                 </div>
@@ -651,7 +675,9 @@
             </div>
         </div>
         <!-- Modal end -->
+      
     </div>
+
     <!-- JS
 ============================================ -->
 
@@ -683,6 +709,7 @@
     <script src="{{asset('frontend/js/plugins/sticky-sidebar.js')}}"></script>
     <script src="{{asset('frontend/js/plugins/smoothscroll.js')}}"></script>
     <!-- Main JS -->
+
     <script src="{{asset('frontend/js/main.js')}}"></script>
     <script type="text/javascript">
     
@@ -710,6 +737,22 @@
             if(confirm("Are you sure")) {
                 $.ajax({
                     url: '{{ url('remove-from-cart') }}',
+                    method: "DELETE",
+                    data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id")},
+                    success: function (response) {
+                        window.location.reload();
+                    }
+                });
+            }
+        });
+        $(".remove-from-compare").click(function (e) {
+            e.preventDefault();
+ 
+            var ele = $(this);
+ 
+            if(confirm("Are you sure")) {
+                $.ajax({
+                    url: '{{ url('remove-from-compare') }}',
                     method: "DELETE",
                     data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id")},
                     success: function (response) {

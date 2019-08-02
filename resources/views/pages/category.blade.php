@@ -57,7 +57,7 @@
                                                     <div class="product-action">
                                                         <a class="show_product" data-toggle="modal" data-target="#exampleModal" data-proid="{{$product->id}}" data-cat="{{$product->category->name}}" data-proname="{{$product->name}}" data-review="{{$product->review_id}}" data-proatt="{{$product->attribute_id}}" data-price="{{$product->price}}" data-src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" title="Quick View" href="#"><i class="la la-plus"></i></a>
                                                         <a title="Wishlist" href="#"><i class="la la-heart-o"></i></a>
-                                                        <a title="Compare" href="#"><i class="la la-retweet"></i></a>
+                                                        <a title="Compare" href="{{ url('add-to-compare/'.$product->id) }}"><i class="la la-retweet"></i></a>
                                                     </div>
                                                 </div>
                                                 <div class="product-content">

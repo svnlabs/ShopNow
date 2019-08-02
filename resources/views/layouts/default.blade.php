@@ -641,6 +641,7 @@
     <script src="{{asset('frontend/js/plugins/sticky-sidebar.js')}}"></script>
     <script src="{{asset('frontend/js/plugins/smoothscroll.js')}}"></script>
     <!-- Main JS -->
+    <script src="{{asset('frontend/js/Compare.js')}}"></script>
     <script src="{{asset('frontend/js/main.js')}}"></script>
     <script type="text/javascript">
     
