@@ -41,22 +41,20 @@
 				<li>
 					<a href="{{route('slides.index')}}">Slider </a>
 				</li>
-				<li>
-					<a href="{{route('deal.index')}}">Deal CountDown </a>
-				</li>
+				
 				
 			</ul>
 		</li>
 		<li class="">
 			<a href="#Uielements" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-				<i class="mdi mdi-buffer mr-2"></i>UI Elements
+				<i class="mdi mdi-buffer mr-2"></i>Promotion
 			</a>
 			<ul class="collapse list-unstyled" id="Uielements" data-parent="#accordion">
 				<li>
-					<a href="alerts.html">Alerts</a>
+					<a href="{{route('deal.index')}}">Deal CountDown </a>
 				</li>
 				<li>
-					<a href="buttons.html">Buttons</a>
+					<a href="{{route('coupon.index')}}">Coupon</a>
 				</li>
 				<li>
 					<a href="colors.html">Colors</a>

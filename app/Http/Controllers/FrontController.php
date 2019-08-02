@@ -8,6 +8,7 @@ use App\Category;
 use App\Brand;
 use App\Slider;
 use App\Deal;
+use App\Coupon;
 use Carbon\Carbon;
 class FrontController extends Controller
 {
@@ -37,7 +38,7 @@ class FrontController extends Controller
     {
         $date = new Carbon;
         $category = Category::find($id);
-        $products = Product::where('category_id',$id)->paginate(6);
+        $products = Product::where('category_id',$id)->paginate(10);
       
           
         return view('pages.category', compact('category','products','date'));
@@ -56,6 +57,37 @@ class FrontController extends Controller
         $product = Product::find($id);
         return view('pages.product', compact('date','product','sideproducts'));
     }
+
+    public function checkout()
+    {
+       return view('pages.checkout');
+    }
+    public function applypromo(Request $request)
+    {
+        $coupon_code=$request->coupon_code;
+        $verify = Coupon::where('coupon_code',$coupon_code)->where('is_active',1)->get();
+
+        $total = 0 ; 
+        $cart = session()->get('cart');
+        foreach($cart as $id => $details){
+        $total += $details['price'] * $details['quantity'];
+       }
+
+      //   $discout = ($total * $verify->value)/100;
+      //   $final_ammount = $total -$discount;
+        $promo = session()->get('promo');
+      //   $promo = [
+      //     "discout" =>  $discout,
+      //     "final_ammount" => $final_ammount,
+        
+      // ];
+
+      session()->put('promo',  $verify);
+      // return redirect()->back()->with('success', 'Code Apply successfully!');
+      // return view('test',compact('verify','total'));
+     
+    }
+
 
     
 }

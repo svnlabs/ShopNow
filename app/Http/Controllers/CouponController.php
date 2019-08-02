@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Coupon;
+use Carbon\Carbon;
 class CouponController extends Controller
 {
     /**
@@ -14,7 +15,9 @@ class CouponController extends Controller
      */
     public function index()
     {
-        //
+        $now=new Carbon;
+        $coupons = Coupon::where('is_active','on')->get();
+        return view('admin.coupon.index',compact('coupons'));
     }
 
     /**
@@ -24,7 +27,7 @@ class CouponController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.coupon.create');
     }
 
     /**
@@ -35,11 +38,13 @@ class CouponController extends Controller
      */
     public function store(Request $request)
     {
-        $coupon = Coupon::where('code', $request->coupon_code)->first();
-        if (!$coupon) {
-            return back()->withErrors('Invalid coupon code. Please try again.');
-        }
-        dispatch_now(new UpdateCoupon($coupon));
+        $coupon = new Coupon;
+        $coupon->coupon_code=$request->coupon_code;
+        $coupon->value=$request->value;
+        $coupon->is_percent=$request->is_percent== 'on' ? 'on' : 'off';;
+        $coupon->free_shipping=$request->free_shipping== 'on' ? 'on' : 'off';;
+        $coupon->is_active=$request->is_active== 'on' ? 'on' : 'off';;
+        $coupon->save();
         return back()->with('success_message', 'Coupon has been applied!');
     }
 

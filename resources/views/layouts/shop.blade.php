@@ -31,6 +31,7 @@
 </head>
 
 <body>
+   
     <div class="main-wrapper">
         <header class="header-area transparent-bar sticky-bar header-padding-3">
             <div class="main-header-wrap">
@@ -38,16 +39,16 @@
                     <div class="row align-items-center">
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo">
-                                <a href="index.html"><img src="{{asset('frontend/images/logo/logo-1.png')}}" alt="logo"></a>
+                                <a href="{{url('/')}}"><img src="{{asset('frontend/images/logo/logo-1.png')}}" alt="logo"></a>
                             </div>
                         </div>
-                        <div class="col-xl-5 col-lg-6 d-flex ml-50">
+                        <div class="col-xl-3 col-lg-4 d-flex ml-50">
                            <div class="main-menu menu-common-style menu-lh-3 menu-margin-4 menu-ngtv-mrg-1 menu-font-2">
                                 <nav>
                                     <ul>
                                         <li><a href="{{url('/')}}">Home</a>                                   
                                         </li>  
-                                        <li class="angle-shape"><a href="shop.html">Shop </a>
+                                        <li class="angle-shape"><a >Shop </a>
 
                                        
                                             <ul class="mega-menu mega-menu-hm4">
@@ -76,31 +77,11 @@
                             </div>
                         </div>
 
-                         <div class="col-xl-4 col-lg-4">
+                         <div class="col-xl-6 col-lg-6">
                             
-                            <div class="header-right-wrap  stick-mt-40">
+                            <div class="header-right-wrap d-flex stick-mt-40">
                                
-                                 <div class="search-wrap-2 search-wrap-2-mrg border-style">
-                                 <div class="header-wishlist ">
-                                    <a href="{{route('compare.index')}}"><i class="la la-retweet"></i> 
-                                    <span style="
-     position: absolute; 
-    font-size: 10px;
-     height: 20px; 
-    line-height: 20px;
-    color: #fff;
-     display: block; 
-     bottom: -2px; 
-     right: -6px; 
-    width: 20px;
-     text-align: center; 
-     padding: 0; 
-    border-radius: 50%;
-    background-color: #ff5151;
-     font-weight: bold; 
-">@if(session('compare')) {{ count(session('compare')) }} @else 0  @endif</span></a>
-                                </div>
-                                </div>      
+                             
                                    
                                 @if(Auth::user())
                                 <div class="search-wrap-2 search-wrap-2-mrg border-style">
@@ -118,6 +99,8 @@
                                         <ul>
                                             
                                                     <li><a href="{{route('user.index')}}">My Account</a></li>
+                                                    <li> <a href="{{route('compare.index')}}">Wishlist</a></li>
+                                                  
                                                     <li>
                                                     <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -135,12 +118,34 @@
                                     </div>
                                 </div>
                                 @else
+                                <div class="search-wrap-2 search-wrap-2-mrg border-style">
+                               <div class="header-wishlist ">
+                                <a href="{{route('compare.index')}}"><i class="la la-retweet"></i> 
+                                    <span style="
+                                    position: absolute; 
+                                    font-size: 10px;
+                                    height: 20px; 
+                                    line-height: 20px;
+                                    color: #fff;
+                                    display: block; 
+                                    bottom: -2px; 
+                                    right: -6px; 
+                                    width: 20px;
+                                    text-align: center; 
+                                    padding: 0; 
+                                    border-radius: 50%;
+                                    background-color: #ff5151;
+                                    font-weight: bold; 
+                                    ">@if(session('compare')) {{ count(session('compare')) }} @else 0  @endif</span></a>
+                                </div>
+                            </div>      
                                 <div class="setting-wrap setting-wrap-mrg border-style">
                                     <div class="header-wishlist">
                                         <a href="{{route('login')}}"><i class="la la-user"></i></a>
                                     </div>
                                 </div>
                                 @endif
+                                  
                                 <div class="cart-wrap cart-wrap-2">
                                     <button class="cart-active ">
                                        
@@ -197,7 +202,7 @@
                                                 </span></h4>
                                             </div>
                                             <div class="shopping-cart-btn btn-hover default-btn text-center">
-                                                <a class="black-color" href="checkout.html">Continue to Chackout</a>
+                                                <a class="black-color" href="{{route('shop.checkout')}}">Continue to Chackout</a>
                                             </div>
                                         </div>
                                     </div>
@@ -230,7 +235,7 @@
                     <div class="row align-items-center">
                         <div class="col-6">
                             <div class="mobile-logo">
-                                <a href="index.html">
+                                <a href="{{url('/')}}">
                                     <img alt="" src="assets/images/logo/logo-1.png">
                                 </a>
                             </div>
@@ -328,9 +333,9 @@
                         <!-- mobile menu navigation start -->
                         <nav>
                             <ul class="mobile-menu">
-                                <li class="menu-item-has-children"><a href="index.html">Home</a>
+                                <li class="menu-item-has-children"><a href="{{url('/')}}">Home</a>
                                     <ul class="dropdown">
-                                        <li><a href="index.html">Home version 1 </a></li>
+                                        <li><a href="{{url('/')}}">Home version 1 </a></li>
                                         <li><a href="index-2.html">Home version 2 </a></li>
                                         <li><a href="index-3.html">Home version 3 </a></li>
                                         <li><a href="index-4.html">Home version 4 </a></li>
@@ -711,6 +716,7 @@
     <!-- Main JS -->
 
     <script src="{{asset('frontend/js/main.js')}}"></script>
+    @yield('js')
     <script type="text/javascript">
     
  

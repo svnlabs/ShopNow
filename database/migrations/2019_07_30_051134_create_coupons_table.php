@@ -15,10 +15,10 @@ class CreateCouponsTable extends Migration
     {
         Schema::create('coupons', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('code')->index();
+            $table->string('coupon_code')->index();
             $table->decimal('value')->unsigned()->nullable();
-            $table->boolean('is_percent');
-            $table->boolean('free_shipping');
+            $table->string('is_percent',3);
+            $table->string('free_shipping',3);
             $table->decimal('minimum_spend')->unsigned()->nullable();
             $table->decimal('maximum_spend')->unsigned()->nullable();
             $table->integer('usage_limit_per_coupon')->unsigned()->nullable();

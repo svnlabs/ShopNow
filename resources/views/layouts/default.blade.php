@@ -159,7 +159,7 @@
                                                 </span></h4>
                                             </div>
                                             <div class="shopping-cart-btn btn-hover default-btn text-center">
-                                                <a class="black-color" href="checkout.html">Continue to Chackout</a>
+                                                <a class="black-color" href="{{route('shop.checkout')}}">Continue to Chackout</a>
                                             </div>
                                         </div>
                                     </div>
