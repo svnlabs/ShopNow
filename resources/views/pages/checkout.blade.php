@@ -1,4 +1,5 @@
 @extends('layouts.shop')
+
 @section('breadcrumb')
 <h2>checkout page</h2>
 <ul>
@@ -11,7 +12,7 @@
 
 @stop
 @section('content')
- @php echo "promo section <br>"; $promo = session()->get('promo'); print_r($promo); $cart = session()->get('cart'); print_r($cart); @endphp
+ 
       <div class="checkout-main-area pt-90 pb-90">
             <div class="container">
                 <div class="customer-zone mb-20">
@@ -77,12 +78,16 @@
                         </form>
                     </div>
                 </div>
+                <form method="post" action="{{route('place.order')}}">
+                    {{csrf_field()}}
+                <input type="hidden" name="user_id" @if(Auth::user()) value="{{ Auth::user()->id }}" @endif>
                 <div class="checkout-wrap pt-30">
                     <div class="row">
                         <div class="col-lg-7">
                             <div class="billing-info-wrap mr-50">
                                 <h3>Billing Details</h3>
                                 <div class="row">
+                                    
                                     <div class="col-lg-12">
                                         <div class="billing-info mb-20">
                                             <label> Name <abbr class="required" title="required">*</abbr></label>
@@ -92,135 +97,103 @@
                                     <div class="col-lg-12">
                                         <div class="billing-info mb-20">
                                             <label>Company Name <abbr class="required" title="required">*</abbr></label>
-                                            <input type="text" @if(Auth::user()) value="{{ Auth::user()->name }}" @endif>
+                                            <input type="text" name="company" @if(Auth::user()) value="{{ Auth::user()->company }}" @endif>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="billing-info mb-20">
                                             <label>Street Address <abbr class="required" title="required">*</abbr></label>
-                                            <input class="billing-address" placeholder="House number and street name" type="text">
-                                            <input placeholder="Apartment, suite, unit etc." type="text">
+                                            <input class="billing-address" name="address1" id placeholder="House number and street name" type="text" @if(Auth::user()) value="{{ Auth::user()->address1 }}" @endif>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="billing-info mb-20">
-                                            <label>Town / City <abbr class="required" title="required">*</abbr></label>
-                                            <input type="text" @if(Auth::user()) value="{{ Auth::user()->name }}" @endif>
+                                            <label>City <abbr class="required" title="required">*</abbr></label>
+                                            <input type="text" name="address2"  id="city" @if(Auth::user()) value="{{ Auth::user()->address2 }}" @endif>
                                         </div>
-                                    </div>
+                                    </div> 
+                                    <div class="col-lg-6 col-md-6">
+                                            <div class="billing-info mb-20">
+                                                <label>Division</label>
+                                                <input type="text" name="city" @if(Auth::user()) value="{{ Auth::user()->city }}" @endif>
+                                            </div>
+                                        </div>                                   
                                     <div class="col-lg-12 col-md-12">
                                         <div class="billing-info mb-20">
-                                            <label>State / County <abbr class="required" title="required">*</abbr></label>
-                                            <input type="text" @if(Auth::user()) value="{{ Auth::user()->name }}" @endif>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="billing-info mb-20">
-                                            <label>Postcode / ZIP <abbr class="required" title="required">*</abbr></label>
-                                            <input type="text" @if(Auth::user()) value="{{ Auth::user()->name }}" @endif>
+                                            <label>Postcode <abbr class="required" title="required">*</abbr></label>
+                                            <input type="text" id="postcode" name="postcode" @if(Auth::user()) value="{{ Auth::user()->postcode }}" @endif>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12">
                                         <div class="billing-info mb-20">
                                             <label>Phone <abbr class="required" title="required">*</abbr></label>
-                                            <input type="text" @if(Auth::user()) value="{{ Auth::user()->name }}" @endif>
+                                            <input type="text" id="mobile" name="mobile" @if(Auth::user()) value="{{ Auth::user()->mobile }}" @endif>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12">
                                         <div class="billing-info mb-20">
                                             <label>Email Address <abbr class="required" title="required">*</abbr></label>
-                                            <input type="text" @if(Auth::user()) value="{{ Auth::user()->name }}" @endif>
+                                            <input type="text" name="email" @if(Auth::user()) value="{{ Auth::user()->email }}" @endif>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="checkout-account mb-25">
-                                    <input class="checkout-toggle2" type="checkbox">
-                                    <span>Create an account?</span>
-                                </div>
-                                <div class="checkout-account-toggle open-toggle2 mb-30">
-                                    <label>Email Address</label>
-                                    <input placeholder="Password" type="password">
-                                </div>
+                                
                                 <div class="checkout-account mt-25">
-                                    <input class="checkout-toggle" type="checkbox">
+                                    <input class="checkout-toggle" type="checkbox" name="anothershipping">
                                     <span>Ship to a different address?</span>
                                 </div>
                                 <div class="different-address open-toggle mt-30">
                                     <div class="row">
+                                        
                                         <div class="col-lg-6 col-md-6">
                                             <div class="billing-info mb-20">
-                                                <label>First Name</label>
-                                                <input type="text" @if(Auth::user()) value="{{ Auth::user()->name }}" @endif>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="billing-info mb-20">
-                                                <label>Last Name</label>
-                                                <input type="text" @if(Auth::user()) value="{{ Auth::user()->name }}" @endif>
+                                                <label> Name</label>
+                                                <input type="text" name="name1">
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="billing-info mb-20">
                                                 <label>Company Name</label>
-                                                <input type="text" @if(Auth::user()) value="{{ Auth::user()->name }}" @endif>
+                                                <input type="text" name="company1">
                                             </div>
                                         </div>
-                                        <div class="col-lg-12">
-                                            <div class="billing-select mb-20">
-                                                <label>Country</label>
-                                                <select>
-                                                    <option>Select a country</option>
-                                                    <option>Azerbaijan</option>
-                                                    <option>Bahamas</option>
-                                                    <option>Bahrain</option>
-                                                    <option>Bangladesh</option>
-                                                    <option>Barbados</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                        
                                         <div class="col-lg-12">
                                             <div class="billing-info mb-20">
                                                 <label>Street Address</label>
-                                                <input class="billing-address" placeholder="House number and street name" type="text">
-                                                <input placeholder="Apartment, suite, unit etc." type="text">
+                                                <input class="billing-address1" name="address11" placeholder="House number and street name" type="text">
+                                                
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="billing-info mb-20">
                                                 <label>Town / City</label>
-                                                <input type="text" @if(Auth::user()) value="{{ Auth::user()->name }}" @endif>
+                                                <input type="text" name="address21" id="city1">
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6">
                                             <div class="billing-info mb-20">
-                                                <label>State / County</label>
-                                                <input type="text" @if(Auth::user()) value="{{ Auth::user()->name }}" @endif>
+                                                <label>Division</label>
+                                                <input type="text" name="city1" id="division1">
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6">
                                             <div class="billing-info mb-20">
                                                 <label>Postcode / ZIP</label>
-                                                <input type="text" @if(Auth::user()) value="{{ Auth::user()->name }}" @endif>
+                                                <input type="text" name="postcode1" id="postcode1">
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6">
                                             <div class="billing-info mb-20">
                                                 <label>Phone</label>
-                                                <input type="text" @if(Auth::user()) value="{{ Auth::user()->name }}" @endif>
+                                                <input type="text" name="mobile" id="mobile1">
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="billing-info mb-20">
-                                                <label>Email Address</label>
-                                                <input type="text" @if(Auth::user()) value="{{ Auth::user()->name }}" @endif>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
-                                <div class="additional-info-wrap">
-                                    <label>Order notes</label>
-                                    <textarea placeholder="Notes about your order, e.g. special notes for delivery. " name="message"></textarea>
-                                </div>
+                               
                             </div>
                         </div>
                         <div class="col-lg-5">
@@ -249,33 +222,48 @@
                                                 <li>Subtotal <span>{{$total}} </span></li>
                                             </ul>
                                         </div>
+                                        @if(session('promo'))
+                                        <div class="your-order-info order-subtotal">
+                                            <ul>
+                                                <li>Coupon Discount <span>{{ session('promo')['discount']}} </span></li>
+                                            </ul>
+                                        </div>
+                                        @endif
                                         <div class="your-order-info order-shipping">
                                             <ul>
-                                                <li>Shipping <p>Enter your full address </p>
+                                                <li>Shipping       
                                                 </li>
+                                                @if(Auth::user())
+                                                 <p><span id="address1">{{ Auth::user()->address1 }}</span>, <span id="address2">{{ Auth::user()->address2 }}</span></p>
+                                                    <p><span id="address3">{{ Auth::user()->city }}</span>-
+                                                    <span id="address4">{{ Auth::user()->postcode }}</span></p>
+                                                    <p><span id="address5">{{ Auth::user()->mobile }}</span></p>
+                                                @else
+                                                <p><span id="address1">Street Address</span>, <span id="address2">City</span></p>
+                                                    <p><span id="address3">Division</span>-
+                                                    <span id="address4">Postcode</span></p>
+                                                    <p><span id="address5">Mobile</span></p>
+                                                @endif
                                             </ul>
                                         </div>
                                         <div class="your-order-info order-total">
                                             <ul>
-                                                <li>Total <span>@if(session('promo')){{ $promo['final_ammount']}}@else {{$total}}@endif </span></li>
+
+                                               
+                                                 @if(session('promo'))                             
+                            
+                                                 <li >Total 
+                                                    <span style="margin: 0 0 0 10px;">{{ session('promo')['final_amount']}}</span>
+                                                    <span class="old-price" style="text-decoration: line-through;margin: 0 0 0 10px;">{{$total}}</span>                                                </li>
+                                                 
+                                                  @else
+                                                   <li>Total <span>  {{$total}} </span></li>
+                                                  @endif
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="payment-method">
-                                        <div class="pay-top sin-payment">
-                                            <input id="payment_method_1" class="input-radio" type="radio" value="cheque" checked="checked" name="payment_method">
-                                            <label for="payment_method_1"> Direct Bank Transfer </label>
-                                            <div class="payment-box payment_method_bacs">
-                                                <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference.</p>
-                                            </div>
-                                        </div>
-                                        <div class="pay-top sin-payment">
-                                            <input id="payment-method-2" class="input-radio" type="radio" value="cheque" name="payment_method">
-                                            <label for="payment-method-2">Check payments</label>
-                                            <div class="payment-box payment_method_bacs">
-                                                <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference.</p>
-                                            </div>
-                                        </div>
+                                       
                                         <div class="pay-top sin-payment">
                                             <input id="payment-method-3" class="input-radio" type="radio" value="cheque" name="payment_method">
                                             <label for="payment-method-3">Cash on delivery </label>
@@ -283,22 +271,56 @@
                                                 <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference.</p>
                                             </div>
                                         </div>
-                                        <div class="pay-top sin-payment sin-payment-3">
-                                            <input id="payment-method-4" class="input-radio" type="radio" value="cheque" name="payment_method">
-                                            <label for="payment-method-4">PayPal <img alt="" src="assets/images/icon-img/payment.png"><a href="#">What is PayPal?</a></label>
-                                            <div class="payment-box payment_method_bacs">
-                                                <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference.</p>
-                                            </div>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                                 <div class="Place-order mt-40">
-                                    <a href="#">Place Order</a>
+                                    <input type="submit" value="Place Order">
                                 </div>
+                            
                             </div>
                         </div>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
 @stop
+@section('js')
+<script type="text/javascript">
+var ckbox = $('.checkout-toggle');
+if (ckbox.is(':checked')) {
+$('.billing-address').on('input', function (e) {    
+    $("#address1").text($(this).val());
+});
+$('#city').on('input', function (e) {    
+    $("#address2").text($(this).val());
+});
+$('#division').on('input', function (e) {    
+    $("#address3").text($(this).val());
+});
+$('#postcode').on('input', function (e) {    
+    $("#address4").text($(this).val());
+});$('#mobile').on('input', function (e) {    
+    $("#address4").text($(this).val());
+});
+}
+else{
+$('.billing-address1').on('input', function (e) {    
+    $("#address1").text($(this).val());
+});
+$('#city1').on('input', function (e) {    
+    $("#address2").text($(this).val());
+});
+$('#division1').on('input', function (e) {    
+    $("#address3").text($(this).val());
+});
+$('#postcode1').on('input', function (e) {    
+    $("#address4").text($(this).val());
+});$('#mobile1').on('input', function (e) {    
+    $("#address4").text($(this).val());
+});
+}
+</script>
+@stop
+

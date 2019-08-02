@@ -74,7 +74,7 @@
                             <h4><a href="{{route('shop.product',$product->id)}}">{{$product->name}}</a></h4>
                             <div class="price-addtocart">
                                 <div class="product-price">
-                                    <span>{{$product->price}}</span>
+                                    <span>৳ {{$product->price}}</span>
                                 </div>
                             </div>
                         </div>
@@ -232,7 +232,7 @@
                                         <h4><a href="{{route('shop.product',$product->id)}}">{{$product->name}}</a></h4>
                                         <div class="price-addtocart">
                                             <div class="product-price">
-                                                <span>{{$product->price}}</span>
+                                                <span>৳ {{$product->price}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -267,7 +267,7 @@
                                                 <h4><a href="{{route('shop.product',$product->id)}}">{{$product->name}}</a></h4>
                                                 <div class="price-addtocart">
                                                     <div class="product-price">
-                                                        <span>{{$product->price}}</span>
+                                                        <span>৳ {{$product->price}}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -301,7 +301,7 @@
                                                 <h4><a href="{{route('shop.product',$product->id)}}">{{$product->name}}</a></h4>
                                                 <div class="price-addtocart">
                                                     <div class="product-price">
-                                                        <span>{{$product->price}}</span>
+                                                        <span>৳ {{$product->price}}</span>
                                                     </div>
                                                 </div>
                                             </div>

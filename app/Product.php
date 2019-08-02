@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-     protected $guarded = [];
-     public function category(){
+    protected $guarded = [];
+    
+    public function category(){
         return $this->belongsTo(Category::class, 'category_id');
     } 
     public function brand(){
@@ -15,5 +16,9 @@ class Product extends Model
     }
     public function wishlist(){
      return $this->hasMany(Wishlist::class);
-  }
+    }
+
+    public function order(){
+     return $this->hasMany(Order::class);
+    }
 }

@@ -26,11 +26,12 @@
     <link rel="stylesheet" href="{{asset('frontend/css/plugins/magnific-popup.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/plugins/jquery-ui.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
+    @yield('css')
  
 
 </head>
 
-<body>
+<body ng-app="app">
    
     <div class="main-wrapper">
         <header class="header-area transparent-bar sticky-bar header-padding-3">

@@ -22,6 +22,7 @@ Route::resource('/compare', 'CompareController');
 
 
 
+
 // |------------------------ Cart ---------------------------------------------------------|
 Route::resource('/cart', 'CartController');
 Route::get('add-to-cart/{id}', 'CartController@addToCart')->name('add.cart');
@@ -40,6 +41,7 @@ Route::get('/shop/brand/{id}', 'FrontController@brand')->name('shop.brand');
 Route::get('/shop/product/{id}', 'FrontController@product')->name('shop.product');
 Route::get('/shop/checkout', 'FrontController@checkout')->name('shop.checkout');
 Route::post('/shop/applypromo', 'FrontController@applypromo')->name('apply.promo');
+Route::post('/shop/placeorder', 'FrontController@placeorder')->name('place.order');
 // |------------------------ Shop Controller ----------------------------------------------|
 
 
