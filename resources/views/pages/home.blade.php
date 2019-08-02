@@ -41,6 +41,7 @@
                 </div>
             </div>
         </div>
+        @include('layouts.flash-message')
         <div class="product-area pb-100">
             <div class="container">
                 <div class="section-title-5 section-title-tab-wrap mt-50">
@@ -51,7 +52,7 @@
                     @foreach($latestProduct as $product)
                     <div class="product-wrap product-border-1 product-img-zoom">
                         <div class="product-img">
-                            <a href="product-details.html"><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="product"></a>
+                            <a href="{{route('shop.product',$product->id)}}"><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="product"></a>
                             <div class="product-action-2">
                                 <a class="show_product"  data-toggle="modal" data-target="#exampleModal" data-proid="{{$product->id}}" data-cat="{{$product->category->name}}" data-proname="{{$product->name}}" data-review="{{$product->review_id}}" data-proatt="{{$product->attribute_id}}" data-price="{{$product->price}}" data-src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" title="Quick View" href="#"><i class="la la-search"></i></a>
                                 <a title="Add To Cart" href="#"><i class="la la-cart-plus"></i></a>
@@ -60,7 +61,7 @@
                             </div>
                         </div>
                         <div class="product-content product-content-padding">
-                            <h4><a href="product-details.html">{{$product->name}}</a></h4>
+                            <h4><a href="{{route('shop.product',$product->id)}}">{{$product->name}}</a></h4>
                             <div class="price-addtocart">
                                 <div class="product-price">
                                     <span>{{$product->price}}</span>
@@ -129,26 +130,27 @@
                             @foreach($allproduct->products as $product)
                                         <div class="product-wrap product-border-3 product-img-zoom mb-30">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="product"></a>
+                                                <a href="{{route('shop.product',$product->id)}}"><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="product"></a>
                                                 <div class="product-action-4">
                                                     <div class="product-action-4-style">
-                                                         <form action="{{route('wishlist.store')}}" id="contact_form" method="post">
+                                                             
+                                                        <a data-tooltip="Add To Cart" href="{{ url('add-to-cart/'.$product->id) }}"><i class="la la-cart-plus"></i></a>
+                                                        <form action="{{route('wishlist.store')}}" id="contact_form" method="post" style="display: none;">
                                                               {{csrf_field()}}
                                                               {{-- <input name="user_id" type="hidden" value="{{Auth::user()->id}}" /> --}}
                                                               <input name="product_id" type="hidden" value="{{$product->id}}" />
-                                                        <a data-tooltip="Add To Cart" href="{{ url('add-to-cart/'.$product->id) }}"><i class="la la-cart-plus"></i></a>
-                                                           
+                                                         </form>  
 
                                                          
-                                                        <a onclick="document.getElementById('contact_form').submit();" data-tooltip="Wishlist" href="#"><i class="la la-heart-o"></i></a>
+                                                        <a onclick="event.preventDefault();document.getElementById('contact_form').submit();" data-tooltip="Wishlist" href="#"><i class="la la-heart-o"></i></a>
 
                                                         <a data-tooltip="Compare" href="#"><i class="la la-random"></i></a>
-                                                         </form>
+                                                         
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="product-content product-content-padding">
-                                                <h4><a href="product-details.html">{{$product->name}}</a></h4>
+                                                <h4><a href="{{route('shop.product',$product->id)}}">{{$product->name}}</a></h4>
                                                 <div class="price-addtocart">
                                                     <div class="product-price">
                                                         <span>৳ {{$product->price}}</span>
@@ -198,7 +200,7 @@
                             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                 <div class="product-wrap product-border-3 product-img-zoom mb-30">
                                     <div class="product-img">
-                                        <a href="product-details.html"><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="product"></a>
+                                        <a href="{{route('shop.product',$product->id)}}"><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="product"></a>
                                         <div class="product-action-4">
                                             <div class="product-action-4-style">
                                                 <a data-tooltip="Add To Cart" href="{{ url('add-to-cart/'.$product->id) }}"><i class="la la-cart-plus"></i></a>
@@ -208,7 +210,7 @@
                                         </div>
                                     </div>
                                     <div class="product-content product-content-padding">
-                                        <h4><a href="product-details.html">{{$product->name}}</a></h4>
+                                        <h4><a href="{{route('shop.product',$product->id)}}">{{$product->name}}</a></h4>
                                         <div class="price-addtocart">
                                             <div class="product-price">
                                                 <span>{{$product->price}}</span>
@@ -224,7 +226,7 @@
                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                         <div class="product-wrap product-border-3 product-img-zoom mb-30">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="product"></a>
+                                                <a href="{{route('shop.product',$product->id)}}"><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="product"></a>
                                                 <div class="product-action-4">
                                                     <div class="product-action-4-style">
                                                         <a data-tooltip="Add To Cart" href="{{ url('add-to-cart/'.$product->id) }}"><i class="la la-cart-plus"></i></a>
@@ -234,7 +236,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-content product-content-padding">
-                                                <h4><a href="product-details.html">{{$product->name}}</a></h4>
+                                                <h4><a href="{{route('shop.product',$product->id)}}">{{$product->name}}</a></h4>
                                                 <div class="price-addtocart">
                                                     <div class="product-price">
                                                         <span>{{$product->price}}</span>
@@ -249,7 +251,7 @@
                                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                         <div class="product-wrap product-border-3 product-img-zoom mb-30">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="product"></a>
+                                                <a href="{{route('shop.product',$product->id)}}"><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="product"></a>
                                                 <div class="product-action-4">
                                                     <div class="product-action-4-style">
                                                         <a data-tooltip="Add To Cart" href="{{ url('add-to-cart/'.$product->id) }}"><i class="la la-cart-plus"></i></a>
@@ -259,7 +261,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-content product-content-padding">
-                                                <h4><a href="product-details.html">{{$product->name}}</a></h4>
+                                                <h4><a href="{{route('shop.product',$product->id)}}">{{$product->name}}</a></h4>
                                                 <div class="price-addtocart">
                                                     <div class="product-price">
                                                         <span>{{$product->price}}</span>

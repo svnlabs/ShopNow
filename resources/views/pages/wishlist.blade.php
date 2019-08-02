@@ -44,13 +44,13 @@
                                         {{csrf_field()}}
 										<input type="hidden" name="proid" value="{{$wishlist->product_id}}">
 										<div class="cart-plus-minus">
-											<input class="cart-plus-minus-box" type="number" name="quantity" >
+											<input class="cart-plus-minus-box" type="text" name="quantity" id="qtybutton" value="2">
 										</div>
-										</form>
+										
 									</td>									
 									<td class="product-wishlist-cart">
-										<a onclick="event.preventDefault();document.getElementById('add').submit();"href="#">add to cart</a>
-									
+										<input type="submit" value="add to cart">
+										</form>
 									</td>
 								</tr>
 								@endforeach

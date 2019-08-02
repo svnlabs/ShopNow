@@ -25,6 +25,7 @@ class CreateProductsTable extends Migration
             $table->date('special_price_start')->nullable();
             $table->date('special_price_end')->nullable();
             $table->integer('selling_price')->unsigned()->nullable();
+            $table->string('thumbnail')->nullable();
             $table->string('image')->nullable();
             $table->text('short_description')->nullable();
             $table->text('long_description')->nullable();

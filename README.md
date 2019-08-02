@@ -28,7 +28,8 @@
 - Automatic cross sell / up sell / related product offerings
 - Open Source
 - Social Media Integration
-- Unlimited Categories
+- live facebook chat
+- Unlimited Categories,sub-catgegories
 - Unlimited Products
 - Related Products, Recommendations for you in our categories, Store Trending
 - Create custom transaction emails
@@ -36,7 +37,6 @@
 - Create different sales rules for groups of products
 - Customer loyalty discounts
 - An “intelligent” search form
-- Custom page creation
 - Contact forms
 - Manage orders/invoicing/shipment processing
 - Manage different sales tax arrangements

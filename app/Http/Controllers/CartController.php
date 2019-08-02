@@ -63,10 +63,14 @@ class CartController extends Controller
                     "image" => $product->image
                 ]
             ];
-
-            session()->put('cart', $cart);
+            if(session()->put('cart', $cart))
+            {           
 
             return redirect()->back()->with('success', 'Product added to cart successfully!');
+        }
+            else{
+            return redirect()->back()->with('success', 'Product added to cart successfully!');
+            }   
         }
 
         
@@ -81,9 +85,16 @@ class CartController extends Controller
           "image" => $product->image
       ];
 
-      session()->put('cart', $cart);
+      if(session()->put('cart', $cart))
+            {      
 
-      return redirect()->back()->with('success', 'Product added to cart successfully!');
+            $product->quantity -= $request->quantity;
+            $product->save();
+            return redirect()->back()->with('success', 'Product added to cart successfully!');
+        }
+            else{
+            return redirect()->back()->with('error');
+            }   
 
     }
 

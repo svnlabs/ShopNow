@@ -67,13 +67,17 @@ class ProductController extends Controller
         if($request->hasfile('image')){
             $dir =  public_path('Productimg/');
              $extension = strtolower($request->file('image')->getClientOriginalExtension()); 
-             $fileName = str_random() . '.' . $extension; // rename image
+             $fileNamethumb = 'thumb'.time() . '.' . $extension; // rename image
+             $fileNamezoom = 'zoom'.time() . '.' . $extension; // rename image
          
 
             
-            $product->image = $fileName;
-            $npath = $dir.$fileName;
-            Image::make($request->image)->resize(222, 222)->save($npath);
+            $product->thumbnail = $fileNamethumb;
+            $product->image = $fileNamezoom;
+            $npath1 = $dir.$fileNamethumb;
+            $npath2 = $dir.$fileNamezoom;
+            Image::make($request->thumbnail)->resize(222, 222)->save($npath1);
+            Image::make($request->image)->save($npath2);
        
         }// get image extension
         
@@ -153,17 +157,22 @@ class ProductController extends Controller
         //set path to http://localhost/ecommerce/public/Productimg/
         if($request->hasfile('image')){
             $dir =  public_path('Productimg/');
+        if ($product->thumbnail != '' && File::exists($dir . $product->thumbnail))File::delete($dir . $product->thumbnail);
         if ($product->image != '' && File::exists($dir . $product->image))File::delete($dir . $product->image);
         
            
              $extension = strtolower($request->file('image')->getClientOriginalExtension()); 
-             $fileName = str_random() . '.' . $extension; // rename image
+             $fileNamethumb = 'thumb'.time() . '.' . $extension; // rename image
+             $fileNamezoom = 'zoom'.time() . '.' . $extension; // rename image
          
 
             
-            $product->image = $fileName;
-            $npath = $dir.$fileName;
-            Image::make($request->image)->resize(222, 222)->encode('png', 80)->save($npath);
+            $product->thumbnail = $fileNamethumb;
+            $product->image = $fileNamezoom;
+            $npath1 = $dir.$fileNamethumb;
+            $npath2 = $dir.$fileNamezoom;
+            Image::make($request->image)->resize(222, 222)->save($npath1);
+            Image::make($request->image)->save($npath2);
         }// get image extension
         
         
@@ -186,6 +195,7 @@ class ProductController extends Controller
     {
         $new = Product::find($id);
         $dir =  public_path('Productimg/');
+         if ($new->thumbnail != '' && File::exists($dir . $new->thumbnail))File::delete($dir . $new->thumbnail);
          if ($new->image != '' && File::exists($dir . $new->image))File::delete($dir . $new->image);
         $new->delete();
         return Redirect()->route('product.index')->with('delete','Product Deleted successfully!');

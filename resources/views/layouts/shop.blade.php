@@ -81,7 +81,7 @@
                                 @if(Auth::user())
                                 <div class="search-wrap-2 search-wrap-2-mrg border-style">
                                  <div class="header-wishlist">
-                                    <a href="wishlist.html"><i class="la la-heart-o"></i></a>
+                                    <a href="{{route('wishlist.index')}}"><i class="la la-heart-o"></i></a>
                                 </div>
                                 </div>
                                 <div class="setting-wrap setting-wrap-mrg border-style">
@@ -358,7 +358,7 @@
                                         <li><a href="cart.html">cart page </a></li>
                                         <li><a href="checkout.html">checkout </a></li>
                                         <li><a href="compare.html">compare </a></li>
-                                        <li><a href="wishlist.html">wishlist </a></li>
+                                        <li><a href="{{route('wishlist.index')}}">wishlist </a></li>
                                         <li><a href="my-account.html">my account </a></li>
                                         <li><a href="contact.html">contact us </a></li>
                                         <li><a href="login-register.html">login/register </a></li>
@@ -421,15 +421,15 @@
                 </div>
             </div>
         </div>
-      
-        <div class="breadcrumb-area bg-img" style="background-image:url(frontend/images/bg/breadcrumb.jpg);">
+        
+        <div class="breadcrumb-area bg-img" style="background-image:url({{asset('frontend/images/bg/breadcrumb.jpg')}});">
             <div class="container">
                 <div class="breadcrumb-content text-center">
                     @yield('breadcrumb')                    
                 </div>
             </div>
         </div>
-
+        @include('layouts.flash-message')
 
         @yield('content')
 
@@ -745,7 +745,7 @@
 
             });
         });
- 
+        
     </script>
     <!-- Load Facebook SDK for JavaScript -->
 <div id="fb-root"></div>
