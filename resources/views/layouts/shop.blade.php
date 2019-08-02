@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>ShopNow - eCommerce Bootstrap 4 Template</title>
+    <title>ShopNow </title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -201,6 +201,9 @@
                                                     ৳ 0 
                                                     @endif
                                                 </span></h4>
+                                            </div>
+                                            <div class="shopping-cart-btn btn-hover default-btn text-center">
+                                                <a class="black-color" href="{{route('cart.index')}}">Cart</a>
                                             </div>
                                             <div class="shopping-cart-btn btn-hover default-btn text-center">
                                                 <a class="black-color" href="{{route('shop.checkout')}}">Continue to Chackout</a>

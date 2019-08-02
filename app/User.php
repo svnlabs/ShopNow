@@ -28,4 +28,8 @@ class User extends Authenticatable
     public function wishlist(){
        return $this->hasMany(Wishlist::class);
     }
+
+    public function order(){
+        return $this->hasMany(Order::class, 'user_id');
+    }
 }

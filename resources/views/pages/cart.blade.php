@@ -1,367 +1,189 @@
-@extends('layouts.default')
+@extends('layouts.shop')
+@section('breadcrumb')
+<h2>Cart</h2>
+<ul>
+    <li>
+        <a href="{{url('/')}}">Home</a>
+    </li>
+    <li class="active">cart  </li>
+</ul>
+
+
+@stop
 @section('content')
-   <section id="content">
-
-        	<div id="breadcrumb-container">
-        		<div class="container">
-					<ul class="breadcrumb">
-						<li><a href="{{URL::to('/')}}">Home</a></li>
-						<li class="active">Shopping Cart</li>
-					</ul>
-        		</div>
-        	</div>
-        	<div class="container">
-                        @if(session('success'))
-
-                        <div class="alert alert-success">
-                                    {{ session('success') }}
+ <div class="cart-main-area pt-85 pb-90">
+            <div class="container">
+                <h3 class="cart-page-title">Your cart items</h3>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <form action="#">
+                            <div class="table-content table-responsive cart-table-content">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Product Name</th>
+                                            <th>Until Price</th>
+                                            <th>Qty</th>
+                                            <th>Subtotal</th>
+                                            <th>action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="product-thumbnail">
+                                                <a href="#"><img src="assets/images/cart/cart-4.jpg" alt=""></a>
+                                            </td>
+                                            <td class="product-name"><a href="#">Demo Product Name</a></td>
+                                            <td class="product-price-cart"><span class="amount">$260.00</span></td>
+                                            <td class="product-quantity">
+                                                <div class="cart-plus-minus">
+                                                    <input class="cart-plus-minus-box" type="text" name="qtybutton" value="2">
+                                                </div>
+                                            </td>
+                                            <td class="product-subtotal">$110.00</td>
+                                            <td class="product-remove">
+                                                <a href="#"><i class="la la-pencil"></i></a>
+                                                <a href="#"><i class="la la-close"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="product-thumbnail">
+                                                <a href="#"><img src="assets/images/cart/cart-5.jpg" alt=""></a>
+                                            </td>
+                                            <td class="product-name"><a href="#">Demo Product Name</a></td>
+                                            <td class="product-price-cart"><span class="amount">$150.00</span></td>
+                                            <td class="product-quantity">
+                                                <div class="cart-plus-minus">
+                                                    <input class="cart-plus-minus-box" type="text" name="qtybutton" value="2">
+                                                </div>
+                                            </td>
+                                            <td class="product-subtotal">$150.00</td>
+                                            <td class="product-remove">
+                                                <a href="#"><i class="la la-pencil"></i></a>
+                                                <a href="#"><i class="la la-close"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="product-thumbnail">
+                                                <a href="#"><img src="assets/images/cart/cart-6.jpg" alt=""></a>
+                                            </td>
+                                            <td class="product-name"><a href="#">Demo Product Name </a></td>
+                                            <td class="product-price-cart"><span class="amount">$170.00</span></td>
+                                            <td class="product-quantity">
+                                                <div class="cart-plus-minus">
+                                                    <input class="cart-plus-minus-box" type="text" name="qtybutton" value="2">
+                                                </div>
+                                            </td>
+                                            <td class="product-subtotal">$170.00</td>
+                                            <td class="product-remove">
+                                                <a href="#"><i class="la la-pencil"></i></a>
+                                                <a href="#"><i class="la la-close"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="cart-shiping-update-wrapper">
+                                        <div class="cart-shiping-update">
+                                            <a href="#">Continue Shopping</a>
+                                        </div>
+                                        <div class="cart-clear">
+                                            <button>Update Shopping Cart</button>
+                                            <a href="#">Clear Shopping Cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="cart-tax">
+                                    <div class="title-wrap">
+                                        <h4 class="cart-bottom-title section-bg-gray">Estimate Shipping And Tax</h4>
+                                    </div>
+                                    <div class="tax-wrapper">
+                                        <p>Enter your destination to get a shipping estimate.</p>
+                                        <div class="tax-select-wrapper">
+                                            <div class="tax-select">
+                                                <label>
+                                                    * Country
+                                                </label>
+                                                <select class="email s-email s-wid">
+                                                    <option>Bangladesh</option>
+                                                    <option>Albania</option>
+                                                    <option>Åland Islands</option>
+                                                    <option>Afghanistan</option>
+                                                    <option>Belgium</option>
+                                                </select>
+                                            </div>
+                                            <div class="tax-select">
+                                                <label>
+                                                    * Region / State
+                                                </label>
+                                                <select class="email s-email s-wid">
+                                                    <option>Bangladesh</option>
+                                                    <option>Albania</option>
+                                                    <option>Åland Islands</option>
+                                                    <option>Afghanistan</option>
+                                                    <option>Belgium</option>
+                                                </select>
+                                            </div>
+                                            <div class="tax-select">
+                                                <label>
+                                                    * Zip/Postal Code
+                                                </label>
+                                                <input type="text">
+                                            </div>
+                                            <button class="cart-btn-2" type="submit">Get A Quote</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="discount-code-wrapper">
+                                    <div class="title-wrap">
+                                        <h4 class="cart-bottom-title section-bg-gray">Use Coupon Code</h4>
+                                    </div>
+                                    <div class="discount-code">
+                                        <p>Enter your coupon code if you have one.</p>
+                                        <form>
+                                            <input type="text" required="" name="name">
+                                            <button class="cart-btn-2" type="submit">Apply Coupon</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="grand-totall">
+                                    <div class="title-wrap">
+                                        <h4 class="cart-bottom-title section-bg-gary-cart">Cart Total</h4>
+                                    </div>
+                                    <h5>Total products <span>$260.00</span></h5>
+                                    <div class="total-shipping">
+                                        <h5>Total shipping</h5>
+                                        <ul>
+                                            <li><input type="checkbox"> Standard <span>$20.00</span></li>
+                                            <li><input type="checkbox"> Express <span>$30.00</span></li>
+                                        </ul>
+                                    </div>
+                                    <h4 class="grand-totall-title">Grand Total <span>$260.00</span></h4>
+                                    <a href="#">Proceed to Checkout</a>
+                                </div>
+                            </div>
                         </div>
-
-                        @endif
-        		<div class="row">
-        			<div class="col-md-12">
-						<header class="content-title">
-							<h1 class="title">Shopping Cart</h1>
-							<p class="title-desc">Just this week, you can use the free premium delivery.</p>
-						</header>
-        				<div class="xs-margin"></div><!-- space -->
-        				<div class="row">
-        					
-        					<div class="col-md-12 table-responsive">
-								
-        						<table class="table cart-table">
-        						<thead>
-        							<tr>
-										<th class="table-title">Product Name</th>
-										<th class="table-title">Product Code</th>
-										<th class="table-title">Unit Price</th>
-                                        <th class="table-title">Quantity</th>										
-										<th class="table-title">SubTotal</th>
-        							</tr>
-        						</thead>
-								<tbody>
-                                    <?php $total = 0 ?>
-
-                                    @if(session('cart'))
-                                    @foreach(session('cart') as $id => $details)
-
-                                    <?php $total += $details['price'] * $details['quantity'] ?>
-
-									<tr>
-
-										<td class="item-name-col">
-											<figure>
-												<a href="#"><img src="{{asset('Productimg/'.$details['image'])}}" alt="phone 4"></a>
-											</figure>
-											<header class="item-name"><a href="#">{{ $details['name'] }}</a></header>
-											<div class="col-xs-5">{{ $details['description'] }}</div>
-										</td>
-										<td class="item-code">{{ $details['sku'] }}</td>
-										<td class="item-price-col"><span class="item-price-special">৳{{ $details['price'] }}</span></td>
-										<td>
-											
-										      <input type="number" value="{{ $details['quantity'] }}" class=" quantity" />
-
-											
-                                            <button class="btn btn-info btn-sm update-cart" data-id="{{ $id }}"><i class="fa fa-refresh"></i></button>
-                                            
-
-                                          
-										</td>
-                                        
-										<td class="item-total-col"><span class="item-price-special">৳ {{ $details['price'] * $details['quantity'] }}</span>
-										
-                                        <button class="close-button remove-from-cart" data-id="{{ $id }}"></button>
-										</td>
-
-
-									</tr>
-                                    @endforeach
-                                    @endif
-									
-								</tbody>
-							  </table>
-        						
-        					</div><!-- End .col-md-12 -->
-        					
-        				</div><!-- End .row -->
-        				<div class="lg-margin"></div><!-- End .space -->
-        				
-        				<div class="row">
-        					<div class="col-md-8 col-sm-12 col-xs-12 lg-margin">
-        						
-        						<div class="tab-container left clearfix">
-        								<ul class="nav-tabs">
-										  {{-- <li class="active"><a href="#shipping" data-toggle="tab">Shipping &amp; Taxes</a></li> --}}
-										  <li><a href="#discount" data-toggle="tab">Discount Code</a></li>
-										  <li><a href="#gift" data-toggle="tab">Gift voucher </a></li>
-										  
-										</ul>
-        								<div class="tab-content clearfix">
-        									<div class="tab-pane " id="shipping">
-        										
-        										<form action="#" id="shipping-form">
-        											<p class="shipping-desc">Enter your destination to get a shipping estimate.</p>
-													<div class="form-group">
-														<label for="select-country" class="control-label">Country&#42;</label>
-														<div class="input-container normal-selectbox">
-                                                            <select id="select-country" name="select-country" class="selectbox">
-                                                                <option  value="Japan">Japan</option>
-                                                                <option  value="Brazil">Brazil</option>
-                                                                <option  value="France">France</option>
-                                                                <option  value="Italy">Italy</option>
-                                                                <option  value="Spain">Spain</option>
-                                                            </select>
-                                                        </div><!-- End .select-container -->
-													</div><!-- End .form-group -->
-													<div class="xss-margin"></div>
-													<div class="form-group">
-                                                        <label for="select-state" class="control-label">Regison/State&#42;</label>
-                                                        <div class="input-container normal-selectbox">
-                                                            <select id="select-state" name="select-state" class="selectbox">
-                                                            <option  value="California">California</option>
-                                                            <option  value="Texas">Texas</option>
-                                                            <option  value="NewYork">NewYork</option>
-                                                            <option  value="Narnia">Narnia</option>
-                                                            <option  value="Jumanji">Jumanji</option>
-                                                        </select>
-                                                        </div><!-- End .select-container -->
-                                                    </div><!-- End .form-group -->
-        										  <div class="xss-margin"></div>
-        										<div class="form-group">
-													<label for="select-country" class="control-label"  >Post Code&#42;</label>
-													<div class="input-container">
-                                                        <input type="text" required class="form-control" placeholder="Your fax">
-                                                    </div>
-												</div><!-- End .form-group -->
-        										<div class="xss-margin"></div>
-        										<p class="text-right">
-        											<input type="submit" class="btn btn-custom-2" value="GET QUOTES">
-        										</p>
-        										</form>
-        										
-        									</div><!-- End .tab-pane -->
-        									
-        									<div class="tab-pane active" id="discount">
-        										<p>Enter your discount coupon code here.</p>
-        										<form action="#">
-        											<div class="input-group">
-														<input type="text" required class="form-control" placeholder="Coupon code">
-														
-													</div><!-- End .input-group -->	
-        										<input type="submit" class="btn btn-custom-2" value="APPLY COUPON">
-        										</form>
-        									</div><!-- End .tab-pane -->
-        									
-        									<div class="tab-pane" id="gift">
-        										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi dignissimos nostrum debitis optio molestiae in quam dicta labore obcaecati ullam necessitatibus animi deleniti minima dolor suscipit nobis est excepturi inventore.</p>
-        									</div><!-- End .tab-pane -->
-        									
-        								</div><!-- End .tab-content -->
-        						</div><!-- End .tab-container -->
-        						
-        					</div><!-- End .col-md-8 -->
-
-        					<div class="col-md-4 col-sm-12 col-xs-12">
-        						
-        						<table class="table total-table">
-        							<tbody>
-        								<tr>
-        									<td class="total-table-title">Subtotal:</td>
-        									<td>৳ {{ $total }}</td>
-        								</tr>
-        								{{-- <tr>
-        									<td class="total-table-title">Shipping:</td>
-        									<td>$0.00</td>
-        								</tr>
-        								<tr>
-        									<td class="total-table-title">TAX (0%):</td>
-        									<td>$0.00</td>
-        								</tr> --}}
-        							</tbody>
-        							<tfoot>
-        								<tr>
-											<td>Total:</td>
-											<td>৳ {{ $total }}</td>
-        								</tr>
-        							</tfoot>
-        						</table>
-        						<div class="md-margin"></div><!-- End .space -->
-        						<a href="{{route('index')}}" class="btn btn-custom-2">CONTINUE SHOPPING</a>
-        						<a href="#" class="btn btn-custom">CHECKOUT</a>
-        					</div><!-- End .col-md-4 -->
-        				</div><!-- End .row -->
-        				<div class="md-margin2x"></div><!-- Space -->
-        				
-        				<div class="similiar-items-container carousel-wrapper">
-                            <header class="content-title">
-                                <div class="title-bg">
-                                    <h2 class="title">Similiar Products</h2>
-                                </div><!-- End .title-bg -->
-                                <p class="title-desc">Note the similar products - after buying for more than $500 you can get a discount.</p>
-                            </header>
-                            
-                                <div class="carousel-controls">
-                                    <div id="similiar-items-slider-prev" class="carousel-btn carousel-btn-prev"></div><!-- End .carousel-prev -->
-                                    <div id="similiar-items-slider-next" class="carousel-btn carousel-btn-next carousel-space"></div><!-- End .carousel-next -->
-                                </div><!-- End .carousel-controls -->
-                                <div class="similiar-items-slider owl-carousel">
-                                    
-
-                                     @foreach($sideproducts as $product)
-                                                <div class="owl-single-col">
-                                                    
-                                                    <div class="item item-hover">
-                                                        <div class="item-image-wrapper">
-                                                            <figure class="item-image-container">
-                                                                <a href="product.html">
-                                                                    <img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="">
-                                                                    
-                                                                </a>
-                                                            </figure>
-                                                            <div class="item-price-container">
-                                                                <span class="item-price">৳ {{$product->price}}</span>
-                                                            </div><!-- End .item-price-container -->
-                                                           
-
-                                                                @if($date < $product->new_to)                                                                
-                                                                 <span class="new-rect">    New    </span>                                                            
-                                                                @endif
-                                                            
-                                                        </div><!-- End .item-image-wrapper -->
-                                                        <div class="item-meta-container">
-                                                            <div class="ratings-container">
-                                                                <div class="ratings">
-                                                                    <div class="ratings-result" data-result="80"></div>
-                                                                </div><!-- End .ratings -->
-                                                                <span class="ratings-amount">
-                                                                    5 Reviews
-                                                                </span>
-                                                            </div><!-- End .rating-container -->
-                                                            <h3 class="item-name"><a href="product.html">{{$product->name}}</a></h3>
-                                                            <div class="item-action">
-                                                                <a href="{{ url('add-to-cart/'.$product->id) }}" class="item-add-btn">
-                                                                    <span class="icon-cart-text">Add to Cart</span>
-                                                                </a>
-                                                                <div class="item-action-inner">
-                                                                    <a href="#" class="icon-button icon-like">Favourite</a>
-                                                                    <a href="#" class="icon-button icon-compare">Checkout</a>
-                                                                </div><!-- End .item-action-inner -->
-                                                            </div><!-- End .item-action -->
-                                                        </div><!-- End .item-meta-container --> 
-                                                    </div><!-- End .item -->
-                                                   
-                                                    
-                                                </div><!-- End .owl-single-col  -->
-                                                @endforeach                    
-
-
-
-
-                                   {{--  <div class="item item-hover">
-                                        <div class="item-image-wrapper">
-                                            <figure class="item-image-container">
-                                                <a href="product.html">
-                                                    <img src="images/products/item3.jpg" alt="item1" class="item-image">
-                                                    <img src="images/products/item3-hover.jpg" alt="item1  Hover" class="item-image-hover">
-                                                </a>
-                                            </figure>
-                                            <div class="item-price-container">
-                                                <span class="item-price">$160<span class="sub-price">.99</span></span>
-                                            </div><!-- End .item-price-container -->
-                                            <span class="new-rect">New</span>
-                                        </div><!-- End .item-image-wrapper -->
-                                        <div class="item-meta-container">
-                                            <div class="ratings-container">
-                                                <div class="ratings">
-                                                    <div class="ratings-result" data-result="80"></div>
-                                                </div><!-- End .ratings -->
-                                                <span class="ratings-amount">
-                                                    5 Reviews
-                                                </span>
-                                            </div><!-- End .rating-container -->
-                                            <h3 class="item-name"><a href="product.html">Phasellus consequat</a></h3>
-                                            <div class="item-action">
-                                                <a href="#" class="item-add-btn">
-                                                    <span class="icon-cart-text">Add to Cart</span>
-                                                </a>
-                                                <div class="item-action-inner">
-                                                    <a href="#" class="icon-button icon-like">Favourite</a>
-                                                    <a href="#" class="icon-button icon-compare">Checkout</a>
-                                                </div><!-- End .item-action-inner -->
-                                            </div><!-- End .item-action -->
-                                        </div><!-- End .item-meta-container --> 
-                                    </div><!-- End .item -->                                 
- --}}
-                                   <!-- End .item -->
-
-                                </div><!--purchased-items-slider -->
-                            </div><!-- End .purchased-items-container -->
-        				
-        			</div><!-- End .col-md-12 -->
-        		</div><!-- End .row -->
-			</div><!-- End .container -->
+                    </div>
+                </div>
+            </div>
+        </div>      
+            
         
-        </section><!-- End #content -->
+        
+       
 @stop
 @section('js')
- <script type="text/javascript">
-
-        $(".update-cart").click(function (e) {
-           e.preventDefault();
-
-           var ele = $(this);
-
-            $.ajax({
-               url: '{{ url('update-cart') }}',
-               method: "patch",
-               data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: ele.parents("tr").find(".quantity").val()},
-               success: function (response) {
-                   window.location.reload();
-               }
-            });
-        });
-
-        $(".remove-from-cart").click(function (e) {
-            e.preventDefault();
-
-            var ele = $(this);
-
-
-            Swal.fire({
-  title: 'Are you sure?',
-  text: "You won't be able to revert this!",
-  type: 'warning',
-  showCancelButton: true,
-  confirmButtonColor: '#3085d6',
-  cancelButtonColor: '#d33',
-  confirmButtonText: 'Yes, delete it!'
-}).then((result) => {
-  if (result.value) {
-    $.ajax({
-                    url: '{{ url('remove-from-cart') }}',
-                    method: "DELETE",
-                    data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id")},
-                    success: function (response) {
-                        window.location.reload();
-                       
-                    }
-                });
-  }
-})
-
-            
-        });
-
-
-    </script>
-    @if (session('success'))
-    <script type="text/javascript">
-        $(document).ready(function () {
-            swal("Success!", "{{ session('success') }}", "success");
-        });
-    </script>
-@endif
-
- 
+<script src="{{asset('frontend/js/jquery.elevateZoom.min.js')}}"></script>
+<script src="{{asset('frontend/js/jquery.debouncedresize.js')}}"></script>
 @stop
