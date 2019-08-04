@@ -21,8 +21,8 @@
 
 
 
-| [Features][] | [Requirements][] | [Install][] | [How to setting][] | [Supervisor & Mentor][] | [Contributors][] |
-|---|---|---|---|---|---|
+| [Features][] | [Requirements][] | [Install][] | [How to setting][] | [Supervisor & Mentor][] | 
+|---|---|---|---|---|
 
 ## Features
 - Automatic cross sell / up sell / related product offerings
@@ -114,24 +114,10 @@ php artisan serve
 	
 	
 	
-## Contributors
-
-You may contribute in several ways like creating new features, fixing bugs, improving documentation and examples
-or translating any document here to your language. 
-<a href="https://github.com/kabirkhyrul/lara_ecom/graphs/contributors">Contributors</a>
 
 
-<table style="text-align: center;">
-	<tr>		
-		<td><a href="https://github.com/kabirkhyrul"><img src="https://avatars2.githubusercontent.com/u/44431386?s=400&v=4" alt="" width="150"></a>
-		</td>		
-		<td>
-			<a href="https://github.com/nasimasheikh"><img src="https://avatars2.githubusercontent.com/u/52200293?s=400&v=4" alt="" width="150"></a>
-		</td>			<td>
-			<a href="https://github.com/reza1-web"><img src="https://avatars2.githubusercontent.com/u/52201009?s=400&v=4" alt="" width="150"></a>	
-		</td>		
-	</tr>
-</table>
+
+
 
 
 
@@ -146,5 +132,5 @@ or translating any document here to your language.
 [Install]:#install
 [How to setting]:#how-to-setting
 [Supervisor & Mentor]:#Supervisor-&-Mentor
-[Contributors]:#contributors
+
 
