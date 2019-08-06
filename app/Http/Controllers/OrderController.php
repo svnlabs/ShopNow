@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Order;
+use App\OrderProduct;
+use App\Product;
 class OrderController extends Controller
 {
     /**
@@ -14,9 +16,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $order=Order::all();
+        $pendingorder=Order::where('status','off')->get();
+        $neworder=count($pendingorder);
         $orderproduct=OrderProduct::all();
-        return view('admin.order.index');
+        return view('admin.order.index' ,compact('pendingorder','orderproduct'));
     }
 
     /**
@@ -24,9 +27,15 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function shipment()
     {
-        //
+        return view('admin.order.index');
+    }
+    public function all()
+    {
+        $pendingorder=Order::all();
+        $orderproduct=OrderProduct::all();
+        return view('admin.order.all',compact('pendingorder'));
     }
 
     /**
@@ -71,7 +80,10 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $order =  Order::find($id);
+       $order->status = $request->status;
+       $order->save();
+       return redirect()->back()->with('success', 'Order Approved');
     }
 
     /**
@@ -82,6 +94,13 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $new = Order::find($id);
+        $orderproduct = OrderProduct::where('order_id',$id)->get();
+        $product = Product::where('id',$orderproduct->product_id)->get();
+        $product->quantity += $orderproduct->quantity;
+        $product->save();     
+        $orderproduct->delete();
+        $new->delete();
+        return Redirect()->route('product.index')->with('delete','Order Deleted successfully!');
     }
 }

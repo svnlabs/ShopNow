@@ -12,38 +12,50 @@
 								<div class="card">
 									<div class="card-header">
 										<div class="card-title">All Order</div>
-										<a class="btn btn-secondary" href="{{route('brand.create')}}" style="position: absolute;right: 1%">Add</a>
+										
 									</div>
 									<div class="card-body">
 										<div class="table-responsive">
 											<table id="example" class="table table-striped table-bordered border-top-0 border-bottom-0" style="width:100%">
 												<thead>
 													<tr class="border-bottom-0">
-														<th class="wd-15p">Brand Name</th>
-														<th class="wd-15p">Category</th>
+														<th class="wd-15p">Customer Name</th>														
+														<th class="wd-15p">total</th>
+														<th class="wd-15p">Shipment City</th>
 														<th class="wd-20p">Status</th>												
 														<th class="wd-25p" width="123">Actions</th>
 													</tr>
 												</thead>
 												<tbody>
-													@foreach($brands as $product)
+													@foreach($pendingorder as $order)
 													<tr>
-														<td>{{$product->name}}</td>
-														<td>{{$product->category->name}}</td>
-														<td>{{$product->is_active}}</td>
+														<td>{{$order->shipping_name or $order->user->name }}</td>										
+														
+														<td>{{$order->total}}</td>
+														<td>{{$order->shipping_city}}</td>
+														<td>												
+															{{$order->status == 'on'? 'Approved': 'Pending'}}
+															
+															
+														</td>
+														
 														
 														<td class="center" >
-															
-															<a href="{{route('brand.edit',$product->id)}}" class="btn btn-warning">Edit </a>
+															<form  method="post" action="{{route('order.update', ['id' => $order->id])}}" style="display: block;">
+															{{csrf_field()}}
+															<input name="_method" type="hidden" value="PATCH">
+																<input type="hidden" name="status" value="on">
+																<input type="submit" class="btn btn-success" value="Approve">
+															</form>
 															<a href="" class="btn btn-danger" data-toggle="modal"
-															data-target="#DelModal{{$product->id}}">
+															data-target="#DelModal{{$order->id}}">
 															<i class="fa fa-times"></i> Delete </a>
-															<form style="display: inline-block;" action="{{route('brand.destroy',$product->id)}}" method="post" class="delete">
+															<form style="display: inline-block;" action="{{route('order.destroy',$order->id)}}" method="post" class="delete">
 																	{{csrf_field()}}
 																	<input name="_method" type="hidden" value="DELETE">
 
 
-															<div class="sweet-alert showSweetAlert visible" id="DelModal{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" style="display: none;" aria-hidden="true">
+															<div class="sweet-alert showSweetAlert visible" id="DelModal{{$order->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" style="display: none;" aria-hidden="true">
 																
 																<div class="sa-icon sa-warning pulseWarning" style="display: block;">
 																	<span class="sa-body pulseWarningIns"></span>

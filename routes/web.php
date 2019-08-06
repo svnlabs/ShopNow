@@ -60,6 +60,10 @@ Route::resource('brand', 'BrandController');
 Route::resource('slides', 'SliderController');
 Route::resource('deal', 'DealController');
 Route::resource('coupon', 'CouponController');
+Route::resource('shipment', 'ShipmentController');
+Route::resource('order', 'OrderController');
+Route::get('all', 'OrderController@all')->name('order.all');
+
 
 });
 // |---------------------- Admin Panel COntroller Collections -----------------------------|

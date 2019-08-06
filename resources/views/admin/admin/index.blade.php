@@ -18,15 +18,14 @@
 											   <i class="mdi mdi-cube text-white icon-size"></i>
 											</div>
 											<div class="float-left">
-												<p class="mb-0 text-left text-white">Company Revenue</p>
+												<p class="mb-0 text-left text-white"> Total Product </p>
 												<div>
-													<h3 class="font-weight-semibold text-left mb-0 text-white">$75,736</h3>
+													<h3 class="font-weight-semibold text-left mb-0 text-white">{{count(
+													App\Product::all())}}</h3>
 												</div>
 											</div>
 										</div>
-										<p class="text-white mb-0">
-										    <i class="mdi mdi-arrow-up-drop-circle text-success mr-1 " aria-hidden="true"></i> <span class="text-white">70% higher growth</span>
-										</p>
+										
 									</div>
 								</div>
 							</div>
@@ -38,15 +37,14 @@
 											    <i class="mdi mdi-receipt text-white icon-size"></i>
 											</div>
 											<div class="float-left">
-												<p class="mb-0 text-left text-white">Projects</p>
+												<p class="mb-0 text-left text-white">Current Coupon</p>
 												<div>
-													<h3 class="font-weight-semibold text-left mb-0 text-white">674</h3>
+													<h3 class="font-weight-semibold text-left mb-0 text-white">{{count(
+													App\Coupon::all())}}</h3>
 												</div>
 											</div>
 										</div>
-										<p class="text-white mb-0">
-											<i class="mdi mdi-arrow-down-drop-circle mr-1 text-danger" aria-hidden="true"></i>  Completed Projects
-										</p>
+										
 									</div>
 								</div>
 							</div>
