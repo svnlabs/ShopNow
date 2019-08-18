@@ -9,7 +9,7 @@
 	<img src="https://img.shields.io/github/watchers/kabirkhyrul/ShopNow.svg?style=flat-square">
 	<img src="http://hits.dwyl.io/kabirkhyrul/ShopNow.svg?style=flat-square">
    <img src="https://img.shields.io/github/repo-size/kabirkhyrul/ShopNow.svg?style=flat-square">	
-	<img src="https://img.shields.io/github/downloads/kabirkhyrul/ShopNow/total?style=flat-square">	
+	<img src="https://img.shields.io/github/downloads/kabirkhyrul/ShopNow/total">	
 	<img src="https://img.shields.io/github/stars/kabirkhyrul/ShopNow.svg?style=flat-square">
 	<img src="https://img.shields.io/github/tag-date/kabirkhyrul/ShopNow.svg?style=flat-square">
 	
