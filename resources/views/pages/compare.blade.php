@@ -44,7 +44,7 @@
                                         <tr>
                                             <td class="first-column">Price</td>
                                             @foreach(session('compare') as $id => $product)
-                                            <td class="pro-price">{{$product['price']}}</td>
+                                            <td class="pro-price">{{$product['selling_price']}}</td>
                                             @endforeach
                                             
                                         </tr>
@@ -57,7 +57,7 @@
                                         <tr>
                                             <td class="first-column">Stock</td>
                                             @foreach(session('compare') as $id => $product)
-                                            <td class="pro-stock">@if($product['price'] > 2) In Stock @else Out of Stock @endif</td>
+                                            <td class="pro-stock">@if($product['selling_price'] > 2) In Stock @else Out of Stock @endif</td>
                                             @endforeach
                                         </tr>
                                         <tr>

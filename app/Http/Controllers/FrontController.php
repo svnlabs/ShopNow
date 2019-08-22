@@ -22,9 +22,9 @@ class FrontController extends Controller
     public function index()
     {
         $now=new Carbon;
-        $slider= Slider::all()->random(3);
+        $slider= Slider::all();
         $deals = Deal::where('is_active','on')->take(1)->get();
-        $featureProduct=Category::has('products')->with('products')->get()->random(3);
+        $featureProduct=Category::has('products')->with('products')->get();
         $latestProduct=Product::where('new_to','>',$now)->take(5)->get();
        return view('pages.home',compact('featureProduct','slider','deals','latestProduct'));
     }
@@ -67,23 +67,23 @@ class FrontController extends Controller
     public function applypromo(Request $request)
     {
         $coupon_code=$request->coupon_code;
-        $verify = Coupon::where('coupon_code',$coupon_code)->where('is_active','on')->get();
+        $verify = Coupon::where('coupon_code',$coupon_code)->where('is_active','on')->first();
 
         if($verify){
-        $verify[0]['value']++;
+        // $verify['used']++;
         $total = 0 ; 
         $cart = session()->get('cart');
         foreach($cart as $id => $details){
         $total += $details['price'] * $details['quantity'];
        }
 
-        $discount = ($total * $verify[0]['value'])/100;
+        $discount = ($total * $verify['value'])/100;
         $final_amount = ($total - $discount);
         $promo = session()->get('promo');
         $promo = [
           "discount" =>  $discount,
           "final_amount" => $final_amount,
-          "coupon_id" => $verify[0]['id'],
+          "coupon_id" => $verify['id'],
         
       ];
 
@@ -100,7 +100,7 @@ class FrontController extends Controller
     {
       $now = new Carbon;
       $order = new Order;
-      if($request->anothershipping =='on'){
+      if($request->anothershipping =='checked'){
         $order->user_id=$request->user_id;
         $order->shipping_name=$request->name1;
         $order->shipping_address1=$request->address11;
@@ -123,10 +123,13 @@ class FrontController extends Controller
         $promo = session()->get('promo');
         $order->coupon_id = session('promo')['coupon_id'];
         $order->discount = session('promo')['discount'];
-        $total = 0 ; 
+        $total = 0 ;
+        $profit = 0; 
         $cart = session()->get('cart');
         foreach($cart as $id => $details){
           $total += $details['price'] * $details['quantity'];
+          $product = Product::find($id);
+          $profit += $total - ($product->price * $details['quantity']);
         }
         if(session('promo')){
           $order->total=session('promo')['final_amount'];
@@ -137,25 +140,31 @@ class FrontController extends Controller
         }
         
         $order->sub_total=$total;
+        $order->profit=$profit;
         
         if($order->save()){
           $order = Order::where('created_at',$now)->first();
-          $order_product = new OrderProduct;
+          
           
           foreach($cart as $id => $details){
+            $order_product = new OrderProduct;
+            
             $order_product->order_id=$order->id;          
             $order_product->product_id=$id;
+            $order_product->price=$product->price;
             $order_product->quantity=$details['quantity'];
             $order_product->unit_price=$details['price'];
             $order_product->save();
             $product = Product::find($id);
             $product->quantity = $product->quantity - $details['quantity'];
             $product->save();
-            return back()->with('success','Order Placed');
-            Session::forget('promo');
-            Session::forget('cart');
+            
+            
 
           }
+          Session()->forget('promo');
+          Session()->forget('cart');
+            return back()->with('success','Order Placed');
 
         }
 
@@ -163,6 +172,15 @@ class FrontController extends Controller
 
       }   
 
+    public function search(Request $request)
+    {   
+         
+      $q = $request->query('q');
+       
+      $searchResult = Product::where('name', "LIKE","%".strtoupper($q)."%")->paginate(10); 
+
+      return view('pages.searchResult',compact('q','searchResult'));
+    }
 
     
 

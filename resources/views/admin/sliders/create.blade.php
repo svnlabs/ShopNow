@@ -34,18 +34,7 @@
 									</div>
 									<div class="card-body">
 										<div class="row">
-											<div class="col-md-12">
-												<div class="form-group">
-													<label class="form-label">Title</label>
-													<input type="text" name="title" class="form-control" placeholder="Product Name">
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="form-group">
-													<label class="form-label">Feature</label>
-													<input type="text" name="feature" class="form-control" placeholder="Product Feature 1 ,Product Feature 2 ,Product Feature 3 ">
-												</div>
-											</div>
+											
 											<div class="col-md-12">
 												<div class="card-header">
 													<h3 class="card-title">Image Upload</h3>
@@ -53,17 +42,10 @@
 												<div class=" card-body">
 													<div class="row">
 														<div class="col-lg-4 col-sm-12">
-															<label class="form-label">Background</label>
-															<input type="file" name="image1" class="dropify" data-height="180">
+															<label class="form-label">Slider Image</label>
+															<input type="file" name="image" class="dropify" data-height="180">
 														</div>
-														<div class="col-lg-4 col-sm-12">
-															<label class="form-label">Front Image</label>
-															<input type="file" name="image2" class="dropify" data-height="180">
-														</div>
-														<div class="col-lg-4 col-sm-12">
-															<label class="form-label">Showcase</label>
-															<input type="file" name="image3" class="dropify" data-height="180">
-														</div>
+														
 														
 													</div>
 													
@@ -75,11 +57,11 @@
 												
 												
 												<div class="form-group">
-													<div class="form-label">Is this Slider Active?</div>
+													<div class="form-label">Want to hide Product on slider?</div>
 													<label class="custom-switch">
 														<input type="checkbox" name="hide_product" class="custom-switch-input">
 														<span class="custom-switch-indicator"></span>
-														<span class="custom-switch-description">This Slider is Active</span>
+														<span class="custom-switch-description">Yes!! Yes!!</span>
 													</label>
 												</div>
 											</div>

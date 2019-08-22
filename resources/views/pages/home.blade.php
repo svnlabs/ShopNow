@@ -4,12 +4,18 @@
             <div class="container">               
                 <div class="slider-active-3 owl-carousel nav-style-4 ">
                     @foreach($slider as $slide)
-                    <div class="slider-area slider-height-6 bg-img"  style="background-image:url(slide/{{$slide->image1}});background-size: contain;">
-                        @if(!$slide->hide_product)
-                        <div class="container">
+                      
+                    	
+                        @if($slide->hide_product)
+                        <div class="slider-area slider-height-6 bg-img">
+                            <img src="{{url('slide/'.$slide->image)}}" alt="{{$slide->image}}" class="img-responsive" style=" height: inherit;">
+                        </div>
+                        @else
+                        <div class="slider-area slider-height-6 bg-img" style="background:url('{{url('slide/'.$slide->image)}}');background-size: cover;">
+                        <div class="container" >
                             
                              @foreach(App\Product::all()->random(1) as $product)
-                            <div class="row align-items-center">
+                            <div class="row align-items-center" >
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class=" slider-content-3 slider-animated-1 ml-70">
                                        
@@ -25,7 +31,7 @@
                                     <div class="slider-sin-img-hm6">
                                         <img class="tilter" src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="" style="max-width: 333px">
                                         <div class="slider-price">
-                                            <h4> ৳ {{$product->price}}</h4>
+                                            <h4> ৳ {{$product->selling_price}}</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -34,8 +40,9 @@
                             </div>
                              @endforeach
                         </div>
+                        </div>
                         @endif
-                    </div>
+                    
                     @endforeach
                    
                 </div>
@@ -54,7 +61,7 @@
                         <div class="product-img">
                             <a href="{{route('shop.product',$product->id)}}"><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="product"></a>
                             <div class="product-action-2">
-                                <a class="show_product"  data-toggle="modal" data-target="#exampleModal" data-proid="{{$product->id}}" data-cat="{{$product->category->name}}" data-proname="{{$product->name}}" data-review="{{$product->review_id}}" data-proatt="{{$product->attribute_id}}" data-price="{{$product->price}}" data-src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" title="Quick View" href="#"><i class="la la-search"></i></a>
+                                <a class="show_product"  data-toggle="modal" data-target="#exampleModal" data-proid="{{$product->id}}" data-cat="{{$product->category->name}}" data-proname="{{$product->name}}" data-review="{{$product->review_id}}" data-proatt="{{$product->attribute_id}}" data-price="{{$product->selling_price}}" data-src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" title="Quick View" href="#"><i class="la la-search"></i></a>
 
                                 <a title="Add To Cart" href="{{ url('add-to-cart/'.$product->id) }}"><i class="la la-cart-plus"></i></a>
                                 <form action="{{route('wishlist.store')}}" id="contact_form" method="post" style="display: none;">
@@ -74,7 +81,7 @@
                             <h4><a href="{{route('shop.product',$product->id)}}">{{$product->name}}</a></h4>
                             <div class="price-addtocart">
                                 <div class="product-price">
-                                    <span>৳ {{$product->price}}</span>
+                                    <span>৳ {{$product->selling_price}}</span>
                                 </div>
                             </div>
                         </div>
@@ -163,7 +170,7 @@
                                                 <h4><a href="{{route('shop.product',$product->id)}}">{{$product->name}}</a></h4>
                                                 <div class="price-addtocart">
                                                     <div class="product-price">
-                                                        <span>৳ {{$product->price}}</span>
+                                                        <span>৳ {{$product->selling_price}}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -232,7 +239,7 @@
                                         <h4><a href="{{route('shop.product',$product->id)}}">{{$product->name}}</a></h4>
                                         <div class="price-addtocart">
                                             <div class="product-price">
-                                                <span>৳ {{$product->price}}</span>
+                                                <span>৳ {{$product->selling_price}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -267,7 +274,7 @@
                                                 <h4><a href="{{route('shop.product',$product->id)}}">{{$product->name}}</a></h4>
                                                 <div class="price-addtocart">
                                                     <div class="product-price">
-                                                        <span>৳ {{$product->price}}</span>
+                                                        <span>৳ {{$product->selling_price}}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -301,7 +308,7 @@
                                                 <h4><a href="{{route('shop.product',$product->id)}}">{{$product->name}}</a></h4>
                                                 <div class="price-addtocart">
                                                     <div class="product-price">
-                                                        <span>৳ {{$product->price}}</span>
+                                                        <span>৳ {{$product->selling_price}}</span>
                                                     </div>
                                                 </div>
                                             </div>

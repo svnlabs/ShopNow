@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
+use App\OrderProduct;
+use App\Order;
+use App\Product;
 class DashboardController extends Controller
 {
     /**
@@ -13,7 +16,17 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.admin.index');
+        $now = new Carbon;
+        $allOrder = Order::get();        
+        $currentSale = Order::whereDate('created_at', Carbon::today())->get();
+        $shipped = Order::whereDate('created_at', Carbon::today())->where('status','on')->get();
+        $sale = OrderProduct::all();
+        $totalProfit = 0;
+        foreach($sale as $profit){
+            $perProductProfit = ($profit->unit_price * $profit->quantity ) - ($profit->price * $profit->quantity );
+            $totalProfit += $perProductProfit;
+        }
+        return view('admin.admin.index',compact('now','totalProfit','currentSale','shipped','allOrder'));
     }
 
     /**

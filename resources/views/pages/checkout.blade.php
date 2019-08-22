@@ -15,59 +15,7 @@
  
       <div class="checkout-main-area pt-90 pb-90">
             <div class="container">
-                <div class="customer-zone mb-20">
-                    <p class="cart-page-title">Returning customer? <a class="checkout-click1" href="#">Click here to login</a></p>
-                    <div class="checkout-login-info">
-                        <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new customer, please proceed to the Billing & Shipping section.</p>
-                        <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                                    {{ csrf_field() }}
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="sin-checkout-login">
-                                        <label>Username or email address <span>*</span></label>
-                                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                            @if ($errors->has('email'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
-                                            @endif
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="sin-checkout-login">
-                                        <label>Passwords <span>*</span></label>
-                                        <input id="password" type="password" class="form-control" name="password" required>
-
-                                            @if ($errors->has('password'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </span>
-                                            @endif
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="button-remember-wrap">
-                                <button class="button" type="submit">Login</button>
-                                <div class="checkout-login-toggle-btn">
-                                     <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    <label>Remember me</label>
-                                </div>
-                            </div>
-                            <div class="lost-password">
-                                <a href="{{ route('password.request') }}">Lost your password?</a>
-                            </div>
-                        </form>
-                        <div class="checkout-login-social">
-                            <span>Login with:</span>
-                            <ul>
-                                <li><a href="#">Facebook</a></li>
-                                <li><a href="#">Twitter</a></li>
-                                <li><a href="#">Google</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+               
                 <div class="customer-zone mb-20">
                     <p class="cart-page-title">Have a coupon? <a class="checkout-click3" href="#">Click here to enter your code</a></p>
                     <div class="checkout-login-info3">
@@ -107,7 +55,7 @@
                                             
                                         </div>
                                     </div>
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-6">
                                         <div class="billing-info mb-20">
                                             <label>City <abbr class="required" title="required">*</abbr></label>
                                             <input type="text" name="address2"  id="city" @if(Auth::user()) value="{{ Auth::user()->address2 }}" @endif>
@@ -116,16 +64,16 @@
                                     <div class="col-lg-6 col-md-6">
                                             <div class="billing-info mb-20">
                                                 <label>Division</label>
-                                                <input type="text" name="city" @if(Auth::user()) value="{{ Auth::user()->city }}" @endif>
+                                                <input type="text" class="form-control" name="city" @if(Auth::user()) value="{{ Auth::user()->city }}" @endif>
                                             </div>
                                         </div>                                   
-                                    <div class="col-lg-12 col-md-12">
+                                    <div class="col-lg-6 col-md-6">
                                         <div class="billing-info mb-20">
                                             <label>Postcode <abbr class="required" title="required">*</abbr></label>
                                             <input type="text" id="postcode" name="postcode" @if(Auth::user()) value="{{ Auth::user()->postcode }}" @endif>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12">
+                                    <div class="col-lg-6 col-md-6">
                                         <div class="billing-info mb-20">
                                             <label>Phone <abbr class="required" title="required">*</abbr></label>
                                             <input type="text" id="mobile" name="mobile" @if(Auth::user()) value="{{ Auth::user()->mobile }}" @endif>
@@ -146,7 +94,7 @@
                                 <div class="different-address open-toggle mt-30">
                                     <div class="row">
                                         
-                                        <div class="col-lg-6 col-md-6">
+                                        <div class="col-lg-12 col-md-12">
                                             <div class="billing-info mb-20">
                                                 <label> Name</label>
                                                 <input type="text" name="name1">
@@ -166,7 +114,7 @@
                                                 
                                             </div>
                                         </div>
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-6">
                                             <div class="billing-info mb-20">
                                                 <label>Town / City</label>
                                                 <input type="text" name="address21" id="city1">
@@ -208,9 +156,11 @@
                                         </div>
                                         <div class="your-order-middle">
                                             <ul>
+                                                 @php $total = 0 @endphp
                                             	@if(session('cart'))
+
                                             	@foreach(session('cart') as $id => $details)
-                                                <li>{{$details['name']}} X {{$details['quantity']}} <span> <?php $unit = $details['price'] * $details['quantity'];  $total = 0 ; $total += $details['price'] * $details['quantity'] ?> {{$unit}} </span></li>
+                                                <li>{{$details['name']}} X {{$details['quantity']}} <span> <?php $unit = $details['price'] * $details['quantity'];   $total += $details['price'] * $details['quantity'] ?> {{$unit}} </span></li>
                                                 @endforeach
                                                 @else
                                                 Ops! Cart is empty!
@@ -268,7 +218,7 @@
                                             <input id="payment-method-3" class="input-radio" type="radio" value="cheque" name="payment_method">
                                             <label for="payment-method-3">Cash on delivery </label>
                                             <div class="payment-box payment_method_bacs">
-                                                <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference.</p>
+                                                <p>Make your payment directly into our Courier Service. </p>
                                             </div>
                                         </div>
                                        
@@ -318,7 +268,7 @@ $('#division1').on('input', function (e) {
 $('#postcode1').on('input', function (e) {    
     $("#address4").text($(this).val());
 });$('#mobile1').on('input', function (e) {    
-    $("#address4").text($(this).val());
+    $("#address5").text($(this).val());
 });
 }
 </script>

@@ -35,18 +35,7 @@
 									</div>
 									<div class="card-body">
 										<div class="row">
-											<div class="col-md-12">
-												<div class="form-group">
-													<label class="form-label">Title</label>
-													<input type="text" name="title" class="form-control" placeholder="Slider Name" value="{{$slider->title}}">
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="form-group">
-													<label class="form-label">Feature</label>
-													<input type="text" name="feature" class="form-control" placeholder="Slider Feature 1 ,Slider Feature 2 ,Slider Feature 3 " value="{{$slider->feature}}">
-												</div>
-											</div>
+											
 											<div class="col-md-12">
 												<div class="card-header">
 													<h3 class="card-title">Image Upload</h3>
@@ -55,29 +44,14 @@
 													<div class="row">
 
 														<div class="col-lg-4 col-sm-12">
-															<label class="form-label">Background</label>
-															<input type="file" name="image1" class="dropify" data-height="180">
+															<label class="form-label">Image</label>
+															<input type="file" name="image" class="dropify" data-height="180">
 														</div>
 														<div class="col-lg-4 col-sm-12">
 															<label class="form-label">Background</label>
-															<img src="{{url($slider->image1? 'slide/'.$slider->image1: 'slide/noimage.jpg')}}" alt="" class="img-responsive" style="max-height: 180px;">
+															<img src="{{url($slider->image? 'slide/'.$slider->image: 'slide/noimage.jpg')}}" alt="" class="img-responsive" style="max-height: 180px;">
 														</div>
-														<div class="col-lg-4 col-sm-12">
-															<label class="form-label">Front Image</label>
-															<input type="file" name="image2" class="dropify" data-height="180">
-														</div>
-														<div class="col-lg-4 col-sm-12">
-															<label class="form-label">Front Image</label>
-															<img src="{{url($slider->image2? 'slide/'.$slider->image2: 'slide/noimage.jpg')}}" alt="" class="img-responsive" style="max-height: 180px;">
-														</div>
-														<div class="col-lg-4 col-sm-12">
-															<label class="form-label">Showcase</label>
-															<input type="file" name="image3" class="dropify" data-height="180">
-														</div>
-														<div class="col-lg-4 col-sm-12">
-															<label class="form-label">Showcase</label>
-															<img src="{{url($slider->image3? 'slide/'.$slider->image3: 'slide/noimage.jpg')}}" alt="" class="img-responsive" style="max-height: 180px;">
-														</div>
+														
 														
 													</div>
 													

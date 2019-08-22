@@ -93,7 +93,7 @@
                                                                 </a>
                                                             </figure>
                                                             <div class="item-price-container">
-                                                                <span class="item-price">{{$product->price}}</span>
+                                                                <span class="item-price">{{$product->selling_price}}</span>
                                                             </div><!-- End .item-price-container -->
                                                             
 

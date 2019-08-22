@@ -39,8 +39,8 @@
 														
 
 														</td>
-														<td>{{$product->qty}}</td>
-														<td>{{$product->special_price}}</td>
+														<td>{{$product->quantity}}</td>
+														<td>{{$product->special_price or '-'}}</td>
 														<td>{{$product->selling_price}}</td>
 														<td>{{$product->category->name or '-'}}</td>
 														<td>{{$product->brand->name or '-'}}</td>

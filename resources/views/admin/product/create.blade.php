@@ -146,7 +146,7 @@
 											<div class="col-sm-12 col-md-12">
 												<div class="form-group">
 													<label class="form-label">Product Short Description</label>
-													<input type="text" name="short_description" class="form-control" placeholder="Selling Price">
+													<input type="text" name="short_description" class="form-control" placeholder="Product Short Description">
 												</div>
 											</div>
 											<div class="col-md-12">

@@ -39,7 +39,7 @@ class CartController extends Controller
     public function store(Request $request)
     {
         $product = Product::find($request->proid);
-       
+        
 
         if(!$product) {
 
@@ -57,10 +57,10 @@ class CartController extends Controller
 
                     "name" => $product->name,
                     "quantity" => $request->quantity,
-                    "price" => $product->price,
+                    "price" => $product->selling_price,
                     "sku" => $product->sku,
                     "description" => $product->description,
-                    "image" => $product->image
+                    "image" => $product->thumbnail
                 ]
             ];
             if(session()->put('cart', $cart))
@@ -79,10 +79,10 @@ class CartController extends Controller
         $cart[$request->proid] = [
           "name" => $product->name,
           "quantity" => $request->quantity,
-          "price" => $product->price,
+          "price" => $product->selling_price,
           "sku" => $product->sku,
           "description" => $product->description,
-          "image" => $product->image
+          "image" => $product->thumbnail
       ];
 
       if(session()->put('cart', $cart))
@@ -134,6 +134,8 @@ class CartController extends Controller
             $cart = session()->get('cart');
 
             $cart[$request->id]["quantity"] = $request->quantity;
+            
+
 
             session()->put('cart', $cart);
 
@@ -184,10 +186,10 @@ class CartController extends Controller
 
                     "name" => $product->name,
                     "quantity" => 1,
-                    "price" => $product->price,
+                    "price" => $product->selling_price,
                     "sku" => $product->sku,
                     "description" => $product->description,
-                    "image" => $product->image
+                    "image" => $product->thumbnail
                 ]
             ];
 
@@ -211,10 +213,10 @@ class CartController extends Controller
         $cart[$id] = [
           "name" => $product->name,
           "quantity" => 1,
-          "price" => $product->price,
+          "price" => $product->selling_price,
           "sku" => $product->sku,
           "description" => $product->description,
-          "image" => $product->image
+          "image" => $product->thumbnail
       ];
 
       session()->put('cart', $cart);
@@ -222,9 +224,10 @@ class CartController extends Controller
       return redirect()->back()->with('success', 'Product added to cart successfully!');
   }
 
-  public function applyCoupon(){
-    
-  }
+   public function removeAll(){
+        session()->forget('cart');
+        session()->flash('success', 'Product removed successfully');
+   }
 
   
 

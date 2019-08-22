@@ -65,7 +65,7 @@ class ProductController extends Controller
 
         //set path to http://localhost/ecommerce/public/Productimg/
         if($request->hasfile('image')){
-            $dir =  public_path('Productimg/');
+            $dir =  base_path('Productimg/');
              $extension = strtolower($request->file('image')->getClientOriginalExtension()); 
              $fileNamethumb = 'thumb'.time() . '.' . $extension; // rename image
              $fileNamezoom = 'zoom'.time() . '.' . $extension; // rename image
@@ -76,7 +76,7 @@ class ProductController extends Controller
             $product->image = $fileNamezoom;
             $npath1 = $dir.$fileNamethumb;
             $npath2 = $dir.$fileNamezoom;
-            Image::make($request->thumbnail)->resize(222, 222)->save($npath1);
+            Image::make($request->image)->resize(222, 222)->save($npath1);
             Image::make($request->image)->save($npath2);
        
         }// get image extension

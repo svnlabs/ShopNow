@@ -14,7 +14,7 @@ class ShipmentController extends Controller
      */
     public function index()
     {
-        return view()
+       
     }
 
     /**

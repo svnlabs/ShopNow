@@ -18,164 +18,185 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                         <form action="#">
                             <div class="table-content table-responsive cart-table-content">
+                                @if(session('cart'))
                                 <table>
                                     <thead>
                                         <tr>
                                             <th>Image</th>
                                             <th>Product Name</th>
-                                            <th>Until Price</th>
+                                            <th>Unit Price</th>
                                             <th>Qty</th>
                                             <th>Subtotal</th>
                                             <th>action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+
+                                        @foreach(session('cart') as $id => $details)
                                         <tr>
-                                            <td class="product-thumbnail">
-                                                <a href="#"><img src="assets/images/cart/cart-4.jpg" alt=""></a>
+                                            <td class="product-thumbnail">                                           
+                                                    <a href="#"><img alt="{{$details['name']}}" src="{{asset('Productimg/'.$details['image'])}}" style="max-width:100px"></a>
                                             </td>
-                                            <td class="product-name"><a href="#">Demo Product Name</a></td>
-                                            <td class="product-price-cart"><span class="amount">$260.00</span></td>
+                                            <td class="product-name"><a href="#">{{ $details['name'] }}</a></td>
+                                             <td class="product-price-cart"><span class="amount"> ৳ {{ $details['price'] }}</span></td>
                                             <td class="product-quantity">
+                                                <form action="{{route('cart.update', ['id' => $id])}}" method="post">
+                                                    {{csrf_field()}}
+                                                <input name="_method" type="hidden" value="PATCH">
+                                                <input type="hidden" name="id" value="">
                                                 <div class="cart-plus-minus">
-                                                    <input class="cart-plus-minus-box" type="text" name="qtybutton" value="2">
+                                                    <input class="cart-plus-minus-box quantity" type="text" name="quantity" value="{{ $details['quantity'] }}">
                                                 </div>
+                                                </form>
                                             </td>
-                                            <td class="product-subtotal">$110.00</td>
-                                            <td class="product-remove">
-                                                <a href="#"><i class="la la-pencil"></i></a>
-                                                <a href="#"><i class="la la-close"></i></a>
+
+                                            <td class="product-subtotal">
+                                                @if(session('cart'))
+                                                @php$total = 0;$subtotal=$details['quantity']* $details['price']; @endphp
+                                                    
+                                                    ৳{{ $subtotal }}
+                                                    @else
+                                                    ৳ 0 
+                                                    @endif</td>
+                                            <td class="product-remove">     
+                                                <a class="update-cart" data-id="{{ $id }}"><i class="la la-pencil"></i></a>                                         
+                                                <a class="remove-from-cart" data-id="{{ $id }}"><i class="la la-close"></i></a>
                                             </td>
+
+                                           @endforeach
+                                        
+                                               
+                                            
+                                            
+                                           
+                                            
+                                            
+                                            
                                         </tr>
-                                        <tr>
-                                            <td class="product-thumbnail">
-                                                <a href="#"><img src="assets/images/cart/cart-5.jpg" alt=""></a>
-                                            </td>
-                                            <td class="product-name"><a href="#">Demo Product Name</a></td>
-                                            <td class="product-price-cart"><span class="amount">$150.00</span></td>
-                                            <td class="product-quantity">
-                                                <div class="cart-plus-minus">
-                                                    <input class="cart-plus-minus-box" type="text" name="qtybutton" value="2">
-                                                </div>
-                                            </td>
-                                            <td class="product-subtotal">$150.00</td>
-                                            <td class="product-remove">
-                                                <a href="#"><i class="la la-pencil"></i></a>
-                                                <a href="#"><i class="la la-close"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-thumbnail">
-                                                <a href="#"><img src="assets/images/cart/cart-6.jpg" alt=""></a>
-                                            </td>
-                                            <td class="product-name"><a href="#">Demo Product Name </a></td>
-                                            <td class="product-price-cart"><span class="amount">$170.00</span></td>
-                                            <td class="product-quantity">
-                                                <div class="cart-plus-minus">
-                                                    <input class="cart-plus-minus-box" type="text" name="qtybutton" value="2">
-                                                </div>
-                                            </td>
-                                            <td class="product-subtotal">$170.00</td>
-                                            <td class="product-remove">
-                                                <a href="#"><i class="la la-pencil"></i></a>
-                                                <a href="#"><i class="la la-close"></i></a>
-                                            </td>
-                                        </tr>
+                                        
                                     </tbody>
                                 </table>
+                                @else
+                                <div class="alert alert-info"><h3>Cart is empty</h3></div>
+                                @endif
                             </div>
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="cart-shiping-update-wrapper">
                                         <div class="cart-shiping-update">
-                                            <a href="#">Continue Shopping</a>
+                                            <a onclick="window.history.back()">Continue Shopping</a>
                                         </div>
                                         <div class="cart-clear">
-                                            <button>Update Shopping Cart</button>
-                                            <a href="#">Clear Shopping Cart</a>
+                                                <a class="black-color" href="{{route('shop.checkout')}}">Continue to Chackout</a>
+                                            </div>
+                                        <div class="cart-clear">                                           
+                                            <a class="clearcart">Clear Shopping Cart</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </form>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6">
-                                <div class="cart-tax">
-                                    <div class="title-wrap">
-                                        <h4 class="cart-bottom-title section-bg-gray">Estimate Shipping And Tax</h4>
-                                    </div>
-                                    <div class="tax-wrapper">
-                                        <p>Enter your destination to get a shipping estimate.</p>
-                                        <div class="tax-select-wrapper">
-                                            <div class="tax-select">
-                                                <label>
-                                                    * Country
-                                                </label>
-                                                <select class="email s-email s-wid">
-                                                    <option>Bangladesh</option>
-                                                    <option>Albania</option>
-                                                    <option>Åland Islands</option>
-                                                    <option>Afghanistan</option>
-                                                    <option>Belgium</option>
-                                                </select>
-                                            </div>
-                                            <div class="tax-select">
-                                                <label>
-                                                    * Region / State
-                                                </label>
-                                                <select class="email s-email s-wid">
-                                                    <option>Bangladesh</option>
-                                                    <option>Albania</option>
-                                                    <option>Åland Islands</option>
-                                                    <option>Afghanistan</option>
-                                                    <option>Belgium</option>
-                                                </select>
-                                            </div>
-                                            <div class="tax-select">
-                                                <label>
-                                                    * Zip/Postal Code
-                                                </label>
-                                                <input type="text">
-                                            </div>
-                                            <button class="cart-btn-2" type="submit">Get A Quote</button>
-                                        </div>
-                                    </div>
-                                </div>
+                        
+                    </div>
+                </div>
+                 @if(session('cart'))
+                @foreach(session('cart') as $id => $details)
+                                                    <?php $total += $details['price'] * $details['quantity'] ?>
+                                                    @endforeach
+                                                    @endif
+                 <div class="product-area pb-85">
+            <div class="container">
+                <div class="section-title-6 mb-50 text-center">
+                    <h2>Cross Sell</h2>
+                </div>
+                <div class="product-slider-active owl-carousel">
+                    @if(session('cart'))
+                    @foreach(App\Product::where('selling_price','<',$total)->get() as $product)                             
+                                                
+                                                
+                                           
+                    <div class="product-wrap">
+                        <div class="product-img mb-15">
+                            <a href="product-details.html"><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="{{$product->name}}"></a>
+                            <div class="product-action">
+                                <a class="show_product"  data-toggle="modal" data-target="#exampleModal" data-proid="{{$product->id}}" data-cat="{{$product->category->name}}" data-proname="{{$product->name}}" data-review="{{$product->review_id}}" data-proatt="{{$product->attribute_id}}" data-price="{{$product->selling_price}}" data-src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" title="Quick View" href="#"><i class="la la-search"></i></a>
+                                <form action="{{route('wishlist.store')}}" id="contact_form" method="post" style="display: none;">
+                                      {{csrf_field()}}
+                                      <input name="user_id" type="hidden"  @if(Auth::user()) value="{{Auth::user()->id}}" @endif />
+                                      <input name="product_id" type="hidden" value="{{$product->id}}" />
+                                  </form>  
+
+
+
+                                  <a title="Add To Wishlist" @if(Auth::user())onclick="document.getElementById('contact_form').submit();" @else href="{{route('login')}}" @endif><i class="la la-heart-o"></i></a>
+                                
+                                <a title="Compare" href="{{ url('add-to-compare/'.$product->id) }}"><i class="la la-repeat"></i></a>
                             </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="discount-code-wrapper">
-                                    <div class="title-wrap">
-                                        <h4 class="cart-bottom-title section-bg-gray">Use Coupon Code</h4>
-                                    </div>
-                                    <div class="discount-code">
-                                        <p>Enter your coupon code if you have one.</p>
-                                        <form>
-                                            <input type="text" required="" name="name">
-                                            <button class="cart-btn-2" type="submit">Apply Coupon</button>
-                                        </form>
-                                    </div>
+                        </div>
+                        <div class="product-content">
+                            <span>৳ {{$product->category->name}}</span>
+                            <h4><a href="{{route('shop.product',$product->id)}}">{{$product->name}}</a></h4>
+                            <div class="price-addtocart">
+                                <div class="product-price">
+                                    <span>৳ {{$product->selling_price}}</span>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-md-12">
-                                <div class="grand-totall">
-                                    <div class="title-wrap">
-                                        <h4 class="cart-bottom-title section-bg-gary-cart">Cart Total</h4>
-                                    </div>
-                                    <h5>Total products <span>$260.00</span></h5>
-                                    <div class="total-shipping">
-                                        <h5>Total shipping</h5>
-                                        <ul>
-                                            <li><input type="checkbox"> Standard <span>$20.00</span></li>
-                                            <li><input type="checkbox"> Express <span>$30.00</span></li>
-                                        </ul>
-                                    </div>
-                                    <h4 class="grand-totall-title">Grand Total <span>$260.00</span></h4>
-                                    <a href="#">Proceed to Checkout</a>
+                                <div class="product-addtocart">
+                                    <a title="Add To Cart" href="#">+ Add To Cart</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> 
+                    @endforeach 
+                    @endif                  
                 </div>
+            </div>
+        </div>                 <div class="product-area pb-85">
+            <div class="container">
+                <div class="section-title-6 mb-50 text-center">
+                    <h2>Up Sell</h2>
+                </div>
+                <div class="product-slider-active owl-carousel">
+                    @if(session('cart'))
+                    @foreach(App\Product::where('selling_price','>',$total)->get() as $product)                             
+                                                
+                                                
+                                           
+                    <div class="product-wrap">
+                        <div class="product-img mb-15">
+                            <a href="product-details.html"><img src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" alt="{{$product->name}}"></a>
+                            <div class="product-action">
+                                <a class="show_product"  data-toggle="modal" data-target="#exampleModal" data-proid="{{$product->id}}" data-cat="{{$product->category->name}}" data-proname="{{$product->name}}" data-review="{{$product->review_id}}" data-proatt="{{$product->attribute_id}}" data-price="{{$product->selling_price}}" data-src="{{url($product->image? 'Productimg/'.$product->image:'images/noimage.jpg')}}" title="Quick View" href="#"><i class="la la-search"></i></a>
+                                <form action="{{route('wishlist.store')}}" id="contact_form" method="post" style="display: none;">
+                                      {{csrf_field()}}
+                                      <input name="user_id" type="hidden"  @if(Auth::user()) value="{{Auth::user()->id}}" @endif />
+                                      <input name="product_id" type="hidden" value="{{$product->id}}" />
+                                  </form>  
+
+
+
+                                  <a title="Add To Wishlist" @if(Auth::user())onclick="document.getElementById('contact_form').submit();" @else href="{{route('login')}}" @endif><i class="la la-heart-o"></i></a>
+                                
+                                <a title="Compare" href="{{ url('add-to-compare/'.$product->id) }}"><i class="la la-repeat"></i></a>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span>৳ {{$product->category->name}}</span>
+                            <h4><a href="{{route('shop.product',$product->id)}}">{{$product->name}}</a></h4>
+                            <div class="price-addtocart">
+                                <div class="product-price">
+                                    <span>৳ {{$product->selling_price}}</span>
+                                </div>
+                                <div class="product-addtocart">
+                                    <a title="Add To Cart" href="#">+ Add To Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    @endforeach 
+                    @endif                  
+                </div>
+            </div>
+        </div>
             </div>
         </div>      
             
@@ -186,4 +207,22 @@
 @section('js')
 <script src="{{asset('frontend/js/jquery.elevateZoom.min.js')}}"></script>
 <script src="{{asset('frontend/js/jquery.debouncedresize.js')}}"></script>
+<script>
+    $(".clearcart").click(function (e) {
+            e.preventDefault();
+ 
+            var ele = $(this);
+ 
+            if(confirm("Are you sure")) {
+                $.ajax({
+                    url: '{{ url('remove-all') }}',
+                    method: "DELETE",
+                    data: {_token: '{{ csrf_token() }}'},
+                    success: function (response) {
+                        window.location.reload();
+                    }
+                });
+            }
+        });
+</script>
 @stop

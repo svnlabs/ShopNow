@@ -18,10 +18,9 @@
 										<div class="table-responsive">
 											<table id="example" class="table table-striped table-bordered border-top-0 border-bottom-0" style="width:100%">
 												<thead>
-													<tr class="border-bottom-0">
-														<th class="wd-15p">Slide Title</th>
-														<th class="wd-15p">Slide Description</th>
+													<tr class="border-bottom-0">												
 														<th class="wd-15p">Image</th>
+														<th class="wd-20p">Show Product</th>												
 														<th class="wd-20p">Status</th>												
 														<th class="wd-25p" width="123">Actions</th>
 													</tr>
@@ -29,17 +28,15 @@
 												<tbody>
 													@foreach($sliders as $slider)
 													<tr>
-														<td>{{$slider->title}}</td>
-														<td>{{$slider->feature}}</td>
+														
 														<td>
-															<img src="{{url($slider->image1? 'slide/'.$slider->image1:'slide/noimage.jpg')}}" alt="" class="img-responsive" style="max-height: 66px;">
+															<img src="{{url($slider->image? 'slide/'.$slider->image:'slide/noimage.jpg')}}" alt="" class="img-responsive" style="max-height: 100px;">
 															
-															<img src="{{url($slider->image2? 'slide/'.$slider->image2:'slide/noimage.jpg')}}" alt="" class="img-responsive" style="max-height: 66px;">
-
-															<img src="{{url($slider->image3? 'slide/'.$slider->image3:'slide/noimage.jpg')}}" alt="" class="img-responsive" style="max-height: 66px;">
+															
 
 															
 														</td>
+														<td>{{$slider->hide_product=='on'? 'No': 'Yes'}}</td>
 														<td>{{$slider->is_active}}</td>
 														
 														<td class="center" >

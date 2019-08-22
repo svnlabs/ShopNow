@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>ShopNow </title>
+    <title>ShopNow :: SuperShop Micro Framework</title>
     <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="">
+    <meta name="description" content="SuperShop Micro Framework | Developed by Khyrul Kabir">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
@@ -153,14 +153,15 @@
                                         
                                         <span class="mini-cart-price-2">
                                             @if(session('cart'))
+                                            @php $total = 0  @endphp
                                             @foreach(session('cart') as $id => $details)
-                                                    <?php $total = 0 ; $total += $details['price'] * $details['quantity'] ?>
+                                                    <?php  $total += $details['price'] * $details['quantity'] ?>
                                                     @endforeach
                                                      ৳ {{ $total }}
                                             @else
                                                  ৳ 0 
                                        
-                                        @endif
+                                            @endif
                                           </span>
                                          <i class="la la-shopping-cart"></i> 
                                         <span class="count-style-2">@if(session('cart')) {{ count(session('cart')) }} @else 0  @endif</span>
@@ -223,10 +224,10 @@
                         <button class="search-close"><span class="la la-close"></span></button>
                     </div>
                     <div class="sidebar-search-input">
-                        <form>
+                        <form method="get" action="{{URL::to('search')}}">
                             <div class="form-search">
-                                <input id="search" class="input-text" value="" placeholder="Search Now" type="search">
-                                <button>
+                                <input id="search" class="input-text" name="q" placeholder="Search Now" type="search">
+                                <button type="submit">
                                     <i class="la la-search"></i>
                                 </button>
                             </div>
@@ -239,9 +240,7 @@
                     <div class="row align-items-center">
                         <div class="col-6">
                             <div class="mobile-logo">
-                                <a href="{{url('/')}}">
-                                    <img alt="" src="assets/images/logo/logo-1.png">
-                                </a>
+                                <a href="{{URL::to('/')}}"><img src="{{asset('frontend/images/logo/logo-1.png')}}" alt="logo"></a>
                             </div>
                         </div>
                         <div class="col-6">
@@ -249,7 +248,7 @@
                                 <div class="cart-wrap common-style">
                                     <button class="cart-active">
                                         <i class="la la-shopping-cart"></i>
-                                        <span class="count-style">2 Items</span>
+                                        <span class="count-style">@if(session('cart')) {{ count(session('cart')) }} @else 0  @endif Items</span>
                                     </button>
                                     <div class="shopping-cart-content">
                                         <div class="shopping-cart-top">
@@ -257,55 +256,39 @@
                                             <a class="cart-close" href="#"><i class="la la-close"></i></a>
                                         </div>
                                         <ul>
+                                            @if(session('cart'))
+                                            @foreach(session('cart') as $id => $details)
                                             <li class="single-shopping-cart">
                                                 <div class="shopping-cart-img">
-                                                    <a href="#"><img alt="" src="assets/images/cart/cart-1.jpg"></a>
+                                                    <a href="#"><img alt="{{$details['name']}}" src="{{asset('Productimg/'.$details['image'])}}"></a>
                                                     <div class="item-close">
                                                         <a href="#"><i class="sli sli-close"></i></a>
                                                     </div>
                                                 </div>
                                                 <div class="shopping-cart-title">
-                                                    <h4><a href="#">Golden Easy Spot Chair.</a></h4>
-                                                    <span>$99.00</span>
+                                                    <h4><a href="#">{{ $details['name'] }}</a></h4>
+                                                    <span>৳ {{ $details['price'] }}</span>
                                                 </div>
                                                 <div class="shopping-cart-delete">
                                                     <a href="#"><i class="la la-trash"></i></a>
                                                 </div>
                                             </li>
-                                            <li class="single-shopping-cart">
-                                                <div class="shopping-cart-img">
-                                                    <a href="#"><img alt="" src="assets/images/cart/cart-2.jpg"></a>
-                                                    <div class="item-close">
-                                                        <a href="#"><i class="sli sli-close"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="shopping-cart-title">
-                                                    <h4><a href="#">Golden Easy Spot Chair.</a></h4>
-                                                    <span>$99.00</span>
-                                                </div>
-                                                <div class="shopping-cart-delete">
-                                                    <a href="#"><i class="la la-trash"></i></a>
-                                                </div>
-                                            </li>
-                                            <li class="single-shopping-cart">
-                                                <div class="shopping-cart-img">
-                                                    <a href="#"><img alt="" src="assets/images/cart/cart-3.jpg"></a>
-                                                    <div class="item-close">
-                                                        <a href="#"><i class="sli sli-close"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="shopping-cart-title">
-                                                    <h4><a href="#">Golden Easy Spot Chair.</a></h4>
-                                                    <span>$99.00</span>
-                                                </div>
-                                                <div class="shopping-cart-delete">
-                                                    <a href="#"><i class="la la-trash"></i></a>
-                                                </div>
-                                            </li>
+                                           @endforeach
+                                            @endif
                                         </ul>
                                         <div class="shopping-cart-bottom">
                                             <div class="shopping-cart-total">
-                                                <h4>Subtotal <span class="shop-total">$290.00</span></h4>
+                                                <h4>Subtotal <span class="shop-total"> @if(session('cart'))
+                                                    @foreach(session('cart') as $id => $details)
+                                                    <?php $total += $details['price'] * $details['quantity'] ?>
+                                                    @endforeach
+                                                    ৳{{ $total }}
+                                                    @else
+                                                    ৳ 0 
+                                                    @endif</span></h4>
+                                            </div>
+                                            <div class="shopping-cart-btn btn-hover default-btn text-center">
+                                                <a class="black-color" href="{{route('cart.index')}}">Cart</a>
                                             </div>
                                             <div class="shopping-cart-btn btn-hover default-btn text-center">
                                                 <a class="black-color" href="checkout.html">Continue to Chackout</a>
@@ -313,6 +296,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="mobile-off-canvas">
                                     <a class="mobile-aside-button" href="#"><i class="la la-navicon la-2x"></i></a>
                                 </div>
@@ -337,75 +321,27 @@
                         <!-- mobile menu navigation start -->
                         <nav>
                             <ul class="mobile-menu">
-                                <li class="menu-item-has-children"><a href="{{url('/')}}">Home</a>
-                                    <ul class="dropdown">
-                                        <li><a href="{{url('/')}}">Home version 1 </a></li>
-                                        <li><a href="index-2.html">Home version 2 </a></li>
-                                        <li><a href="index-3.html">Home version 3 </a></li>
-                                        <li><a href="index-4.html">Home version 4 </a></li>
-                                        <li><a href="index-5.html">Home version 5 </a></li>
-                                        <li><a href="index-6.html">Home version 6 </a></li>
-                                        <li><a href="index-7.html">Home version 7 </a></li>
-                                        <li><a href="index-8.html">Home version 8 </a></li>
-                                        <li><a href="index-9.html">Home version 9 </a></li>
-                                        <li><a href="index-10.html">Home version 10 </a></li>
-                                    </ul>
+                                <li class="menu-item-has-children"><a href="{{url('/')}}">Home</a>    
                                 </li>
-                                <li class="menu-item-has-children "><a href="#">shop</a>
+                                @foreach(App\Category::Where('parent_id',0)->get() as $parent)
+                                    <li class="menu-item-has-children "><a href="{{route('shop.category',$parent->id)}}">{{ $parent->name}} <span class="la la-angle-right"></span></a>
+
                                     <ul class="dropdown">
-                                        <li class="menu-item-has-children"><a href="#">shop layout</a>
+                                        @foreach(App\Category::where('parent_id',$parent->id)->get() as $child)
+                                         <li class="menu-item-has-children">
+                                            <a href="{{route('shop.category',$child->id)}}"><h4>{{$child->name}}</h4></a>
                                             <ul class="dropdown">
-                                                <li><a href="shop.html">standard grid style</a></li>
-                                                <li><a href="shop-2.html">standard style 2</a></li>
-                                                <li><a href="shop-2-col.html">shop 2 column</a></li>
-                                                <li><a href="shop-no-sidebar.html">shop no sidebar</a></li>
-                                                <li><a href="shop-fullwide.html">shop fullwide</a></li>
-                                                <li><a href="shop-fullwide-no-sidebar.html">fullwide no sidebar </a></li>
+                                                @foreach(App\Category::where('parent_id',$child->id)->get() as $grand)
+                                                <li><a href="{{route('shop.category',$grand->id)}}">{{$grand->name}}</a></li>
+                                                @endforeach
                                             </ul>
                                         </li>
-                                        <li class="menu-item-has-children"><a href="#">shop list layout</a>
-                                            <ul class="dropdown">
-                                                <li><a href="shop-list.html">list style</a></li>
-                                                <li><a href="shop-list-2col.html">list 2 column</a></li>
-                                                <li><a href="shop-list-no-sidebar.html">list no sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children"><a href="#">product details</a>
-                                            <ul class="dropdown">
-                                                <li><a href="product-details.html">standard style</a></li>
-                                                <li><a href="product-details-2.html">standard style 2</a></li>
-                                                <li><a href="product-details-tab1.html">tab style 1</a></li>
-                                                <li><a href="product-details-tab2.html">tab style 2</a></li>
-                                                <li><a href="product-details-tab3.html">tab style 3 </a></li>
-                                                <li><a href="product-details-gallery.html">gallery style </a></li>
-                                                <li><a href="product-details-sticky.html">sticky style</a></li>
-                                                <li><a href="product-details-slider.html">slider style</a></li>
-                                                <li><a href="product-details-affiliate.html">Affiliate style</a></li>
-                                            </ul>
-                                        </li>
+                                        @endforeach
+                                        
                                     </ul>
                                 </li>
-                                <li class="menu-item-has-children"><a href="#">Pages</a>
-                                    <ul class="dropdown">
-                                        <li><a href="about-us.html">about us </a></li>
-                                        <li><a href="cart.html">cart page </a></li>
-                                        <li><a href="checkout.html">checkout </a></li>
-                                        <li><a href="compare.html">compare </a></li>
-                                        <li><a href="{{route('wishlist.index')}}">wishlist </a></li>
-                                        <li><a href="my-account.html">my account </a></li>
-                                        <li><a href="contact.html">contact us </a></li>
-                                        <li><a href="login-register.html">login/register </a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children "><a href="#">Blog</a>
-                                    <ul class="dropdown">
-                                        <li><a href="blog.html">standard style </a></li>
-                                        <li><a href="blog-2col.html">blog 2 column </a></li>
-                                        <li><a href="blog-sidebar.html">blog sidebar </a></li>
-                                        <li><a href="blog-details.html">blog details </a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="contact.html">Contact us</a></li>
+                                @endforeach
+                               
                             </ul>
                         </nav>
                         <!-- mobile menu navigation end -->
@@ -413,44 +349,21 @@
                     <!-- mobile menu end -->
                 </div>
                 <div class="mobile-curr-lang-wrap">
+                    
                     <div class="single-mobile-curr-lang">
-                        <a class="mobile-language-active" href="#">Language <i class="la la-angle-down"></i></a>
-                        <div class="lang-curr-dropdown lang-dropdown-active">
-                            <ul>
-                                <li><a href="#">English (US)</a></li>
-                                <li><a href="#">English (UK)</a></li>
-                                <li><a href="#">Spanish</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="single-mobile-curr-lang">
-                        <a class="mobile-currency-active" href="#">Currency <i class="la la-angle-down"></i></a>
-                        <div class="lang-curr-dropdown curr-dropdown-active">
-                            <ul>
-                                <li><a href="#">USD</a></li>
-                                <li><a href="#">EUR</a></li>
-                                <li><a href="#">Real</a></li>
-                                <li><a href="#">BDT</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="single-mobile-curr-lang">
-                        <a class="mobile-account-active" href="#">My Account <i class="la la-angle-down"></i></a>
-                        <div class="lang-curr-dropdown account-dropdown-active">
-                            <ul>
-                                <li><a href="#">Login</a></li>
-                                <li><a href="#">Creat Account</a></li>
-                                <li><a href="#">My Account</a></li>
-                            </ul>
-                        </div>
+                        @if(Auth::user())
+                        <a class="mobile-account-active" href="#">My Account </a>
+                        @else
+                       
+                        <a  href="{{route('login')}}">Login</a>                        
+                     
+                        @endif
                     </div>
                 </div>
                 <div class="mobile-social-wrap">
-                    <a class="facebook" href="#"><i class="ti-facebook"></i></a>
-                    <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
-                    <a class="pinterest" href="#"><i class="ti-pinterest"></i></a>
-                    <a class="instagram" href="#"><i class="ti-instagram"></i></a>
-                    <a class="google" href="#"><i class="ti-google"></i></a>
+                    <a class="facebook" href="www.facebook.com"><i class="ti-facebook"></i></a>
+                    <a class="twitter" href="www.twitter.com"><i class="ti-twitter-alt"></i></a>
+                
                 </div>
             </div>
         </div>
@@ -463,7 +376,7 @@
             </div>
         </div>
         @include('layouts.flash-message')
-
+        
         @yield('content')
 
 
@@ -476,55 +389,39 @@
                             <div class="footer-widget mb-30">
                                 <a href="#"><img src="{{asset('frontend/images/logo/logo-1.png')}}" alt="logo"></a>
                                 <div class="footer-about">
-                                    <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms. </p>
+                                    <p>Shop Now Is Basic Ecommerce Framework For Startup Business. If You Want Extra Feature, Please Contact With Developer</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-4 col-6 col-sm-6">
                             <div class="footer-widget mb-30 ml-55">
                                 <div class="footer-title-3">
-                                    <h3>Company</h3>
+                                    <h3>About Developer</h3>
                                 </div>
                                 <div class="footer-list-3">
                                     <ul>
-                                        <li><a href="about-us.html">About US</a></li>
-                                        <li><a href="blog.html">Blogs</a></li>
-                                        <li><a href="#">Careers</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="http://kabir.wdpfbd.com/">Khyrul Kabir</a></li>                                        
+                                        <li><a href="http://kabir.wdpfbd.com/contacts.html">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-4 col-6 col-sm-6">
+                        <div class="col-lg-4 col-md-4 col-6 col-sm-6">
                             <div class="footer-widget mb-30 footer-ngtv-mrg1">
                                 <div class="footer-title-3">
-                                    <h3>Product</h3>
+                                    <h3>Other Work By Developer</h3>
                                 </div>
                                 <div class="footer-list-3">
                                     <ul>
-                                        <li><a href="#">Pricing</a></li>
-                                        <li><a href="#">Features</a></li>
-                                        <li><a href="#">Customers</a></li>
-                                        <li><a href="#">Demos</a></li>
+                                        <li><a href="https://www.kabir.infantinventory.com/hms">HMS</a></li>
+                                        <li><a href="https://www.kabir.infantinventory.com/ngSpa/">SPA for Hotel</a></li>
+                                        <li><a href="#" style="color: #ff5151;">More projects are coming</a></li>
+                                        
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-4 col-6 col-sm-6">
-                            <div class="footer-widget mb-30 ml-35">
-                                <div class="footer-title-3">
-                                    <h3>Helps</h3>
-                                </div>
-                                <div class="footer-list-3">
-                                    <ul>
-                                        <li><a href="#">Introduction</a></li>
-                                        <li><a href="#">Feedback</a></li>
-                                        <li><a href="#">Referrals</a></li>
-                                        <li><a href="#">Network Status</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div class="col-lg-2 col-md-4 col-6 col-sm-6">
                             <div class="footer-widget mb-30 ml-135">
                                 <div class="footer-title-3">
@@ -532,10 +429,10 @@
                                 </div>
                                 <div class="footer-list-3">
                                     <ul>
-                                        <li><a href="#">Facebook</a></li>
-                                        <li><a href="#">Twitter</a></li>
-                                        <li><a href="#">Linkedin</a></li>
-                                        <li><a href="#">Google +</a></li>
+                                        <li><a href="https://www.facebook.com/kvai.idb">Facebook</a></li>
+                                        <li><a href="https://github.com/kabirkhyrul">Github</a></li>
+                                        <li><a href="https://www.fiverr.com/kabirkhyrul">Fiverr</a></li>
+                                        <li><a href="https://www.linkedin.com/in/khyrulkabir1">Linkedin</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -583,7 +480,7 @@
                     </div>
                 </div>
             </div>
-        </footer> 
+        </footer>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">

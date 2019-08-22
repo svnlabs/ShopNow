@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>ShopNow - eCommerce Bootstrap 4 Template</title>
+    <title>ShopNow :: SuperShop Micro Framework</title>
     <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="">
+    <meta name="description" content="SuperShop Micro Framework | Developed by Khyrul Kabir">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png')}}">
@@ -88,13 +88,13 @@
                                         </div>
                                         <div class="header-contact-2-text">
                                             <span>Contact</span>
-                                            <p>+8801 22 5555 66</p>
+                                            <p>+88015 15 2325 88</p>
                                         </div>
                                     </div>
                                     <div class="search-style-4">
-                                        <form>
+                                        <form method="get" action="{{URL::to('search')}}">
                                             <div class="form-search-4">
-                                                <input id="search" class="input-text" value="" placeholder="Search Hear" type="search">
+                                                <input id="search" class="input-text" value="" placeholder="Search Hear" name="q" type="search">
                                                 <button>
                                                     <i class="la la-search"></i>
                                                 </button>
@@ -107,16 +107,20 @@
                                  <div class="cart-wrap cart-wrap-3 cart-wrap-3-white">
                                     <button class="cart-active">
                                         <i class="la la-shopping-cart"></i> <br>
-                                        @if(session('cart'))
+                                        
                                         <span class="mini-cart-price-3">
+                                            @if(session('cart'))
+                                            @php $total = 0  @endphp
                                             @foreach(session('cart') as $id => $details)
-                                                    <?php $total = 0 ; $total += $details['price'] * $details['quantity'] ?>
+                                                    <?php  $total += $details['price'] * $details['quantity'] ?>
                                                     @endforeach
-                                                     ৳{{ $total }}
+                                                     ৳ {{ $total }}
                                             @else
                                                  ৳ 0 
+                                       
+                                            @endif
                                         </span>
-                                        @endif
+                                       
                                          
                                       
                                         <span class="count-style-3"> @if(session('cart')) {{ count(session('cart')) }} @else 0  @endif</span>
@@ -142,7 +146,7 @@
                                                     <span>৳{{ $details['price'] }}</span>
                                                 </div>
                                                 <div class="shopping-cart-delete">
-                                                    <button class="la la-trash remove-from-cart" data-id="{{ $id }}"></button>
+                                                    <a class="la la-trash remove-from-cart" data-id="{{ $id }}"></a>
                                                 </div>
                                             </li>
                                             @endforeach
@@ -159,6 +163,10 @@
                                                 </span></h4>
                                             </div>
                                             <div class="shopping-cart-btn btn-hover default-btn text-center">
+                                                <a class="black-color" href="{{route('cart.index')}}">Cart</a>
+                                            </div>
+                                            <div class="shopping-cart-btn btn-hover default-btn text-center">
+
                                                 <a class="black-color" href="{{route('shop.checkout')}}">Continue to Chackout</a>
                                             </div>
                                         </div>
@@ -228,9 +236,7 @@
                     <div class="row align-items-center">
                         <div class="col-6">
                             <div class="mobile-logo">
-                                <a href="index.html">
-                                    <img alt="" src="{{asset('frontend/images/logo/logo-1.png')}}">
-                                </a>
+                                <a href="{{URL::to('/')}}"><img src="{{asset('frontend/images/logo/logo-1.png')}}" alt="logo"></a>
                             </div>
                         </div>
                         <div class="col-6">
@@ -260,7 +266,8 @@
                                                     <span>৳ {{ $details['price'] }}</span>
                                                 </div>
                                                 <div class="shopping-cart-delete">
-                                                    <a href="#"><i class="la la-trash"></i></a>
+                                                    <a class="la la-trash remove-from-cart" data-id="{{ $id }}"></a>
+                                                    
                                                 </div>
                                             </li>
                                            @endforeach
@@ -276,6 +283,9 @@
                                                     @else
                                                     ৳ 0 
                                                     @endif</span></h4>
+                                            </div>
+                                            <div class="shopping-cart-btn btn-hover default-btn text-center">
+                                                <a class="black-color" href="{{route('cart.index')}}">Cart</a>
                                             </div>
                                             <div class="shopping-cart-btn btn-hover default-btn text-center">
                                                 <a class="black-color" href="checkout.html">Continue to Chackout</a>
@@ -334,8 +344,8 @@
             <a class="mobile-aside-close"><i class="la la-close"></i></a>
             <div class="header-mobile-aside-wrap">
                 <div class="mobile-search">
-                    <form class="search-form" action="#">
-                        <input type="text" placeholder="Search entire store…">
+                    <form method="get" action="{{URL::to('search')}}">
+                        <input type="text" name="q" placeholder="Search entire store…">
                         <button class="button-search"><i class="la la-search"></i></button>
                     </form>
                 </div>
@@ -345,7 +355,7 @@
                         <!-- mobile menu navigation start -->
                         <nav>
                             <ul class="mobile-menu">
-                                <li class="menu-item-has-children"><a href="index.html">Home</a>    
+                                <li class="menu-item-has-children"><a href="{{url('/')}}">Home</a>    
                                 </li>
                                 @foreach(App\Category::Where('parent_id',0)->get() as $parent)
                                     <li class="menu-item-has-children "><a href="{{route('shop.category',$parent->id)}}">{{ $parent->name}} <span class="la la-angle-right"></span></a>
@@ -386,11 +396,9 @@
                     </div>
                 </div>
                 <div class="mobile-social-wrap">
-                    <a class="facebook" href="#"><i class="ti-facebook"></i></a>
-                    <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
-                    <a class="pinterest" href="#"><i class="ti-pinterest"></i></a>
-                    <a class="instagram" href="#"><i class="ti-instagram"></i></a>
-                    <a class="google" href="#"><i class="ti-google"></i></a>
+                    <a class="facebook" href="www.facebook.com"><i class="ti-facebook"></i></a>
+                    <a class="twitter" href="www.twitter.com"><i class="ti-twitter-alt"></i></a>
+                
                 </div>
             </div>
         </div>
@@ -403,55 +411,39 @@
                             <div class="footer-widget mb-30">
                                 <a href="#"><img src="{{asset('frontend/images/logo/logo-1.png')}}" alt="logo"></a>
                                 <div class="footer-about">
-                                    <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms. </p>
+                                    <p>Shop Now Is Basic Ecommerce Framework For Startup Business. If You Want Extra Feature, Please Contact With Developer</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-4 col-6 col-sm-6">
                             <div class="footer-widget mb-30 ml-55">
                                 <div class="footer-title-3">
-                                    <h3>Company</h3>
+                                    <h3>About Developer</h3>
                                 </div>
                                 <div class="footer-list-3">
                                     <ul>
-                                        <li><a href="about-us.html">About US</a></li>
-                                        <li><a href="blog.html">Blogs</a></li>
-                                        <li><a href="#">Careers</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="http://kabir.wdpfbd.com/">Khyrul Kabir</a></li>                                        
+                                        <li><a href="http://kabir.wdpfbd.com/contacts.html">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-4 col-6 col-sm-6">
+                        <div class="col-lg-4 col-md-4 col-6 col-sm-6">
                             <div class="footer-widget mb-30 footer-ngtv-mrg1">
                                 <div class="footer-title-3">
-                                    <h3>Product</h3>
+                                    <h3>Other Work By Developer</h3>
                                 </div>
                                 <div class="footer-list-3">
                                     <ul>
-                                        <li><a href="#">Pricing</a></li>
-                                        <li><a href="#">Features</a></li>
-                                        <li><a href="#">Customers</a></li>
-                                        <li><a href="#">Demos</a></li>
+                                        <li><a href="https://www.kabir.infantinventory.com/hms">HMS</a></li>
+                                        <li><a href="https://www.kabir.infantinventory.com/ngSpa/">SPA for Hotel</a></li>
+                                        <li><a href="#" style="color: #ff5151;">More projects are coming</a></li>
+                                        
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-4 col-6 col-sm-6">
-                            <div class="footer-widget mb-30 ml-35">
-                                <div class="footer-title-3">
-                                    <h3>Helps</h3>
-                                </div>
-                                <div class="footer-list-3">
-                                    <ul>
-                                        <li><a href="#">Introduction</a></li>
-                                        <li><a href="#">Feedback</a></li>
-                                        <li><a href="#">Referrals</a></li>
-                                        <li><a href="#">Network Status</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div class="col-lg-2 col-md-4 col-6 col-sm-6">
                             <div class="footer-widget mb-30 ml-135">
                                 <div class="footer-title-3">
@@ -459,10 +451,10 @@
                                 </div>
                                 <div class="footer-list-3">
                                     <ul>
-                                        <li><a href="#">Facebook</a></li>
-                                        <li><a href="#">Twitter</a></li>
-                                        <li><a href="#">Linkedin</a></li>
-                                        <li><a href="#">Google +</a></li>
+                                        <li><a href="https://www.facebook.com/kvai.idb">Facebook</a></li>
+                                        <li><a href="https://github.com/kabirkhyrul">Github</a></li>
+                                        <li><a href="https://www.fiverr.com/kabirkhyrul">Fiverr</a></li>
+                                        <li><a href="https://www.linkedin.com/in/khyrulkabir1">Linkedin</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -511,6 +503,7 @@
                 </div>
             </div>
         </footer>
+
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -553,28 +546,7 @@
                                             <span id="review">40+ Reviews</span>
                                         </div>
                                     </div>
-                                    {{-- <div class="pro-details-color-wrap">
-                                        <span>Color:</span>
-                                        <div class="pro-details-color-content">
-                                            <ul>
-                                                <li class="green"></li>
-                                                <li class="yellow"></li>
-                                                <li class="red"></li>
-                                                <li class="blue"></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="pro-details-size">
-                                        <span>Size:</span>
-                                        <div class="pro-details-size-content">
-                                            <ul>
-                                                <li><a href="#">s</a></li>
-                                                <li><a href="#">m</a></li>
-                                                <li><a href="#">xl</a></li>
-                                                <li><a href="#">xxl</a></li>
-                                            </ul>
-                                        </div>
-                                    </div> --}}
+                                   
                                     <div class="pro-details-price-wrap">
                                         <div class="product-price">                                            
                                             <span id="price"></span>
@@ -706,7 +678,8 @@
         
  
     </script>
-    <div id="fb-root"></div>
+        <!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
 <script>
   window.fbAsyncInit = function() {
     FB.init({

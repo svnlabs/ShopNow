@@ -26,7 +26,7 @@ class ProductSeeder extends Seeder
             'selling_price'=>300,
             'image'=>'VUvQEcjGAcckncWI.jpg',
             'short_description'=>NULL,
-            'long_description'=>'\r\n\r\n           Kaski Fish\r\n          500 gm\r\n          ',
+            'long_description'=>'<strong>Kaski Fish</strong> 500 gm         ',
             'sku'=>'n4B4.kaski-fish-500-gm',
             'manage_stock'=>1,
             'quantity'=>8,

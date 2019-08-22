@@ -49,35 +49,29 @@
 								</div>
 								
 								<div class="dropdown text-center selector">
-									<a href="#" class="nav-link leading-none" data-toggle="dropdown">
-										<span class="avatar avatar-sm brround cover-image" data-image-src="assets/images/faces/female/25.jpg"></span>
+									<a href="#" class="nav-link icon" data-toggle="dropdown">
+										<i class="fa fa-cog"></i>
 									</a>
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow ">
 										<div class="text-center">
-											<a href="#" class="dropdown-item text-center font-weight-sembold user" data-toggle="dropdown">Joyce Stewart</a>
-											<span class="text-center user-semi-title text-dark">web designer</span>
+											<a href="#" class="dropdown-item text-center font-weight-sembold user" data-toggle="dropdown">{{ Auth::user()->name }}</a>
+											{{-- <span class="text-center user-semi-title text-dark">web designer</span> --}}
 											<div class="dropdown-divider"></div>
 										</div>
 										<a class="dropdown-item" href="#">
 											<i class="dropdown-icon mdi mdi-account-outline"></i> Profile
 										</a>
-										<a class="dropdown-item" href="#">
-											<i class="dropdown-icon  mdi mdi-settings"></i> Settings
-										</a>
-										<a class="dropdown-item" href="#">
-											<span class="float-right"><span class="badge badge-primary">6</span></span>
-											<i class="dropdown-icon mdi  mdi-message-outline"></i> Inbox
-										</a>
-										<a class="dropdown-item" href="#">
-											<i class="dropdown-icon mdi mdi-comment-check-outline"></i> Message
-										</a>
-										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="#">
-											<i class="dropdown-icon mdi mdi-compass-outline"></i> Need help?
-										</a>
-										<a class="dropdown-item" href="login.html">
-											<i class="dropdown-icon mdi  mdi-logout-variant"></i> Sign out
-										</a>
+										
+										<a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            <i class="dropdown-icon mdi  mdi-logout-variant"></i>Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+										
 									</div>
 								</div>
 							</div>

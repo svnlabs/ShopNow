@@ -15,7 +15,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
 		<!-- Title -->
-		<title>Shop Now</title>
+		<title>Shop Now :: Admin Panel</title>
 		<link rel="stylesheet" href="{{asset('backend\fonts\fonts\font-awesome.min.css')}}">
 
 		<!-- Font family -->

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Slider;
 use File;
+use Intervention\Image\ImageManagerStatic as Image;
 class SliderController extends Controller
 {
     /**
@@ -38,36 +39,19 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         
-          $slider = new Slider;
-          $slider->title = $request->title;
-          $slider->hide_product = $request->hide_product;
-          $slider->feature = $request->feature;
-         if ($request->hasFile('image1')) {
-            $image1 = $request->file('image1');
-            $filename1 = time() . '.' . $image1->getClientOriginalExtension();
-            $location = public_path('slide/');
-            $request->file('image1')->move($location, $filename1);
-  
-            $slider->image1 = $filename1;
+          $slider = new Slider;          
+          $slider->hide_product = $request->hide_product;          
+         if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = base_path('slide/');
+            $npath1 = $location.$filename;
+  			Image::make($request->image)->resize(1170, 569)->save($npath1);
+            $slider->image = $filename;
         }
-        if ($request->hasFile('image2')) {
-            $image2 = $request->file('image2');
-            $filename2 = time() . '.' . $image2->getClientOriginalExtension();
-            $location = public_path('slide/');
-            $request->file('image2')->move($location, $filename2);
-  
-            $slider->image2 = $filename2;
-        }
-        if ($request->hasFile('image3')) {
-            $image3 = $request->file('image3');
-            $filename3 = time() . '.' . $image3->getClientOriginalExtension();
-            $location = public_path('slide/');
-            $request->file('image3')->move($location, $filename3);
-  
-            $slider->image3 = $filename3;
-          }
+        
           $slider->save();
-          return redirect()->route('slides.index');
+          return back()->with('success', 'Slider Added');
     }
 
     /**
@@ -103,41 +87,22 @@ class SliderController extends Controller
     public function update(Request $request, $id)
     {
         $slider=Slider::find($id);
-        $slider->title = $request->title;
+        
         $slider->hide_product = $request->hide_product;
-          $slider->feature = $request->feature;
-         if ($request->hasFile('image1')) {
+          
+         if ($request->hasFile('image')) {
             $dir = public_path('slide/');
             if ($slider->image != '' && File::exists($dir . $slider->image))File::delete($dir . $slider->image);
-            $image1 = $request->file('image1');
-            $filename1 = time() . '.' . $image1->getClientOriginalExtension();
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('slide/');
-            $request->file('image1')->move($location, $filename1);
-  
-            $slider->image1 = $filename1;
+            
+  			Image::make($request->image)->resize(1170, 569)->save($location);
+            $slider->image = $filename;
         }
-        if ($request->hasFile('image2')) {
-            $dir = public_path('slide/');
-            if ($slider->image != '' && File::exists($dir . $slider->image))File::delete($dir . $slider->image);
-            $image2 = $request->file('image2');
-            $filename2 = time() . '.' . $image2->getClientOriginalExtension();
-            $location = public_path('slide/');
-            $request->file('image2')->move($location, $filename2);
-  
-            $slider->image2 = $filename2;
-        }
-        if ($request->hasFile('image3')) {
-            $dir = public_path('slide/');
-            if ($slider->image != '' && File::exists($dir . $slider->image))File::delete($dir . $slider->image);
-            $image3 = $request->file('image3');
-            $filename3 = time() . '.' . $image3->getClientOriginalExtension();
-            $location = public_path('slide/');
-            $request->file('image3')->move($location, $filename3);
-  
-            $slider->image3 = $filename3;
-          }
+        
           $slider->save();
-          return redirect()->route('slides.index');
+          return back()->with('success', 'Slider Updated');
     }
 
     /**
@@ -150,9 +115,7 @@ class SliderController extends Controller
     {
        $new = Slider::find($id);
        $dir = public_path('slide/');
-       if (File::exists($dir . $new->image1))File::delete($dir . $new->image1);
-       if (File::exists($dir . $new->image2))File::delete($dir . $new->image2);
-       if (File::exists($dir . $new->image3))File::delete($dir . $new->image3);
+       if (File::exists($dir . $new->image))File::delete($dir . $new->image);       
         $new->delete();
         return back()->with('delete','slider Deleted successfully!');
     }

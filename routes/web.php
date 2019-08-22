@@ -28,6 +28,7 @@ Route::resource('/cart', 'CartController');
 Route::get('add-to-cart/{id}', 'CartController@addToCart')->name('add.cart');
 Route::patch('update-cart', 'CartController@update'); 
 Route::delete('remove-from-cart', 'CartController@remove');
+Route::delete('remove-all', 'CartController@removeAll');
 // |------------------------ Cart ---------------------------------------------------------|
 
 // |------------------------ Compare ------------------------------------------------------|
@@ -42,6 +43,7 @@ Route::get('/shop/product/{id}', 'FrontController@product')->name('shop.product'
 Route::get('/shop/checkout', 'FrontController@checkout')->name('shop.checkout');
 Route::post('/shop/applypromo', 'FrontController@applypromo')->name('apply.promo');
 Route::post('/shop/placeorder', 'FrontController@placeorder')->name('place.order');
+Route::get('search', 'FrontController@search');
 // |------------------------ Shop Controller ----------------------------------------------|
 
 
@@ -50,8 +52,10 @@ Route::post('/shop/placeorder', 'FrontController@placeorder')->name('place.order
 
 
 // |---------------------- Admin Panel COntroller Collections -----------------------------|
+Route::get('/admin/login', 'Auth\LoginController@showAdminLoginForm');
+Route::post('/admin/authenticating', 'Auth\LoginController@adminLogin');
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 
 Route::resource('/', 'DashboardController');
 Route::resource('product', 'ProductController');
@@ -67,6 +71,10 @@ Route::get('all', 'OrderController@all')->name('order.all');
 
 });
 // |---------------------- Admin Panel COntroller Collections -----------------------------|
+
+
+
+
 
 
 
