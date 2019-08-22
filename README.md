@@ -82,6 +82,12 @@ php artisan db:seed
 php artisan serve
 
 ```
+
+
+## For Admin
+username: admin
+password: 123456789
+
 ## Supervisor & Mentor
 <table style="text-align: center;">
 	<tr>
