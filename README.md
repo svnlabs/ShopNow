@@ -109,12 +109,5 @@ php artisan serve
   
 
 
-**[back to top](#Shopnow)**
-
-[Features]:#features
-[Requirements]:#requirements
-[Install]:#install
-[How to setting]:#how-to-setting
-[Supervisor & Mentor]:#Supervisor-&-Mentor
 
 
