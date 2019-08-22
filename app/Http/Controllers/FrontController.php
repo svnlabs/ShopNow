@@ -129,7 +129,7 @@ class FrontController extends Controller
         foreach($cart as $id => $details){
           $total += $details['price'] * $details['quantity'];
           $product = Product::find($id);
-          $profit += $total - ($product->price * $details['quantity']);
+          $profit += $details['price'] * $details['quantity'] - ($product->price * $details['quantity']);
         }
         if(session('promo')){
           $order->total=session('promo')['final_amount'];

@@ -172,7 +172,7 @@
 												<tr>
 													<td>{{$orders->user->name or $orders->shipping_name }}</td>
 													<td>{{$orders->total}}</td>
-													<td></td>
+													<td>{{$orders->profit}}</td>
 													<td></td>
 													<td></td>
 													<td></td>
