@@ -1,6 +1,6 @@
-# ShopNow  
+# ShopNow  - A basic super shop micro framework for Curious Laravel developer.
 
-(Be Advised: This Project is Under Development.)
+Be Advised: This Super Shop Micro Framework is Developed for Laravel Learning. Not for commercial use. If you need commercial version, please contact with developer. 
 
 
 <p align="center">
@@ -16,36 +16,27 @@
 	
 </p>
 
-
-
-
-
-| [Features][] | [Requirements][] | [Install][] | [How to setting][] | [Supervisor & Mentor][] | 
-|---|---|---|---|---|
-
 ## Features
-- Automatic cross sell / up sell / related product offerings
-- Open Source
-- Social Media Integration
-- live facebook chat
-- Unlimited Categories,sub-catgegories
-- Unlimited Products
-- Related Products, Recommendations for you in our categories, Store Trending
-- Create custom transaction emails
-- Newsletter management
-- Create different sales rules for groups of products
-- Customer loyalty discounts
-- An “intelligent” search form
-- Contact forms
-- Manage orders/invoicing/shipment processing
-- Manage different sales tax arrangements
-- Stock control
-- Integration with Social Media promotion tools
-- Tier pricing
-- Multiple Currency
-- Wish Lists
-- Ability to Ship to Multiple Addresses
-- Single step checkout for registered customers
+-	Automatic cross sell / up sell / related product offerings
+-	Slider With Automate Product Display
+-	Single Product Modal view
+-	Dynamic Coupon/Deal Counter
+-	All Store Product in One Click
+-	Compare Product
+-	Live Facebook chat
+-	Unlimited Categories, sub-categories
+-	Unlimited Products
+-	Related Products, Recommendations for you in our categories, Store Trending
+-	An “intelligent” search form
+-	Manage orders/shipment processing
+-	Stock control
+-	Wish Lists
+-	Single click checkout for registered customers
+-	Single Page Checkout for Guest
+-	Automatic Profit Generator.
+-	New Order Notification
+And Many More....
+ 
 
 ## Requirements
 
@@ -62,7 +53,7 @@
 Clone repo
 
 ```
-git clone https://github.com/kabirkhyrul/lara_ecom.git
+git clone https://github.com/kabirkhyrul/ShopNow.git
 ```
 
 Install Composer
@@ -71,18 +62,11 @@ Install Composer
 [Download Composer](https://getcomposer.org/download/)
 
 ```
-Go to download directory, Run in cmd/terminal
-```
-composer update
-```
-Generating a New Application Key
-```
-php artisan key:generate
-```
+
 
 ## How to setting 
 
-Go into .env file and change Database and Email credentials.
+Go into .env file and change Database 
 Run following code in cmd 
 
 ```
@@ -96,6 +80,7 @@ php artisan db:seed
 
 ```
 php artisan serve
+
 ```
 ## Supervisor & Mentor
 <table style="text-align: center;">

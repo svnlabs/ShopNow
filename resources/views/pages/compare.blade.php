@@ -26,7 +26,7 @@
                                             @foreach(session('compare') as $id => $product)
                                             <td class="product-image-title">
                                                 <a href="single-product.html" class="image">
-                                                    <img class="img-fluid" src="{{asset('Productimg/'.$product['image'])}}" alt="Compare Product">
+                                                    <img class="img-fluid" src="{{asset('Productimg/'.$product['image'])}}" alt="Compare Product" style="max-width: 100px">
                                                 </a>
                                                 <a href="#" class="category">{{$product['category']}}</a>
                                                 <a href="single-product-sale.html" class="title">{{$product['name']}}</a>
@@ -44,7 +44,7 @@
                                         <tr>
                                             <td class="first-column">Price</td>
                                             @foreach(session('compare') as $id => $product)
-                                            <td class="pro-price">{{$product['selling_price']}}</td>
+                                            <td class="pro-price">{{$product['price']}}</td>
                                             @endforeach
                                             
                                         </tr>
@@ -57,29 +57,16 @@
                                         <tr>
                                             <td class="first-column">Stock</td>
                                             @foreach(session('compare') as $id => $product)
-                                            <td class="pro-stock">@if($product['selling_price'] > 2) In Stock @else Out of Stock @endif</td>
+                                            <td class="pro-stock">@if($product['quantity'] > 2) In Stock @else Out of Stock @endif</td>
                                             @endforeach
                                         </tr>
                                         <tr>
                                             <td class="first-column">Add to cart</td>
                                            @foreach(session('compare') as $id => $product)
-                                            <td><a {{ url('add-to-cart/'.$id) }} class="check-btn">Add to Cart</a></td>
+                                            <td><a href="{{ url('add-to-cart/'.$id) }}" class="check-btn">Add to Cart</a></td>
                                             @endforeach
                                         </tr>
-                                        <tr>
-                                            <td class="first-column">Rating</td>
-                                           @foreach(session('compare') as $id => $product)
-                                           
-                                            <td class="pro-ratting">
-                                                <i class="la la-star"></i>
-                                                <i class="la la-star"></i>
-                                                <i class="la la-star"></i>
-                                                <i class="la la-star"></i>
-                                                <i class="la la-star"></i>
-                                            </td>
-                                            @endforeach
-                                           
-                                        </tr>
+                                        
                                         <tr>
                                             <td class="first-column">Remove</td>
                                             @foreach(session('compare') as $id => $product)                                           

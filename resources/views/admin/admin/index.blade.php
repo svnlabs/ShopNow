@@ -173,10 +173,9 @@
 													<td>{{$orders->user->name or $orders->shipping_name }}</td>
 													<td>{{$orders->total}}</td>
 													<td>{{$orders->profit}}</td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
+													<td>{{$orders->created_at}}</td>
+													<td>{{$orders->status== 'off'? 'Pending': 'Shipped'}}</td>
+												
 												</tr>
 												@endforeach
 											</tbody>

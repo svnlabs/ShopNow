@@ -52,7 +52,9 @@
                                     
                                     <div class="setting-content2-right">
                                         @if(Auth::user())
-                                        <a href="{{route('user.index')}}">My Account</a>                                     
+                                        <a href="{{route('user.index')}}">My Account</a>
+                                        <a href="{{route('compare.index')}}">Compare</a>
+
                                         <a href="{{route('wishlist.index')}}">Wishlist</a>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -64,6 +66,7 @@
                                             {{ csrf_field() }}
                                         </form>
                                         @else
+                                        <a href="{{route('compare.index')}}">Compare</a>
                                         <a href="{{route('login')}}">Sign in</a>
                                         @endif
                                     </div>
@@ -219,7 +222,7 @@
                                 <div class="main-menu menu-common-style menu-lh-5 menu-margin-4 menu-font-2 menu-font-2-white res-hm8-margin">
                                     <nav>
                                         <ul>
-                                            <li ><a href="index.html">Home</a>
+                                            <li ><a href="{{url('/')}}">Home</a>
                                                 
                                             </li>
                                    

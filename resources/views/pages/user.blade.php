@@ -25,8 +25,7 @@
 								Dashboard</a>
 								<a href="#orders" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Orders</a>
 								
-								<a href="#payment-method" data-toggle="tab"><i class="fa fa-credit-card"></i> Payment
-								Method</a>
+								
 								<a href="#address-edit" data-toggle="tab"><i class="fa fa-map-marker"></i> address</a>
 								<a href="#account-info" data-toggle="tab"><i class="fa fa-user"></i> Account Details</a>
 								<a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> Logout</a>
@@ -64,31 +63,20 @@
 														<th>Date</th>
 														<th>Status</th>
 														<th>Total</th>
-														<th>Action</th>
+														
 													</tr>
 												</thead>
 												<tbody>
+													@foreach(App\Order::where('user_id',Auth::user()->id)->get() as $key=>$order)
 													<tr>
-														<td>1</td>
-														<td>Aug 22, 2018</td>
-														<td>Pending</td>
-														<td>$3000</td>
-														<td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
+														<td>{{++$key}}</td>
+														<td>{{$order->created_at}}</td>
+														<td>{{$order->status? 'Pending':'Approved'}}</td>
+														<td> ৳ {{$order->total}}</td>
+														
 													</tr>
-													<tr>
-														<td>2</td>
-														<td>July 22, 2018</td>
-														<td>Approved</td>
-														<td>$200</td>
-														<td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
-													</tr>
-													<tr>
-														<td>3</td>
-														<td>June 12, 2017</td>
-														<td>On Hold</td>
-														<td>$990</td>
-														<td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
-													</tr>
+													@endforeach
+													
 												</tbody>
 											</table>
 										</div>
@@ -96,13 +84,7 @@
 								</div>
 								<!-- Single Tab Content End -->
 								
-								<!-- Single Tab Content Start -->
-								<div class="tab-pane fade" id="payment-method" role="tabpanel">
-									<div class="myaccount-content">
-										<h3>Payment Method</h3>
-										<p class="saved-message">You Can't Saved Your Payment Method yet.</p>
-									</div>
-								</div>
+								
 								<!-- Single Tab Content End -->
 								<!-- Single Tab Content Start -->
 								<div class="tab-pane fade" id="address-edit" role="tabpanel">
@@ -113,7 +95,7 @@
 											<p>{{ Auth::user()->address1 }}</p>
 											<p>Mobile: {{ Auth::user()->mobile }}</p>
 										</address>
-										<a href="#account-info" class="check-btn sqr-btn "><i class="fa fa-edit"></i> Edit Address</a>
+										
 									</div>
 								</div>
 								<!-- Single Tab Content End -->

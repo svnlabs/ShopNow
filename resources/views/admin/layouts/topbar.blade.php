@@ -26,12 +26,12 @@
 								<div class="dropdown d-none d-md-flex">
 									<a class="nav-link icon" data-toggle="dropdown">
 										<i class="fa fa-bell-o"></i>
-										@isset($neworder)
+										@isset($currentSale)
 										<span class="nav-unread bg-warning"></span>
 										@endisset
 									</a>
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-										@isset($neworder)
+										@isset($currentSale)
 										<a href="#" class="dropdown-item d-flex pb-3">
 											<div class="notifyimg">
 												<i class="fa fa-thumbs-o-up"></i>

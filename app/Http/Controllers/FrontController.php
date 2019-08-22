@@ -148,12 +148,12 @@ class FrontController extends Controller
           
           foreach($cart as $id => $details){
             $order_product = new OrderProduct;
-            
+            $product = Product::find($id);
             $order_product->order_id=$order->id;          
             $order_product->product_id=$id;
             $order_product->price=$product->price;
             $order_product->quantity=$details['quantity'];
-            $order_product->unit_price=$details['price'];
+            $order_product->unit_price=$product->selling_price;
             $order_product->save();
             $product = Product::find($id);
             $product->quantity = $product->quantity - $details['quantity'];
