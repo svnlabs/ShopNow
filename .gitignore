@@ -16,9 +16,11 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
-
+vendor
 
 #images
 #/public/frontend/
 #/public/backend/
+
+
 
